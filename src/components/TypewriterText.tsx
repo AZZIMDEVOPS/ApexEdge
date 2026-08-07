@@ -13,9 +13,9 @@ interface TypewriterTextProps {
 
 export function TypewriterText({
   words,
-  typingSpeed = 100,
-  deletingSpeed = 50,
-  pauseDuration = 2000,
+  typingSpeed = 130,
+  deletingSpeed = 65,
+  pauseDuration = 2800,
   className = "",
 }: TypewriterTextProps) {
   const [wordIndex, setWordIndex] = useState(0);
@@ -47,12 +47,12 @@ export function TypewriterText({
   }, [currentText, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, pauseDuration]);
 
   return (
-    <span className={`inline-flex items-center ${className}`}>
-      <span>{currentText}</span>
+    <span className={`inline-flex items-center align-baseline ${className}`}>
+      <span className="inline-block min-h-[1.2em]">{currentText || "\u00A0"}</span>
       <motion.span
         animate={{ opacity: [1, 0, 1] }}
         transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
-        className="ml-1 inline-block w-[3px] h-[0.9em] bg-amber-400 rounded-full"
+        className="ml-1 inline-block w-[3px] h-[0.85em] bg-amber-400 rounded-full shrink-0 align-middle"
       />
     </span>
   );

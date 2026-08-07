@@ -5,6 +5,29 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 
+function createGlobePoints(count = 110) {
+  const positions = new Float32Array(count * 3);
+  for (let i = 0; i < count; i += 1) {
+    const s1 = Math.sin(i * 12.9898 + 78.233) * 43758.5453;
+    const r1 = s1 - Math.floor(s1);
+    const s2 = Math.sin(i * 39.346 + 11.135) * 23421.631;
+    const r2 = s2 - Math.floor(s2);
+    const s3 = Math.sin(i * 71.192 + 43.193) * 89231.123;
+    const r3 = s3 - Math.floor(s3);
+
+    const theta = r1 * Math.PI * 2;
+    const phi = Math.acos(2 * r2 - 1);
+    const radius = 1.18 + r3 * 0.15;
+
+    positions[i * 3] = Math.sin(phi) * Math.cos(theta) * radius;
+    positions[i * 3 + 1] = Math.sin(phi) * Math.sin(theta) * radius;
+    positions[i * 3 + 2] = Math.cos(phi) * radius;
+  }
+  return positions;
+}
+
+const GLOBE_POINTS = createGlobePoints(110);
+
 function GlobeMesh() {
   const meshRef = useRef<THREE.Mesh>(null);
 
@@ -15,20 +38,7 @@ function GlobeMesh() {
     }
   });
 
-  const points = useMemo(() => {
-    const positions = [] as number[];
-    for (let i = 0; i < 110; i += 1) {
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-      const radius = 1.18 + Math.random() * 0.15;
-      positions.push(
-        Math.sin(phi) * Math.cos(theta) * radius,
-        Math.sin(phi) * Math.sin(theta) * radius,
-        Math.cos(phi) * radius,
-      );
-    }
-    return new Float32Array(positions);
-  }, []);
+  const points = useMemo(() => GLOBE_POINTS, []);
 
   return (
     <group>

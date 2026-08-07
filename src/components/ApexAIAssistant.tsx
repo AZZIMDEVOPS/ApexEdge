@@ -1,21 +1,13 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Sparkles,
   X,
   Send,
   Bot,
-  User,
-  PhoneCall,
   Calendar,
-  Download,
-  Building2,
-  FileCheck,
-  ShieldCheck,
-  Briefcase,
-  Globe,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -26,6 +18,16 @@ export interface Message {
   timestamp: string;
   quickReplies?: string[];
   action?: "book" | "contact" | "download";
+}
+
+let idCounter = 1;
+function generateId(): string {
+  idCounter += 1;
+  return `msg_${idCounter}`;
+}
+
+function getFormattedTime(): string {
+  return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 }
 
 const APEX_KNOWLEDGE: Record<string, { answer: string; followUps?: string[]; action?: "book" | "contact" | "download" }> = {
@@ -83,12 +85,12 @@ interface ApexAIAssistantProps {
 
 export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
+  const [messages, setMessages] = useState<Message[]>(() => [
     {
       id: "1",
       sender: "ai",
       text: "Hello 👋\nI'm APEX, your executive advisory assistant for ApexEdge Advisory Limited.\nHow can I assist your organization today?",
-      timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      timestamp: getFormattedTime(),
       quickReplies: [
         "Our Services",
         "Business Registration",
@@ -116,10 +118,10 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
     if (!query) return;
 
     const userMsg: Message = {
-      id: Date.now().toString(),
+      id: generateId(),
       sender: "user",
       text: query,
-      timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      timestamp: getFormattedTime(),
     };
 
     setMessages((prev) => [...prev, userMsg]);
@@ -145,7 +147,7 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
         followUps = kb.followUps;
         action = "contact";
       } else {
-        let matchedKey = Object.keys(APEX_KNOWLEDGE).find((k) => normalized.includes(k));
+        const matchedKey = Object.keys(APEX_KNOWLEDGE).find((k) => normalized.includes(k));
 
         if (matchedKey) {
           const kb = APEX_KNOWLEDGE[matchedKey];
@@ -161,10 +163,10 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
       }
 
       const aiMsg: Message = {
-        id: (Date.now() + 1).toString(),
+        id: generateId(),
         sender: "ai",
         text: aiResponseText,
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+        timestamp: getFormattedTime(),
         quickReplies: followUps,
         action: action,
       };
@@ -221,18 +223,22 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
             <div className="flex items-center justify-between px-6 py-4 bg-slate-900/90 border-b border-[#C9A227]/30">
               <div className="flex items-center gap-3">
                 <div className="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-slate-950 border border-[#C9A227]/50 p-2 shadow-md shrink-0">
-                  <img
+                  <Image
                     src="/apexedge_logo.png"
                     alt="ApexEdge Logo"
+                    width={36}
+                    height={36}
                     className="w-full h-full object-contain brightness-0 invert drop-shadow-[0_2px_8px_rgba(255,255,255,0.4)]"
                   />
                   <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border border-slate-900" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <img
+                    <Image
                       src="/apexedge_logo.png"
                       alt="ApexEdge Advisory Logo"
+                      width={24}
+                      height={20}
                       className="h-5 w-auto object-contain brightness-0 invert"
                     />
                     <span className="px-2 py-0.5 rounded-full bg-[#C9A227]/20 border border-[#C9A227]/40 text-[10px] font-black uppercase text-[#C9A227] tracking-wider">

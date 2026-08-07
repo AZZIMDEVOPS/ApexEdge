@@ -71,12 +71,12 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.9 }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white mb-8 leading-tight drop-shadow-2xl"
+            className="text-3xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white mb-8 leading-tight drop-shadow-2xl"
             style={{ textShadow: "0 4px 50px rgba(2,6,23,0.95)" }}
           >
             Trusted HR, Legal &{" "}
-            <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-amber-300 min-h-[1.2em] inline-block">
+            <br />
+            <span className="block sm:inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-amber-300 min-h-[1.35em] py-1">
               <TypewriterText
                 words={[
                   "Governance Advisory",
@@ -86,9 +86,9 @@ export default function Home() {
                   "Systems Setup",
                   "Immigration Services",
                 ]}
-                typingSpeed={90}
-                deletingSpeed={45}
-                pauseDuration={2200}
+                typingSpeed={140}
+                deletingSpeed={70}
+                pauseDuration={3000}
               />
             </span>{" "}
             <br className="hidden sm:inline" />

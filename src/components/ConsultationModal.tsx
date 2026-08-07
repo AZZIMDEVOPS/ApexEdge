@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Calendar, Clock, CheckCircle2, ShieldCheck, User, Building, Mail, Phone, MessageSquare } from "lucide-react";
+import { X, Clock, CheckCircle2, ShieldCheck, Building } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ConsultationModalProps {
