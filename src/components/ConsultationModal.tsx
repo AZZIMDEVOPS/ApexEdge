@@ -1,0 +1,271 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, Calendar, Clock, CheckCircle2, ShieldCheck, User, Building, Mail, Phone, MessageSquare } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+interface ConsultationModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
+  const [consultType, setConsultType] = useState<"virtual" | "in-person">("virtual");
+  const [service, setService] = useState("Company Secretarial");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("10:00 AM");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [company, setCompany] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  const handleResetAndClose = () => {
+    setSubmitted(false);
+    onClose();
+  };
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+          {/* Backdrop Blur */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-slate-950/85 backdrop-blur-md"
+          />
+
+          {/* Modal Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.92, y: 20 }}
+            transition={{ type: "spring", stiffness: 320, damping: 26 }}
+            className="relative w-full max-w-2xl overflow-hidden rounded-3xl bg-[#071C3F] border border-[#C9A227]/40 text-white shadow-2xl z-10 my-8"
+          >
+            {/* Top Accent Bar */}
+            <div className="h-2 bg-gradient-to-r from-[#C9A227] via-blue-500 to-amber-300" />
+
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              className="absolute top-5 right-5 p-2 rounded-full bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+              aria-label="Close modal"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="p-6 sm:p-10">
+              {!submitted ? (
+                <div className="space-y-6">
+                  {/* Modal Header */}
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C9A227]/20 border border-[#C9A227]/40 text-[#C9A227] text-xs font-bold uppercase tracking-wider mb-2">
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      Executive Advisory
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-black text-white">Book a Consultation</h3>
+                    <p className="text-sm text-slate-300 mt-1">
+                      Schedule a private strategy discussion with an ApexEdge Senior Partner.
+                    </p>
+                  </div>
+
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    {/* Consultation Type Selector */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <button
+                        type="button"
+                        onClick={() => setConsultType("virtual")}
+                        className={`p-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-2 ${
+                          consultType === "virtual"
+                            ? "bg-[#C9A227] text-[#071C3F] border-[#C9A227]"
+                            : "bg-slate-950/60 border-slate-800 text-slate-300 hover:border-slate-700"
+                        }`}
+                      >
+                        <Clock className="w-4 h-4" />
+                        <span>Virtual (Teams / Zoom)</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setConsultType("in-person")}
+                        className={`p-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-2 ${
+                          consultType === "in-person"
+                            ? "bg-[#C9A227] text-[#071C3F] border-[#C9A227]"
+                            : "bg-slate-950/60 border-slate-800 text-slate-300 hover:border-slate-700"
+                        }`}
+                      >
+                        <Building className="w-4 h-4" />
+                        <span>In-Person (Nairobi HQ)</span>
+                      </button>
+                    </div>
+
+                    {/* Service & Preferred Date/Time */}
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                          Practice Service
+                        </label>
+                        <select
+                          value={service}
+                          onChange={(e) => setService(e.target.value)}
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white focus:border-[#C9A227] focus:outline-none"
+                        >
+                          <option value="Company Secretarial">Company Secretarial</option>
+                          <option value="Corporate Governance">Corporate Governance</option>
+                          <option value="Legal & Regulatory Advisory">Legal &amp; Regulatory Advisory</option>
+                          <option value="HR Advisory">HR Advisory</option>
+                          <option value="Business Registration">Business Registration</option>
+                          <option value="Immigration & Work Permits">Immigration &amp; Work Permits</option>
+                          <option value="Digital Business Solutions">Digital Business Solutions</option>
+                        </select>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2">
+                        <div>
+                          <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                            Date
+                          </label>
+                          <input
+                            type="date"
+                            required
+                            value={date}
+                            onChange={(e) => setDate(e.target.value)}
+                            className="w-full rounded-xl bg-slate-950 border border-slate-800 px-3 py-3 text-xs text-white focus:border-[#C9A227] focus:outline-none"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                            Time Slot
+                          </label>
+                          <select
+                            value={time}
+                            onChange={(e) => setTime(e.target.value)}
+                            className="w-full rounded-xl bg-slate-950 border border-slate-800 px-2 py-3 text-xs text-white focus:border-[#C9A227] focus:outline-none"
+                          >
+                            <option value="09:00 AM">09:00 AM</option>
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="02:00 PM">02:00 PM</option>
+                            <option value="04:00 PM">04:00 PM</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Contact Details */}
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Jane Doe"
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#C9A227] focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                          Corporate Email *
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="jane@company.co.ke"
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#C9A227] focus:outline-none"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                          Phone Number *
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder="+254 7XX XXX XXX"
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#C9A227] focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                          Organization / Company
+                        </label>
+                        <input
+                          type="text"
+                          value={company}
+                          onChange={(e) => setCompany(e.target.value)}
+                          placeholder="Company Ltd"
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#C9A227] focus:outline-none"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                        Specific Governance / Legal Requirements
+                      </label>
+                      <textarea
+                        rows={3}
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        placeholder="Briefly describe your advisory requirements..."
+                        className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#C9A227] focus:outline-none"
+                      />
+                    </div>
+
+                    <div className="pt-2">
+                      <Button
+                        type="submit"
+                        className="w-full rounded-full bg-[#C9A227] hover:bg-amber-400 text-[#071C3F] font-black py-4 text-sm shadow-xl shadow-[#C9A227]/20 transition-all"
+                      >
+                        Confirm Advisory Reservation
+                      </Button>
+                    </div>
+                  </form>
+                </div>
+              ) : (
+                /* Success State */
+                <div className="text-center py-8 space-y-6">
+                  <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto">
+                    <CheckCircle2 className="w-10 h-10" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-black text-white">Consultation Reserved</h3>
+                    <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
+                      Thank you for contacting ApexEdge Advisory Limited. One of our senior advisors will reach out to confirm your session.
+                    </p>
+                  </div>
+                  <Button
+                    onClick={handleResetAndClose}
+                    className="rounded-full bg-[#C9A227] hover:bg-amber-400 text-[#071C3F] font-bold px-8 py-3 text-xs shadow-lg"
+                  >
+                    Done
+                  </Button>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
+}
