@@ -45,13 +45,10 @@ export default function Home() {
         <div className="absolute inset-0 w-full h-full pointer-events-none z-1 bg-gradient-to-b from-slate-950/85 via-slate-950/40 to-slate-950" />
         <div className="absolute inset-0 w-full h-full pointer-events-none z-1 bg-[radial-gradient(ellipse_at_center,rgba(15,23,42,0.35)_0%,rgba(2,6,23,0.75)_70%,rgba(2,6,23,0.95)_100%)]" />
 
-        {/* Ambient Radial Glow Nodes (z-2) */}
+        {/* Ambient Radial Glow Nodes */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-2 overflow-hidden">
           <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-blue-600/25 via-blue-500/10 to-transparent rounded-full filter blur-3xl opacity-60 animate-pulse" />
-        {/* Subtle Background Glow & Radial Ambient Lighting */}
-        <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-gradient-to-tr from-blue-900/30 via-indigo-950/20 to-emerald-950/20 rounded-full blur-[140px]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(7,28,63,0.5)_0%,rgba(2,6,23,0.95)_100%)]" />
         </div>
 
         <div className="mx-auto max-w-5xl px-5 text-center sm:px-8 lg:px-10 z-10">
