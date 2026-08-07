@@ -106,20 +106,20 @@ export function CorporateFooter() {
   ];
 
   return (
-    <footer id="contact" className="relative w-full bg-[#071C3F] text-white overflow-hidden selection:bg-[#C9A227] selection:text-[#071C3F]">
+    <footer id="contact" className="relative w-full bg-[#071C3F] text-white overflow-hidden selection:bg-[#10B981] selection:text-[#071C3F]">
       
-      {/* Top Animated Metallic Gold Line */}
+      {/* Top Animated Emerald Line */}
       <div className="relative w-full h-1 bg-slate-900 overflow-hidden">
         <motion.div
           animate={{ x: ["-100%", "100%"] }}
           transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-          className="w-full h-full bg-gradient-to-r from-transparent via-[#C9A227] to-transparent"
+          className="w-full h-full bg-gradient-to-r from-transparent via-[#10B981] to-transparent"
         />
       </div>
 
       {/* Subtle Background Glow & Radial Ambient Lighting */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-[#C9A227]/10 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-[#10B981]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-3xl" />
       </div>
 
@@ -127,14 +127,14 @@ export function CorporateFooter() {
       <div className="mx-auto max-w-7xl px-5 pt-20 pb-12 sm:px-8 lg:px-10">
         
         {/* Newsletter Subscription Section */}
-        <div className="mb-20 rounded-3xl border border-[#C9A227]/30 bg-gradient-to-r from-slate-900/90 via-[#071C3F]/95 to-slate-900/90 p-8 sm:p-12 shadow-2xl backdrop-blur-xl">
+        <div className="mb-20 rounded-3xl border border-[#10B981]/30 bg-gradient-to-r from-slate-900/90 via-[#071C3F]/95 to-slate-900/90 p-8 sm:p-12 shadow-2xl backdrop-blur-xl">
           <div className="grid gap-8 lg:grid-cols-2 items-center">
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.25em] text-[#C9A227]">
+              <div className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.25em] text-[#10B981]">
                 <span>Executive Insights</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-black text-white">
-                Stay Informed with <span className="text-[#C9A227]">Strategic Intelligence</span>
+                Stay Informed with <span className="text-[#10B981]">Strategic Intelligence</span>
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
                 Receive curated briefings on corporate governance, legal updates, compliance frameworks, and business strategy in East Africa.
@@ -149,12 +149,12 @@ export function CorporateFooter() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your corporate email address"
-                    className="w-full rounded-full border border-slate-700 bg-slate-950/80 px-6 py-4 text-sm text-white placeholder-slate-400 focus:border-[#C9A227] focus:outline-none focus:ring-2 focus:ring-[#C9A227]/50 transition-all"
+                    className="w-full rounded-full border border-slate-700 bg-slate-950/80 px-6 py-4 text-sm text-white placeholder-slate-400 focus:border-[#10B981] focus:outline-none focus:ring-2 focus:ring-[#10B981]/50 transition-all"
                   />
                 </div>
                 <Button
                   type="submit"
-                  className="rounded-full bg-[#C9A227] hover:bg-[#b5901f] text-[#071C3F] font-extrabold px-8 py-4 text-sm shadow-lg shadow-[#C9A227]/20 transition-all flex items-center justify-center gap-2"
+                  className="rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-extrabold px-8 py-4 text-sm shadow-lg shadow-[#10B981]/20 transition-all flex items-center justify-center gap-2"
                 >
                   <span>Subscribe</span>
                   <Send className="h-4 w-4" />
@@ -187,11 +187,11 @@ export function CorporateFooter() {
               Helping businesses build stronger governance, smarter strategies, and sustainable growth through professional advisory solutions.
             </p>
             <div className="space-y-3 pt-2">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#C9A227]">We Specialize In:</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#10B981]">We Specialize In:</p>
               <ul className="grid grid-cols-1 gap-2 text-xs text-slate-300">
                 {specializations.map((spec) => (
                   <li key={spec} className="flex items-center gap-2 hover:text-white transition-colors">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#C9A227]" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#10B981]" />
                     <span>{spec}</span>
                   </li>
                 ))}
@@ -201,7 +201,7 @@ export function CorporateFooter() {
 
           {/* Column 2 — Quick Links */}
           <div className="space-y-6">
-            <h4 className="text-lg font-extrabold text-white border-b border-[#C9A227]/30 pb-3">
+            <h4 className="text-lg font-extrabold text-white border-b border-[#10B981]/30 pb-3">
               Quick Links
             </h4>
             <ul className="space-y-2.5 text-sm text-slate-300">
@@ -209,9 +209,9 @@ export function CorporateFooter() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="hover:text-[#C9A227] transition-colors flex items-center gap-2 group"
+                    className="hover:text-[#10B981] transition-colors flex items-center gap-2 group"
                   >
-                    <span className="text-[#C9A227] opacity-0 group-hover:opacity-100 transition-opacity">›</span>
+                    <span className="text-[#10B981] opacity-0 group-hover:opacity-100 transition-opacity">›</span>
                     <span>{link.label}</span>
                   </a>
                 </li>
@@ -221,7 +221,7 @@ export function CorporateFooter() {
 
           {/* Column 3 — Services */}
           <div className="space-y-6">
-            <h4 className="text-lg font-extrabold text-white border-b border-[#C9A227]/30 pb-3">
+            <h4 className="text-lg font-extrabold text-white border-b border-[#10B981]/30 pb-3">
               Our Practice Services
             </h4>
             <ul className="space-y-2.5 text-sm text-slate-300">
@@ -229,9 +229,9 @@ export function CorporateFooter() {
                 <li key={service}>
                   <a
                     href="#services"
-                    className="hover:text-[#C9A227] transition-colors flex items-center gap-2 group"
+                    className="hover:text-[#10B981] transition-colors flex items-center gap-2 group"
                   >
-                    <span className="text-[#C9A227] opacity-0 group-hover:opacity-100 transition-opacity">›</span>
+                    <span className="text-[#10B981] opacity-0 group-hover:opacity-100 transition-opacity">›</span>
                     <span>{service}</span>
                   </a>
                 </li>
@@ -241,40 +241,40 @@ export function CorporateFooter() {
 
           {/* Column 4 — Contact Information */}
           <div className="space-y-6">
-            <h4 className="text-lg font-extrabold text-white border-b border-[#C9A227]/30 pb-3">
+            <h4 className="text-lg font-extrabold text-white border-b border-[#10B981]/30 pb-3">
               Contact Information
             </h4>
             <div className="space-y-4 text-sm text-slate-300">
               <p className="font-extrabold text-white text-base">APEXEDGE ADVISORY LIMITED</p>
               
               <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-[#C9A227] shrink-0 mt-0.5" />
+                <MapPin className="h-5 w-5 text-[#10B981] shrink-0 mt-0.5" />
                 <span>Nairobi, Kenya</span>
               </div>
               
               <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-[#C9A227] shrink-0" />
-                <a href="mailto:info@apexedge.co.ke" className="hover:text-[#C9A227] transition-colors">
+                <Mail className="h-5 w-5 text-[#10B981] shrink-0" />
+                <a href="mailto:info@apexedge.co.ke" className="hover:text-[#10B981] transition-colors">
                   info@apexedge.co.ke
                 </a>
               </div>
 
               <div className="flex items-center gap-3">
-                <Globe className="h-5 w-5 text-[#C9A227] shrink-0" />
-                <a href="https://www.apexedge.co.ke" target="_blank" rel="noopener noreferrer" className="hover:text-[#C9A227] transition-colors">
+                <Globe className="h-5 w-5 text-[#10B981] shrink-0" />
+                <a href="https://www.apexedge.co.ke" target="_blank" rel="noopener noreferrer" className="hover:text-[#10B981] transition-colors">
                   www.apexedge.co.ke
                 </a>
               </div>
 
               <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-[#C9A227] shrink-0" />
-                <a href="tel:+254117471344" className="hover:text-[#C9A227] transition-colors font-semibold">
+                <Phone className="h-5 w-5 text-[#10B981] shrink-0" />
+                <a href="tel:+254117471344" className="hover:text-[#10B981] transition-colors font-semibold">
                   +254 117 471344
                 </a>
               </div>
 
               <div className="pt-2 border-t border-slate-800 space-y-1">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#C9A227] uppercase tracking-wider">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#10B981] uppercase tracking-wider">
                   <Clock className="h-4 w-4" />
                   <span>Business Hours</span>
                 </div>
@@ -283,7 +283,7 @@ export function CorporateFooter() {
 
               {/* Social Icons */}
               <div className="pt-3">
-                <p className="text-xs font-bold uppercase tracking-wider text-[#C9A227] mb-3">Connect With Us</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-[#10B981] mb-3">Connect With Us</p>
                 <div className="flex items-center gap-3">
                   {[
                     { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
@@ -297,7 +297,7 @@ export function CorporateFooter() {
                       whileHover={{ scale: 1.15, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       aria-label={social.label}
-                      className="rounded-full bg-slate-900 border border-slate-700 p-2.5 text-slate-300 hover:border-[#C9A227] hover:bg-[#C9A227] hover:text-[#071C3F] transition-all shadow-md"
+                      className="rounded-full bg-slate-900 border border-slate-700 p-2.5 text-slate-300 hover:border-[#10B981] hover:bg-[#10B981] hover:text-[#071C3F] transition-all shadow-md"
                     >
                       <social.icon className="h-4 w-4" />
                     </motion.a>
@@ -308,8 +308,8 @@ export function CorporateFooter() {
           </div>
         </div>
 
-        {/* Bottom Bar with Gold Divider */}
-        <div className="pt-8 border-t border-[#C9A227]/30 text-xs text-slate-400">
+        {/* Bottom Bar with Emerald Divider */}
+        <div className="pt-8 border-t border-[#10B981]/30 text-xs text-slate-400">
           <div className="flex flex-col gap-4 sm:flex-row items-center justify-between text-center sm:text-left">
             
             {/* Left */}
@@ -330,7 +330,7 @@ export function CorporateFooter() {
                   href="https://regnl.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-extrabold text-[#C9A227] hover:underline hover:text-amber-300 transition-colors"
+                  className="font-extrabold text-[#10B981] hover:underline hover:text-emerald-300 transition-colors"
                 >
                   ReGNL
                 </a>
@@ -351,7 +351,7 @@ export function CorporateFooter() {
             onClick={scrollToTop}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="fixed bottom-8 right-8 z-50 rounded-full bg-[#C9A227] p-3.5 text-[#071C3F] shadow-2xl hover:bg-amber-400 transition-all border border-white/20"
+            className="fixed bottom-8 right-8 z-50 rounded-full bg-[#10B981] p-3.5 text-[#071C3F] shadow-2xl hover:bg-emerald-400 transition-all border border-white/20"
             aria-label="Back to top"
           >
             <ArrowUp className="h-5 w-5 font-bold" />

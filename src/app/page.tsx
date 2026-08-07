@@ -22,7 +22,7 @@ export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-900 selection:bg-[#C9A227] selection:text-[#071C3F]">
+    <main className="min-h-screen bg-slate-950 text-slate-900 selection:bg-[#10B981] selection:text-[#071C3F]">
       
       {/* Executive Header Navigation */}
       <ExecutiveHeaderNav onOpenBooking={() => setIsBookingOpen(true)} />
@@ -62,7 +62,7 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-slate-950/80 border border-blue-500/40 text-blue-300 text-sm font-bold mb-8 backdrop-blur-xl shadow-[0_10px_30px_rgba(37,99,235,0.3)]"
           >
-            <Sparkles className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: "8s" }} />
+            <Sparkles className="w-4 h-4 text-emerald-400 animate-spin" style={{ animationDuration: "8s" }} />
             <span>Your Partner in Business Success</span>
           </motion.div>
 
@@ -76,7 +76,7 @@ export default function Home() {
           >
             Trusted HR, Legal &{" "}
             <br />
-            <span className="block sm:inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-amber-300 min-h-[1.35em] py-1">
+            <span className="block sm:inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-emerald-400 min-h-[1.35em] py-1">
               <TypewriterText
                 words={[
                   "Governance Advisory",
@@ -128,7 +128,7 @@ export default function Home() {
                 <motion.div
                   key={i}
                   whileHover={{ scale: 1.2, zIndex: 10 }}
-                  className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-amber-500 border-2 border-slate-950 shadow-md cursor-pointer"
+                  className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-emerald-500 border-2 border-slate-950 shadow-md cursor-pointer"
                 />
               ))}
             </div>
@@ -201,12 +201,12 @@ export default function Home() {
             <div className="relative overflow-hidden rounded-[2.5rem] border border-blue-500/30 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-8 sm:p-12 shadow-2xl">
               <div className="grid gap-8 lg:grid-cols-2 items-center">
                 <div className="space-y-6">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
                     <Sparkles className="w-3.5 h-3.5" />
                     Enterprise Infrastructure
                   </div>
                   <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
-                    Driving Corporate Excellence Across <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-300">Kenya &amp; Beyond</span>
+                    Driving Corporate Excellence Across <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Kenya &amp; Beyond</span>
                   </h2>
                   <p className="text-slate-300 leading-relaxed text-base sm:text-lg">
                     Connecting corporations, financial institutions, and public entities with cutting-edge governance, legal secretarial expertise, and digital-first advisory solutions.

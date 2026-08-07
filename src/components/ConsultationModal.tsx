@@ -51,10 +51,10 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.92, y: 20 }}
             transition={{ type: "spring", stiffness: 320, damping: 26 }}
-            className="relative w-full max-w-2xl overflow-hidden rounded-3xl bg-[#071C3F] border border-[#C9A227]/40 text-white shadow-2xl z-10 my-8"
+            className="relative w-full max-w-2xl overflow-hidden rounded-3xl bg-[#071C3F] border border-[#10B981]/40 text-white shadow-2xl z-10 my-8"
           >
             {/* Top Accent Bar */}
-            <div className="h-2 bg-gradient-to-r from-[#C9A227] via-blue-500 to-amber-300" />
+            <div className="h-2 bg-gradient-to-r from-[#10B981] via-teal-400 to-emerald-300" />
 
             {/* Close Button */}
             <button
@@ -70,7 +70,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                 <div className="space-y-6">
                   {/* Modal Header */}
                   <div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C9A227]/20 border border-[#C9A227]/40 text-[#C9A227] text-xs font-bold uppercase tracking-wider mb-2">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] text-xs font-bold uppercase tracking-wider mb-2">
                       <ShieldCheck className="w-3.5 h-3.5" />
                       Executive Advisory
                     </div>
@@ -88,7 +88,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                         onClick={() => setConsultType("virtual")}
                         className={`p-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-2 ${
                           consultType === "virtual"
-                            ? "bg-[#C9A227] text-[#071C3F] border-[#C9A227]"
+                            ? "bg-[#10B981] text-[#071C3F] border-[#10B981]"
                             : "bg-slate-950/60 border-slate-800 text-slate-300 hover:border-slate-700"
                         }`}
                       >
@@ -100,7 +100,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                         onClick={() => setConsultType("in-person")}
                         className={`p-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-2 ${
                           consultType === "in-person"
-                            ? "bg-[#C9A227] text-[#071C3F] border-[#C9A227]"
+                            ? "bg-[#10B981] text-[#071C3F] border-[#10B981]"
                             : "bg-slate-950/60 border-slate-800 text-slate-300 hover:border-slate-700"
                         }`}
                       >
@@ -118,7 +118,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                         <select
                           value={service}
                           onChange={(e) => setService(e.target.value)}
-                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white focus:border-[#C9A227] focus:outline-none"
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white focus:border-[#10B981] focus:outline-none"
                         >
                           <option value="Company Secretarial">Company Secretarial</option>
                           <option value="Corporate Governance">Corporate Governance</option>
@@ -140,7 +140,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                             required
                             value={date}
                             onChange={(e) => setDate(e.target.value)}
-                            className="w-full rounded-xl bg-slate-950 border border-slate-800 px-3 py-3 text-xs text-white focus:border-[#C9A227] focus:outline-none"
+                            className="w-full rounded-xl bg-slate-950 border border-slate-800 px-3 py-3 text-xs text-white focus:border-[#10B981] focus:outline-none"
                           />
                         </div>
                         <div>
@@ -150,7 +150,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                           <select
                             value={time}
                             onChange={(e) => setTime(e.target.value)}
-                            className="w-full rounded-xl bg-slate-950 border border-slate-800 px-2 py-3 text-xs text-white focus:border-[#C9A227] focus:outline-none"
+                            className="w-full rounded-xl bg-slate-950 border border-slate-800 px-2 py-3 text-xs text-white focus:border-[#10B981] focus:outline-none"
                           >
                             <option value="09:00 AM">09:00 AM</option>
                             <option value="11:00 AM">11:00 AM</option>
@@ -173,7 +173,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder="Jane Doe"
-                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#C9A227] focus:outline-none"
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
                         />
                       </div>
                       <div>
@@ -186,7 +186,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="jane@company.co.ke"
-                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#C9A227] focus:outline-none"
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -202,7 +202,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
                           placeholder="+254 7XX XXX XXX"
-                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#C9A227] focus:outline-none"
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
                         />
                       </div>
                       <div>
@@ -214,7 +214,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                           value={company}
                           onChange={(e) => setCompany(e.target.value)}
                           placeholder="Company Ltd"
-                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#C9A227] focus:outline-none"
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -228,14 +228,14 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder="Briefly describe your advisory requirements..."
-                        className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#C9A227] focus:outline-none"
+                        className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
                       />
                     </div>
 
                     <div className="pt-2">
                       <Button
                         type="submit"
-                        className="w-full rounded-full bg-[#C9A227] hover:bg-amber-400 text-[#071C3F] font-black py-4 text-sm shadow-xl shadow-[#C9A227]/20 transition-all"
+                        className="w-full rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black py-4 text-sm shadow-xl shadow-[#10B981]/20 transition-all"
                       >
                         Confirm Advisory Reservation
                       </Button>
@@ -256,7 +256,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                   </div>
                   <Button
                     onClick={handleResetAndClose}
-                    className="rounded-full bg-[#C9A227] hover:bg-amber-400 text-[#071C3F] font-bold px-8 py-3 text-xs shadow-lg"
+                    className="rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-bold px-8 py-3 text-xs shadow-lg"
                   >
                     Done
                   </Button>

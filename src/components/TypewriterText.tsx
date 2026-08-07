@@ -52,7 +52,7 @@ export function TypewriterText({
       <motion.span
         animate={{ opacity: [1, 0, 1] }}
         transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
-        className="ml-1 inline-block w-[3px] h-[0.85em] bg-amber-400 rounded-full shrink-0 align-middle"
+        className="ml-1 inline-block w-[3px] h-[0.85em] bg-emerald-400 rounded-full shrink-0 align-middle"
       />
     </span>
   );

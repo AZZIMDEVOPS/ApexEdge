@@ -73,11 +73,11 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
     <header
       className={`sticky top-0 z-40 transition-all duration-500 ${
         isScrolled
-          ? "border-b border-[#C9A227]/30 bg-[#071C3F]/90 backdrop-blur-xl shadow-2xl py-3"
+          ? "border-b border-[#10B981]/30 bg-[#071C3F]/90 backdrop-blur-xl shadow-2xl py-3"
           : "border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md py-3"
       }`}
     >
-      {/* Traveling Gold Beam Visual Effect */}
+      {/* Traveling Emerald Beam Visual Effect */}
       <AnimatePresence>
         {isBeamActive && (
           <motion.div
@@ -85,7 +85,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
             animate={{ x: "100%" }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#C9A227] to-transparent z-50 pointer-events-none"
+            className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#10B981] to-transparent z-50 pointer-events-none"
           />
         )}
       </AnimatePresence>
@@ -104,16 +104,16 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
                 className={`relative py-1 transition-colors ${
-                  isActive ? "text-[#C9A227]" : "text-slate-200 hover:text-[#C9A227]"
+                  isActive ? "text-[#10B981]" : "text-slate-200 hover:text-[#10B981]"
                 }`}
               >
                 <span>{item.label}</span>
 
-                {/* Metallic Gold Animated Underline */}
+                {/* Emerald Animated Underline */}
                 {isActive && (
                   <motion.div
                     layoutId="activeUnderline"
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#C9A227] shadow-[0_0_8px_#C9A227]"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#10B981] shadow-[0_0_8px_#10B981]"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -126,15 +126,15 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
         <div className="flex items-center gap-4">
           <a
             href="tel:+254117471344"
-            className="hidden items-center gap-2 text-sm font-semibold text-slate-300 hover:text-[#C9A227] sm:flex transition-colors"
+            className="hidden items-center gap-2 text-sm font-semibold text-slate-300 hover:text-[#10B981] sm:flex transition-colors"
           >
-            <Phone className="h-4 w-4 text-[#C9A227]" />
+            <Phone className="h-4 w-4 text-[#10B981]" />
             <span>+254 117 471344</span>
           </a>
 
           <Button
             onClick={onOpenBooking}
-            className="bg-[#C9A227] hover:bg-amber-400 text-[#071C3F] font-extrabold shadow-lg shadow-[#C9A227]/25 rounded-full px-6 py-2.5 text-xs sm:text-sm flex items-center gap-2 transition-all hover:scale-105"
+            className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-extrabold shadow-lg shadow-[#10B981]/25 rounded-full px-6 py-2.5 text-xs sm:text-sm flex items-center gap-2 transition-all hover:scale-105"
           >
             <Calendar className="w-4 h-4" />
             <span>Book Consultation</span>

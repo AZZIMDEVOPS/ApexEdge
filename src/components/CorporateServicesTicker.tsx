@@ -153,7 +153,7 @@ export function CorporateServicesTicker() {
 
   return (
     <div
-      className="relative w-full h-16 sm:h-20 bg-[#071C3F] border-t border-[#C9A227]/40 shadow-xl overflow-hidden z-30 selection:bg-[#C9A227] selection:text-[#071C3F]"
+      className="relative w-full h-16 sm:h-20 bg-[#071C3F] border-t border-[#10B981]/40 shadow-xl overflow-hidden z-30 selection:bg-[#10B981] selection:text-[#071C3F]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => {
         setIsPaused(false);
@@ -165,12 +165,12 @@ export function CorporateServicesTicker() {
         setHoveredService(null);
       }}
     >
-      {/* Top Animated Metallic Gold Shimmer Line */}
+      {/* Top Animated Emerald Shimmer Line */}
       <div className="absolute top-0 left-0 w-full h-[2px] bg-slate-900 overflow-hidden z-20">
         <motion.div
           animate={{ x: ["-100%", "100%"] }}
           transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-          className="w-full h-full bg-gradient-to-r from-transparent via-[#C9A227] to-transparent"
+          className="w-full h-full bg-gradient-to-r from-transparent via-[#10B981] to-transparent"
         />
       </div>
 
@@ -203,18 +203,18 @@ export function CorporateServicesTicker() {
                 onClick={() => handleServiceClick(item.targetHref)}
                 className="relative inline-flex items-center gap-2.5 px-4 py-2 rounded-xl transition-all duration-300 group"
               >
-                {/* Icon with Gold Glow */}
-                <div className="p-2 rounded-lg bg-slate-900/90 border border-slate-800 text-[#C9A227] group-hover:bg-[#C9A227] group-hover:text-[#071C3F] group-hover:border-[#C9A227] transition-all shadow-sm">
+                {/* Icon with Emerald Glow */}
+                <div className="p-2 rounded-lg bg-slate-900/90 border border-slate-800 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-[#071C3F] group-hover:border-[#10B981] transition-all shadow-sm">
                   <Icon className="w-4 h-4" />
                 </div>
 
                 {/* Service Name */}
-                <span className="text-xs sm:text-sm font-extrabold text-white group-hover:text-[#C9A227] transition-colors tracking-wide">
+                <span className="text-xs sm:text-sm font-extrabold text-white group-hover:text-[#10B981] transition-colors tracking-wide">
                   {item.name}
                 </span>
 
-                {/* Metallic Gold Separator */}
-                <span className="ml-4 text-[#C9A227]/50 font-black text-sm select-none">◆</span>
+                {/* Emerald Separator */}
+                <span className="ml-4 text-[#10B981]/50 font-black text-sm select-none">◆</span>
 
                 {/* Interactive Tooltip Card on Hover */}
                 <AnimatePresence>
@@ -224,16 +224,16 @@ export function CorporateServicesTicker() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 w-64 p-3 rounded-2xl bg-slate-950/95 border border-[#C9A227]/50 text-white shadow-2xl backdrop-blur-xl z-50 pointer-events-none text-center"
+                      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 w-64 p-3 rounded-2xl bg-slate-950/95 border border-[#10B981]/50 text-white shadow-2xl backdrop-blur-xl z-50 pointer-events-none text-center"
                     >
-                      <div className="flex items-center justify-center gap-1.5 text-[11px] font-black text-[#C9A227] uppercase tracking-wider mb-1">
+                      <div className="flex items-center justify-center gap-1.5 text-[11px] font-black text-[#10B981] uppercase tracking-wider mb-1">
                         <Icon className="w-3.5 h-3.5" />
                         <span>{item.name}</span>
                       </div>
                       <p className="text-[11px] text-slate-300 leading-normal font-normal">
                         {item.desc}
                       </p>
-                      <div className="mt-1 text-[9px] font-bold text-blue-400">Click to explore section →</div>
+                      <div className="mt-1 text-[9px] font-bold text-emerald-400">Click to explore section →</div>
                     </motion.div>
                   )}
                 </AnimatePresence>

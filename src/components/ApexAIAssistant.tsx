@@ -184,11 +184,11 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.92 }}
-          className="relative flex items-center justify-center w-16 h-16 rounded-full bg-[#071C3F] border-2 border-[#C9A227] text-[#C9A227] shadow-[0_10px_35px_rgba(7,28,63,0.6)] backdrop-blur-xl group overflow-hidden"
+          className="relative flex items-center justify-center w-16 h-16 rounded-full bg-[#071C3F] border-2 border-[#10B981] text-[#10B981] shadow-[0_10px_35px_rgba(7,28,63,0.6)] backdrop-blur-xl group overflow-hidden"
           aria-label="Toggle APEX Assistant"
         >
           {/* Pulsing Outer Ring */}
-          <div className="absolute inset-0 rounded-full bg-[#C9A227]/20 animate-ping pointer-events-none" />
+          <div className="absolute inset-0 rounded-full bg-[#10B981]/20 animate-ping pointer-events-none" />
 
           {/* Idle Sparkle & Icon */}
           <AnimatePresence mode="wait">
@@ -198,10 +198,10 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
               </motion.div>
             ) : (
               <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} className="flex items-center justify-center">
-                <Bot className="w-8 h-8 text-[#C9A227] group-hover:rotate-12 transition-transform" />
+                <Bot className="w-8 h-8 text-[#10B981] group-hover:rotate-12 transition-transform" />
                 <span className="absolute top-2 right-2 flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#C9A227]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#10B981]"></span>
                 </span>
               </motion.div>
             )}
@@ -217,12 +217,12 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 30 }}
             transition={{ type: "spring", stiffness: 350, damping: 28 }}
-            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[410px] h-[580px] rounded-3xl bg-[#071C3F] border border-[#C9A227]/40 shadow-2xl text-white flex flex-col overflow-hidden backdrop-blur-2xl"
+            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[410px] h-[580px] rounded-3xl bg-[#071C3F] border border-[#10B981]/40 shadow-2xl text-white flex flex-col overflow-hidden backdrop-blur-2xl"
           >
             {/* Top Header Bar */}
-            <div className="flex items-center justify-between px-6 py-4 bg-slate-900/90 border-b border-[#C9A227]/30">
+            <div className="flex items-center justify-between px-6 py-4 bg-slate-900/90 border-b border-[#10B981]/30">
               <div className="flex items-center gap-3">
-                <div className="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-slate-950 border border-[#C9A227]/50 p-2 shadow-md shrink-0">
+                <div className="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-slate-950 border border-[#10B981]/50 p-2 shadow-md shrink-0">
                   <Image
                     src="/apexedge_logo.png"
                     alt="ApexEdge Logo"
@@ -241,7 +241,7 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
                       height={20}
                       className="h-5 w-auto object-contain brightness-0 invert"
                     />
-                    <span className="px-2 py-0.5 rounded-full bg-[#C9A227]/20 border border-[#C9A227]/40 text-[10px] font-black uppercase text-[#C9A227] tracking-wider">
+                    <span className="px-2 py-0.5 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[10px] font-black uppercase text-[#10B981] tracking-wider">
                       Executive
                     </span>
                   </div>
@@ -265,14 +265,14 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
                 >
                   <div className="flex items-end gap-2 max-w-[85%]">
                     {msg.sender === "ai" && (
-                      <div className="w-7 h-7 rounded-full bg-[#C9A227]/20 border border-[#C9A227]/40 text-[#C9A227] flex items-center justify-center text-xs shrink-0 mb-1">
+                      <div className="w-7 h-7 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] flex items-center justify-center text-xs shrink-0 mb-1">
                         <Bot className="w-4 h-4" />
                       </div>
                     )}
                     <div
                       className={`rounded-2xl p-4 text-sm leading-relaxed ${
                         msg.sender === "user"
-                          ? "bg-[#C9A227] text-[#071C3F] font-semibold rounded-br-none shadow-md"
+                          ? "bg-[#10B981] text-[#071C3F] font-semibold rounded-br-none shadow-md"
                           : "bg-slate-900/90 border border-slate-800 text-slate-100 rounded-bl-none shadow-lg whitespace-pre-line"
                       }`}
                     >
@@ -289,7 +289,7 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
                           setIsOpen(false);
                           if (onOpenBooking) onOpenBooking();
                         }}
-                        className="rounded-full bg-[#C9A227] hover:bg-amber-400 text-[#071C3F] font-bold text-xs px-5 py-2 flex items-center gap-2 shadow-lg"
+                        className="rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-bold text-xs px-5 py-2 flex items-center gap-2 shadow-lg"
                       >
                         <Calendar className="w-4 h-4" />
                         <span>Book Executive Consultation</span>
@@ -306,7 +306,7 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
                           whileHover={{ scale: 1.04 }}
                           whileTap={{ scale: 0.96 }}
                           onClick={() => handleSendMessage(reply)}
-                          className="px-3 py-1.5 rounded-full bg-slate-900 border border-[#C9A227]/40 text-xs text-[#C9A227] hover:bg-[#C9A227] hover:text-[#071C3F] font-semibold transition-all shadow-sm"
+                          className="px-3 py-1.5 rounded-full bg-slate-900 border border-[#10B981]/40 text-xs text-[#10B981] hover:bg-[#10B981] hover:text-[#071C3F] font-semibold transition-all shadow-sm"
                         >
                           {reply}
                         </motion.button>
@@ -320,9 +320,9 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
               {isTyping && (
                 <div className="flex items-center gap-2 pl-9">
                   <div className="rounded-2xl bg-slate-900 border border-slate-800 px-4 py-3 text-slate-400 flex items-center gap-1.5 text-xs">
-                    <span className="w-2 h-2 rounded-full bg-[#C9A227] animate-bounce" />
-                    <span className="w-2 h-2 rounded-full bg-[#C9A227] animate-bounce delay-150" />
-                    <span className="w-2 h-2 rounded-full bg-[#C9A227] animate-bounce delay-300" />
+                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-bounce" />
+                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-bounce delay-150" />
+                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-bounce delay-300" />
                     <span className="ml-1 text-[11px]">APEX is thinking...</span>
                   </div>
                 </div>
@@ -343,13 +343,13 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Ask APEX about our services..."
-                className="flex-1 bg-slate-950 border border-slate-800 rounded-full px-5 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#C9A227] transition-colors"
+                className="flex-1 bg-slate-950 border border-slate-800 rounded-full px-5 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#10B981] transition-colors"
               />
               <motion.button
                 type="submit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-10 h-10 rounded-full bg-[#C9A227] text-[#071C3F] flex items-center justify-center shrink-0 font-bold hover:bg-amber-400 transition-colors shadow-md"
+                className="w-10 h-10 rounded-full bg-[#10B981] text-[#071C3F] flex items-center justify-center shrink-0 font-bold hover:bg-emerald-400 transition-colors shadow-md"
               >
                 <Send className="w-4 h-4" />
               </motion.button>

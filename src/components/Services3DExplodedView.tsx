@@ -167,13 +167,13 @@ export function Services3DExplodedView() {
               onClick={() => setSelectedService(service)}
               className="perspective"
             >
-              <Card className="relative overflow-hidden rounded-[1.75rem] border border-slate-200/90 bg-white shadow-lg hover:shadow-2xl hover:border-[#C9A227]/70 transition-all duration-500 cursor-pointer group flex flex-col justify-between h-full hover:-translate-y-2.5">
+              <Card className="relative overflow-hidden rounded-[1.75rem] border border-slate-200/90 bg-white shadow-lg hover:shadow-2xl hover:border-[#10B981]/70 transition-all duration-500 cursor-pointer group flex flex-col justify-between h-full hover:-translate-y-2.5">
                 
-                {/* Metallic Gold Animated Top Accent Line */}
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-slate-200 group-hover:bg-gradient-to-r group-hover:from-transparent group-hover:via-[#C9A227] group-hover:to-transparent transition-all duration-700 z-30" />
+                {/* Emerald Animated Top Accent Line */}
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-slate-200 group-hover:bg-gradient-to-r group-hover:from-transparent group-hover:via-[#10B981] group-hover:to-transparent transition-all duration-700 z-30" />
 
-                {/* Soft Glowing Gold Corner Highlight */}
-                <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#C9A227]/15 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none" />
+                {/* Soft Glowing Emerald Corner Highlight */}
+                <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#10B981]/15 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none" />
 
                 {/* Editorial Blended Background Photography Layer (Right 50%) */}
                 <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -192,7 +192,7 @@ export function Services3DExplodedView() {
                   <div className="space-y-4">
                     
                     {/* Icon Badge with Subtle Rotation */}
-                    <div className="rounded-2xl bg-[#071C3F] border border-[#C9A227]/40 p-4 w-fit text-[#C9A227] shadow-md group-hover:bg-[#C9A227] group-hover:text-[#071C3F] group-hover:rotate-6 transition-all duration-500">
+                    <div className="rounded-2xl bg-[#071C3F] border border-[#10B981]/40 p-4 w-fit text-[#10B981] shadow-md group-hover:bg-[#10B981] group-hover:text-[#071C3F] group-hover:rotate-6 transition-all duration-500">
                       <Icon className="h-7 w-7" />
                     </div>
 
@@ -208,12 +208,12 @@ export function Services3DExplodedView() {
                   </div>
 
                   {/* Learn More Action Button */}
-                  <div className="pt-4 border-t border-slate-100 group-hover:border-[#C9A227]/30 transition-colors">
+                  <div className="pt-4 border-t border-slate-100 group-hover:border-[#10B981]/30 transition-colors">
                     <motion.div
-                      className="inline-flex items-center gap-2 text-sm font-extrabold text-[#071C3F] group-hover:text-[#C9A227] group-hover:gap-3.5 transition-all"
+                      className="inline-flex items-center gap-2 text-sm font-extrabold text-[#071C3F] group-hover:text-[#10B981] group-hover:gap-3.5 transition-all"
                     >
                       <span>Explore Service Details</span>
-                      <span className="text-[#C9A227] font-black">→</span>
+                      <span className="text-[#10B981] font-black">→</span>
                     </motion.div>
                   </div>
                 </CardContent>
@@ -244,10 +244,10 @@ export function Services3DExplodedView() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
                 transition={{ type: "spring", stiffness: 320, damping: 26 }}
-                className="relative w-full max-w-2xl overflow-hidden rounded-3xl bg-[#071C3F] border border-[#C9A227]/40 text-white shadow-2xl z-10"
+                className="relative w-full max-w-2xl overflow-hidden rounded-3xl bg-[#071C3F] border border-[#10B981]/40 text-white shadow-2xl z-10"
               >
                 {/* Top Accent Bar */}
-                <div className="h-2 bg-gradient-to-r from-[#C9A227] via-sky-400 to-amber-300" />
+                <div className="h-2 bg-gradient-to-r from-[#10B981] via-teal-400 to-emerald-300" />
 
                 {/* Close Button */}
                 <button
@@ -261,11 +261,11 @@ export function Services3DExplodedView() {
                 <div className="p-6 sm:p-10 space-y-6">
                   {/* Modal Header */}
                   <div className="flex items-center gap-4">
-                    <div className="rounded-2xl bg-[#C9A227]/20 border border-[#C9A227]/40 p-4 text-[#C9A227]">
+                    <div className="rounded-2xl bg-[#10B981]/20 border border-[#10B981]/40 p-4 text-[#10B981]">
                       <ServiceModalIcon className="h-8 w-8" />
                     </div>
                     <div>
-                      <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#C9A227]">Practice Area</span>
+                      <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#10B981]">Practice Area</span>
                       <h3 className="text-2xl sm:text-3xl font-extrabold text-white">{selectedService.title}</h3>
                     </div>
                   </div>
@@ -277,11 +277,11 @@ export function Services3DExplodedView() {
 
                   {/* Deliverables List */}
                   <div className="space-y-3 pt-2">
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-[#C9A227]">Key Focus Areas & Deliverables</h4>
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-[#10B981]">Key Focus Areas & Deliverables</h4>
                     <div className="grid gap-3 sm:grid-cols-1">
                       {selectedService.deliverables.map((item, idx) => (
                         <div key={idx} className="flex items-start gap-3 rounded-xl bg-slate-950/60 p-3.5 border border-slate-800">
-                          <CheckCircle2 className="h-5 w-5 text-[#C9A227] shrink-0 mt-0.5" />
+                          <CheckCircle2 className="h-5 w-5 text-[#10B981] shrink-0 mt-0.5" />
                           <span className="text-sm text-slate-200 font-medium">{item}</span>
                         </div>
                       ))}
@@ -292,7 +292,7 @@ export function Services3DExplodedView() {
                   <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-slate-800">
                     <Button
                       asChild
-                      className="bg-[#C9A227] hover:bg-amber-400 text-[#071C3F] font-black py-6 rounded-full flex-1 shadow-lg shadow-[#C9A227]/20"
+                      className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black py-6 rounded-full flex-1 shadow-lg shadow-[#10B981]/20"
                     >
                       <a
                         href={`https://wa.me/254117471344?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(selectedService.title)}%20services.`}

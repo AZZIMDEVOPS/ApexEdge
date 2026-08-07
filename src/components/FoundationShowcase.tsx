@@ -68,12 +68,12 @@ export function FoundationShowcase() {
   };
 
   return (
-    <section id="why-us" className="relative py-24 sm:py-32 bg-slate-950 text-white overflow-hidden selection:bg-[#C9A227] selection:text-[#071C3F]">
+    <section id="why-us" className="relative py-24 sm:py-32 bg-slate-950 text-white overflow-hidden selection:bg-[#10B981] selection:text-[#071C3F]">
       
       {/* Background Ambient Radial Glow & Geometric Architecture Lines */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
         <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-[600px] h-[600px] bg-[#C9A227]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-32 w-[600px] h-[600px] bg-[#10B981]/10 rounded-full blur-3xl" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(7,28,63,0.4)_0%,rgba(2,6,23,0.95)_100%)]" />
       </div>
 
@@ -85,7 +85,7 @@ export function FoundationShowcase() {
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#C9A227]/15 border border-[#C9A227]/40 text-[#C9A227] text-xs font-black uppercase tracking-[0.25em]"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#10B981]/15 border border-[#10B981]/40 text-[#10B981] text-xs font-black uppercase tracking-[0.25em]"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>OUR FOUNDATION</span>
@@ -99,7 +99,7 @@ export function FoundationShowcase() {
             className="text-4xl sm:text-5xl font-black tracking-tight text-white leading-tight"
           >
             Driven by Purpose. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-[#C9A227]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-[#10B981]">
               Defined by Excellence.
             </span>
           </motion.h2>
@@ -125,10 +125,10 @@ export function FoundationShowcase() {
         >
           {/* Card 1: Our Mission */}
           <motion.div variants={itemVariants} className="perspective">
-            <Card className="relative overflow-hidden rounded-[2rem] border border-slate-800 bg-gradient-to-br from-[#071C3F] via-slate-900 to-[#071C3F] text-white shadow-xl hover:shadow-2xl hover:border-[#C9A227]/70 transition-all duration-500 cursor-pointer group flex flex-col justify-between h-full hover:-translate-y-2.5">
+            <Card className="relative overflow-hidden rounded-[2rem] border border-slate-800 bg-gradient-to-br from-[#071C3F] via-slate-900 to-[#071C3F] text-white shadow-xl hover:shadow-2xl hover:border-[#10B981]/70 transition-all duration-500 cursor-pointer group flex flex-col justify-between h-full hover:-translate-y-2.5">
               
-              {/* Metallic Gold Animated Top Accent Line */}
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-slate-800 group-hover:bg-gradient-to-r group-hover:from-transparent group-hover:via-[#C9A227] group-hover:to-transparent transition-all duration-700 z-30" />
+              {/* Emerald Top Accent Line */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-slate-800 group-hover:bg-gradient-to-r group-hover:from-transparent group-hover:via-[#10B981] group-hover:to-transparent transition-all duration-700 z-30" />
 
               {/* Blended Editorial Photography */}
               <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -142,10 +142,10 @@ export function FoundationShowcase() {
 
               <CardContent className="relative z-20 p-8 sm:p-10 space-y-6 flex flex-col justify-between h-full">
                 <div className="space-y-4">
-                  <div className="rounded-2xl bg-amber-500/20 border border-amber-500/40 p-4 w-fit text-[#C9A227] group-hover:rotate-6 transition-transform">
+                  <div className="rounded-2xl bg-emerald-500/20 border border-emerald-500/40 p-4 w-fit text-[#10B981] group-hover:rotate-6 transition-transform">
                     <Zap className="h-7 w-7" />
                   </div>
-                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#C9A227]">Purpose &amp; Impact</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#10B981]">Purpose &amp; Impact</span>
                   <h3 className="text-2xl font-black text-white">Our Mission</h3>
                   <p className="text-sm text-slate-300 leading-relaxed font-normal">
                     To empower clients with top-tier, comprehensive solutions that enhance business performance, navigate legal complexities, and foster sustainable growth through innovative, tech-enabled advisory services.
@@ -153,7 +153,7 @@ export function FoundationShowcase() {
                 </div>
 
                 <div className="pt-4 border-t border-slate-800">
-                  <div className="inline-flex items-center gap-2 text-sm font-extrabold text-[#C9A227] group-hover:gap-3.5 transition-all">
+                  <div className="inline-flex items-center gap-2 text-sm font-extrabold text-[#10B981] group-hover:gap-3.5 transition-all">
                     <span>Learn Mission Strategy</span>
                     <span>→</span>
                   </div>
@@ -203,10 +203,10 @@ export function FoundationShowcase() {
 
           {/* Card 3: Core Values with Interactive Badges */}
           <motion.div variants={itemVariants} className="perspective">
-            <Card className="relative overflow-hidden rounded-[2rem] border border-slate-800 bg-gradient-to-br from-[#071C3F] via-slate-900 to-[#071C3F] text-white shadow-xl hover:shadow-2xl hover:border-[#C9A227]/70 transition-all duration-500 group flex flex-col justify-between h-full hover:-translate-y-2.5">
+            <Card className="relative overflow-hidden rounded-[2rem] border border-slate-800 bg-gradient-to-br from-[#071C3F] via-slate-900 to-[#071C3F] text-white shadow-xl hover:shadow-2xl hover:border-[#10B981]/70 transition-all duration-500 group flex flex-col justify-between h-full hover:-translate-y-2.5">
               
               {/* Top Accent Line */}
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-slate-800 group-hover:bg-gradient-to-r group-hover:from-transparent group-hover:via-[#C9A227] group-hover:to-transparent transition-all duration-700 z-30" />
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-slate-800 group-hover:bg-gradient-to-r group-hover:from-transparent group-hover:via-[#10B981] group-hover:to-transparent transition-all duration-700 z-30" />
 
               {/* Blended Photography - Leadership Team */}
               <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -220,10 +220,10 @@ export function FoundationShowcase() {
 
               <CardContent className="relative z-20 p-8 sm:p-10 space-y-6 flex flex-col justify-between h-full">
                 <div className="space-y-4">
-                  <div className="rounded-2xl bg-amber-500/20 border border-amber-500/40 p-4 w-fit text-[#C9A227] group-hover:rotate-6 transition-transform">
+                  <div className="rounded-2xl bg-emerald-500/20 border border-emerald-500/40 p-4 w-fit text-[#10B981] group-hover:rotate-6 transition-transform">
                     <HeartHandshake className="h-7 w-7" />
                   </div>
-                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#C9A227]">Guiding Principles</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#10B981]">Guiding Principles</span>
                   <h3 className="text-2xl font-black text-white">Core Values</h3>
 
                   {/* Interactive Value Badges / Chips */}
@@ -234,7 +234,7 @@ export function FoundationShowcase() {
                         whileHover={{ scale: 1.06, y: -2 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => setSelectedValue(val)}
-                        className="px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-[#C9A227]/40 text-xs font-bold text-[#C9A227] hover:bg-[#C9A227] hover:text-[#071C3F] transition-all shadow-md flex items-center gap-1.5"
+                        className="px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-[#10B981]/40 text-xs font-bold text-[#10B981] hover:bg-[#10B981] hover:text-[#071C3F] transition-all shadow-md flex items-center gap-1.5"
                       >
                         <Sparkles className="w-3 h-3" />
                         <span>{val.name}</span>
@@ -244,7 +244,7 @@ export function FoundationShowcase() {
                 </div>
 
                 <div className="pt-4 border-t border-slate-800">
-                  <div className="inline-flex items-center gap-2 text-sm font-extrabold text-[#C9A227] group-hover:gap-3.5 transition-all">
+                  <div className="inline-flex items-center gap-2 text-sm font-extrabold text-[#10B981] group-hover:gap-3.5 transition-all">
                     <span>View Value Standards Above</span>
                     <span>→</span>
                   </div>
@@ -271,7 +271,7 @@ export function FoundationShowcase() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", stiffness: 320, damping: 26 }}
-              className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-[#071C3F] border border-[#C9A227]/40 text-white shadow-2xl z-10 p-8 space-y-6"
+              className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-[#071C3F] border border-[#10B981]/40 text-white shadow-2xl z-10 p-8 space-y-6"
             >
               <button
                 onClick={() => setSelectedValue(null)}
@@ -280,11 +280,11 @@ export function FoundationShowcase() {
                 <X className="w-5 h-5" />
               </button>
               <div className="flex items-center gap-3">
-                <div className="p-3 rounded-2xl bg-[#C9A227]/20 border border-[#C9A227]/40 text-[#C9A227]">
+                <div className="p-3 rounded-2xl bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981]">
                   <Sparkles className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#C9A227]">Core Value Standard</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#10B981]">Core Value Standard</span>
                   <h3 className="text-2xl font-black text-white">{selectedValue.name}</h3>
                 </div>
               </div>
@@ -292,7 +292,7 @@ export function FoundationShowcase() {
               <div className="pt-4 border-t border-slate-800">
                 <Button
                   onClick={() => setSelectedValue(null)}
-                  className="w-full rounded-full bg-[#C9A227] hover:bg-amber-400 text-[#071C3F] font-bold py-3 text-xs"
+                  className="w-full rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-bold py-3 text-xs"
                 >
                   Close Standard Window
                 </Button>
