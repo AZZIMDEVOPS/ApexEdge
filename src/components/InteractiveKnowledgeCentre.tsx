@@ -227,9 +227,9 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
             <div className="absolute inset-0 w-full h-full overflow-hidden">
               {/* Premium Nairobi Architectural Photography */}
               <img
-                src="/nairobi_skyline.png"
+                src="/nairobi_skyline_night.jpg"
                 alt="Nairobi CBD & Upper Hill Business District Skyline — East Africa Financial Hub"
-                className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 brightness-95 contrast-110"
+                className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 brightness-105 contrast-105"
               />
               {/* Subtle Deep Navy Overlay & Vignette Fade */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F] via-[#071C3F]/35 to-slate-950/20" />
