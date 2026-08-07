@@ -36,6 +36,7 @@ export default function Home() {
             src="/nairobi_hero_twilight.jpg"
             alt="Nairobi Twilight Skyline Background"
             fill
+            sizes="100vw"
             priority
             className="object-cover object-center scale-105 opacity-65 filter brightness-105 contrast-115 saturate-120"
           />
@@ -234,6 +235,7 @@ export default function Home() {
                     src="/nairobi_enterprise_skyline.jpg"
                     alt="Nairobi Upper Hill GTC & Britam Skyscrapers Aerial Skyline — Kenya Corporate Infrastructure"
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover object-center transform group-hover:scale-105 transition-transform duration-700 brightness-105 contrast-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60" />
