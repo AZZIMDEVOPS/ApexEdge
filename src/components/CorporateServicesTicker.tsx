@@ -187,7 +187,7 @@ export function CorporateServicesTicker() {
             x: {
               repeat: Infinity,
               repeatType: "loop",
-              duration: 35,
+              duration: 90,
               ease: "linear",
             },
           }}
