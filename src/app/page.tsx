@@ -229,14 +229,14 @@ export default function Home() {
                     Connecting corporations, financial institutions, and public entities with cutting-edge governance, legal secretarial expertise, and digital-first advisory solutions.
                   </p>
                 </div>
-                <div className="relative h-64 sm:h-80 w-full overflow-hidden rounded-2xl border border-blue-500/30 shadow-2xl group">
+                <div className="relative h-72 sm:h-96 w-full overflow-hidden rounded-2xl border border-emerald-500/40 shadow-2xl group">
                   <Image
-                    src="/nairobi_blue_skyline.png"
-                    alt="Nairobi Trust Blue Digital Skyline"
+                    src="/nairobi_enterprise_skyline.jpg"
+                    alt="Nairobi Upper Hill GTC & Britam Skyscrapers Aerial Skyline — Kenya Corporate Infrastructure"
                     fill
-                    className="object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover object-center transform group-hover:scale-105 transition-transform duration-700 brightness-105 contrast-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-50" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60" />
                 </div>
               </div>
             </div>
