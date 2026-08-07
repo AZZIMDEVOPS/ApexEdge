@@ -137,19 +137,39 @@ export default function Home() {
       {/* Corporate Services Ticker - Bloomberg / CNBC Style Lower Third Ribbon */}
       <CorporateServicesTicker />
 
-      {/* 2. Client Logos Ticker */}
+      {/* 2. Client Logos Ribbon — Single Line on Desktop, Uniform 2 Lines on Mobile */}
       <SectionFade>
-        <div className="border-y border-slate-300 bg-slate-100 py-10 shadow-inner">
-          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-8 sm:gap-12 px-5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.3em] text-slate-700 sm:px-8 lg:px-10">
-            {clientLogos.map((logo) => (
-              <motion.span
-                key={logo}
-                whileHover={{ color: "#2563EB", scale: 1.05 }}
-                className="opacity-80 hover:opacity-100 cursor-default transition-all"
-              >
-                {logo}
-              </motion.span>
-            ))}
+        <div className="border-y border-slate-200 bg-slate-100/90 py-7 shadow-inner">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+            {/* Desktop View: Strictly 1 Single Horizontal Line */}
+            <div className="hidden lg:flex items-center justify-between gap-4 whitespace-nowrap text-xs font-extrabold uppercase tracking-[0.25em] text-slate-700">
+              {clientLogos.map((logo, index) => (
+                <div key={logo} className="flex items-center gap-4">
+                  <motion.span
+                    whileHover={{ color: "#10B981", scale: 1.05 }}
+                    className="opacity-85 hover:opacity-100 cursor-default transition-all"
+                  >
+                    {logo}
+                  </motion.span>
+                  {index < clientLogos.length - 1 && (
+                    <span className="text-[#10B981] font-bold text-xs select-none">◆</span>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Phone & Tablet View: Uniform 2 Lines (3 items per line) */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-center lg:hidden text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-slate-700">
+              {clientLogos.map((logo) => (
+                <motion.div
+                  key={logo}
+                  whileHover={{ color: "#10B981" }}
+                  className="px-3 py-2 rounded-xl bg-white/80 border border-slate-200/90 shadow-sm flex items-center justify-center text-center font-bold"
+                >
+                  <span>{logo}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </SectionFade>
