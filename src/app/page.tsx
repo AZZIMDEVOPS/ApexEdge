@@ -14,7 +14,7 @@ import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
 import { CorporateServicesTicker } from "@/components/CorporateServicesTicker";
 import { ConsultationModal } from "@/components/ConsultationModal";
 import { ApexAIAssistant } from "@/components/ApexAIAssistant";
-import { TypewriterText } from "@/components/TypewriterText";
+import { WordFlipText } from "@/components/WordFlipText";
 
 const clientLogos = ["Private Companies", "Public Entities", "State Corporations", "Banks", "Insurance Firms", "Microfinance Institutions"];
 
@@ -48,15 +48,17 @@ export default function Home() {
         {/* Ambient Radial Glow Nodes (z-2) */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-2 overflow-hidden">
           <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-blue-600/25 via-blue-500/10 to-transparent rounded-full filter blur-3xl opacity-60 animate-pulse" />
-          <div className="absolute top-10 -right-20 w-[500px] h-[500px] bg-gradient-to-br from-amber-500/15 to-transparent rounded-full filter blur-3xl opacity-40" />
+        {/* Subtle Background Glow & Radial Ambient Lighting */}
+        <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-gradient-to-tr from-blue-900/30 via-indigo-950/20 to-emerald-950/20 rounded-full blur-[140px]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(7,28,63,0.5)_0%,rgba(2,6,23,0.95)_100%)]" />
         </div>
 
-        {/* Hero Main Content Container (z-10 relative) */}
-        <div className="container mx-auto px-4 flex flex-col items-center text-center max-w-5xl z-10 relative">
+        <div className="mx-auto max-w-5xl px-5 text-center sm:px-8 lg:px-10 z-10">
           
-          {/* Trust Badge Pill with Frosted Glassmorphism & Entrance Scale Animation */}
+          {/* Executive Sub-badge */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: -10 }}
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, type: "spring", stiffness: 120 }}
             whileHover={{ scale: 1.05 }}
@@ -66,7 +68,7 @@ export default function Home() {
             <span>Your Partner in Business Success</span>
           </motion.div>
 
-          {/* Main Heading with Pro Dynamic Typewriter Effect */}
+          {/* Main Heading with Pro 3D Vertical Slide & Blur Flip Effect */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -77,7 +79,7 @@ export default function Home() {
             Trusted HR, Legal &{" "}
             <br />
             <span className="block sm:inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-emerald-400 min-h-[1.35em] py-1">
-              <TypewriterText
+              <WordFlipText
                 words={[
                   "Governance Advisory",
                   "Company Secretarial",
@@ -86,9 +88,7 @@ export default function Home() {
                   "Systems Setup",
                   "Immigration Services",
                 ]}
-                typingSpeed={140}
-                deletingSpeed={70}
-                pauseDuration={3000}
+                interval={3200}
               />
             </span>{" "}
             <br className="hidden sm:inline" />
