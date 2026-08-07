@@ -3,12 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Award, Zap, ChevronRight, Phone, Sparkles } from "lucide-react";
-import { ApexEdgeLogo } from "@/components/ApexEdgeLogo";
+import { Sparkles } from "lucide-react";
 import { SectionFade } from "@/components/SectionFade";
 import { WhatsAppPopUI } from "@/components/WhatsAppPopUI";
 import { Services3DExplodedView } from "@/components/Services3DExplodedView";
-import { CoreValuesInteractive } from "@/components/CoreValuesInteractive";
 import { FoundationShowcase } from "@/components/FoundationShowcase";
 import { InteractiveKnowledgeCentre } from "@/components/InteractiveKnowledgeCentre";
 import { CorporateFooter } from "@/components/CorporateFooter";
@@ -17,29 +15,8 @@ import { CorporateServicesTicker } from "@/components/CorporateServicesTicker";
 import { ConsultationModal } from "@/components/ConsultationModal";
 import { ApexAIAssistant } from "@/components/ApexAIAssistant";
 import { TypewriterText } from "@/components/TypewriterText";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 
 const clientLogos = ["Private Companies", "Public Entities", "State Corporations", "Banks", "Insurance Firms", "Microfinance Institutions"];
-
-const faqs = [
-  {
-    question: "What services does ApexEdge Advisory Limited offer?",
-    answer: "We provide company secretarial, corporate governance, legal services, HR advisory, systems setup, immigration services, and business advisory across Kenya.",
-  },
-  {
-    question: "What is ApexEdge's approach to service delivery?",
-    answer: "We deliver tailored, high-quality solutions with precision, compliance, and client satisfaction at the core, ensuring seamless communication and consistent results.",
-  },
-  {
-    question: "Who are your typical clients?",
-    answer: "We serve private companies, public entities, state corporations, financial institutions, insurance firms, and micro-financial institutions of all sizes.",
-  },
-  {
-    question: "How can I contact ApexEdge Advisory Limited?",
-    answer: "Email us at info@apexedge.co.ke or call +254 117 471344. Our office is located in Nairobi, Kenya.",
-  },
-];
 
 export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);

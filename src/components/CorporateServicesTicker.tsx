@@ -6,23 +6,24 @@ import {
   Building2,
   Scale,
   Users,
-  FileCheck,
+  ClipboardCheck,
   TrendingUp,
   ShieldCheck,
-  Globe,
+  Globe2,
   Briefcase,
-  Settings,
+  Cpu,
   Monitor,
   Handshake,
   BarChart3,
   FileText,
   Building,
   Rocket,
+  LucideIcon,
 } from "lucide-react";
 
 export interface TickerService {
   id: string;
-  icon: any;
+  icon: LucideIcon;
   name: string;
   desc: string;
   targetHref: string;
@@ -52,7 +53,7 @@ const TICKER_SERVICES: TickerService[] = [
   },
   {
     id: "sec",
-    icon: FileCheck,
+    icon: ClipboardCheck,
     name: "Company Secretarial",
     desc: "BRS filings, annual returns, board documentation, and statutory registers maintenance.",
     targetHref: "#services",
@@ -73,7 +74,7 @@ const TICKER_SERVICES: TickerService[] = [
   },
   {
     id: "immig",
-    icon: Globe,
+    icon: Globe2,
     name: "Immigration Services",
     desc: "Class D, G, K work permits, special passes, alien IDs, and expatriate support.",
     targetHref: "#services",
@@ -87,7 +88,7 @@ const TICKER_SERVICES: TickerService[] = [
   },
   {
     id: "opt",
-    icon: Settings,
+    icon: Cpu,
     name: "Business Process Optimization",
     desc: "Streamlining operational workflows and enhancing organizational efficiency.",
     targetHref: "#services",

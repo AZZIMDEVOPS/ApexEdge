@@ -5,17 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Zap,
   Award,
-  ShieldCheck,
-  Target,
-  Users,
-  RefreshCw,
   X,
-  CheckCircle2,
-  MessageCircle,
   Sparkles,
-  ArrowRight,
-  Compass,
-  Eye,
   HeartHandshake,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -57,7 +48,6 @@ const CORE_VALUES_LIST: ValueDetail[] = [
 
 export function FoundationShowcase() {
   const [selectedValue, setSelectedValue] = useState<ValueDetail | null>(null);
-  const [activeTabModal, setActiveTabModal] = useState<"mission" | "vision" | "values" | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -134,7 +124,7 @@ export function FoundationShowcase() {
           className="grid gap-8 lg:grid-cols-3"
         >
           {/* Card 1: Our Mission */}
-          <motion.div variants={itemVariants} onClick={() => setActiveTabModal("mission")} className="perspective">
+          <motion.div variants={itemVariants} className="perspective">
             <Card className="relative overflow-hidden rounded-[2rem] border border-slate-800 bg-gradient-to-br from-[#071C3F] via-slate-900 to-[#071C3F] text-white shadow-xl hover:shadow-2xl hover:border-[#C9A227]/70 transition-all duration-500 cursor-pointer group flex flex-col justify-between h-full hover:-translate-y-2.5">
               
               {/* Metallic Gold Animated Top Accent Line */}
@@ -173,7 +163,7 @@ export function FoundationShowcase() {
           </motion.div>
 
           {/* Card 2: Our Vision */}
-          <motion.div variants={itemVariants} onClick={() => setActiveTabModal("vision")} className="perspective">
+          <motion.div variants={itemVariants} className="perspective">
             <Card className="relative overflow-hidden rounded-[2rem] border border-slate-800 bg-gradient-to-br from-[#071C3F] via-slate-900 to-[#071C3F] text-white shadow-xl hover:shadow-2xl hover:border-blue-500/70 transition-all duration-500 cursor-pointer group flex flex-col justify-between h-full hover:-translate-y-2.5">
               
               {/* Top Accent Line */}
@@ -254,13 +244,10 @@ export function FoundationShowcase() {
                 </div>
 
                 <div className="pt-4 border-t border-slate-800">
-                  <button
-                    onClick={() => setActiveTabModal("values")}
-                    className="inline-flex items-center gap-2 text-sm font-extrabold text-[#C9A227] hover:gap-3.5 transition-all"
-                  >
-                    <span>View All Value Standards</span>
+                  <div className="inline-flex items-center gap-2 text-sm font-extrabold text-[#C9A227] group-hover:gap-3.5 transition-all">
+                    <span>View Value Standards Above</span>
                     <span>→</span>
-                  </button>
+                  </div>
                 </div>
               </CardContent>
             </Card>

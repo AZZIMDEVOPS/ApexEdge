@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Calendar, Sparkles } from "lucide-react";
+import { Phone, Calendar } from "lucide-react";
 import { ApexEdgeLogo } from "@/components/ApexEdgeLogo";
 import { Button } from "@/components/ui/button";
 

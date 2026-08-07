@@ -11,11 +11,6 @@ import {
   X,
   CheckCircle2,
   Building2,
-  Scale,
-  Users,
-  FileCheck,
-  Globe,
-  TrendingUp,
   HelpCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -129,8 +124,6 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
   const [askedQuestion, setAskedQuestion] = useState("");
   const [askedEmail, setAskedEmail] = useState("");
   const [askSubmitted, setAskSubmitted] = useState(false);
-
-  const activeFaq = FAQ_DATA.find((f) => f.id === openFaqId) || FAQ_DATA[0];
 
   const filteredFaqs = FAQ_DATA.filter(
     (faq) =>
