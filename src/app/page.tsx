@@ -225,9 +225,6 @@ export default function Home() {
       {/* Consultation / Clarity Session Booking Modal */}
       <ConsultationModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
 
-      {/* Floating WhatsApp UI */}
-      <WhatsAppPopUI />
-
       {/* APEX Executive AI Advisory Assistant */}
       <ApexAIAssistant onOpenBooking={() => setIsBookingOpen(true)} />
     </main>

@@ -161,7 +161,6 @@ export default function AboutPage() {
 
       <CorporateFooter />
       <ConsultationModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
-      <WhatsAppPopUI />
       <ApexAIAssistant onOpenBooking={() => setIsBookingOpen(true)} />
     </main>
   );
