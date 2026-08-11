@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Clock, CheckCircle2, ShieldCheck, Building } from "lucide-react";
+import { X, Clock, CheckCircle2, ShieldCheck, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ConsultationModalProps {
@@ -12,14 +12,15 @@ interface ConsultationModalProps {
 
 export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
   const [consultType, setConsultType] = useState<"virtual" | "in-person">("virtual");
-  const [service, setService] = useState("Company Secretarial");
+  const [category, setCategory] = useState("Governance & Risk");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("10:00 AM");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
-  const [message, setMessage] = useState("");
+  const [role, setRole] = useState("CEO / Managing Director");
+  const [challenge, setChallenge] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -72,11 +73,11 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                   <div>
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] text-xs font-bold uppercase tracking-wider mb-2">
                       <ShieldCheck className="w-3.5 h-3.5" />
-                      Executive Advisory
+                      45-Minute Advisory Diagnostic
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-black text-white">Book a Consultation</h3>
+                    <h3 className="text-2xl sm:text-3xl font-black text-white">Book Your Clarity Session</h3>
                     <p className="text-sm text-slate-300 mt-1">
-                      Schedule a private strategy discussion with an ApexEdge Senior Partner.
+                      Bring us one organizational challenge. We will help you diagnose the root cause and receive a One-Page Action Map.
                     </p>
                   </div>
 
@@ -93,7 +94,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                         }`}
                       >
                         <Clock className="w-4 h-4" />
-                        <span>Virtual (Teams / Zoom)</span>
+                        <span>Virtual Session (Zoom/Teams)</span>
                       </button>
                       <button
                         type="button"
@@ -104,60 +105,78 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                             : "bg-slate-950/60 border-slate-800 text-slate-300 hover:border-slate-700"
                         }`}
                       >
-                        <Building className="w-4 h-4" />
+                        <MapPin className="w-4 h-4" />
                         <span>In-Person (Nairobi HQ)</span>
                       </button>
                     </div>
 
-                    {/* Service & Preferred Date/Time */}
+                    {/* Outcome Category & Role */}
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div>
                         <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
-                          Practice Service
+                          Primary Outcome Area
                         </label>
                         <select
-                          value={service}
-                          onChange={(e) => setService(e.target.value)}
+                          value={category}
+                          onChange={(e) => setCategory(e.target.value)}
                           className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white focus:border-[#10B981] focus:outline-none"
                         >
-                          <option value="Company Secretarial">Company Secretarial</option>
-                          <option value="Corporate Governance">Corporate Governance</option>
-                          <option value="Legal & Regulatory Advisory">Legal &amp; Regulatory Advisory</option>
-                          <option value="HR Advisory">HR Advisory</option>
-                          <option value="Business Registration">Business Registration</option>
-                          <option value="Immigration & Work Permits">Immigration &amp; Work Permits</option>
-                          <option value="Digital Business Solutions">Digital Business Solutions</option>
+                          <option value="Governance & Risk">01 Governance &amp; Risk</option>
+                          <option value="People & Performance">02 People &amp; Performance</option>
+                          <option value="Controls & Policies">03 Controls &amp; Policies</option>
+                          <option value="Leadership & Capability">04 Leadership &amp; Capability</option>
+                          <option value="Board Advisory Sprint">Board-Ready Risk Sprint</option>
+                          <option value="Governance Health Check">Governance Health Check</option>
                         </select>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-2">
-                        <div>
-                          <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
-                            Date
-                          </label>
-                          <input
-                            type="date"
-                            required
-                            value={date}
-                            onChange={(e) => setDate(e.target.value)}
-                            className="w-full rounded-xl bg-slate-950 border border-slate-800 px-3 py-3 text-xs text-white focus:border-[#10B981] focus:outline-none"
-                          />
-                        </div>
-                        <div>
-                          <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
-                            Time Slot
-                          </label>
-                          <select
-                            value={time}
-                            onChange={(e) => setTime(e.target.value)}
-                            className="w-full rounded-xl bg-slate-950 border border-slate-800 px-2 py-3 text-xs text-white focus:border-[#10B981] focus:outline-none"
-                          >
-                            <option value="09:00 AM">09:00 AM</option>
-                            <option value="11:00 AM">11:00 AM</option>
-                            <option value="02:00 PM">02:00 PM</option>
-                            <option value="04:00 PM">04:00 PM</option>
-                          </select>
-                        </div>
+                      <div>
+                        <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                          Your Role / Title
+                        </label>
+                        <select
+                          value={role}
+                          onChange={(e) => setRole(e.target.value)}
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white focus:border-[#10B981] focus:outline-none"
+                        >
+                          <option value="Board Chair / Member">Board Chair / Board Member</option>
+                          <option value="CEO / Managing Director">CEO / Managing Director</option>
+                          <option value="CFO / Finance Leader">CFO / Finance Director</option>
+                          <option value="HR Director / Head of People">HR Director / Head of HR</option>
+                          <option value="Company Secretary / Legal Counsel">Company Secretary / Legal Counsel</option>
+                          <option value="Senior Executive / Business Unit Head">Senior Executive / BU Head</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Date and Time */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                          Preferred Date
+                        </label>
+                        <input
+                          type="date"
+                          required
+                          value={date}
+                          onChange={(e) => setDate(e.target.value)}
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-3 py-3 text-xs text-white focus:border-[#10B981] focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                          Preferred Time Slot
+                        </label>
+                        <select
+                          value={time}
+                          onChange={(e) => setTime(e.target.value)}
+                          className="w-full rounded-xl bg-slate-950 border border-slate-800 px-2 py-3 text-xs text-white focus:border-[#10B981] focus:outline-none"
+                        >
+                          <option value="09:00 AM">09:00 AM EAT</option>
+                          <option value="11:00 AM">11:00 AM EAT</option>
+                          <option value="02:00 PM">02:00 PM EAT</option>
+                          <option value="04:00 PM">04:00 PM EAT</option>
+                        </select>
                       </div>
                     </div>
 
@@ -172,7 +191,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                           required
                           value={name}
                           onChange={(e) => setName(e.target.value)}
-                          placeholder="Jane Doe"
+                          placeholder="Executive Name"
                           className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
                         />
                       </div>
@@ -185,7 +204,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                           required
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          placeholder="jane@company.co.ke"
+                          placeholder="name@company.co.ke"
                           className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
                         />
                       </div>
@@ -207,13 +226,14 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                       </div>
                       <div>
                         <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
-                          Organization / Company
+                          Organization Name *
                         </label>
                         <input
                           type="text"
+                          required
                           value={company}
                           onChange={(e) => setCompany(e.target.value)}
-                          placeholder="Company Ltd"
+                          placeholder="Organization Name"
                           className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
                         />
                       </div>
@@ -221,13 +241,14 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
 
                     <div>
                       <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
-                        Specific Governance / Legal Requirements
+                        Primary Organisational Challenge *
                       </label>
                       <textarea
+                        required
                         rows={3}
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        placeholder="Briefly describe your advisory requirements..."
+                        value={challenge}
+                        onChange={(e) => setChallenge(e.target.value)}
+                        placeholder="Describe one recurring audit, governance, control or performance challenge you want to solve..."
                         className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
                       />
                     </div>
@@ -235,9 +256,10 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                     <div className="pt-2">
                       <Button
                         type="submit"
-                        className="w-full rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black py-4 text-sm shadow-xl shadow-[#10B981]/20 transition-all"
+                        className="w-full rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black py-4 text-sm shadow-xl shadow-[#10B981]/20 transition-all flex items-center justify-center gap-2"
                       >
-                        Confirm Advisory Reservation
+                        <Calendar className="w-4 h-4" />
+                        <span>Book My 45-Minute Clarity Session →</span>
                       </Button>
                     </div>
                   </form>
@@ -249,16 +271,19 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-2xl font-black text-white">Consultation Reserved</h3>
+                    <h3 className="text-2xl font-black text-white">Clarity Session Reserved</h3>
                     <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
-                      Thank you for contacting ApexEdge Advisory Limited. One of our senior advisors will reach out to confirm your session.
+                      Thank you. An Apex Edge Senior Advisory Partner will confirm your session time and send your meeting invitation within 24 business hours.
                     </p>
+                  </div>
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 max-w-sm mx-auto text-xs text-slate-300 font-medium">
+                    You will receive your customized <strong className="text-[#10B981]">One-Page Action Map</strong> immediately following your session.
                   </div>
                   <Button
                     onClick={handleResetAndClose}
                     className="rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-bold px-8 py-3 text-xs shadow-lg"
                   >
-                    Done
+                    Close Window
                   </Button>
                 </div>
               )}

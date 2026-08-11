@@ -1,17 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  MapPin,
-  Mail,
-  Globe,
-  Phone,
-  Clock,
-  ArrowUp,
-  Send,
-  CheckCircle2,
-} from "lucide-react";
+import { MapPin, Mail, Globe, Phone, Clock, ArrowUp, Send, CheckCircle2, ShieldCheck } from "lucide-react";
 import { ApexEdgeLogo } from "@/components/ApexEdgeLogo";
 import { Button } from "@/components/ui/button";
 
@@ -70,39 +62,23 @@ export function CorporateFooter() {
     }
   };
 
-  const specializations = [
-    "Corporate Governance",
-    "Legal Advisory",
-    "Company Secretarial Services",
-    "HR Consulting",
-    "Business Advisory",
-    "Immigration Services",
-    "Compliance Management",
-    "Technology & Digital Transformation",
-  ];
-
   const quickLinks = [
-    { label: "Home", href: "#" },
-    { label: "About Us", href: "#why-us" },
-    { label: "Our Services", href: "#services" },
-    { label: "Industries", href: "#services" },
-    { label: "Insights", href: "#values" },
-    { label: "Careers", href: "#contact" },
-    { label: "Contact Us", href: "#contact" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms & Conditions", href: "#" },
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Industries", href: "/industries" },
+    { label: "Insights", href: "/insights" },
+    { label: "Careers", href: "/careers" },
+    { label: "Contact", href: "/contact" },
   ];
 
-  const servicesList = [
-    "Corporate Governance",
-    "Legal & Regulatory Advisory",
-    "Company Secretarial",
-    "HR Advisory",
-    "Business Registration",
-    "Immigration & Work Permits",
-    "Strategy & Business Consulting",
-    "Risk & Compliance",
-    "Digital Business Solutions",
+  const practiceCategories = [
+    { label: "01 Governance & Risk", href: "/services#governance-risk" },
+    { label: "02 People & Performance", href: "/services#people-performance" },
+    { label: "03 Controls & Policies", href: "/services#controls-policies" },
+    { label: "04 Leadership & Capability", href: "/services#leadership-capability" },
+    { label: "Board-Ready Risk Sprint", href: "/services#risk-sprint" },
+    { label: "Governance Health Check", href: "/services#governance-check" },
   ];
 
   return (
@@ -117,27 +93,22 @@ export function CorporateFooter() {
         />
       </div>
 
-      {/* Subtle Background Glow & Radial Ambient Lighting */}
-      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-[#10B981]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-3xl" />
-      </div>
-
       {/* Main Footer Content Container */}
       <div className="mx-auto max-w-7xl px-5 pt-20 pb-12 sm:px-8 lg:px-10">
         
-        {/* Newsletter Subscription Section */}
-        <div className="mb-20 rounded-3xl border border-[#10B981]/30 bg-gradient-to-r from-slate-900/90 via-[#071C3F]/95 to-slate-900/90 p-8 sm:p-12 shadow-2xl backdrop-blur-xl">
+        {/* Executive Newsletter Briefings */}
+        <div className="mb-16 rounded-3xl border border-[#10B981]/30 bg-gradient-to-r from-slate-900/90 via-[#071C3F]/95 to-slate-900/90 p-8 sm:p-12 shadow-2xl backdrop-blur-xl">
           <div className="grid gap-8 lg:grid-cols-2 items-center">
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.25em] text-[#10B981]">
-                <span>Executive Insights</span>
+                <ShieldCheck className="w-4 h-4" />
+                <span>Executive Intelligence</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-black text-white">
-                Stay Informed with <span className="text-[#10B981]">Strategic Intelligence</span>
+                Stay Informed with <span className="text-[#10B981]">Board-Level Insights</span>
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Receive curated briefings on corporate governance, legal updates, compliance frameworks, and business strategy in East Africa.
+                Receive curated quarterly briefings on corporate governance, risk frameworks, control systems, and Mwongozo compliance in East Africa.
               </p>
             </div>
             <div>
@@ -169,7 +140,7 @@ export function CorporateFooter() {
                     className="mt-3 flex items-center gap-2 text-xs font-semibold text-emerald-400"
                   >
                     <CheckCircle2 className="h-4 w-4" />
-                    <span>Thank you for subscribing to ApexEdge Advisory insights!</span>
+                    <span>Thank you for subscribing to Apex Edge Advisory insights!</span>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -180,60 +151,52 @@ export function CorporateFooter() {
         {/* 4 Columns Grid */}
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 pb-16">
           
-          {/* Column 1 — Company */}
+          {/* Column 1 — Brand Positioning Statement */}
           <div className="space-y-6">
             <ApexEdgeLogo />
-            <p className="text-slate-300 text-sm leading-relaxed font-normal">
-              Helping businesses build stronger governance, smarter strategies, and sustainable growth through professional advisory solutions.
+            <p className="text-slate-300 text-sm leading-relaxed font-semibold italic border-l-2 border-[#10B981] pl-3 py-1">
+              &ldquo;Apex Edge turns governance, people, control and performance problems into Board-ready systems that leaders can actually use.&rdquo;
             </p>
-            <div className="space-y-3 pt-2">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#10B981]">We Specialize In:</p>
-              <ul className="grid grid-cols-1 gap-2 text-xs text-slate-300">
-                {specializations.map((spec) => (
-                  <li key={spec} className="flex items-center gap-2 hover:text-white transition-colors">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#10B981]" />
-                    <span>{spec}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Serving Boards, CEOs, CFOs, and Senior Executives across Kenya and East Africa.
+            </p>
           </div>
 
           {/* Column 2 — Quick Links */}
           <div className="space-y-6">
-            <h4 className="text-lg font-extrabold text-white border-b border-[#10B981]/30 pb-3">
-              Quick Links
+            <h4 className="text-base font-extrabold text-white border-b border-[#10B981]/30 pb-3 uppercase tracking-wider">
+              Navigation
             </h4>
             <ul className="space-y-2.5 text-sm text-slate-300">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="hover:text-[#10B981] transition-colors flex items-center gap-2 group"
                   >
                     <span className="text-[#10B981] opacity-0 group-hover:opacity-100 transition-opacity">›</span>
                     <span>{link.label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3 — Services */}
+          {/* Column 3 — Practice Architecture */}
           <div className="space-y-6">
-            <h4 className="text-lg font-extrabold text-white border-b border-[#10B981]/30 pb-3">
-              Our Practice Services
+            <h4 className="text-base font-extrabold text-white border-b border-[#10B981]/30 pb-3 uppercase tracking-wider">
+              Practice Areas
             </h4>
             <ul className="space-y-2.5 text-sm text-slate-300">
-              {servicesList.map((service) => (
-                <li key={service}>
-                  <a
-                    href="#services"
-                    className="hover:text-[#10B981] transition-colors flex items-center gap-2 group"
+              {practiceCategories.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="hover:text-[#10B981] transition-colors flex items-center gap-2 group text-xs font-medium"
                   >
                     <span className="text-[#10B981] opacity-0 group-hover:opacity-100 transition-opacity">›</span>
-                    <span>{service}</span>
-                  </a>
+                    <span>{item.label}</span>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -241,49 +204,49 @@ export function CorporateFooter() {
 
           {/* Column 4 — Contact Information */}
           <div className="space-y-6">
-            <h4 className="text-lg font-extrabold text-white border-b border-[#10B981]/30 pb-3">
-              Contact Information
+            <h4 className="text-base font-extrabold text-white border-b border-[#10B981]/30 pb-3 uppercase tracking-wider">
+              Contact &amp; Location
             </h4>
             <div className="space-y-4 text-sm text-slate-300">
-              <p className="font-extrabold text-white text-base">APEXEDGE ADVISORY LIMITED</p>
+              <p className="font-extrabold text-white text-sm">APEXEDGE ADVISORY LIMITED</p>
               
-              <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-[#10B981] shrink-0 mt-0.5" />
-                <span>Nairobi, Kenya</span>
+              <div className="flex items-start gap-3 text-xs">
+                <MapPin className="h-4 w-4 text-[#10B981] shrink-0 mt-0.5" />
+                <span>Nairobi HQ, Kenya</span>
               </div>
               
-              <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-[#10B981] shrink-0" />
+              <div className="flex items-center gap-3 text-xs">
+                <Mail className="h-4 w-4 text-[#10B981] shrink-0" />
                 <a href="mailto:info@apexedge.co.ke" className="hover:text-[#10B981] transition-colors">
                   info@apexedge.co.ke
                 </a>
               </div>
 
-              <div className="flex items-center gap-3">
-                <Globe className="h-5 w-5 text-[#10B981] shrink-0" />
+              <div className="flex items-center gap-3 text-xs">
+                <Globe className="h-4 w-4 text-[#10B981] shrink-0" />
                 <a href="https://www.apexedge.co.ke" target="_blank" rel="noopener noreferrer" className="hover:text-[#10B981] transition-colors">
                   www.apexedge.co.ke
                 </a>
               </div>
 
-              <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-[#10B981] shrink-0" />
-                <a href="tel:+254117471344" className="hover:text-[#10B981] transition-colors font-semibold">
+              <div className="flex items-center gap-3 text-xs">
+                <Phone className="h-4 w-4 text-[#10B981] shrink-0" />
+                <a href="tel:+254117471344" className="hover:text-[#10B981] transition-colors font-bold text-white">
                   +254 117 471344
                 </a>
               </div>
 
               <div className="pt-2 border-t border-slate-800 space-y-1">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#10B981] uppercase tracking-wider">
-                  <Clock className="h-4 w-4" />
-                  <span>Business Hours</span>
+                <div className="flex items-center gap-2 text-[11px] font-bold text-[#10B981] uppercase tracking-wider">
+                  <Clock className="h-3.5 w-3.5" />
+                  <span>Executive Advisory Hours</span>
                 </div>
-                <p className="text-xs text-slate-300">Monday – Friday: 8:00 AM – 5:00 PM</p>
+                <p className="text-xs text-slate-300">Monday – Friday: 8:00 AM – 5:00 PM EAT</p>
               </div>
 
               {/* Social Icons */}
-              <div className="pt-3">
-                <p className="text-xs font-bold uppercase tracking-wider text-[#10B981] mb-3">Connect With Us</p>
+              <div className="pt-2">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-[#10B981] mb-2.5">Connect With Us</p>
                 <div className="flex items-center gap-3">
                   {[
                     { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
@@ -308,33 +271,26 @@ export function CorporateFooter() {
           </div>
         </div>
 
-        {/* Bottom Bar with Emerald Divider */}
+        {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#10B981]/30 text-xs text-slate-400">
           <div className="flex flex-col gap-4 sm:flex-row items-center justify-between text-center sm:text-left">
-            
-            {/* Left */}
             <div>
               <p>© 2026 ApexEdge Advisory Limited. All Rights Reserved.</p>
             </div>
-
-            {/* Center */}
-            <div className="font-semibold text-slate-300">
-              <span>Professional Advisory • Corporate Governance • Legal • HR • Strategy</span>
+            <div className="font-semibold text-slate-300 text-[11px]">
+              <span>Board-Ready Systems • Corporate Governance • Controls • People &amp; Performance</span>
             </div>
-
-            {/* Right */}
             <div>
               <p>
-                Concept &amp; Developed by{" "}
+                Developed by{" "}
                 <a
                   href="https://regnl.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-extrabold text-[#10B981] hover:underline hover:text-emerald-300 transition-colors"
+                  className="font-extrabold text-[#10B981] hover:underline transition-colors"
                 >
                   ReGNL
                 </a>
-                . © 2026
               </p>
             </div>
           </div>

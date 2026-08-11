@@ -3,264 +3,232 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
-import { SectionFade } from "@/components/SectionFade";
-import { WhatsAppPopUI } from "@/components/WhatsAppPopUI";
-import { Services3DExplodedView } from "@/components/Services3DExplodedView";
-import { FoundationShowcase } from "@/components/FoundationShowcase";
-import { InteractiveKnowledgeCentre } from "@/components/InteractiveKnowledgeCentre";
-import { CorporateFooter } from "@/components/CorporateFooter";
+import { Sparkles, Calendar, ArrowRight, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
-import { CorporateServicesTicker } from "@/components/CorporateServicesTicker";
+import { DoesThisSoundFamiliar } from "@/components/DoesThisSoundFamiliar";
+import { ConnectedProblemsVisual } from "@/components/ConnectedProblemsVisual";
+import { BeforeAfterTransformation } from "@/components/BeforeAfterTransformation";
+import { SystemsNotReports } from "@/components/SystemsNotReports";
+import { ExecutiveServicesArchitecture } from "@/components/ExecutiveServicesArchitecture";
+import { SignatureEngagements } from "@/components/SignatureEngagements";
+import { AdvisoryMethodology } from "@/components/AdvisoryMethodology";
+import { WhyApexEdgeSection } from "@/components/WhyApexEdgeSection";
+import { TangibleOutputsShowcase } from "@/components/TangibleOutputsShowcase";
+import { VerifiedCaseSnapshots } from "@/components/VerifiedCaseSnapshots";
+import { DedicatedBoardSection } from "@/components/DedicatedBoardSection";
+import { ClaritySessionSection } from "@/components/ClaritySessionSection";
+import { ExecutiveFinalCTA } from "@/components/ExecutiveFinalCTA";
+import { CorporateFooter } from "@/components/CorporateFooter";
 import { ConsultationModal } from "@/components/ConsultationModal";
 import { ApexAIAssistant } from "@/components/ApexAIAssistant";
-import { WordFlipText } from "@/components/WordFlipText";
+import { WhatsAppPopUI } from "@/components/WhatsAppPopUI";
+import { CorporateServicesTicker } from "@/components/CorporateServicesTicker";
+import { Button } from "@/components/ui/button";
 
-const clientLogos = ["Private Companies", "Public Entities", "State Corporations", "Banks", "Insurance Firms", "Microfinance Institutions"];
+const clientLogos = [
+  "Private Companies",
+  "Public Entities",
+  "State Corporations",
+  "Banks & Financial Institutions",
+  "Insurance Firms",
+  "Microfinance Institutions",
+];
 
 export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
+  const handleScrollToMethodology = () => {
+    const el = document.getElementById("services");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <main className="min-h-screen bg-slate-950 text-slate-900 selection:bg-[#10B981] selection:text-[#071C3F]">
       
-      {/* Executive Header Navigation */}
+      {/* 1. Header Navigation */}
       <ExecutiveHeaderNav onOpenBooking={() => setIsBookingOpen(true)} />
 
-      {/* 1. Hero Section - Real Nairobi Twilight Skyline Backdrop with Pro Typing & Motion Edits */}
-      <section className="relative w-full min-h-screen flex flex-col items-center justify-center pt-24 pb-16 bg-slate-950 text-white overflow-hidden">
+      {/* 2. HERO SECTION — BOARD-READY CLARITY POSITIONING */}
+      <section className="relative w-full min-h-[92vh] flex flex-col items-center justify-center pt-24 pb-20 bg-slate-950 text-white overflow-hidden border-b border-slate-800">
         
-        {/* Real Nairobi Twilight Skyline Background Image Layer (z-0) */}
+        {/* Nairobi Twilight Skyline Backdrop */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
           <Image
             src="/nairobi_hero_twilight.jpg"
-            alt="Nairobi Twilight Skyline Background"
+            alt="Nairobi Corporate Twilight Skyline — Apex Edge Executive Backdrop"
             fill
             sizes="100vw"
             priority
-            className="object-cover object-center scale-105 opacity-65 filter brightness-105 contrast-115 saturate-120"
+            className="object-cover object-center scale-105 opacity-55 filter brightness-105 contrast-115"
           />
         </div>
 
-        {/* Pro Gradient Vignette & Blend Layer (z-1) */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none z-1 bg-gradient-to-b from-slate-950/85 via-slate-950/40 to-slate-950" />
-        <div className="absolute inset-0 w-full h-full pointer-events-none z-1 bg-[radial-gradient(ellipse_at_center,rgba(15,23,42,0.35)_0%,rgba(2,6,23,0.75)_70%,rgba(2,6,23,0.95)_100%)]" />
+        {/* Cinematic Deep Navy Vignette & Overlay */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-1 bg-gradient-to-b from-[#071C3F]/90 via-slate-950/70 to-slate-950" />
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-1 bg-[radial-gradient(ellipse_at_center,rgba(7,28,63,0.4)_0%,rgba(2,6,23,0.85)_70%,rgba(2,6,23,0.98)_100%)]" />
 
-        {/* Ambient Radial Glow Nodes */}
+        {/* Ambient Atmospheric Cyan & Emerald Glow */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-2 overflow-hidden">
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-blue-600/25 via-blue-500/10 to-transparent rounded-full filter blur-3xl opacity-60 animate-pulse" />
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-gradient-to-tr from-blue-900/30 via-indigo-950/20 to-emerald-950/20 rounded-full blur-[140px]" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/20 via-[#10B981]/10 to-transparent rounded-full blur-3xl opacity-70 animate-pulse" />
         </div>
 
-        <div className="mx-auto max-w-5xl px-5 text-center sm:px-8 lg:px-10 z-10">
+        <div className="mx-auto max-w-5xl px-5 text-center sm:px-8 lg:px-10 z-10 space-y-8">
           
-          {/* Executive Sub-badge */}
+          {/* Eyebrow Badge */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.9, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, type: "spring", stiffness: 120 }}
-            whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-slate-950/80 border border-blue-500/40 text-blue-300 text-sm font-bold mb-8 backdrop-blur-xl shadow-[0_10px_30px_rgba(37,99,235,0.3)]"
+            transition={{ duration: 0.7 }}
+            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#071C3F]/90 border border-blue-500/40 text-blue-300 text-xs sm:text-sm font-black uppercase tracking-[0.25em] backdrop-blur-xl shadow-xl"
           >
-            <Sparkles className="w-4 h-4 text-emerald-400 animate-spin" style={{ animationDuration: "8s" }} />
-            <span>Your Partner in Business Success</span>
+            <ShieldCheck className="w-4 h-4 text-[#10B981]" />
+            <span>STRATEGIC ADVISORY. MEASURABLE IMPACT.</span>
           </motion.div>
 
-          {/* Main Heading with Pro 3D Vertical Slide & Blur Flip Effect */}
+          {/* H1 Heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.9 }}
-            className="text-3xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white mb-8 leading-tight drop-shadow-2xl"
-            style={{ textShadow: "0 4px 50px rgba(2,6,23,0.95)" }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] drop-shadow-2xl"
           >
-            Trusted HR, Legal &{" "}
-            <br />
-            <span className="block sm:inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-emerald-400 min-h-[1.35em] py-1">
-              <WordFlipText
-                words={[
-                  "Governance Advisory",
-                  "Company Secretarial",
-                  "Legal Compliance",
-                  "HR Advisory",
-                  "Systems Setup",
-                  "Immigration Services",
-                ]}
-                interval={3200}
-              />
-            </span>{" "}
-            <br className="hidden sm:inline" />
-            in Kenya.
+            From Operational Noise to <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-[#10B981]">
+              Board-Ready Clarity.
+            </span>
           </motion.h1>
 
-          {/* Glassmorphism Subheadline Blurb */}
+          {/* Subheadline & Audience Statement Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="rounded-2xl border border-slate-800/90 bg-slate-950/70 p-5 sm:p-6 backdrop-blur-md max-w-3xl mb-10 shadow-2xl"
+            className="rounded-3xl border border-slate-800 bg-[#071C3F]/80 p-6 sm:p-8 backdrop-blur-xl max-w-4xl mx-auto shadow-2xl space-y-4"
           >
-            <p className="text-lg md:text-xl text-slate-100 font-normal leading-relaxed">
-              ApexEdge Advisory Limited delivers tailored company secretarial, legal services, HR advisory, corporate governance, and business solutions to drive your business excellence and compliance.
+            <p className="text-base sm:text-xl text-slate-100 font-medium leading-relaxed">
+              We help Boards and leadership teams identify hidden risks, strengthen controls and turn recurring organisational problems into clear actions, accountable owners and measurable results.
             </p>
+
+            <div className="pt-3 border-t border-slate-800/80 text-xs sm:text-sm text-slate-300 font-semibold flex items-center justify-center gap-2">
+              <span className="text-[#10B981]">Audience Focus:</span>
+              <span>Built for Boards, CEOs, Finance Leaders, HR Leaders and organisations navigating growth, governance and performance challenges.</span>
+            </div>
           </motion.div>
 
-          {/* WhatsApp CTA Action */}
+          {/* Primary & Secondary CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
+            className="flex flex-wrap items-center justify-center gap-4 pt-2"
           >
-            <WhatsAppPopUI />
+            <Button
+              onClick={() => setIsBookingOpen(true)}
+              className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-full px-8 py-4 text-sm sm:text-base shadow-2xl shadow-[#10B981]/30 flex items-center gap-2.5 transition-all hover:scale-105"
+            >
+              <Calendar className="w-5 h-5" />
+              <span>Book Your Clarity Session →</span>
+            </Button>
+
+            <Button
+              onClick={handleScrollToMethodology}
+              variant="outline"
+              className="border-slate-700 bg-slate-900/80 text-slate-200 hover:bg-slate-800 hover:text-white font-bold rounded-full px-7 py-4 text-sm flex items-center gap-2 transition-all"
+            >
+              <span>See How Apex Edge Works</span>
+              <ArrowRight className="w-4 h-4 text-[#10B981]" />
+            </Button>
           </motion.div>
 
-          {/* Social Proof Bar */}
+          {/* Small Reassurance */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.1, duration: 0.7 }}
-            className="mt-14 flex flex-wrap justify-center items-center gap-6 text-sm text-slate-200 bg-slate-950/80 border border-slate-800/90 px-6 py-3 rounded-full backdrop-blur-xl shadow-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="pt-2 text-xs font-semibold text-slate-300 flex items-center justify-center gap-2"
           >
-            <div className="flex -space-x-3">
-              {[1, 2, 3].map((i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ scale: 1.2, zIndex: 10 }}
-                  className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-emerald-500 border-2 border-slate-950 shadow-md cursor-pointer"
-                />
-              ))}
-            </div>
-            <p className="font-semibold text-slate-100">Trusted by 500+ top companies across Kenya</p>
+            <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
+            <span>No retainer. No open-ended engagement. Start with one challenge.</span>
           </motion.div>
         </div>
       </section>
 
-      {/* Corporate Services Ticker - Bloomberg / CNBC Style Lower Third Ribbon */}
+      {/* CNBC Style Lower Ribbon */}
       <CorporateServicesTicker />
 
-      {/* 2. Client Logos Ribbon — Single Line on Desktop, Uniform 2 Lines on Mobile */}
-      <SectionFade>
-        <div className="border-y border-slate-200 bg-slate-100/90 py-7 shadow-inner">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-            {/* Desktop View: Strictly 1 Single Horizontal Line */}
-            <div className="hidden lg:flex items-center justify-between gap-4 whitespace-nowrap text-xs font-extrabold uppercase tracking-[0.25em] text-slate-700">
-              {clientLogos.map((logo, index) => (
-                <div key={logo} className="flex items-center gap-4">
-                  <motion.span
-                    whileHover={{ color: "#10B981", scale: 1.05 }}
-                    className="opacity-85 hover:opacity-100 cursor-default transition-all"
-                  >
-                    {logo}
-                  </motion.span>
-                  {index < clientLogos.length - 1 && (
-                    <span className="text-[#10B981] font-bold text-xs select-none">◆</span>
-                  )}
-                </div>
-              ))}
-            </div>
+      {/* 3. TRUST / CREDIBILITY SECTION */}
+      <section className="border-y border-slate-800 bg-[#071C3F] py-10">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-5">
+          <div className="text-center">
+            <h3 className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#10B981]">
+              Built for organisations where decisions, controls and accountability matter.
+            </h3>
+          </div>
 
-            {/* Phone & Tablet View: Uniform 2 Lines (3 items per line) */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-center lg:hidden text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-slate-700">
-              {clientLogos.map((logo) => (
-                <motion.div
-                  key={logo}
-                  whileHover={{ color: "#10B981" }}
-                  className="px-3 py-2 rounded-xl bg-white/80 border border-slate-200/90 shadow-sm flex items-center justify-center text-center font-bold"
-                >
-                  <span>{logo}</span>
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center text-xs font-extrabold uppercase tracking-wider text-slate-300">
+            {clientLogos.map((logo) => (
+              <div
+                key={logo}
+                className="px-4 py-3 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-center text-center font-bold hover:border-[#10B981]/50 hover:text-white transition-colors"
+              >
+                <span>{logo}</span>
+              </div>
+            ))}
           </div>
         </div>
-      </SectionFade>
-
-      {/* 3. Services Section - Practice Areas with Interactive Modal Popup */}
-      <section id="services" className="bg-slate-50 py-24 sm:py-32 text-slate-900 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-          <SectionFade>
-            <div className="mb-16 text-center">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-xs font-extrabold uppercase tracking-[0.25em] mb-4"
-              >
-                Comprehensive Solutions
-              </motion.div>
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="text-4xl sm:text-5xl font-black tracking-tight text-slate-950"
-              >
-                Our Core Practice Areas
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="mt-4 max-w-2xl mx-auto text-lg text-slate-600 leading-relaxed font-normal"
-              >
-                We empower organizations with top-tier, comprehensive solutions that enhance business performance, navigate legal complexities, and foster sustainable growth. Click any module below to open detailed section information.
-              </motion.p>
-            </div>
-            <Services3DExplodedView />
-          </SectionFade>
-        </div>
       </section>
 
-      {/* 4. Enterprise Infrastructure Showcase Section */}
-      <section className="bg-slate-950 py-20 text-white">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-          <SectionFade>
-            <div className="relative overflow-hidden rounded-[2.5rem] border border-blue-500/30 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-8 sm:p-12 shadow-2xl">
-              <div className="grid gap-8 lg:grid-cols-2 items-center">
-                <div className="space-y-6">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    Enterprise Infrastructure
-                  </div>
-                  <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
-                    Driving Corporate Excellence Across <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Kenya &amp; Beyond</span>
-                  </h2>
-                  <p className="text-slate-300 leading-relaxed text-base sm:text-lg">
-                    Connecting corporations, financial institutions, and public entities with cutting-edge governance, legal secretarial expertise, and digital-first advisory solutions.
-                  </p>
-                </div>
-                <div className="relative h-72 sm:h-96 w-full overflow-hidden rounded-2xl border border-emerald-500/40 shadow-2xl group">
-                  <Image
-                    src="/nairobi_enterprise_skyline.jpg"
-                    alt="Nairobi Upper Hill GTC & Britam Skyscrapers Aerial Skyline — Kenya Corporate Infrastructure"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover object-center transform group-hover:scale-105 transition-transform duration-700 brightness-105 contrast-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60" />
-                </div>
-              </div>
-            </div>
-          </SectionFade>
-        </div>
-      </section>
+      {/* 4. DOES THIS SOUND FAMILIAR? */}
+      <DoesThisSoundFamiliar />
 
-      {/* 5. Our Foundation: Mission, Vision & Core Values Executive Showcase */}
-      <FoundationShowcase />
+      {/* 5. YOUR PROBLEMS ARE CONNECTED */}
+      <ConnectedProblemsVisual />
 
-      {/* 6. Interactive Executive Knowledge Centre & FAQ */}
-      <InteractiveKnowledgeCentre
-        onOpenBooking={() => setIsBookingOpen(true)}
-      />
+      {/* 6. BEFORE / AFTER TRANSFORMATION */}
+      <BeforeAfterTransformation />
 
-      {/* Executive Corporate Footer */}
+      {/* 7. WE BUILD SYSTEMS, NOT JUST REPORTS */}
+      <SystemsNotReports />
+
+      {/* 8. RESTRUCTURED SERVICES ARCHITECTURE */}
+      <ExecutiveServicesArchitecture />
+
+      {/* 9. SIGNATURE SOLUTIONS ("START WITH ONE CHALLENGE") */}
+      <SignatureEngagements onOpenBooking={() => setIsBookingOpen(true)} />
+
+      {/* 10. ADVISORY METHODOLOGY ("FROM PROBLEM TO PRACTICAL CHANGE") */}
+      <AdvisoryMethodology />
+
+      {/* 11. WHY APEX EDGE */}
+      <WhyApexEdgeSection />
+
+      {/* 12. WHAT YOU WALK AWAY WITH */}
+      <TangibleOutputsShowcase />
+
+      {/* 13. CASE STUDIES / PROOF */}
+      <VerifiedCaseSnapshots />
+
+      {/* 14. DEDICATED BOARD SECTION */}
+      <DedicatedBoardSection onOpenBooking={() => setIsBookingOpen(true)} />
+
+      {/* 15. CLARITY SESSION & RISK REVERSAL */}
+      <ClaritySessionSection onOpenBooking={() => setIsBookingOpen(true)} />
+
+      {/* 16. FINAL CTA */}
+      <ExecutiveFinalCTA onOpenBooking={() => setIsBookingOpen(true)} />
+
+      {/* Executive Footer */}
       <CorporateFooter />
 
-      {/* Consultation Booking Modal */}
+      {/* Consultation / Clarity Session Booking Modal */}
       <ConsultationModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
 
-      {/* APEX Executive Virtual Assistant */}
+      {/* Floating WhatsApp UI */}
+      <WhatsAppPopUI />
+
+      {/* APEX Executive AI Advisory Assistant */}
       <ApexAIAssistant onOpenBooking={() => setIsBookingOpen(true)} />
     </main>
   );
