@@ -18,6 +18,7 @@ import {
   FileText,
   Building,
   Rocket,
+  Lock,
   LucideIcon,
 } from "lucide-react";
 
@@ -31,11 +32,18 @@ export interface TickerService {
 
 const TICKER_SERVICES: TickerService[] = [
   {
+    id: "dp",
+    icon: Lock,
+    name: "Data Protection & Privacy",
+    desc: "Helping organisations protect data, privacy governance, DPIAs, and DPAs compliance.",
+    targetHref: "/services#data-protection",
+  },
+  {
     id: "gov",
     icon: Building2,
     name: "Corporate Governance",
     desc: "Helping organizations strengthen leadership, accountability, and sustainable growth.",
-    targetHref: "#services",
+    targetHref: "/services#governance-risk",
   },
   {
     id: "legal",

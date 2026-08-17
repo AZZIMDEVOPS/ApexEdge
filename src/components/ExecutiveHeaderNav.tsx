@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Calendar, ChevronDown, ArrowRight, ShieldCheck, Users, Sliders, Award, Menu, X } from "lucide-react";
+import { Phone, Calendar, ChevronDown, ArrowRight, ShieldCheck, Users, Sliders, Award, Lock, Menu, X } from "lucide-react";
 import { ApexEdgeLogo } from "@/components/ApexEdgeLogo";
 import { Button } from "@/components/ui/button";
 
@@ -37,6 +37,12 @@ const serviceDropdownItems = [
     href: "/services#leadership-capability",
     icon: Award,
   },
+  {
+    title: "Data Protection & Privacy",
+    desc: "Protect Data. Strengthen Trust. Stay Compliant.",
+    href: "/services#data-protection",
+    icon: Lock,
+  },
 ];
 
 export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
@@ -44,7 +50,8 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  let timeoutId: NodeJS.Timeout;
+  const [hoverIndex, setHoverIndex] = useState<number>(0);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,12 +67,17 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
   }, []);
 
   const handleMouseEnter = () => {
-    clearTimeout(timeoutId);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
     setIsServicesOpen(true);
   };
 
   const handleMouseLeave = () => {
-    timeoutId = setTimeout(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
       setIsServicesOpen(false);
     }, 150);
   };
@@ -104,7 +116,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
             About Us
           </Link>
 
-          {/* Services Dropdown (Persistent on Interaction) */}
+          {/* Practice Areas Dropdown */}
           <div
             className="relative"
             onMouseEnter={handleMouseEnter}
@@ -116,7 +128,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                 pathname.startsWith("/services") ? "text-[#10B981]" : "text-slate-200 hover:text-[#10B981]"
               }`}
             >
-              <span>Services</span>
+              <span>Practice Areas</span>
               <ChevronDown
                 className={`w-4 h-4 transition-transform duration-200 ${
                   isServicesOpen ? "rotate-180 text-[#10B981]" : "text-slate-400"
@@ -127,52 +139,90 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
             <AnimatePresence>
               {isServicesOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                  initial={{ opacity: 0, y: 12, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.98 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-full -left-4 mt-2 w-[380px] rounded-2xl bg-[#071C3F] border border-[#10B981]/40 shadow-2xl p-4 z-50 backdrop-blur-2xl"
+                  className="absolute top-full -left-20 mt-3 w-[680px] rounded-3xl bg-[#071C3F] border border-[#10B981]/40 shadow-2xl p-6 z-50 backdrop-blur-2xl grid grid-cols-12 gap-6"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#10B981] mb-2 px-3">
-                    Outcome-Based Practice Areas
-                  </div>
-                  <div className="space-y-1">
-                    {serviceDropdownItems.map((item) => {
-                      const IconComponent = item.icon;
-                      return (
-                        <Link
-                          key={item.title}
-                          href={item.href}
-                          onClick={() => setIsServicesOpen(false)}
-                          className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-slate-900/90 border border-transparent hover:border-[#10B981]/30 transition-all group/item"
-                        >
-                          <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-[#10B981] group-hover/item:bg-[#10B981] group-hover/item:text-[#071C3F] transition-colors shrink-0">
-                            <IconComponent className="w-4 h-4" />
-                          </div>
-                          <div>
-                            <div className="text-xs font-extrabold text-white group-hover/item:text-[#10B981] transition-colors flex items-center justify-between">
-                              <span>{item.title}</span>
-                              <ArrowRight className="w-3 h-3 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-[#10B981]" />
+                  {/* Left Column (7 Cols) — 5 Practice Areas */}
+                  <div className="col-span-7 space-y-2">
+                    <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#10B981] mb-3 px-2 flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[#10B981]" />
+                      <span>01 TO 05 — EXECUTIVE PRACTICE AREAS</span>
+                    </div>
+                    <div className="space-y-1">
+                      {serviceDropdownItems.map((item, idx) => {
+                        const IconComponent = item.icon;
+                        const isHovered = hoverIndex === idx;
+                        return (
+                          <Link
+                            key={item.title}
+                            href={item.href}
+                            onMouseEnter={() => setHoverIndex(idx)}
+                            onClick={() => setIsServicesOpen(false)}
+                            className={`flex items-center gap-3 p-2.5 rounded-xl border transition-all group/item ${
+                              isHovered
+                                ? "bg-slate-900 border-[#10B981]/50 text-[#10B981]"
+                                : "border-transparent text-slate-200 hover:bg-slate-900/60"
+                            }`}
+                          >
+                            <span className="text-[10px] font-black text-[#10B981] px-2 py-0.5 rounded-md bg-[#10B981]/15">
+                              0{idx + 1}
+                            </span>
+                            <div className="p-1.5 rounded-lg bg-emerald-500/10 text-[#10B981] shrink-0">
+                              <IconComponent className="w-4 h-4" />
                             </div>
-                            <p className="text-[11px] text-slate-300 leading-snug mt-0.5 font-normal">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </Link>
-                      );
-                    })}
+                            <div className="flex-1">
+                              <div className="text-xs font-black text-white group-hover/item:text-[#10B981] transition-colors flex items-center justify-between">
+                                <span>{item.title}</span>
+                                <ArrowRight className="w-3 h-3 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-[#10B981]" />
+                              </div>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
-                  <div className="mt-3 pt-3 border-t border-slate-800 px-3 flex items-center justify-between">
-                    <Link
-                      href="/services"
-                      onClick={() => setIsServicesOpen(false)}
-                      className="text-xs font-bold text-[#10B981] hover:underline flex items-center gap-1"
-                    >
-                      <span>Explore All Services</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
+
+                  {/* Right Column (5 Cols) — Live Interactive Preview Card */}
+                  <div className="col-span-5 rounded-2xl bg-slate-900/90 border border-slate-800 p-5 flex flex-col justify-between space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 text-[#10B981] text-[10px] font-black uppercase tracking-wider">
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                        <span>PRACTICE OVERVIEW</span>
+                      </div>
+                      <h4 className="text-sm font-black text-white">
+                        {serviceDropdownItems[hoverIndex]?.title || "Governance & Risk"}
+                      </h4>
+                      <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                        {serviceDropdownItems[hoverIndex]?.desc || "Give Your Board Clearer Visibility of Risk and Performance."}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-slate-800 space-y-2">
+                      <div className="text-[10px] font-extrabold text-[#10B981] uppercase tracking-wider">
+                        Core Client Deliverable:
+                      </div>
+                      <div className="text-xs font-semibold text-slate-100 bg-slate-950 px-3 py-2 rounded-lg border border-slate-800">
+                        {hoverIndex === 0 && "Board-Ready Risk Register & Heat Map"}
+                        {hoverIndex === 1 && "Job Grading Matrix & Performance Scorecard"}
+                        {hoverIndex === 2 && "Financial SOPs & Approval Frameworks"}
+                        {hoverIndex === 3 && "90-Day Executive Execution Roadmap"}
+                        {hoverIndex === 4 && "Data Inventories & DPIA Compliance Packs"}
+                      </div>
+
+                      <Link
+                        href={serviceDropdownItems[hoverIndex]?.href || "/services"}
+                        onClick={() => setIsServicesOpen(false)}
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#10B981] hover:underline pt-1"
+                      >
+                        <span>Explore Practice Area</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
                   </div>
                 </motion.div>
               )}

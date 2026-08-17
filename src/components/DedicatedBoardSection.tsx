@@ -1,9 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Landmark, ArrowRight, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Landmark, ShieldCheck, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
+import { Governance3DIcon } from "@/components/icons/PracticeArea3DIcons";
 
 interface DedicatedBoardSectionProps {
   onOpenBooking: () => void;
@@ -14,7 +17,7 @@ export function DedicatedBoardSection({ onOpenBooking }: DedicatedBoardSectionPr
     <section className="relative py-28 bg-[#071C3F] text-white overflow-hidden border-b border-slate-800">
       
       {/* Background Boardroom Photography Layer */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-25">
         <Image
           src="/nairobi_enterprise_skyline.jpg"
           alt="Executive Boardroom Governance Advisory"
@@ -29,15 +32,7 @@ export function DedicatedBoardSection({ onOpenBooking }: DedicatedBoardSectionPr
         <div className="grid gap-12 lg:grid-cols-12 items-center">
           
           <div className="lg:col-span-7 space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] text-xs font-black uppercase tracking-[0.25em]"
-            >
-              <Landmark className="w-4 h-4" />
-              <span>EXECUTIVE OVERSIGHT</span>
-            </motion.div>
+            <SectionLabel number="06" title="BOARD ADVISORY" icon={Landmark} />
 
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -91,12 +86,15 @@ export function DedicatedBoardSection({ onOpenBooking }: DedicatedBoardSectionPr
             </motion.div>
           </div>
 
-          {/* Boardroom Feature Box */}
+          {/* Boardroom Feature Spotlight Box */}
           <div className="lg:col-span-5">
-            <div className="rounded-3xl bg-slate-900/90 border border-[#10B981]/40 p-8 space-y-6 shadow-2xl backdrop-blur-xl">
-              <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-                <ShieldCheck className="w-6 h-6 text-[#10B981]" />
-                <h3 className="text-lg font-black text-white">Board Advisory Standard</h3>
+            <SpotlightCard className="p-8 space-y-6 shadow-2xl backdrop-blur-xl border-[#10B981]/40">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div className="flex items-center gap-3">
+                  <Governance3DIcon size={44} />
+                  <h3 className="text-lg font-black text-white">Board Advisory Standard</h3>
+                </div>
+                <ShieldCheck className="w-5 h-5 text-[#10B981]" />
               </div>
 
               <div className="space-y-4 text-xs text-slate-200">
@@ -113,7 +111,7 @@ export function DedicatedBoardSection({ onOpenBooking }: DedicatedBoardSectionPr
                   </div>
                 ))}
               </div>
-            </div>
+            </SpotlightCard>
           </div>
         </div>
       </div>

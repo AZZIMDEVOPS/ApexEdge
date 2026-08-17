@@ -2,13 +2,41 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Phone, Clock, Calendar, CheckCircle2, ShieldCheck, MessageCircle } from "lucide-react";
+import { MapPin, Mail, Phone, Clock, Calendar, CheckCircle2, ShieldCheck, MessageCircle, ArrowRight } from "lucide-react";
 import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
 import { CorporateFooter } from "@/components/CorporateFooter";
 import { ConsultationModal } from "@/components/ConsultationModal";
 import { ApexAIAssistant } from "@/components/ApexAIAssistant";
-import { WhatsAppPopUI } from "@/components/WhatsAppPopUI";
+import { ExecutiveFAQSection } from "@/components/ExecutiveFAQSection";
 import { Button } from "@/components/ui/button";
+
+const ENGAGEMENT_STEPS = [
+  {
+    step: "01",
+    title: "STEP 1: Tell Us What Is Happening",
+    desc: "Share your primary governance, control, people, performance or data protection challenge.",
+  },
+  {
+    step: "02",
+    title: "STEP 2: Explore in Clarity Session",
+    desc: "Join a confidential 45-minute working session with an Apex Edge Senior Partner.",
+  },
+  {
+    step: "03",
+    title: "STEP 3: Identify Key Gaps & Decisions",
+    desc: "We isolate root system causes, operational friction, and required decision frameworks.",
+  },
+  {
+    step: "04",
+    title: "STEP 4: Receive Action Map",
+    desc: "You receive a customized Executive Action Map outlining immediate quick wins and solutions.",
+  },
+  {
+    step: "05",
+    title: "STEP 5: Discuss Next Sprint",
+    desc: "If there is mutual alignment, we discuss a focused engagement or sprint scope.",
+  },
+];
 
 export default function ContactPage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -45,6 +73,30 @@ export default function ContactPage() {
           <p className="max-w-3xl mx-auto text-lg text-slate-300 font-normal leading-relaxed">
             Schedule your 45-Minute Clarity Session with an Apex Edge Senior Advisory Partner and receive your One-Page Action Map highlighting priority gaps, quick wins and next steps.
           </p>
+        </div>
+      </section>
+
+      {/* 5-Step Engagement Journey Banner */}
+      <section className="py-16 bg-slate-900 border-b border-slate-800 text-white">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-8">
+          <div className="text-center max-w-3xl mx-auto space-y-2">
+            <span className="text-xs font-black uppercase tracking-widest text-[#10B981]">
+              ENGAGEMENT JOURNEY
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white">
+              What Happens When You Reach Out
+            </h2>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 text-xs">
+            {ENGAGEMENT_STEPS.map((s) => (
+              <div key={s.step} className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 hover:border-[#10B981]/50 transition-colors">
+                <span className="text-lg font-black text-[#10B981]">{s.step}</span>
+                <h4 className="font-bold text-white block">{s.title}</h4>
+                <p className="text-slate-300 font-normal leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -271,6 +323,9 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Embedded Executive FAQ Section */}
+      <ExecutiveFAQSection />
 
       <CorporateFooter />
       <ConsultationModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />

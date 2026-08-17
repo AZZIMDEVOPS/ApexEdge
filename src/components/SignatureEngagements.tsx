@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Zap, ShieldCheck, FileCheck, Users, LayoutDashboard, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
 
 interface SignatureEngagementProps {
   onOpenBooking: () => void;
@@ -57,8 +59,29 @@ const SIGNATURE_SPRINTS = [
 
 export function SignatureEngagements({ onOpenBooking }: SignatureEngagementProps) {
   return (
-    <section className="relative py-24 bg-slate-950 text-white overflow-hidden border-b border-slate-800">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+    <section className="relative min-h-screen w-full bg-[#071C3F] text-white overflow-hidden border-b border-slate-800 flex flex-col justify-between py-20 lg:py-28">
+      
+      {/* LAYER 01 & 02: Full-Bleed Cinematic Boardroom Photography Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+        <Image
+          src="/executive_boardroom_nairobi.jpg"
+          alt="Apex Edge Executive Boardroom Advisory Session"
+          fill
+          sizes="100vw"
+          className="object-cover object-center filter brightness-105 contrast-120"
+        />
+        {/* LAYER 03: Edge-to-Edge Seamless Navy Vignettes */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#071C3F] via-[#071C3F]/85 to-[#071C3F]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071C3F] via-transparent to-[#071C3F]" />
+      </div>
+
+      {/* LAYER 04 & 05: Ambient Glow Overlay */}
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-25">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] bg-[#10B981]/15 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(#10B981_1px,transparent_1px)] [background-size:40px_40px] opacity-20" />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 relative z-10 my-auto w-full">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
@@ -66,7 +89,7 @@ export function SignatureEngagements({ onOpenBooking }: SignatureEngagementProps
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 text-xs font-black uppercase tracking-[0.25em]"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#10B981]/15 border border-[#10B981]/40 text-[#10B981] text-xs font-black uppercase tracking-[0.25em] backdrop-blur-md"
           >
             <Zap className="w-3.5 h-3.5 text-[#10B981]" />
             <span>FOCUSED ENGAGEMENTS</span>
@@ -77,7 +100,7 @@ export function SignatureEngagements({ onOpenBooking }: SignatureEngagementProps
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight uppercase"
+            className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight uppercase"
           >
             START WITH ONE CHALLENGE.
           </motion.h2>
@@ -87,7 +110,7 @@ export function SignatureEngagements({ onOpenBooking }: SignatureEngagementProps
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed"
+            className="text-base sm:text-lg lg:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto"
           >
             Focused engagements designed to diagnose the problem, create clarity and build practical systems.
           </motion.p>
@@ -104,55 +127,58 @@ export function SignatureEngagements({ onOpenBooking }: SignatureEngagementProps
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="group relative rounded-3xl bg-[#071C3F]/90 border border-slate-800 p-7 hover:border-[#10B981]/60 hover:bg-slate-900 transition-all duration-300 shadow-xl flex flex-col justify-between"
               >
-                <div className="space-y-5">
-                  <div className="flex items-center justify-between">
-                    <div className="p-3 rounded-2xl bg-slate-900 border border-slate-800 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-[#071C3F] transition-colors">
-                      <IconComponent className="w-5 h-5" />
+                <SpotlightCard className="p-7 shadow-2xl backdrop-blur-xl h-full flex flex-col justify-between transition-all duration-300">
+                  <div className="space-y-5">
+                    <div className="flex items-center justify-between">
+                      <div className="p-3 rounded-2xl bg-slate-900 border border-slate-800 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-[#071C3F] transition-colors">
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+                      <span className="px-3 py-1 rounded-full bg-[#10B981]/15 border border-[#10B981]/30 text-[#10B981] text-[10px] font-black uppercase tracking-wider">
+                        {item.tag}
+                      </span>
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-[#10B981]/15 text-[#10B981] text-[10px] font-black uppercase tracking-wider">
-                      {item.tag}
-                    </span>
+
+                    <div>
+                      <h3 className="text-xl font-black text-white group-hover:text-[#10B981] transition-colors">
+                        {item.name}
+                      </h3>
+                    </div>
+
+                    <div className="space-y-3 text-xs text-slate-300">
+                      <div>
+                        <span className="text-[10px] font-extrabold uppercase tracking-widest text-rose-400 block mb-0.5">
+                          What It Solves:
+                        </span>
+                        <p className="leading-relaxed">{item.solves}</p>
+                      </div>
+
+                      <div>
+                        <span className="text-[10px] font-extrabold uppercase tracking-widest text-sky-400 block mb-0.5">
+                          What Apex Edge Does:
+                        </span>
+                        <p className="leading-relaxed">{item.does}</p>
+                      </div>
+
+                      <div className="pt-2 border-t border-slate-800">
+                        <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#10B981] block mb-0.5">
+                          What You Receive:
+                        </span>
+                        <p className="font-semibold text-slate-100 leading-relaxed">{item.receives}</p>
+                      </div>
+                    </div>
                   </div>
 
-                  <h3 className="text-xl font-black text-white group-hover:text-[#10B981] transition-colors">
-                    {item.name}
-                  </h3>
-
-                  <div className="space-y-3 text-xs">
-                    <div>
-                      <span className="font-extrabold uppercase text-rose-400 tracking-wider block mb-0.5">
-                        What It Solves:
-                      </span>
-                      <p className="text-slate-300 font-normal leading-snug">{item.solves}</p>
-                    </div>
-
-                    <div>
-                      <span className="font-extrabold uppercase text-blue-400 tracking-wider block mb-0.5">
-                        What Apex Edge Does:
-                      </span>
-                      <p className="text-slate-300 font-normal leading-snug">{item.does}</p>
-                    </div>
-
-                    <div>
-                      <span className="font-extrabold uppercase text-[#10B981] tracking-wider block mb-0.5">
-                        What You Receive:
-                      </span>
-                      <p className="text-slate-100 font-semibold leading-snug">{item.receives}</p>
-                    </div>
+                  <div className="pt-6">
+                    <button
+                      onClick={onOpenBooking}
+                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-[#10B981] hover:bg-[#10B981]/10 text-xs font-extrabold text-[#10B981] transition-all group-hover:translate-x-1"
+                    >
+                      <span>Request Sprint Scope</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
                   </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-slate-800">
-                  <button
-                    onClick={onOpenBooking}
-                    className="w-full py-2.5 rounded-full bg-slate-900 border border-[#10B981]/40 text-[#10B981] hover:bg-[#10B981] hover:text-[#071C3F] font-bold text-xs transition-all flex items-center justify-center gap-2 group/btn"
-                  >
-                    <span>Request Sprint Scope</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
-                </div>
+                </SpotlightCard>
               </motion.div>
             );
           })}

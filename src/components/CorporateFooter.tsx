@@ -77,6 +77,7 @@ export function CorporateFooter() {
     { label: "02 People & Performance", href: "/services#people-performance" },
     { label: "03 Controls & Policies", href: "/services#controls-policies" },
     { label: "04 Leadership & Capability", href: "/services#leadership-capability" },
+    { label: "05 Data Protection & Privacy", href: "/services#data-protection" },
     { label: "Board-Ready Risk Sprint", href: "/services#risk-sprint" },
     { label: "Governance Health Check", href: "/services#governance-check" },
   ];
@@ -153,7 +154,9 @@ export function CorporateFooter() {
           
           {/* Column 1 — Brand Positioning Statement */}
           <div className="space-y-6">
-            <ApexEdgeLogo />
+            <Link href="/" className="inline-block group">
+              <ApexEdgeLogo />
+            </Link>
             <p className="text-slate-300 text-sm leading-relaxed font-semibold italic border-l-2 border-[#10B981] pl-3 py-1">
               &ldquo;Apex Edge turns governance, people, control and performance problems into Board-ready systems that leaders can actually use.&rdquo;
             </p>

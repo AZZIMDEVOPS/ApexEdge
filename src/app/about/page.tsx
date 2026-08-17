@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ShieldCheck, Zap, Award, HeartHandshake, Building2, MapPin, Calendar, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Zap, Award, HeartHandshake, Building2, Calendar, CheckCircle2, Target, Lock } from "lucide-react";
 import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
 import { CorporateFooter } from "@/components/CorporateFooter";
 import { ConsultationModal } from "@/components/ConsultationModal";
 import { ApexAIAssistant } from "@/components/ApexAIAssistant";
-import { WhatsAppPopUI } from "@/components/WhatsAppPopUI";
 import { Button } from "@/components/ui/button";
 
 export default function AboutPage() {
@@ -44,7 +42,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="max-w-3xl mx-auto text-lg text-slate-300 font-normal leading-relaxed">
-            Apex Edge Advisory Limited is a Nairobi-headquartered strategic advisory firm dedicated to solving governance, people, control and performance problems for Boards and executive leadership teams.
+            Apex Edge Advisory Limited is a Nairobi-headquartered strategic advisory firm dedicated to turning governance, people, control, performance, and data protection challenges into practical, Board-ready systems.
           </p>
         </div>
       </section>
@@ -55,7 +53,7 @@ export default function AboutPage() {
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/15 text-blue-400 text-xs font-bold uppercase tracking-wider">
               <Building2 className="w-3.5 h-3.5" />
-              Firm Background
+              Firm Background &amp; Leadership Philosophy
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
@@ -63,11 +61,11 @@ export default function AboutPage() {
             </h2>
 
             <p className="text-slate-300 leading-relaxed text-sm sm:text-base font-normal">
-              Most organizational failures do not stem from a lack of talent or intent. They happen because governance, risk controls, policies and performance frameworks operate in silos—or exist only on paper.
+              Most organizational failures do not stem from a lack of talent or intent. They happen because governance, risk controls, policies, performance frameworks, and data protection operate in silos—or exist only on paper.
             </p>
 
             <p className="text-slate-300 leading-relaxed text-sm sm:text-base font-normal">
-              Apex Edge was founded to bridge the gap between high-level advisory recommendations and practical execution. We build tools, controls, timelines, and decision frameworks that leaders can actually use in daily operations.
+              Apex Edge was founded to bridge the gap between high-level advisory recommendations and daily operational execution. We build tools, controls, timelines, and decision frameworks that leaders can actually use in daily operations.
             </p>
 
             <div className="space-y-3 pt-2 text-xs font-semibold text-slate-200">
@@ -77,11 +75,11 @@ export default function AboutPage() {
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-                <span>Deep expertise in Kenyan Companies Act 2015, CMA Guidelines &amp; Mwongozo Governance Code</span>
+                <span>Deep expertise in Kenyan Companies Act 2015, Data Protection Act, CMA Guidelines &amp; Mwongozo Code</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-                <span>100% Practical, Outcome-Driven Advisory Methodology</span>
+                <span>100% Practical, Outcome-Driven Advisory Methodology (Diagnose → Design → Implement → Measure)</span>
               </div>
             </div>
           </div>
@@ -118,7 +116,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-black text-white">Our Mission</h3>
               <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                To turn governance, people, control and performance problems into Board-ready systems that leaders can actually use.
+                To turn governance, people, control, performance, and data protection problems into Board-ready systems that leaders can actually use.
               </p>
             </div>
 

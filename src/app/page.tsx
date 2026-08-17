@@ -3,8 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Sparkles, Calendar, ArrowRight, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Calendar, ArrowRight, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
+import { ApexSystem3DCanvas } from "@/components/ApexSystem3DCanvas";
+import { WhatWeDoExplanation } from "@/components/WhatWeDoExplanation";
+import { WhoWeHelpSection } from "@/components/WhoWeHelpSection";
 import { DoesThisSoundFamiliar } from "@/components/DoesThisSoundFamiliar";
 import { ConnectedProblemsVisual } from "@/components/ConnectedProblemsVisual";
 import { BeforeAfterTransformation } from "@/components/BeforeAfterTransformation";
@@ -17,11 +20,11 @@ import { TangibleOutputsShowcase } from "@/components/TangibleOutputsShowcase";
 import { VerifiedCaseSnapshots } from "@/components/VerifiedCaseSnapshots";
 import { DedicatedBoardSection } from "@/components/DedicatedBoardSection";
 import { ClaritySessionSection } from "@/components/ClaritySessionSection";
+import { ExecutiveFAQSection } from "@/components/ExecutiveFAQSection";
 import { ExecutiveFinalCTA } from "@/components/ExecutiveFinalCTA";
 import { CorporateFooter } from "@/components/CorporateFooter";
 import { ConsultationModal } from "@/components/ConsultationModal";
 import { ApexAIAssistant } from "@/components/ApexAIAssistant";
-import { WhatsAppPopUI } from "@/components/WhatsAppPopUI";
 import { CorporateServicesTicker } from "@/components/CorporateServicesTicker";
 import { Button } from "@/components/ui/button";
 
@@ -36,9 +39,17 @@ const clientLogos = [
 
 export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [bookingCategory, setBookingCategory] = useState<string>("Governance & Risk");
 
-  const handleScrollToMethodology = () => {
-    const el = document.getElementById("services");
+  const openBooking = (category?: string) => {
+    if (category) {
+      setBookingCategory(category);
+    }
+    setIsBookingOpen(true);
+  };
+
+  const handleScrollToSection = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
@@ -48,7 +59,7 @@ export default function Home() {
     <main className="min-h-screen bg-slate-950 text-slate-900 selection:bg-[#10B981] selection:text-[#071C3F]">
       
       {/* 1. Header Navigation */}
-      <ExecutiveHeaderNav onOpenBooking={() => setIsBookingOpen(true)} />
+      <ExecutiveHeaderNav onOpenBooking={() => openBooking("Governance & Risk")} />
 
       {/* 2. HERO SECTION — BOARD-READY CLARITY POSITIONING */}
       <section className="relative w-full min-h-[92vh] flex flex-col items-center justify-center pt-24 pb-20 bg-slate-950 text-white overflow-hidden border-b border-slate-800">
@@ -107,14 +118,24 @@ export default function Home() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="rounded-3xl border border-slate-800 bg-[#071C3F]/80 p-6 sm:p-8 backdrop-blur-xl max-w-4xl mx-auto shadow-2xl space-y-4"
           >
-            <p className="text-base sm:text-xl text-slate-100 font-medium leading-relaxed">
-              We help Boards and leadership teams identify hidden risks, strengthen controls and turn recurring organisational problems into clear actions, accountable owners and measurable results.
+            <p className="text-base sm:text-xl text-slate-100 font-semibold leading-relaxed">
+              &ldquo;We help Boards and leadership teams identify hidden risks, strengthen controls and turn recurring organisational problems into clear actions, accountable owners and measurable results.&rdquo;
             </p>
 
-            <div className="pt-3 border-t border-slate-800/80 text-xs sm:text-sm text-slate-300 font-semibold flex items-center justify-center gap-2">
-              <span className="text-[#10B981]">Audience Focus:</span>
-              <span>Built for Boards, CEOs, Finance Leaders, HR Leaders and organisations navigating growth, governance and performance challenges.</span>
+            <div className="pt-3 border-t border-slate-800/80 text-xs sm:text-sm text-slate-300 font-semibold flex flex-wrap items-center justify-center gap-2">
+              <span className="text-[#10B981]">For:</span>
+              <span>Boards, CEOs, Finance Leaders, HR Leaders and organisations navigating growth, governance and performance challenges.</span>
             </div>
+          </motion.div>
+
+          {/* Interactive 3D System Canvas Component */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="my-4"
+          >
+            <ApexSystem3DCanvas />
           </motion.div>
 
           {/* Primary & Secondary CTAs */}
@@ -122,111 +143,115 @@ export default function Home() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-wrap items-center justify-center gap-4 pt-2"
+            className="flex flex-col items-center gap-4 pt-2"
           >
-            <Button
-              onClick={() => setIsBookingOpen(true)}
-              className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-full px-8 py-4 text-sm sm:text-base shadow-2xl shadow-[#10B981]/30 flex items-center gap-2.5 transition-all hover:scale-105"
-            >
-              <Calendar className="w-5 h-5" />
-              <span>Book Your Clarity Session →</span>
-            </Button>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Button
+                onClick={() => openBooking("Governance & Risk")}
+                className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-full px-8 py-4 text-sm sm:text-base shadow-2xl shadow-[#10B981]/30 flex items-center gap-2.5 transition-all hover:scale-105"
+              >
+                <Calendar className="w-5 h-5" />
+                <span>Book Your Clarity Session →</span>
+              </Button>
 
-            <Button
-              onClick={handleScrollToMethodology}
-              variant="outline"
-              className="border-slate-700 bg-slate-900/80 text-slate-200 hover:bg-slate-800 hover:text-white font-bold rounded-full px-7 py-4 text-sm flex items-center gap-2 transition-all"
-            >
-              <span>See How Apex Edge Works</span>
-              <ArrowRight className="w-4 h-4 text-[#10B981]" />
-            </Button>
+              <Button
+                onClick={() => handleScrollToSection("what-we-do")}
+                variant="outline"
+                className="border-slate-700 bg-slate-900/80 text-slate-200 hover:bg-slate-800 hover:text-white font-bold rounded-full px-7 py-4 text-sm flex items-center gap-2 transition-all"
+              >
+                <span>See How Apex Edge Works →</span>
+              </Button>
+            </div>
+
+            {/* Reassurance Microcopy */}
+            <span className="text-xs text-slate-400 font-medium italic">
+              No retainer. No open-ended engagement. Start with one challenge.
+            </span>
           </motion.div>
 
-          {/* Small Reassurance */}
+          {/* Social Proof / Client Ecosystem Ticker */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="pt-2 text-xs font-semibold text-slate-300 flex items-center justify-center gap-2"
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-slate-400"
           >
-            <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-            <span>No retainer. No open-ended engagement. Start with one challenge.</span>
+            <span className="uppercase tracking-widest text-[#10B981] text-[10px]">ADVISORY SCOPE:</span>
+            {clientLogos.map((client, idx) => (
+              <div key={idx} className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
+                <span className="text-slate-200">{client}</span>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* CNBC Style Lower Ribbon */}
+      {/* Corporate Services Ticker */}
       <CorporateServicesTicker />
 
-      {/* 3. TRUST / CREDIBILITY SECTION */}
-      <section className="border-y border-slate-800 bg-[#071C3F] py-10">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-5">
-          <div className="text-center">
-            <h3 className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#10B981]">
-              Built for organisations where decisions, controls and accountability matter.
-            </h3>
-          </div>
+      {/* 3. WHAT DOES APEX EDGE ACTUALLY DO? */}
+      <div id="what-we-do">
+        <WhatWeDoExplanation />
+      </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center text-xs font-extrabold uppercase tracking-wider text-slate-300">
-            {clientLogos.map((logo) => (
-              <div
-                key={logo}
-                className="px-4 py-3 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-center text-center font-bold hover:border-[#10B981]/50 hover:text-white transition-colors"
-              >
-                <span>{logo}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 4. WHO WE WORK WITH */}
+      <WhoWeHelpSection />
 
-      {/* 4. DOES THIS SOUND FAMILIAR? */}
+      {/* 5. DOES THIS SOUND FAMILIAR? */}
       <DoesThisSoundFamiliar />
 
-      {/* 5. YOUR PROBLEMS ARE CONNECTED */}
+      {/* 6. YOUR PROBLEMS ARE CONNECTED */}
       <ConnectedProblemsVisual />
 
-      {/* 6. BEFORE / AFTER TRANSFORMATION */}
+      {/* 7. BEFORE → AFTER TRANSFORMATION */}
       <BeforeAfterTransformation />
 
-      {/* 7. WE BUILD SYSTEMS, NOT JUST REPORTS */}
+      {/* 8. SYSTEMS NOT REPORTS */}
       <SystemsNotReports />
 
-      {/* 8. RESTRUCTURED SERVICES ARCHITECTURE */}
+      {/* 9. PRACTICE AREAS ARCHITECTURE */}
       <ExecutiveServicesArchitecture />
 
-      {/* 9. SIGNATURE SOLUTIONS ("START WITH ONE CHALLENGE") */}
-      <SignatureEngagements onOpenBooking={() => setIsBookingOpen(true)} />
+      {/* 10. SIGNATURE ENGAGEMENTS — START WITH ONE CHALLENGE */}
+      <SignatureEngagements onOpenBooking={() => openBooking("Governance & Risk")} />
 
-      {/* 10. ADVISORY METHODOLOGY ("FROM PROBLEM TO PRACTICAL CHANGE") */}
+      {/* 11. ADVISORY METHODOLOGY */}
       <AdvisoryMethodology />
 
-      {/* 11. WHY APEX EDGE */}
+      {/* 12. WHY APEX EDGE — WE DON'T STOP AT RECOMMENDATIONS */}
       <WhyApexEdgeSection />
 
-      {/* 12. WHAT YOU WALK AWAY WITH */}
+      {/* 13. WHAT YOU WALK AWAY WITH */}
       <TangibleOutputsShowcase />
 
-      {/* 13. CASE STUDIES / PROOF */}
+      {/* 14. VERIFIED CASE SNAPSHOTS */}
       <VerifiedCaseSnapshots />
 
-      {/* 14. DEDICATED BOARD SECTION */}
-      <DedicatedBoardSection onOpenBooking={() => setIsBookingOpen(true)} />
+      {/* 15. DEDICATED BOARD ADVISORY SECTION */}
+      <DedicatedBoardSection onOpenBooking={() => openBooking("Governance & Risk")} />
 
-      {/* 15. CLARITY SESSION & RISK REVERSAL */}
-      <ClaritySessionSection onOpenBooking={() => setIsBookingOpen(true)} />
+      {/* 16. FREQUENTLY ASKED QUESTIONS */}
+      <ExecutiveFAQSection />
 
-      {/* 16. FINAL CTA */}
-      <ExecutiveFinalCTA onOpenBooking={() => setIsBookingOpen(true)} />
+      {/* 17. CLARITY SESSION SECTION */}
+      <ClaritySessionSection onOpenBooking={() => openBooking("Governance & Risk")} />
 
-      {/* Executive Footer */}
+      {/* 18. FINAL EXECUTIVE CTA */}
+      <ExecutiveFinalCTA onOpenBooking={() => openBooking("Governance & Risk")} />
+
+      {/* Footer */}
       <CorporateFooter />
 
-      {/* Consultation / Clarity Session Booking Modal */}
-      <ConsultationModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
+      {/* Interactive Booking Modal */}
+      <ConsultationModal 
+        isOpen={isBookingOpen} 
+        onClose={() => setIsBookingOpen(false)}
+        defaultCategory={bookingCategory}
+      />
 
-      {/* APEX Executive AI Advisory Assistant */}
-      <ApexAIAssistant onOpenBooking={() => setIsBookingOpen(true)} />
+      {/* Executive AI Assistant */}
+      <ApexAIAssistant onOpenBooking={() => openBooking("Governance & Risk")} />
     </main>
   );
 }

@@ -8,11 +8,20 @@ import { Button } from "@/components/ui/button";
 interface ConsultationModalProps {
   isOpen: boolean;
   onClose: () => void;
+  defaultCategory?: string;
 }
 
-export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
+export function ConsultationModal({ isOpen, onClose, defaultCategory }: ConsultationModalProps) {
   const [consultType, setConsultType] = useState<"virtual" | "in-person">("virtual");
   const [category, setCategory] = useState("Governance & Risk");
+  const [prevDefaultCategory, setPrevDefaultCategory] = useState<string | undefined>(defaultCategory);
+
+  if (defaultCategory !== prevDefaultCategory) {
+    setPrevDefaultCategory(defaultCategory);
+    if (defaultCategory) {
+      setCategory(defaultCategory);
+    }
+  }
   const [date, setDate] = useState("");
   const [time, setTime] = useState("10:00 AM");
   const [name, setName] = useState("");
@@ -125,6 +134,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                           <option value="People & Performance">02 People &amp; Performance</option>
                           <option value="Controls & Policies">03 Controls &amp; Policies</option>
                           <option value="Leadership & Capability">04 Leadership &amp; Capability</option>
+                          <option value="Data Protection & Privacy">05 Data Protection &amp; Privacy</option>
                           <option value="Board Advisory Sprint">Board-Ready Risk Sprint</option>
                           <option value="Governance Health Check">Governance Health Check</option>
                         </select>

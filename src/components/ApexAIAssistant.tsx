@@ -32,8 +32,32 @@ function getFormattedTime(): string {
 
 const APEX_KNOWLEDGE: Record<string, { answer: string; followUps?: string[]; action?: "book" | "contact" | "download" }> = {
   services: {
-    answer: "ApexEdge Advisory Limited provides 6 core practice areas:\n1. Company Secretarial & BRS Filings\n2. Corporate Governance & Board Advisory\n3. Legal & Regulatory Compliance\n4. HR Advisory & Restructuring\n5. Business Registration & Systems Setup\n6. Immigration Services & Work Permits.",
-    followUps: ["Company Secretarial", "Corporate Governance", "Legal Advisory", "Book Consultation"],
+    answer: "ApexEdge Advisory Limited structures solutions around 5 outcome-driven Practice Areas:\n1. 01 — Governance & Risk ('Give Your Board Clearer Visibility of Risk and Performance.')\n2. 02 — People & Performance ('Build a Performance System That Creates Accountability.')\n3. 03 — Controls & Policies ('Turn Policies Into Systems That Actually Work.')\n4. 04 — Leadership & Capability ('Build Leaders and Teams That Execute Better.')\n5. 05 — Data Protection & Privacy ('Protect Data. Strengthen Trust. Stay Compliant.')",
+    followUps: ["Governance & Risk", "Data Protection", "People & Performance", "Book Consultation"],
+  },
+  "data protection": {
+    answer: "ApexEdge Data Protection & Privacy advisory helps organisations understand obligations, strengthen privacy practices, and build operational data governance systems:\n- Data Protection Compliance & Gap Audits\n- Data Inventory & Mapping Registers\n- Privacy Policies, Notices & Consent Management\n- Data Protection Impact Assessments (DPIAs)\n- Data Processing Agreements (DPAs) & Vendor Risk Reviews\n- Data Subject Rights & Breach Response Protocols",
+    followUps: ["Governance & Risk", "Controls & Policies", "Book Consultation"],
+  },
+  privacy: {
+    answer: "Our Data Protection & Privacy practice turns legal compliance into practical, working systems that safeguard customer and employee data, build brand trust, and pass regulatory audits.",
+    followUps: ["Data Protection", "Book Consultation"],
+  },
+  "governance & risk": {
+    answer: "Our Governance & Risk practice gives your Board clearer visibility of risk and performance through independent audits, Board risk registers, heat maps, and decision frameworks.",
+    followUps: ["Data Protection", "Controls & Policies", "Book Consultation"],
+  },
+  "people & performance": {
+    answer: "Our People & Performance practice builds performance systems that create accountability through job evaluation, salary grading bands, and strategy-aligned OKR scorecards.",
+    followUps: ["Leadership & Capability", "Book Consultation"],
+  },
+  "controls & policies": {
+    answer: "Our Controls & Policies practice converts static policy documents into practical SOPs with embedded financial, procurement, and HR approval controls.",
+    followUps: ["Data Protection", "Book Consultation"],
+  },
+  "leadership & capability": {
+    answer: "Our Leadership & Capability practice builds executive management toolkits, 90-day execution roadmaps, and decision frameworks that change team behavior.",
+    followUps: ["People & Performance", "Book Consultation"],
   },
   "business registration": {
     answer: "We manage end-to-end company incorporation in Kenya under the Business Registration Service (BRS):\n- Name Reservation & Articles of Association\n- KRA PIN, NSSF, & SHA Registration\n- CR12 Official Extract Issuance\n- Business Permit & Bank Account Opening Assistance.",
@@ -60,8 +84,8 @@ const APEX_KNOWLEDGE: Record<string, { answer: string; followUps?: string[]; act
     followUps: ["Business Registration", "HR Consulting", "Book Consultation"],
   },
   compliance: {
-    answer: "We ensure 100% compliance with Kenyan statutory regulations, including the Companies Act 2015, Data Protection Act, Tax Procedures Act, and Sectoral Licenses (CMA, CBK, IRA, BRS).",
-    followUps: ["Company Secretarial", "Legal Advisory", "Book Consultation"],
+    answer: "We ensure 100% compliance with statutory regulations including the Data Protection Act, Companies Act 2015, Tax Procedures Act, and Sectoral Licenses (CMA, CBK, IRA, BRS).",
+    followUps: ["Data Protection", "Company Secretarial", "Book Consultation"],
   },
   "office location": {
     answer: "📍 **ApexEdge Advisory Limited Headquarters**\nNairobi, Kenya\n📧 info@apexedge.co.ke\n🌐 www.apexedge.co.ke\n☎ +254 117 471344\n🕒 Business Hours: Monday – Friday, 8:00 AM – 5:00 PM EAT.",
@@ -93,12 +117,11 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
       timestamp: getFormattedTime(),
       quickReplies: [
         "Our Services",
-        "Business Registration",
-        "Company Secretarial",
-        "Corporate Governance",
-        "Legal Advisory",
-        "HR Consulting",
-        "Immigration Services",
+        "Data Protection",
+        "Governance & Risk",
+        "People & Performance",
+        "Controls & Policies",
+        "Leadership & Capability",
         "Book Consultation",
       ],
     },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { LenisProvider } from "@/components/LenisProvider";
+import { CustomCursor } from "@/components/CustomCursor";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -11,8 +12,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "ApexEdge Advisory Limited | HR, Legal & Governance Consulting in Kenya",
-  description: "Trusted company secretarial, legal services, HR advisory, corporate governance, and business solutions in Nairobi, Kenya.",
+  title: "Apex Edge Advisory Limited | Strategic Advisory & Board-Ready Systems",
+  description: "Apex Edge helps organisations turn governance, people, control, performance and data protection challenges into practical, Board-ready systems.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -21,8 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       className={`${poppins.variable} font-sans h-full antialiased`}
     >
-      <body className={`${poppins.className} min-h-full flex flex-col bg-white text-slate-900`}>
+      <body className={`${poppins.className} min-h-full flex flex-col bg-slate-950 text-slate-900`}>
         <LenisProvider>
+          <CustomCursor />
           {children}
         </LenisProvider>
       </body>
