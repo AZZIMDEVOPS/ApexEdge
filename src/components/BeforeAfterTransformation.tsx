@@ -192,14 +192,7 @@ export function BeforeAfterTransformation() {
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
               className="relative flex items-center justify-center cursor-pointer group"
             >
-              {/* Revolving Orbital Rings */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-dashed border-[#10B981]/50 pointer-events-none"
-              />
-              
-              {/* Central Glass Pod Housing ONLY Official White Apex Edge Logo (Centered, Zero Writing) */}
+              {/* Central Glass Pod Housing ONLY Official White Apex Edge Logo */}
               <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-br from-[#071C3F] via-slate-900 to-[#071C3F] border-2 border-[#10B981] shadow-[0_0_45px_rgba(16,185,129,0.35)] flex items-center justify-center p-4 backdrop-blur-xl transition-transform duration-300 group-hover:scale-110">
                 <div className="scale-75 sm:scale-95 transform flex items-center justify-center">
                   <ApexEdgeLogo variant="default" />
