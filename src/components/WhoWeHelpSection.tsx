@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Sparkles, X } from "lucide-react";
 import Image from "next/image";
@@ -107,7 +107,15 @@ export function WhoWeHelpSection() {
   const [hoveredAudId, setHoveredAudId] = useState<string | null>(null);
   const [selectedAud, setSelectedAud] = useState<AudienceItem | null>(null);
   const [mouseParallax, setMouseParallax] = useState({ x: 0, y: 0 });
+  const [isDesktop, setIsDesktop] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const cx = 500;
   const cy = 380;
@@ -174,10 +182,10 @@ export function WhoWeHelpSection() {
         <div
           ref={containerRef}
           onMouseMove={handleMouseMove}
-          className="relative mx-auto w-full min-h-[740px] lg:min-h-[820px] p-6 sm:p-12 pb-24 rounded-3xl bg-[#071C3F]/90 border border-slate-800/90 shadow-2xl backdrop-blur-xl overflow-hidden flex items-center justify-center"
+          className="relative mx-auto w-full min-h-[580px] md:min-h-[740px] lg:min-h-[820px] p-5 sm:p-12 pb-24 rounded-3xl bg-[#071C3F]/90 border border-slate-800/90 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col md:flex-row items-center justify-center"
         >
           
-          {/* HIGH-TECH ANIMATED ENERGY LINK BEAMS (Numeric SVG ViewBox 0 0 1000 800) */}
+          {/* HIGH-TECH ANIMATED ENERGY LINK BEAMS (Numeric SVG ViewBox 0 0 1000 800 - Desktop Only) */}
           <svg
             viewBox="0 0 1000 800"
             preserveAspectRatio="none"
@@ -203,7 +211,6 @@ export function WhoWeHelpSection() {
 
               return (
                 <g key={`aud-beam-${aud.id}`}>
-                  {/* Layer 1: Ambient Glowing Outer Track */}
                   <path
                     d={pathD}
                     fill="none"
@@ -213,7 +220,6 @@ export function WhoWeHelpSection() {
                     filter="url(#audGlow)"
                   />
 
-                  {/* Layer 2: Animated Flowing Dash Energy Stream */}
                   <path
                     d={pathD}
                     fill="none"
@@ -230,7 +236,6 @@ export function WhoWeHelpSection() {
                     />
                   </path>
 
-                  {/* Layer 3: Main Traveling Energy Orb */}
                   <circle r={isHovered ? 6 : 4.5} fill="#10B981" filter="url(#audGlow)">
                     <animateMotion
                       path={pathD}
@@ -239,7 +244,6 @@ export function WhoWeHelpSection() {
                     />
                   </circle>
 
-                  {/* Layer 4: Secondary Delayed Traveling Energy Orb */}
                   <circle r={isHovered ? 4.5 : 3} fill="#38BDF8" filter="url(#audGlow)">
                     <animateMotion
                       path={`M ${aud.vx} ${aud.vy} Q ${qx} ${qy}, ${cx} ${cy}`}
@@ -248,7 +252,6 @@ export function WhoWeHelpSection() {
                     />
                   </circle>
 
-                  {/* Layer 5: Glowing Pulsing Radar Node */}
                   <circle cx={aud.vx} cy={aud.vy} r="6" fill="#10B981" filter="url(#audGlow)" />
                   <circle cx={aud.vx} cy={aud.vy} r="10" fill="none" stroke="#38BDF8" strokeWidth="1.5">
                     <animate attributeName="r" values="6;18;6" dur="2.5s" repeatCount="indefinite" />
@@ -263,44 +266,48 @@ export function WhoWeHelpSection() {
           <motion.div
             animate={{ x: mouseParallax.x, y: mouseParallax.y }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="relative z-30 flex flex-col items-center justify-center text-center cursor-pointer group"
+            className="relative z-30 flex flex-col items-center justify-center text-center cursor-pointer group my-6 md:my-0"
             onClick={() => setSelectedAud(null)}
           >
             {/* Outer Revolving Orbital Rings */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute w-52 h-52 sm:w-64 sm:h-64 rounded-full border border-dashed border-[#10B981]/50 pointer-events-none"
+              className="absolute w-44 h-44 sm:w-64 sm:h-64 rounded-full border border-dashed border-[#10B981]/50 pointer-events-none"
             />
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="absolute w-60 h-60 sm:w-72 sm:h-72 rounded-full border border-slate-700/60 pointer-events-none"
+              className="absolute w-52 h-52 sm:w-72 sm:h-72 rounded-full border border-slate-700/60 pointer-events-none"
             />
 
             {/* Central Glass Pod Housing Official Apex Edge Logo */}
-            <div className="relative w-40 h-40 sm:w-52 sm:h-52 rounded-full bg-gradient-to-br from-[#071C3F] via-slate-900 to-[#071C3F] border-2 border-[#10B981] shadow-[0_0_60px_rgba(16,185,129,0.35)] flex items-center justify-center p-5 backdrop-blur-2xl transition-transform duration-300 group-hover:scale-105">
+            <div className="relative w-36 h-36 sm:w-52 sm:h-52 rounded-full bg-gradient-to-br from-[#071C3F] via-slate-900 to-[#071C3F] border-2 border-[#10B981] shadow-[0_0_60px_rgba(16,185,129,0.35)] flex items-center justify-center p-5 backdrop-blur-2xl transition-transform duration-300 group-hover:scale-105">
               <div className="scale-80 sm:scale-100 transform transition-transform flex items-center justify-center">
                 <ApexEdgeLogo variant="default" />
               </div>
             </div>
           </motion.div>
 
-          {/* 5 AUDIENCE DECISION-MAKER CARDS (Spacious Uncluttered Perimeter Positioning) */}
-          <div className="md:absolute inset-0 z-30 pointer-events-none flex flex-col md:block gap-4 my-8 md:my-0">
+          {/* 5 AUDIENCE DECISION-MAKER CARDS (Mobile Vertical Stack + Desktop Perimeter Positioning) */}
+          <div className="w-full md:absolute inset-0 z-30 pointer-events-none flex flex-col md:block gap-4 my-4 md:my-0">
             {AUDIENCES.map((aud) => {
               const isHovered = hoveredAudId === aud.id;
               const isDimmed = hoveredAudId !== null && !isHovered;
               const AudIcon3D = aud.Icon3D;
 
-              return (
-                <div
-                  key={aud.id}
-                  style={{
+              const cardStyle = isDesktop
+                ? {
                     left: `${aud.x}%`,
                     top: `${aud.y}%`,
                     transform: "translate(-50%, -50%)",
-                  }}
+                  }
+                : {};
+
+              return (
+                <div
+                  key={aud.id}
+                  style={cardStyle}
                   className="pointer-events-auto md:absolute w-full md:w-68 lg:w-76"
                   onMouseEnter={() => setHoveredAudId(aud.id)}
                   onMouseLeave={() => setHoveredAudId(null)}

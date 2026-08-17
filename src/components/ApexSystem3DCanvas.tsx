@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Sparkles, X } from "lucide-react";
 import { ApexEdgeLogo } from "@/components/ApexEdgeLogo";
@@ -102,13 +102,21 @@ const PERIMETER_LINKS = [
 export function ApexSystem3DCanvas() {
   const [hoveredPillarId, setHoveredPillarId] = useState<string | null>(null);
   const [selectedPillar, setSelectedPillar] = useState<PillarItem | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Central Core ViewBox Coordinates (500, 380)
   const cx = 500;
   const cy = 380;
 
   return (
-    <div className="relative w-full min-h-[680px] lg:min-h-[760px] p-6 sm:p-12 pb-20 lg:pb-24 rounded-3xl bg-[#071C3F]/90 border border-slate-800/90 shadow-2xl backdrop-blur-xl flex items-center justify-center overflow-hidden">
+    <div className="relative w-full min-h-[580px] md:min-h-[680px] lg:min-h-[760px] p-5 sm:p-12 pb-20 lg:pb-24 rounded-3xl bg-[#071C3F]/90 border border-slate-800/90 shadow-2xl backdrop-blur-xl flex flex-col md:flex-row items-center justify-center overflow-hidden">
       
       {/* Ambient Grid & Glow Overlay */}
       <div className="absolute inset-0 pointer-events-none z-0 opacity-30">
@@ -116,7 +124,7 @@ export function ApexSystem3DCanvas() {
         <div className="absolute inset-0 bg-[radial-gradient(#10B981_1px,transparent_1px)] [background-size:40px_40px] opacity-20" />
       </div>
 
-      {/* HIGH-TECH ANIMATED ENERGY LINK BEAMS (Numeric SVG ViewBox 0 0 1000 800) */}
+      {/* HIGH-TECH ANIMATED ENERGY LINK BEAMS (Numeric SVG ViewBox 0 0 1000 800 - Desktop Only) */}
       <svg
         viewBox="0 0 1000 800"
         preserveAspectRatio="none"
@@ -132,10 +140,9 @@ export function ApexSystem3DCanvas() {
           </filter>
         </defs>
 
-        {/* 1. PERIMETER INTER-CONNECTING PROBLEM MATRIX LINKS (Connecting Cards Around the Perimeter) */}
+        {/* 1. PERIMETER INTER-CONNECTING PROBLEM MATRIX LINKS */}
         {PERIMETER_LINKS.map((link) => (
           <g key={link.id}>
-            {/* Ambient Perimeter Arc Track */}
             <path
               d={link.d}
               fill="none"
@@ -145,7 +152,6 @@ export function ApexSystem3DCanvas() {
               strokeDasharray="6 6"
               filter="url(#neonGlow)"
             />
-            {/* Animated Flowing Pulse along Perimeter Ring */}
             <path
               d={link.d}
               fill="none"
@@ -161,26 +167,23 @@ export function ApexSystem3DCanvas() {
                 repeatCount="indefinite"
               />
             </path>
-            {/* Perimeter Traveling Energy Particle */}
             <circle r="3.5" fill="#38BDF8" filter="url(#neonGlow)">
               <animateMotion path={link.d} dur="4s" repeatCount="indefinite" />
             </circle>
           </g>
         ))}
 
-        {/* 2. RADIANT SOLUTION BEAMS CONNECTING EVERY PILLAR DIRECTLY TO THE APEX EDGE CORE */}
+        {/* 2. RADIANT SOLUTION BEAMS */}
         {STRATEGIC_PILLARS.map((pillar) => {
           const isHovered = hoveredPillarId === pillar.id;
           const isDimmed = hoveredPillarId !== null && !isHovered;
 
-          // Quadratic Bezier Control Point Calculation
           const qx = (cx + pillar.vx) / 2 + (pillar.vx > cx ? 40 : -40);
           const qy = (cy + pillar.vy) / 2 + (pillar.vy > cy ? 30 : -30);
           const pathD = `M ${cx} ${cy} Q ${qx} ${qy}, ${pillar.vx} ${pillar.vy}`;
 
           return (
             <g key={`beam-${pillar.id}`} className="transition-opacity duration-300">
-              {/* Layer 1: Ambient Glowing Solution Track */}
               <path
                 d={pathD}
                 fill="none"
@@ -190,7 +193,6 @@ export function ApexSystem3DCanvas() {
                 filter="url(#neonGlow)"
               />
 
-              {/* Layer 2: Animated Flowing Dash Energy Pulse Stream */}
               <path
                 d={pathD}
                 fill="none"
@@ -207,7 +209,6 @@ export function ApexSystem3DCanvas() {
                 />
               </path>
 
-              {/* Layer 3: Main Solution Particle (Center Solution Core -> Pillar) */}
               <circle r={isHovered ? 6 : 4.5} fill="#10B981" filter="url(#neonGlow)">
                 <animateMotion
                   path={pathD}
@@ -216,7 +217,6 @@ export function ApexSystem3DCanvas() {
                 />
               </circle>
 
-              {/* Layer 4: Secondary Input Particle (Pillar -> Solution Core) */}
               <circle r={isHovered ? 4.5 : 3} fill="#38BDF8" filter="url(#neonGlow)">
                 <animateMotion
                   path={`M ${pillar.vx} ${pillar.vy} Q ${qx} ${qy}, ${cx} ${cy}`}
@@ -225,7 +225,6 @@ export function ApexSystem3DCanvas() {
                 />
               </circle>
 
-              {/* Layer 5: Glowing Pulsing Radar Node at Card Anchor */}
               <circle cx={pillar.vx} cy={pillar.vy} r="6" fill="#10B981" filter="url(#neonGlow)" />
               <circle cx={pillar.vx} cy={pillar.vy} r="10" fill="none" stroke="#38BDF8" strokeWidth="1.5">
                 <animate attributeName="r" values="6;18;6" dur="2.5s" repeatCount="indefinite" />
@@ -236,51 +235,55 @@ export function ApexSystem3DCanvas() {
         })}
       </svg>
 
-      {/* CENTRAL OFFICIAL WHITE APEX EDGE SYSTEM SOLUTION CORE (LOGO ONLY PERFECTLY CENTERED) */}
+      {/* CENTRAL OFFICIAL WHITE APEX EDGE SYSTEM SOLUTION CORE */}
       <div
-        className="relative z-30 flex flex-col items-center justify-center text-center cursor-pointer group"
+        className="relative z-30 flex flex-col items-center justify-center text-center cursor-pointer group my-6 md:my-0"
         onClick={() => setSelectedPillar(null)}
       >
         {/* Outer Halo Rings */}
-        <div className="absolute w-48 h-48 sm:w-60 sm:h-60 rounded-full border border-dashed border-[#10B981]/60 pointer-events-none animate-[spin_40s_linear_infinite]" />
-        <div className="absolute w-56 h-56 sm:w-68 sm:h-68 rounded-full border border-slate-700/60 pointer-events-none" />
+        <div className="absolute w-44 h-44 sm:w-60 sm:h-60 rounded-full border border-dashed border-[#10B981]/60 pointer-events-none animate-[spin_40s_linear_infinite]" />
+        <div className="absolute w-52 h-52 sm:w-68 sm:h-68 rounded-full border border-slate-700/60 pointer-events-none" />
 
-        {/* Central Glass Pod Housing ONLY Official White Apex Edge Logo (Centered, Zero Writing) */}
-        <div className="relative w-40 h-40 sm:w-52 sm:h-52 rounded-full bg-gradient-to-br from-[#071C3F] via-slate-900 to-[#071C3F] border-2 border-[#10B981] shadow-[0_0_60px_rgba(16,185,129,0.4)] flex items-center justify-center p-6 backdrop-blur-2xl transition-transform duration-300 group-hover:scale-105">
-          <div className="scale-90 sm:scale-110 transform transition-transform flex items-center justify-center">
+        {/* Central Glass Pod Housing ONLY Official White Apex Edge Logo */}
+        <div className="relative w-36 h-36 sm:w-52 sm:h-52 rounded-full bg-gradient-to-br from-[#071C3F] via-slate-900 to-[#071C3F] border-2 border-[#10B981] shadow-[0_0_60px_rgba(16,185,129,0.4)] flex items-center justify-center p-5 backdrop-blur-2xl transition-transform duration-300 group-hover:scale-105">
+          <div className="scale-85 sm:scale-110 transform transition-transform flex items-center justify-center">
             <ApexEdgeLogo variant="default" />
           </div>
         </div>
       </div>
 
-      {/* 4 STRATEGIC PILLAR CARDS (Generous Symmetrical 4-Corner Placement) */}
-      <div className="md:absolute inset-0 z-30 pointer-events-none flex flex-col md:block gap-5 my-8 md:my-0">
+      {/* 4 STRATEGIC PILLAR CARDS (Clean Mobile Stack + Desktop Symmetrical Positioning) */}
+      <div className="w-full md:absolute inset-0 z-30 pointer-events-none flex flex-col md:block gap-4 my-4 md:my-0">
         {STRATEGIC_PILLARS.map((pillar) => {
           const isHovered = hoveredPillarId === pillar.id;
           const isDimmed = hoveredPillarId !== null && !isHovered;
           const PillarIcon3D = pillar.Icon3D;
 
-          return (
-            <div
-              key={pillar.id}
-              style={{
+          const cardStyle = isDesktop
+            ? {
                 left: `${pillar.x}%`,
                 top: `${pillar.y}%`,
                 transform: "translate(-50%, -50%)",
-              }}
+              }
+            : {};
+
+          return (
+            <div
+              key={pillar.id}
+              style={cardStyle}
               className="pointer-events-auto md:absolute w-full md:w-72 lg:w-80"
               onMouseEnter={() => setHoveredPillarId(pillar.id)}
               onMouseLeave={() => setHoveredPillarId(null)}
               onClick={() => setSelectedPillar(pillar)}
             >
               <SpotlightCard
-                className={`p-6 transition-all duration-300 cursor-pointer ${
+                className={`p-5 sm:p-6 transition-all duration-300 cursor-pointer ${
                   isDimmed ? "opacity-35 scale-95" : isHovered ? "opacity-100 scale-105 border-[#10B981] ring-2 ring-[#10B981]/30 shadow-[0_0_35px_rgba(16,185,129,0.25)]" : "opacity-95"
                 }`}
               >
-                <div className="space-y-3.5">
+                <div className="space-y-3 sm:space-y-3.5">
                   <div className="flex items-center justify-between">
-                    <PillarIcon3D size={48} />
+                    <PillarIcon3D size={44} />
                     <span className="text-[10px] font-black uppercase tracking-widest text-[#10B981]">
                       PILLAR {pillar.number}
                     </span>
@@ -366,7 +369,7 @@ export function ApexSystem3DCanvas() {
         )}
       </AnimatePresence>
 
-      {/* Micro Legend Badge (Positioned at bottom with zero overlap) */}
+      {/* Micro Legend Badge */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-slate-950/95 border border-slate-800 text-[10px] text-slate-300 font-extrabold tracking-widest uppercase flex items-center gap-2 backdrop-blur-md shadow-2xl z-30 pointer-events-none">
         <Sparkles className="w-3 h-3 text-[#10B981] animate-pulse" />
         <span>APEX EDGE INTEGRATED SOLUTION ARCHITECTURE (HOVER TO EXPLORE)</span>
