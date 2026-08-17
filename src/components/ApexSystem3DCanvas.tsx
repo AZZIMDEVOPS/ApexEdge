@@ -2,15 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, Sparkles, X } from "lucide-react";
+import { CheckCircle2, Sparkles, X, ShieldCheck, Sliders, Users, Lock, LucideIcon } from "lucide-react";
 import { ApexEdgeLogo } from "@/components/ApexEdgeLogo";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
-import {
-  Governance3DIcon,
-  People3DIcon,
-  Controls3DIcon,
-  DataProtection3DIcon,
-} from "@/components/icons/PracticeArea3DIcons";
 
 export interface PillarItem {
   id: string;
@@ -21,7 +15,7 @@ export interface PillarItem {
   desc: string;
   keyDeliverable: string;
   deliverables: string[];
-  Icon3D: React.ComponentType<{ size?: number }>;
+  icon: LucideIcon;
   x: number; // Anchor percentage
   y: number; // Anchor percentage
   vx: number; // ViewBox X (0 - 1000)
@@ -38,7 +32,7 @@ const STRATEGIC_PILLARS: PillarItem[] = [
     desc: "Transform Board reporting into decision-ready risk heatmaps, Mwongozo compliance frameworks, and executive oversight.",
     keyDeliverable: "Board Risk Heatmaps & Governance Audits",
     deliverables: ["Mwongozo Compliance Audits", "Board Risk Registers", "Decision Authority Matrixes"],
-    Icon3D: Governance3DIcon,
+    icon: ShieldCheck,
     x: 18,
     y: 22,
     vx: 180,
@@ -53,7 +47,7 @@ const STRATEGIC_PILLARS: PillarItem[] = [
     desc: "Eliminate recurring audit findings with practical SOP approval limits, financial controls, and executive OKR performance scorecards.",
     keyDeliverable: "Approval Matrixes & Executive OKR Scorecards",
     deliverables: ["Procurement SOPs", "Internal Control Matrixes", "Executive OKR Scorecards"],
-    Icon3D: Controls3DIcon,
+    icon: Sliders,
     x: 82,
     y: 22,
     vx: 820,
@@ -68,7 +62,7 @@ const STRATEGIC_PILLARS: PillarItem[] = [
     desc: "Bridge strategy execution gaps with clear role grading, transparent appraisals, and 90-day action roadmaps.",
     keyDeliverable: "90-Day Execution Roadmaps & OKRs",
     deliverables: ["Job Descriptions & Grading", "Salary Structure Bands", "90-Day Action Roadmaps"],
-    Icon3D: People3DIcon,
+    icon: Users,
     x: 18,
     y: 72,
     vx: 180,
@@ -83,7 +77,7 @@ const STRATEGIC_PILLARS: PillarItem[] = [
     desc: "Embed practical data governance, privacy impact assessments, and statutory compliance with Kenya Data Protection Act.",
     keyDeliverable: "Documented Data Inventories & DPIAs",
     deliverables: ["Data Protection Inventories", "DPIA Risk Registers", "Breach Response Protocols"],
-    Icon3D: DataProtection3DIcon,
+    icon: Lock,
     x: 82,
     y: 72,
     vx: 820,
@@ -257,7 +251,7 @@ export function ApexSystem3DCanvas() {
         {STRATEGIC_PILLARS.map((pillar) => {
           const isHovered = hoveredPillarId === pillar.id;
           const isDimmed = hoveredPillarId !== null && !isHovered;
-          const PillarIcon3D = pillar.Icon3D;
+          const IconComp = pillar.icon;
 
           const cardStyle = isDesktop
             ? {
@@ -283,7 +277,9 @@ export function ApexSystem3DCanvas() {
               >
                 <div className="space-y-3 sm:space-y-3.5">
                   <div className="flex items-center justify-between">
-                    <PillarIcon3D size={44} />
+                    <div className="p-3 rounded-2xl bg-slate-950 border border-slate-800 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-[#071C3F] transition-colors">
+                      <IconComp className="w-6 h-6" />
+                    </div>
                     <span className="text-[10px] font-black uppercase tracking-widest text-[#10B981]">
                       PILLAR {pillar.number}
                     </span>
@@ -332,7 +328,9 @@ export function ApexSystem3DCanvas() {
             </button>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 border-b border-slate-800 pb-6">
-              <selectedPillar.Icon3D size={56} />
+              <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-[#10B981]">
+                <selectedPillar.icon className="w-8 h-8" />
+              </div>
               <div className="space-y-1">
                 <span className="text-xs font-black uppercase tracking-widest text-[#10B981]">
                   STRATEGIC PILLAR {selectedPillar.number}

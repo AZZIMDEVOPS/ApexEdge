@@ -2,18 +2,11 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, Sparkles, X } from "lucide-react";
+import { CheckCircle2, Sparkles, X, Building2, Target, LineChart, Users2, Briefcase, LucideIcon } from "lucide-react";
 import Image from "next/image";
 import { ApexEdgeLogo } from "@/components/ApexEdgeLogo";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
-import {
-  BoardsDirectors3DIcon,
-  CEOsExecs3DIcon,
-  SeniorMgmt3DIcon,
-  FunctionalLeaders3DIcon,
-  Organisations3DIcon,
-} from "@/components/icons/Audience3DIcons";
 
 export interface AudienceItem {
   id: string;
@@ -23,7 +16,7 @@ export interface AudienceItem {
   desc: string;
   keyNeed: string;
   deliverables: string[];
-  Icon3D: React.ComponentType<{ size?: number }>;
+  icon: LucideIcon;
   x: number; // Anchor percentage
   y: number;
   vx: number; // ViewBox X (0-1000)
@@ -39,7 +32,7 @@ const AUDIENCES: AudienceItem[] = [
     desc: "Need clearer visibility of risk, controls, governance, and executive management performance to drive high-confidence strategic decisions.",
     keyNeed: "Decision-ready Board packs, risk heat maps & clear oversight.",
     deliverables: ["Mwongozo Compliance Audits", "Board Risk Registers", "Decision Frameworks"],
-    Icon3D: BoardsDirectors3DIcon,
+    icon: Building2,
     x: 18,
     y: 22,
     vx: 180,
@@ -53,7 +46,7 @@ const AUDIENCES: AudienceItem[] = [
     desc: "Need to turn recurring organisational friction and strategy execution gaps into clear actions with accountable owners.",
     keyNeed: "Named ownership, 90-day execution roadmaps & clear KPIs.",
     deliverables: ["90-Day Execution Roadmaps", "Staff Ownership Maps", "OKR Scorecards"],
-    Icon3D: CEOsExecs3DIcon,
+    icon: Target,
     x: 82,
     y: 22,
     vx: 820,
@@ -67,7 +60,7 @@ const AUDIENCES: AudienceItem[] = [
     desc: "Need stronger internal controls, financial authorization limits, and procurement approval processes that eliminate audit findings.",
     keyNeed: "Approval matrixes, internal control frameworks & audit readiness.",
     deliverables: ["Financial Authorization Limits", "Procurement SOPs", "Internal Control Matrixes"],
-    Icon3D: SeniorMgmt3DIcon,
+    icon: LineChart,
     x: 18,
     y: 75,
     vx: 180,
@@ -81,7 +74,7 @@ const AUDIENCES: AudienceItem[] = [
     desc: "Need structured job grading, role clarity, transparent appraisal frameworks, and performance scorecards linked directly to strategy.",
     keyNeed: "Salary structures, OKR performance scorecards & competency maps.",
     deliverables: ["Job Descriptions & Grading", "Salary Structure Bands", "Appraisal Toolkits"],
-    Icon3D: FunctionalLeaders3DIcon,
+    icon: Users2,
     x: 82,
     y: 75,
     vx: 820,
@@ -95,7 +88,7 @@ const AUDIENCES: AudienceItem[] = [
     desc: "Need practical governance, data protection, and operational systems that scale seamlessly without creating bureaucratic drag.",
     keyNeed: "Scalable SOPs, privacy governance & institutional controls.",
     deliverables: ["Scalable Operational SOPs", "Data Protection Inventories", "Governance Frameworks"],
-    Icon3D: Organisations3DIcon,
+    icon: Briefcase,
     x: 50,
     y: 84,
     vx: 500,
@@ -178,7 +171,7 @@ export function WhoWeHelpSection() {
           </motion.p>
         </div>
 
-        {/* Full-Viewport Spacious 3D Interactive Ecosystem Canvas */}
+        {/* Full-Viewport Spacious Interactive Ecosystem Canvas */}
         <div
           ref={containerRef}
           onMouseMove={handleMouseMove}
@@ -262,7 +255,7 @@ export function WhoWeHelpSection() {
             })}
           </svg>
 
-          {/* CENTRAL 3D APEX EDGE OFFICIAL LOGO CORE */}
+          {/* CENTRAL APEX EDGE OFFICIAL LOGO CORE */}
           <motion.div
             animate={{ x: mouseParallax.x, y: mouseParallax.y }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
@@ -294,7 +287,7 @@ export function WhoWeHelpSection() {
             {AUDIENCES.map((aud) => {
               const isHovered = hoveredAudId === aud.id;
               const isDimmed = hoveredAudId !== null && !isHovered;
-              const AudIcon3D = aud.Icon3D;
+              const IconComp = aud.icon;
 
               const cardStyle = isDesktop
                 ? {
@@ -320,7 +313,9 @@ export function WhoWeHelpSection() {
                   >
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <AudIcon3D size={44} />
+                        <div className="p-3 rounded-2xl bg-slate-950 border border-slate-800 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-[#071C3F] transition-colors">
+                          <IconComp className="w-5 h-5" />
+                        </div>
                         <span className="text-[9px] font-black uppercase tracking-widest text-[#10B981]">
                           {aud.category}
                         </span>
@@ -370,7 +365,9 @@ export function WhoWeHelpSection() {
               </button>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 border-b border-slate-800 pb-6">
-                <selectedAud.Icon3D size={56} />
+                <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-[#10B981]">
+                  <selectedAud.icon className="w-8 h-8" />
+                </div>
                 <div className="space-y-1">
                   <span className="text-xs font-black uppercase tracking-widest text-[#10B981]">
                     DECISION-MAKER PROFILE
