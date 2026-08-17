@@ -107,7 +107,7 @@ export default function IndustriesPage() {
 
                   <div className="space-y-3 text-xs">
                     <div>
-                      <span className="font-extrabold uppercase text-rose-400 tracking-wider block mb-0.5">
+                      <span className="font-extrabold uppercase text-amber-400 tracking-wider block mb-0.5">
                         1. Sector Challenge:
                       </span>
                       <p className="text-slate-300 leading-relaxed font-normal">{ind.challenges}</p>

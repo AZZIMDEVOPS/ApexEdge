@@ -102,7 +102,7 @@ export function BeforeAfterTransformation() {
         {/* Interactive Transformation Slider Bar */}
         <div className="max-w-xl mx-auto space-y-3 bg-slate-900/90 border border-slate-800 p-6 rounded-3xl shadow-2xl backdrop-blur-xl relative z-20">
           <div className="flex items-center justify-between text-xs font-black uppercase tracking-wider">
-            <span className="text-rose-400 flex items-center gap-1.5">
+            <span className="text-amber-400 flex items-center gap-1.5">
               <AlertTriangle className="w-4 h-4" />
               <span>BEFORE: Operational Noise</span>
             </span>
@@ -141,23 +141,23 @@ export function BeforeAfterTransformation() {
             <SpotlightCard
               className={`p-8 space-y-6 shadow-2xl transition-all duration-300 ${
                 sliderPos < 50
-                  ? "border-rose-500/60 ring-2 ring-rose-500/20 opacity-100 bg-slate-950/90"
+                  ? "border-amber-500/60 ring-2 ring-amber-500/20 opacity-100 bg-slate-950/90"
                   : "border-slate-800 opacity-60 bg-slate-950/80"
               }`}
             >
-              <div className="flex items-center justify-between border-b border-rose-500/20 pb-4">
+              <div className="flex items-center justify-between border-b border-amber-500/20 pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400">
+                  <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400">
                     <AlertTriangle className="w-6 h-6" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-rose-400">
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400">
                       Current Operational State
                     </span>
                     <h3 className="text-2xl font-black text-white">BEFORE APEX EDGE</h3>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-extrabold">
+                <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-extrabold">
                   STATUS QUO
                 </span>
               </div>
@@ -172,11 +172,11 @@ export function BeforeAfterTransformation() {
                       onMouseLeave={() => setActivePairId(null)}
                       className={`flex items-start gap-3 p-3 rounded-xl transition-all duration-200 cursor-pointer ${
                         isHovered
-                          ? "bg-rose-500/15 border border-rose-500/40 text-white translate-x-1"
+                          ? "bg-amber-500/15 border border-amber-500/40 text-white translate-x-1"
                           : "text-slate-300 hover:bg-slate-900"
                       }`}
                     >
-                      <XCircle className={`w-5 h-5 shrink-0 mt-0.5 ${isHovered ? "text-rose-400 animate-pulse" : "text-rose-500/70"}`} />
+                      <XCircle className={`w-5 h-5 shrink-0 mt-0.5 ${isHovered ? "text-amber-400 animate-pulse" : "text-amber-500/70"}`} />
                       <span className="text-xs sm:text-sm font-normal leading-relaxed">{pair.before}</span>
                     </div>
                   );

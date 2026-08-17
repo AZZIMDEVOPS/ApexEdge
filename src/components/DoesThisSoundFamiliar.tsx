@@ -83,7 +83,7 @@ export function DoesThisSoundFamiliar() {
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-400 text-xs font-black uppercase tracking-[0.25em]"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-black uppercase tracking-[0.25em]"
           >
             <AlertCircle className="w-3.5 h-3.5" />
             <span>INTERACTIVE PROBLEM ECOSYSTEM</span>
@@ -196,7 +196,7 @@ export function DoesThisSoundFamiliar() {
                 </div>
 
                 <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-rose-400 block">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 block">
                     Underlying Root System Deficit:
                   </span>
                   <p className="text-xs sm:text-sm text-slate-100 font-semibold leading-relaxed">

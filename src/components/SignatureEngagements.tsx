@@ -147,7 +147,7 @@ export function SignatureEngagements({ onOpenBooking }: SignatureEngagementProps
 
                     <div className="space-y-3 text-xs text-slate-300">
                       <div>
-                        <span className="text-[10px] font-extrabold uppercase tracking-widest text-rose-400 block mb-0.5">
+                        <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 block mb-0.5">
                           What It Solves:
                         </span>
                         <p className="leading-relaxed">{item.solves}</p>

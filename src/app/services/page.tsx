@@ -365,7 +365,7 @@ export default function ServicesPage() {
                   
                   {/* 1. What Problem Does It Solve? */}
                   <div className="space-y-3 p-6 rounded-2xl bg-slate-950 border border-slate-800">
-                    <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-rose-400">
+                    <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-amber-400">
                       <HelpCircle className="w-4 h-4 shrink-0" />
                       <span>1. What Problem Does It Solve?</span>
                     </div>

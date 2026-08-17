@@ -80,7 +80,7 @@ export function VerifiedCaseSnapshots() {
 
                 <div className="space-y-3 text-xs">
                   <div>
-                    <span className="font-extrabold uppercase text-rose-400 tracking-wider flex items-center gap-1.5 mb-1">
+                    <span className="font-extrabold uppercase text-amber-400 tracking-wider flex items-center gap-1.5 mb-1">
                       <ShieldAlert className="w-3.5 h-3.5" />
                       Challenge:
                     </span>

@@ -16,7 +16,7 @@ export function RiskMatrix3DIcon({ size = 48 }: Deliverable3DIconProps) {
         <path d="M52 18 L52 42 L32 52 L32 28 Z" fill="#1E293B" stroke="#38BDF8" strokeWidth="2" />
         
         {/* Heatmap Grid Nodes */}
-        <circle cx="24" cy="21" r="3" fill="#F43F5E">
+        <circle cx="24" cy="21" r="3" fill="#38BDF8">
           <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
         </circle>
         <circle cx="32" cy="18" r="3" fill="#F59E0B">
