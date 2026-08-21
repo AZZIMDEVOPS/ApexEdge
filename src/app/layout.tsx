@@ -20,9 +20,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${poppins.variable} font-sans h-full antialiased`}
     >
-      <body className={`${poppins.className} min-h-full flex flex-col bg-white text-slate-900`}>
+      <body
+        suppressHydrationWarning
+        className={`${poppins.className} min-h-full flex flex-col bg-white text-slate-900`}
+      >
         <LenisProvider>
           <CustomCursor />
           {children}
