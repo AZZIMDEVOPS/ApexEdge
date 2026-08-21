@@ -49,7 +49,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       setHeadlineIndex((prev) => (prev + 1) % HERO_HEADLINES.length);
-    }, 6000);
+    }, 10000);
     return () => clearInterval(timer);
   }, []);
 
@@ -85,7 +85,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#071C3F]/80 border border-slate-700/90 text-white text-xs font-black uppercase tracking-[0.25em] shadow-lg backdrop-blur-md"
           >
             <ShieldCheck className="w-4 h-4 text-[#10B981]" />
@@ -97,10 +97,10 @@ export default function Home() {
             <AnimatePresence mode="wait">
               <motion.h1
                 key={headlineIndex}
-                initial={{ opacity: 0, y: 14, filter: "blur(4px)" }}
+                initial={{ opacity: 0, y: 12, filter: "blur(3px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -14, filter: "blur(4px)" }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                exit={{ opacity: 0, y: -12, filter: "blur(3px)" }}
+                transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black tracking-tight text-white leading-[1.28] max-w-5xl mx-auto drop-shadow-md"
               >
                 <span>{HERO_HEADLINES[headlineIndex].lead}</span>{" "}

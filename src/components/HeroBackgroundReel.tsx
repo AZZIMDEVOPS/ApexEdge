@@ -54,7 +54,7 @@ export function HeroBackgroundReel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % HERO_BACKGROUND_IMAGES.length);
-    }, 5500);
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -65,10 +65,10 @@ export function HeroBackgroundReel() {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentImage.src}
-          initial={{ opacity: 0, scale: 1.08 }}
+          initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.98 }}
-          transition={{ duration: 1.4, ease: "easeInOut" }}
+          transition={{ duration: 2.4, ease: "easeInOut" }}
           className="absolute inset-0 w-full h-full"
         >
           <Image
@@ -77,7 +77,7 @@ export function HeroBackgroundReel() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center filter brightness-[0.95] contrast-[1.08]"
+            className="object-cover object-center brightness-105 contrast-105"
           />
         </motion.div>
       </AnimatePresence>
