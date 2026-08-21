@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Search,
@@ -12,6 +12,10 @@ import {
   CheckCircle2,
   Building2,
   HelpCircle,
+  Play,
+  Pause,
+  ArrowRight,
+  Send,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -103,6 +107,33 @@ const FAQ_DATA: FAQItem[] = [
   },
 ];
 
+const HUB_PHOTOS = [
+  {
+    src: "/nairobi_skyline_night.jpg",
+    alt: "Nairobi CBD & Upper Hill Business District Skyline — East Africa Financial Hub",
+    caption: "Upper Hill Financial District",
+    tag: "Financial Gateway",
+  },
+  {
+    src: "/nairobi_panoramic_daylight.jpg",
+    alt: "Nairobi Daylight Corporate Corridor & Innovation Centre",
+    caption: "East Africa Corporate Hub",
+    tag: "Regional Centre",
+  },
+  {
+    src: "/nairobi_gtc_expressway.jpg",
+    alt: "Global Trade Centre & Expressway Commercial Gateway",
+    caption: "GTC Towers & Expressway Gateway",
+    tag: "Commercial Gateway",
+  },
+  {
+    src: "/east_africa_financial_skyline.jpg",
+    alt: "East Africa Banking & Institutional Capital Towers",
+    caption: "East Africa Banking Corridor",
+    tag: "Institutional Hub",
+  },
+];
+
 interface InteractiveKnowledgeCentreProps {
   onOpenAI?: () => void;
   onOpenBooking?: () => void;
@@ -110,11 +141,12 @@ interface InteractiveKnowledgeCentreProps {
 
 export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: InteractiveKnowledgeCentreProps) {
   const [searchQuery, setSearchQuery] = useState("");
-  const [openFaqId, setOpenFaqId] = useState<string>("faq-1");
-  const [askModalOpen, setAskModalOpen] = useState(false);
-  const [askedQuestion, setAskedQuestion] = useState("");
-  const [askedEmail, setAskedEmail] = useState("");
-  const [askSubmitted, setAskSubmitted] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number>(0);
+  const [isFaqPaused, setIsFaqPaused] = useState<boolean>(false);
+  const [faqCycleKey, setFaqCycleKey] = useState<number>(0);
+  
+  // Left Photo Reel State
+  const [activePhotoIndex, setActivePhotoIndex] = useState<number>(0);
 
   const filteredFaqs = FAQ_DATA.filter(
     (faq) =>
@@ -123,10 +155,33 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
       faq.category.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleAskSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setAskSubmitted(true);
+  // Auto-cycle Photo Reel on the Left every 5.5 seconds
+  useEffect(() => {
+    const photoInterval = setInterval(() => {
+      setActivePhotoIndex((prev) => (prev + 1) % HUB_PHOTOS.length);
+    }, 5500);
+
+    return () => clearInterval(photoInterval);
+  }, []);
+
+  // Auto-cycle FAQ items on the Right every 8.0 seconds
+  useEffect(() => {
+    if (isFaqPaused || filteredFaqs.length === 0) return;
+
+    const faqInterval = setInterval(() => {
+      setOpenFaqIndex((prev) => (prev + 1) % filteredFaqs.length);
+      setFaqCycleKey((prev) => prev + 1);
+    }, 8000);
+
+    return () => clearInterval(faqInterval);
+  }, [isFaqPaused, filteredFaqs.length, faqCycleKey]);
+
+  const handleFaqClick = (idx: number) => {
+    setOpenFaqIndex(idx);
+    setFaqCycleKey((prev) => prev + 1);
   };
+
+  const currentPhoto = HUB_PHOTOS[activePhotoIndex];
 
   return (
     <section id="values" className="relative py-24 sm:py-32 bg-white text-slate-900 overflow-hidden border-b border-slate-200 selection:bg-[#10B981] selection:text-[#071C3F]">
@@ -195,26 +250,61 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
           </div>
         </div>
 
-        {/* Knowledge Showcase Grid: Dynamic Photography Panel (Left) + Interactive Cards (Right) */}
+        {/* Knowledge Showcase Grid: Animated Photography Reel (Left) + Auto-Scrolling Insights (Right) */}
         <div className="grid gap-8 lg:grid-cols-12 items-start">
           
-          {/* Executive Nairobi Architectural Skyline Showcase Panel (Left 5 Cols) */}
-          <div className="lg:col-span-5 relative h-96 lg:h-[580px] rounded-3xl overflow-hidden border border-slate-200 shadow-xl group">
-            <div className="absolute inset-0 w-full h-full overflow-hidden">
-              <img
-                src="/nairobi_skyline_night.jpg"
-                alt="Nairobi CBD & Upper Hill Business District Skyline — East Africa Financial Hub"
-                className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 brightness-105 contrast-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F] via-[#071C3F]/35 to-transparent" />
+          {/* Executive Nairobi Architectural Skyline Animated Showcase Panel (Left 5 Cols) */}
+          <div className="lg:col-span-5 relative h-96 lg:h-[600px] rounded-3xl overflow-hidden border-2 border-slate-200 shadow-xl group">
+            
+            {/* Animated Crossfading Photography Reel */}
+            <div className="absolute inset-0 w-full h-full overflow-hidden bg-slate-950">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentPhoto.src}
+                  initial={{ opacity: 0, scale: 1.08 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 1.2, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <img
+                    src={currentPhoto.src}
+                    alt={currentPhoto.alt}
+                    className="w-full h-full object-cover object-center brightness-105 contrast-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F] via-[#071C3F]/35 to-transparent" />
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Photo Pagination Indicators */}
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-slate-950/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+                {HUB_PHOTOS.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActivePhotoIndex(idx)}
+                    className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                      idx === activePhotoIndex
+                        ? "w-5 bg-[#10B981]"
+                        : "w-1.5 bg-white/40 hover:bg-white/70"
+                    }`}
+                    title={`Slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </div>
 
             {/* Bottom Information Card */}
             <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-[#071C3F]/95 border border-slate-700 backdrop-blur-xl shadow-xl space-y-2 z-10 text-white">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] text-[10px] font-black uppercase tracking-wider">
-                <Building2 className="w-3 h-3" />
-                <span>KENYA BUSINESS HUB</span>
+              <div className="flex items-center justify-between gap-2">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] text-[10px] font-black uppercase tracking-wider">
+                  <Building2 className="w-3 h-3" />
+                  <span>KENYA BUSINESS HUB</span>
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-wider text-slate-300 bg-slate-900/80 px-2 py-0.5 rounded-md border border-slate-700">
+                  {currentPhoto.tag}
+                </span>
               </div>
+
               <h3 className="text-base font-black text-white leading-snug">
                 Nairobi — East Africa&apos;s Leading Financial &amp; Corporate Centre
               </h3>
@@ -224,35 +314,65 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
             </div>
           </div>
 
-          {/* Interactive FAQ Accordion List (Right 7 Cols) */}
-          <div className="lg:col-span-7 space-y-4">
-            {filteredFaqs.map((faq) => {
-              const isOpen = openFaqId === faq.id;
+          {/* Auto-Scrolling Interactive FAQ Accordion List (Right 7 Cols) */}
+          <div
+            className="lg:col-span-7 space-y-4"
+            onMouseEnter={() => setIsFaqPaused(true)}
+            onMouseLeave={() => setIsFaqPaused(false)}
+          >
+            {/* Auto-Scroll Status Bar */}
+            <div className="flex items-center justify-between px-2 pb-1 text-xs">
+              <span className="text-[11px] font-black uppercase tracking-widest text-[#071C3F]">
+                FREQUENTLY ASKED ADVISORY QUESTIONS
+              </span>
+              <div className="flex items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-[#071C3F] border border-emerald-200">
+                  <span className={`w-1.5 h-1.5 rounded-full ${isFaqPaused ? "bg-amber-500" : "bg-[#10B981] animate-pulse"}`} />
+                  {isFaqPaused ? "Paused" : "Auto-Advancing"}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setIsFaqPaused(!isFaqPaused)}
+                  className="text-slate-400 hover:text-slate-700 p-1 rounded transition-colors cursor-pointer"
+                  title={isFaqPaused ? "Resume auto-scroll" : "Pause auto-scroll"}
+                >
+                  {isFaqPaused ? <Play className="w-3 h-3 text-[#10B981]" /> : <Pause className="w-3 h-3" />}
+                </button>
+              </div>
+            </div>
+
+            {filteredFaqs.map((faq, idx) => {
+              const isOpen = idx === openFaqIndex;
 
               return (
                 <motion.div
                   key={faq.id}
                   layout
-                  className={`rounded-2xl border transition-all duration-300 overflow-hidden cursor-pointer ${
+                  className={`relative rounded-2xl border transition-all duration-300 overflow-hidden cursor-pointer ${
                     isOpen
-                      ? "border-[#10B981] bg-white shadow-lg ring-2 ring-[#10B981]/20"
-                      : "border-slate-200 bg-slate-50 hover:border-slate-300 hover:bg-white"
+                      ? "border-[#10B981] bg-white shadow-lg ring-2 ring-[#10B981]/20 scale-[1.005]"
+                      : "border-slate-200 bg-slate-50/90 hover:border-slate-300 hover:bg-white"
                   }`}
-                  onClick={() => setOpenFaqId(isOpen ? "" : faq.id)}
+                  onClick={() => handleFaqClick(idx)}
                 >
                   <div className="p-6 flex items-start justify-between gap-4">
                     <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-xl border transition-colors ${
+                      <div className={`p-2.5 rounded-xl border transition-colors ${
                         isOpen ? "bg-[#071C3F] text-[#10B981] border-[#071C3F]" : "bg-white border-slate-200 text-[#071C3F]"
                       }`}>
                         <HelpCircle className="w-4 h-4" />
                       </div>
-                      <h3 className="text-base sm:text-lg font-black text-slate-950 leading-snug">
-                        {faq.question}
-                      </h3>
+                      <div>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-[#10B981] block mb-0.5">
+                          {faq.category}
+                        </span>
+                        <h3 className="text-base sm:text-lg font-black text-slate-950 leading-snug">
+                          {faq.question}
+                        </h3>
+                      </div>
                     </div>
 
-                    <div className={`p-2 rounded-full border transition-transform duration-300 ${
+                    <div className={`p-2 rounded-full border transition-transform duration-300 shrink-0 ${
                       isOpen ? "rotate-180 bg-[#10B981] text-[#071C3F] border-[#10B981]" : "bg-white border-slate-200 text-slate-500"
                     }`}>
                       <ChevronDown className="w-4 h-4" />
@@ -300,112 +420,33 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center gap-2 text-xs font-bold text-[#071C3F] hover:underline transition-colors"
+                              className="inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-emerald-600 bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-full transition-colors"
                             >
-                              <MessageCircle className="w-3.5 h-3.5" />
-                              <span>Inquire on WhatsApp →</span>
+                              <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                              <span>Ask on WhatsApp</span>
                             </a>
                           </div>
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
+
+                  {/* Active Auto-Scroll Countdown Progress Bar */}
+                  {isOpen && !isFaqPaused && (
+                    <motion.div
+                      key={`faq-progress-${idx}-${faqCycleKey}`}
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 8.0, ease: "linear" }}
+                      className="absolute bottom-0 left-0 right-0 h-1 bg-[#10B981] origin-left"
+                    />
+                  )}
                 </motion.div>
               );
             })}
           </div>
         </div>
-
-        {/* Bottom CTA Trigger: Ask an Advisor */}
-        <div className="mt-16 text-center pt-8 border-t border-slate-200">
-          <p className="text-sm text-slate-600 mb-3">Didn&apos;t find your specific governance question?</p>
-          <Button
-            onClick={() => setAskModalOpen(true)}
-            className="rounded-full border border-slate-300 bg-white text-[#071C3F] hover:border-[#10B981] hover:text-[#071C3F] font-bold px-8 py-3.5 text-xs shadow-md transition-all cursor-pointer"
-          >
-            Ask an Advisory Partner Directly
-          </Button>
-        </div>
       </div>
-
-      {/* Ask Advisor Modal Dialog */}
-      <AnimatePresence>
-        {askModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setAskModalOpen(false)}
-              className="fixed inset-0 bg-slate-950/85 backdrop-blur-md"
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: "spring", stiffness: 320, damping: 26 }}
-              className="relative w-full max-w-md overflow-hidden rounded-3xl bg-[#071C3F] border border-[#10B981]/40 text-white shadow-2xl z-10 p-8 space-y-6"
-            >
-              <button
-                onClick={() => setAskModalOpen(false)}
-                className="absolute top-5 right-5 p-2 rounded-full bg-slate-900 text-slate-300 hover:text-white"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              {!askSubmitted ? (
-                <form onSubmit={handleAskSubmit} className="space-y-4">
-                  <div className="space-y-1">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#10B981]">Direct Advisory Enquiry</span>
-                    <h3 className="text-2xl font-black text-white">Ask an Advisor</h3>
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-bold text-slate-300 block mb-1">Your Question *</label>
-                    <textarea
-                      required
-                      rows={3}
-                      value={askedQuestion}
-                      onChange={(e) => setAskedQuestion(e.target.value)}
-                      placeholder="Type your statutory compliance or governance question..."
-                      className="w-full rounded-xl bg-slate-950 border border-slate-800 p-3 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-bold text-slate-300 block mb-1">Corporate Email *</label>
-                    <input
-                      type="email"
-                      required
-                      value={askedEmail}
-                      onChange={(e) => setAskedEmail(e.target.value)}
-                      placeholder="yourname@company.co.ke"
-                      className="w-full rounded-xl bg-slate-950 border border-slate-800 p-3 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
-                    />
-                  </div>
-
-                  <Button type="submit" className="w-full rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black py-3.5 text-xs shadow-md">
-                    Submit Enquiry
-                  </Button>
-                </form>
-              ) : (
-                <div className="text-center py-6 space-y-4">
-                  <div className="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-xl font-black text-white">Enquiry Received</h3>
-                  <p className="text-slate-300 text-xs leading-relaxed">
-                    Thank you. An ApexEdge Senior Advisory Partner will review your question and respond via email within 24 business hours.
-                  </p>
-                  <Button onClick={() => { setAskSubmitted(false); setAskModalOpen(false); }} className="rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-bold px-6 py-2.5 text-xs">
-                    Close Window
-                  </Button>
-                </div>
-              )}
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }
