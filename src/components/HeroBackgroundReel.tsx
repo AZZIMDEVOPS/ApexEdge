@@ -61,7 +61,7 @@ export function HeroBackgroundReel() {
   const currentImage = HERO_BACKGROUND_IMAGES[currentIndex];
 
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden bg-[#071C3F]">
+    <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden bg-white">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentImage.src}
@@ -77,32 +77,32 @@ export function HeroBackgroundReel() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center brightness-105 contrast-105"
+            className="object-cover object-center filter brightness-100 contrast-105"
           />
         </motion.div>
       </AnimatePresence>
 
-      {/* Cinematic High-Contrast Overlay Gradients for Razor-Sharp Text Readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#071C3F]/85 via-[#071C3F]/60 to-[#071C3F]/95" />
-      <div className="absolute inset-0 bg-radial-[ellipse_at_center] from-transparent via-[#071C3F]/40 to-[#071C3F]/80" />
+      {/* Luminous Clean White Overlay Gradients for Razor-Sharp Navy Text Readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/92 via-white/82 to-white/98" />
+      <div className="absolute inset-0 bg-radial-[ellipse_at_center] from-transparent via-white/50 to-white/95" />
 
       {/* Subtle Live Photo Indicator in Top Right Corner */}
-      <div className="absolute top-6 right-6 z-10 pointer-events-auto hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#071C3F]/80 border border-slate-700/80 backdrop-blur-md text-[11px] font-semibold text-slate-200 shadow-lg">
+      <div className="absolute top-6 right-6 z-10 pointer-events-auto hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-slate-200/90 backdrop-blur-md text-[11px] font-bold text-slate-800 shadow-md">
         <Camera className="w-3.5 h-3.5 text-[#10B981]" />
         <span>{currentImage.caption}</span>
       </div>
 
       {/* Bottom Timeline Indicator Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 pointer-events-auto flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#071C3F]/70 backdrop-blur-md border border-slate-700/60">
-        {HERO_BACKGROUND_IMAGES.map((img, idx) => (
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 pointer-events-auto flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-md">
+        {HERO_BACKGROUND_IMAGES.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
-            aria-label={`View photo ${idx + 1}`}
-            className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
+            aria-label={`Jump to image ${idx + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
               currentIndex === idx
                 ? "w-6 bg-[#10B981]"
-                : "w-1.5 bg-slate-500 hover:bg-slate-300"
+                : "w-1.5 bg-slate-300 hover:bg-slate-500"
             }`}
           />
         ))}
@@ -110,4 +110,3 @@ export function HeroBackgroundReel() {
     </div>
   );
 }
-

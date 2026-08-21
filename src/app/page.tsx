@@ -73,10 +73,10 @@ export default function Home() {
       {/* 1. Header Navigation */}
       <ExecutiveHeaderNav onOpenBooking={() => openBooking("Governance & Risk")} />
 
-      {/* 2. HERO SECTION — HIGH CONTRAST WITH ANIMATED PICTURES BEHIND MAIN HEADING */}
-      <section className="relative w-full min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-20 overflow-hidden border-b border-slate-800 text-white">
+      {/* 2. HERO SECTION — CLEAN WHITE FEEL WITH ANIMATED PICTURES BEHIND MAIN HEADING */}
+      <section className="relative w-full min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-20 overflow-hidden border-b border-slate-200 text-slate-900 bg-white">
         
-        {/* Animated Pictures Reel in the Background */}
+        {/* Animated Pictures Reel in the Background with White Gradient Wash */}
         <HeroBackgroundReel />
 
         <div className="relative z-10 mx-auto max-w-6xl px-5 text-center sm:px-8 lg:px-10 space-y-7">
@@ -86,13 +86,13 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#071C3F]/80 border border-slate-700/90 text-white text-xs font-black uppercase tracking-[0.25em] shadow-lg backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 border border-slate-200 text-[#071C3F] text-xs font-black uppercase tracking-[0.25em] shadow-sm backdrop-blur-md"
           >
             <ShieldCheck className="w-4 h-4 text-[#10B981]" />
             <span>STRATEGIC ADVISORY · NAIROBI &amp; EAST AFRICA</span>
           </motion.div>
 
-          {/* Dynamic Cycling H1 Heading (Guaranteed Strictly Max 2 to 3 Lines) */}
+          {/* Dynamic Cycling H1 Heading (Guaranteed Strictly Max 2 to 3 Lines in Apex Navy) */}
           <div className="min-h-[90px] sm:min-h-[110px] lg:min-h-[120px] flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.h1
@@ -101,10 +101,10 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, y: -12, filter: "blur(3px)" }}
                 transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black tracking-tight text-white leading-[1.28] max-w-5xl mx-auto drop-shadow-md"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black tracking-tight text-slate-950 leading-[1.28] max-w-5xl mx-auto drop-shadow-xs"
               >
                 <span>{HERO_HEADLINES[headlineIndex].lead}</span>{" "}
-                <span className="text-white underline decoration-[#10B981] decoration-4 underline-offset-8">
+                <span className="text-[#071C3F] underline decoration-[#10B981] decoration-4 underline-offset-8">
                   {HERO_HEADLINES[headlineIndex].highlight}
                 </span>
               </motion.h1>
@@ -121,25 +121,25 @@ export default function Home() {
                 className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
                   headlineIndex === idx
                     ? "w-8 bg-[#10B981]"
-                    : "w-2 bg-slate-600/70 hover:bg-slate-400"
+                    : "w-2 bg-slate-300 hover:bg-slate-400"
                 }`}
               />
             ))}
           </div>
 
-          {/* Subheadline & Direct Human Proposition */}
+          {/* Subheadline & Direct Human Proposition on Clean Light Card */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.7 }}
-            className="rounded-3xl border border-slate-700/80 bg-[#071C3F]/85 backdrop-blur-xl p-6 sm:p-8 max-w-4xl mx-auto shadow-2xl space-y-4 text-left sm:text-center"
+            className="rounded-3xl border-2 border-slate-200/90 bg-white/95 backdrop-blur-xl p-7 sm:p-9 max-w-4xl mx-auto shadow-xl space-y-4 text-left sm:text-center"
           >
-            <p className="text-base sm:text-xl text-slate-200 font-medium leading-relaxed">
+            <p className="text-base sm:text-xl text-slate-800 font-semibold leading-relaxed">
               &ldquo;Apex Edge partners with Boards of Directors, CEOs, Finance and People Leaders across East Africa to cut through operational noise, eliminate recurring audit exceptions, and build Board-ready systems that teams actually use every day.&rdquo;
             </p>
 
-            <div className="pt-3 border-t border-slate-700/80 text-xs sm:text-sm text-slate-300 font-semibold flex flex-wrap items-center justify-center gap-2">
-              <span className="text-[#10B981] font-bold">Built for:</span>
+            <div className="pt-3.5 border-t border-slate-100 text-xs sm:text-sm text-slate-600 font-semibold flex flex-wrap items-center justify-center gap-2">
+              <span className="text-[#10B981] font-black uppercase tracking-wider text-[11px]">Built for:</span>
               <span>Boards, CEOs, CFOs, and Heads of HR navigating growth, regulatory scrutiny, and performance bottlenecks.</span>
             </div>
           </motion.div>
@@ -163,13 +163,13 @@ export default function Home() {
               <Button
                 onClick={() => handleScrollToSection("architecture")}
                 variant="outline"
-                className="border-slate-600 bg-[#071C3F]/70 hover:bg-[#071C3F] text-white hover:text-white font-bold rounded-full px-7 py-4 text-sm flex items-center gap-2 transition-all shadow-md backdrop-blur-md"
+                className="border-2 border-slate-200 bg-white hover:bg-slate-50 text-[#071C3F] font-black rounded-full px-7 py-4 text-sm flex items-center gap-2 transition-all shadow-sm"
               >
                 <span>Explore Solution Architecture ↓</span>
               </Button>
             </div>
 
-            <span className="text-xs text-slate-300 font-medium italic">
+            <span className="text-xs text-slate-500 font-medium italic">
               No retainer friction. No open-ended consulting hours. Start with one concrete challenge.
             </span>
           </motion.div>
@@ -179,9 +179,9 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.7 }}
-            className="pt-6 border-t border-slate-700/80 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-slate-300"
+            className="pt-6 border-t border-slate-200 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-slate-600"
           >
-            <span className="uppercase tracking-widest text-[#10B981] font-black text-[10px]">SECTOR EXPERIENCE:</span>
+            <span className="uppercase tracking-widest text-[#071C3F] font-black text-[10px]">SECTOR EXPERIENCE:</span>
             {clientEcosystem.map((client, idx) => (
               <div key={idx} className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
