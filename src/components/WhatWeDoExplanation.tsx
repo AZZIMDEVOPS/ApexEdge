@@ -1,68 +1,63 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import { CheckCircle2, ArrowRight, ShieldCheck, FileCheck2, Users2, LineChart, Sparkles } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
-import {
-  Diagnose3DIcon,
-  Design3DIcon,
-  Implement3DIcon,
-  Measure3DIcon,
-} from "@/components/icons/Methodology3DIcons";
 
 const METHODOLOGY_STEPS = [
   {
     step: "01",
-    title: "DIAGNOSE",
-    subtitle: "Find the Real Problem",
-    desc: "We conduct an empirical assessment of your governance, controls, people, or data processes to isolate the root system deficit—not just the surface symptom.",
-    outcome: "Empirical Root-Cause Gap Analysis",
-    Icon3D: Diagnose3DIcon,
+    phase: "DIAGNOSE",
+    title: "Isolate the Root Breakpoint",
+    desc: "We don't start with pre-packaged assumptions. We sit with your operating teams, trace transaction flows, and cross-reference policy against actual daily practice to uncover where the friction truly originates.",
+    deliverable: "Root-Cause Gap Assessment",
+    icon: ShieldCheck,
   },
   {
     step: "02",
-    title: "DESIGN",
-    subtitle: "Build the Right Solution",
-    desc: "We architect practical, Board-ready systems, custom SOPs, risk registers, and role structures tailored to your operational realities.",
-    outcome: "Custom SOPs & Risk Registers",
-    Icon3D: Design3DIcon,
+    phase: "DESIGN",
+    title: "Architect Usable, Board-Ready Systems",
+    desc: "A 200-page manual that sits unread on a shelf is a liability, not a control. We design concise, actionable tools: 1-page digital approval workflows, clear authorization matrices, and Board risk heat maps.",
+    deliverable: "Custom SOPs & Approval Matrices",
+    icon: FileCheck2,
   },
   {
     step: "03",
-    title: "IMPLEMENT",
-    subtitle: "Embed Into Operations",
-    desc: "We work alongside your leadership and management teams to embed new workflows, assign named ownership, and enforce compliance.",
-    outcome: "Named Ownership & Staff Training",
-    Icon3D: Implement3DIcon,
+    phase: "EMBED",
+    title: "Assign Named Ownership & Train Teams",
+    desc: "Advisory recommendations collapse when no single person owns execution. We work alongside department heads to assign explicit owners, train managers, and embed controls into daily operations.",
+    deliverable: "Named Ownership Charters & Training",
+    icon: Users2,
   },
   {
     step: "04",
-    title: "MEASURE",
-    subtitle: "Track Impact & Results",
-    desc: "We establish performance dashboards, tracking scorecards, and Board reporting mechanisms to verify that the system delivers expected outcomes.",
-    outcome: "Board Control Dashboards & Scorecards",
-    Icon3D: Measure3DIcon,
+    phase: "VERIFY",
+    title: "Measure Board-Level Impact & Controls",
+    desc: "We don't deliver a document and disappear. We establish executive scorecards, quarterly review cadence, and standardized Board packs so Directors have continuous, independent visibility.",
+    deliverable: "Executive Scorecards & Board Packs",
+    icon: LineChart,
   },
 ];
 
 export function WhatWeDoExplanation() {
   return (
-    <section className="relative py-24 bg-[#071C3F] text-white overflow-hidden border-b border-slate-800">
+    <section className="relative py-24 bg-white text-slate-900 overflow-hidden border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-16">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4">
-          <SectionLabel number="02" title="CORE ADVISORY FRAMEWORK" />
+          <SectionLabel number="02" title="OUR OPERATING METHODOLOGY" />
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight uppercase"
+            className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight leading-tight"
           >
-            WHAT DOES APEX EDGE ACTUALLY DO?
+            How Apex Edge Actually Works With Your Organisation
           </motion.h2>
 
           <motion.div
@@ -70,73 +65,91 @@ export function WhatWeDoExplanation() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 backdrop-blur-xl shadow-2xl"
+            className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm"
           >
-            <p className="text-base sm:text-xl text-slate-100 font-semibold leading-relaxed">
-              &ldquo;We help organisations identify what is not working, understand why, design practical systems to fix it, support implementation and measure whether the change is working.&rdquo;
+            <p className="text-base sm:text-lg text-slate-800 font-medium leading-relaxed">
+              &ldquo;We help leadership teams identify what is genuinely breaking down, understand why it keeps recurring, design practical systems to fix it, and ensure someone is accountable for making it work every single day.&rdquo;
             </p>
           </motion.div>
         </div>
 
-        {/* 4-Step Process Visual Continuous Traveling Line Container */}
-        <div className="relative">
-          
-          {/* Continuous Glowing Energy Line Behind Grid (Desktop Only) */}
-          <div className="hidden lg:block absolute top-1/2 left-10 right-10 h-0.5 bg-slate-800 -translate-y-1/2 z-0">
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-              className="h-full bg-gradient-to-r from-[#10B981] via-blue-400 to-[#10B981] origin-left shadow-[0_0_15px_#10B981]"
-            />
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
-            {METHODOLOGY_STEPS.map((stepItem, idx) => {
-              const Icon3DComp = stepItem.Icon3D;
-              return (
-                <motion.div
-                  key={stepItem.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.15, duration: 0.5 }}
-                >
-                  <SpotlightCard className="p-7 h-full flex flex-col justify-between space-y-4">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <Icon3DComp size={50} />
-                        <span className="text-3xl font-black text-slate-700 group-hover:text-[#10B981]/40 transition-colors">
-                          {stepItem.step}
-                        </span>
-                      </div>
-
-                      <div>
-                        <h3 className="text-xl font-black text-white group-hover:text-[#10B981] transition-colors tracking-wide">
-                          {stepItem.title}
-                        </h3>
-                        <span className="text-xs font-bold text-[#10B981] uppercase tracking-wider block mt-0.5">
-                          {stepItem.subtitle}
-                        </span>
-                      </div>
-
-                      <p className="text-xs text-slate-300 font-normal leading-relaxed">
-                        {stepItem.desc}
-                      </p>
+        {/* 4-Step Process Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {METHODOLOGY_STEPS.map((stepItem, idx) => {
+            const IconComp = stepItem.icon;
+            return (
+              <motion.div
+                key={stepItem.phase}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                className="p-7 h-full flex flex-col justify-between space-y-5 rounded-3xl bg-slate-50 border border-slate-200 hover:border-[#10B981] transition-all duration-300 shadow-sm"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="p-3 rounded-2xl bg-white border border-slate-200 text-[#071C3F] shadow-xs">
+                      <IconComp className="w-5 h-5 text-[#10B981]" />
                     </div>
+                    <span className="text-3xl font-black text-slate-300">
+                      {stepItem.step}
+                    </span>
+                  </div>
 
-                    <div className="mt-6 pt-4 border-t border-slate-800 flex items-center gap-2 text-[11px] font-semibold text-slate-200">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                      <span>{stepItem.outcome}</span>
-                    </div>
-                  </SpotlightCard>
-                </motion.div>
-              );
-            })}
-          </div>
+                  <div>
+                    <span className="text-xs font-black text-[#071C3F] uppercase tracking-widest block">
+                      {stepItem.phase}
+                    </span>
+                    <h3 className="text-lg font-black text-slate-950 mt-1 leading-snug">
+                      {stepItem.title}
+                    </h3>
+                  </div>
+
+                  <p className="text-xs text-slate-600 font-normal leading-relaxed">
+                    {stepItem.desc}
+                  </p>
+                </div>
+
+                <div className="mt-4 pt-4 border-t border-slate-200 flex items-center gap-2 text-[11px] font-semibold text-slate-800">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                  <span>{stepItem.deliverable}</span>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
+
+        {/* Real Advisory Briefing Session Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-lg h-72 sm:h-96 w-full"
+        >
+          <Image
+            src="/strategy_whiteboard_briefing.jpg"
+            alt="Apex Edge Partner mapping organizational performance roadmaps with senior executive"
+            fill
+            className="object-cover object-top filter brightness-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F] via-[#071C3F]/40 to-transparent" />
+          <div className="absolute bottom-6 left-6 right-6 sm:left-10 sm:right-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+            <div className="space-y-1">
+              <span className="text-[10px] font-black uppercase tracking-widest text-[#10B981] bg-[#071C3F]/90 px-3 py-1 rounded-full border border-[#10B981]/30">
+                Working Sprints in Practice
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black text-white">
+                Co-Designing Operational Workflows with Leadership
+              </h3>
+            </div>
+            <span className="text-xs text-slate-200 font-semibold bg-[#071C3F]/80 px-4 py-2 rounded-xl border border-slate-700">
+              Interactive Diagnostic &amp; Architecture Sprints
+            </span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 }
+

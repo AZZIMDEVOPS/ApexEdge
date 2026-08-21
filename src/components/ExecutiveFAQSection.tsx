@@ -60,7 +60,7 @@ export function ExecutiveFAQSection() {
   };
 
   return (
-    <section id="faq" className="relative py-24 bg-[#071C3F] text-white overflow-hidden border-b border-slate-800">
+    <section id="faq" className="relative py-24 bg-white text-slate-900 overflow-hidden border-b border-slate-200">
       <div className="mx-auto max-w-5xl px-5 sm:px-8 lg:px-10 space-y-16">
         
         {/* Header */}
@@ -69,10 +69,10 @@ export function ExecutiveFAQSection() {
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#10B981]/15 border border-[#10B981]/40 text-[#10B981] text-xs font-black uppercase tracking-[0.25em]"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#071C3F] text-xs font-black uppercase tracking-[0.25em] shadow-xs"
           >
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span>EXECUTIVE CLARITY & FAQ</span>
+            <HelpCircle className="w-3.5 h-3.5 text-[#10B981]" />
+            <span>EXECUTIVE CLARITY &amp; FAQ</span>
           </motion.div>
 
           <motion.h2
@@ -80,7 +80,7 @@ export function ExecutiveFAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight"
+            className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight leading-tight"
           >
             FREQUENTLY ASKED QUESTIONS
           </motion.h2>
@@ -90,13 +90,13 @@ export function ExecutiveFAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed"
+            className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed"
           >
             Clear answers to help you understand Apex Edge&apos;s advisory model, deliverables, and engagement process.
           </motion.p>
         </div>
 
-        {/* Accordion List */}
+        {/* Accordion List on Clean White Canvas */}
         <div className="space-y-4">
           {FAQS.map((faq, idx) => {
             const isOpen = openIndex === idx;
@@ -107,11 +107,11 @@ export function ExecutiveFAQSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="rounded-2xl bg-slate-900/90 border border-slate-800 overflow-hidden shadow-lg hover:border-[#10B981]/40 transition-colors"
+                className="rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden shadow-xs hover:border-[#10B981] transition-colors"
               >
                 <button
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-extrabold text-base sm:text-lg text-white hover:text-[#10B981] transition-colors"
+                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-extrabold text-base sm:text-lg text-slate-900 hover:text-[#071C3F] transition-colors cursor-pointer"
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
@@ -128,7 +128,7 @@ export function ExecutiveFAQSection() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25 }}
-                      className="px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4 font-normal"
+                      className="px-6 pb-6 text-sm text-slate-700 leading-relaxed border-t border-slate-200 pt-4 font-normal"
                     >
                       {faq.a}
                     </motion.div>

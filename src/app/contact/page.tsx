@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { MapPin, Mail, Phone, Clock, Calendar, CheckCircle2, ShieldCheck, MessageCircle, ArrowRight } from "lucide-react";
 import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
 import { CorporateFooter } from "@/components/CorporateFooter";
@@ -55,65 +56,65 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-900 selection:bg-[#10B981] selection:text-[#071C3F]">
+    <main className="min-h-screen bg-white text-slate-900 selection:bg-[#10B981] selection:text-[#071C3F]">
       <ExecutiveHeaderNav onOpenBooking={() => setIsBookingOpen(true)} />
 
-      {/* Hero Header */}
-      <section className="relative py-24 bg-[#071C3F] text-white overflow-hidden border-b border-slate-800">
+      {/* Hero Header on Light Canvas */}
+      <section className="relative py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900 overflow-hidden border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-6 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] text-xs font-black uppercase tracking-[0.25em]">
-            <ShieldCheck className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#071C3F] text-xs font-black uppercase tracking-[0.25em] shadow-xs">
+            <ShieldCheck className="w-4 h-4 text-[#10B981]" />
             <span>EXECUTIVE ADVISORY CONTACT</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight uppercase">
+          <h1 className="text-4xl sm:text-6xl font-black text-slate-950 tracking-tight leading-tight uppercase">
             Bring Us One Organisational Challenge.
           </h1>
 
-          <p className="max-w-3xl mx-auto text-lg text-slate-300 font-normal leading-relaxed">
+          <p className="max-w-3xl mx-auto text-lg text-slate-700 font-normal leading-relaxed">
             Schedule your 45-Minute Clarity Session with an Apex Edge Senior Advisory Partner and receive your One-Page Action Map highlighting priority gaps, quick wins and next steps.
           </p>
         </div>
       </section>
 
       {/* 5-Step Engagement Journey Banner */}
-      <section className="py-16 bg-slate-900 border-b border-slate-800 text-white">
+      <section className="py-16 bg-slate-50 border-b border-slate-200 text-slate-900">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-2">
             <span className="text-xs font-black uppercase tracking-widest text-[#10B981]">
               ENGAGEMENT JOURNEY
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-950">
               What Happens When You Reach Out
             </h2>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 text-xs">
             {ENGAGEMENT_STEPS.map((s) => (
-              <div key={s.step} className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 hover:border-[#10B981]/50 transition-colors">
-                <span className="text-lg font-black text-[#10B981]">{s.step}</span>
-                <h4 className="font-bold text-white block">{s.title}</h4>
-                <p className="text-slate-300 font-normal leading-relaxed">{s.desc}</p>
+              <div key={s.step} className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2 hover:border-[#10B981] transition-colors shadow-xs">
+                <span className="text-lg font-black text-[#071C3F] block">{s.step}</span>
+                <h4 className="font-bold text-slate-950 block">{s.title}</h4>
+                <p className="text-slate-600 font-normal leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Primary Clarity Session Form & Details */}
-      <section className="py-24 bg-slate-950 text-white">
+      {/* Primary Clarity Session Form & Details on White Canvas */}
+      <section className="py-24 bg-white text-slate-900">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 grid gap-12 lg:grid-cols-12 items-start">
           
           {/* Left Form (7 Cols) */}
-          <div className="lg:col-span-7 rounded-3xl bg-[#071C3F]/90 border border-slate-800 p-8 sm:p-12 shadow-2xl space-y-8">
+          <div className="lg:col-span-7 rounded-3xl bg-white border-2 border-slate-200 p-8 sm:p-12 shadow-xl space-y-8">
             <div>
               <span className="text-xs font-black uppercase tracking-widest text-[#10B981]">
                 Primary Contact Pathway
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-white mt-1">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-950 mt-1">
                 Book Your 45-Minute Clarity Session
               </h2>
-              <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
                 Fill in your organizational challenge details below. An Advisory Partner will confirm your session within 24 hours.
               </p>
             </div>
@@ -122,7 +123,7 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-1.5">
                       Full Name *
                     </label>
                     <input
@@ -131,12 +132,12 @@ export default function ContactPage() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Jane Doe"
-                      className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3.5 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
+                      className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#10B981] focus:bg-white focus:outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-1.5">
                       Corporate Email *
                     </label>
                     <input
@@ -145,14 +146,14 @@ export default function ContactPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="jane@company.co.ke"
-                      className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3.5 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
+                      className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#10B981] focus:bg-white focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-1.5">
                       Phone Number *
                     </label>
                     <input
@@ -161,12 +162,12 @@ export default function ContactPage() {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="+254 7XX XXX XXX"
-                      className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3.5 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
+                      className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#10B981] focus:bg-white focus:outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-1.5">
                       Organization *
                     </label>
                     <input
@@ -175,20 +176,20 @@ export default function ContactPage() {
                       value={organization}
                       onChange={(e) => setOrganization(e.target.value)}
                       placeholder="Company / Institution Ltd"
-                      className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3.5 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
+                      className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#10B981] focus:bg-white focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-1.5">
                       Your Executive Role *
                     </label>
                     <select
                       value={role}
                       onChange={(e) => setRole(e.target.value)}
-                      className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3.5 text-xs text-white focus:border-[#10B981] focus:outline-none"
+                      className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3.5 text-xs text-slate-900 focus:border-[#10B981] focus:bg-white focus:outline-none"
                     >
                       <option value="Board Chair / Member">Board Chair / Board Member</option>
                       <option value="CEO / Managing Director">CEO / Managing Director</option>
@@ -200,13 +201,13 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-1.5">
                       Preferred Contact Method *
                     </label>
                     <select
                       value={contactMethod}
                       onChange={(e) => setContactMethod(e.target.value)}
-                      className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3.5 text-xs text-white focus:border-[#10B981] focus:outline-none"
+                      className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3.5 text-xs text-slate-900 focus:border-[#10B981] focus:bg-white focus:outline-none"
                     >
                       <option value="Virtual Session (Zoom/Teams)">Virtual Session (Zoom/Teams)</option>
                       <option value="In-Person Meeting (Nairobi HQ)">In-Person Meeting (Nairobi HQ)</option>
@@ -216,7 +217,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
+                  <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-1.5">
                     Primary Organisational Challenge *
                   </label>
                   <textarea
@@ -225,13 +226,13 @@ export default function ContactPage() {
                     value={challenge}
                     onChange={(e) => setChallenge(e.target.value)}
                     placeholder="Describe the recurring audit, governance, control, policy or performance issue you wish to diagnose..."
-                    className="w-full rounded-xl bg-slate-950 border border-slate-800 px-4 py-3.5 text-xs text-white placeholder-slate-500 focus:border-[#10B981] focus:outline-none"
+                    className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#10B981] focus:bg-white focus:outline-none"
                   />
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black py-4 text-sm shadow-xl flex items-center justify-center gap-2"
+                  className="w-full rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black py-4 text-sm shadow-lg flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Book My Clarity Session →</span>
@@ -239,11 +240,11 @@ export default function ContactPage() {
               </form>
             ) : (
               <div className="text-center py-12 space-y-6">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+                <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#10B981] flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-black text-white">Clarity Session Requested</h3>
-                <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
+                <h3 className="text-2xl font-black text-slate-950">Clarity Session Requested</h3>
+                <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
                   Thank you. An Apex Edge Senior Advisory Partner will contact you shortly to confirm your session calendar link and pre-session preparation notes.
                 </p>
                 <Button
@@ -260,49 +261,63 @@ export default function ContactPage() {
           <div className="lg:col-span-5 space-y-8">
             
             {/* What Happens Next Card */}
-            <div className="rounded-3xl bg-[#071C3F]/80 border border-[#10B981]/40 p-8 space-y-5 shadow-2xl">
+            <div className="rounded-3xl bg-slate-50 border border-slate-200 p-8 space-y-5 shadow-md">
               <span className="text-[10px] font-black uppercase tracking-widest text-[#10B981]">Process Expectations</span>
-              <h3 className="text-xl font-black text-white">What Happens Next</h3>
+              <h3 className="text-xl font-black text-slate-950">What Happens Next</h3>
 
-              <div className="space-y-4 text-xs text-slate-300">
+              <div className="space-y-4 text-xs text-slate-700">
                 <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#10B981]/20 text-[#10B981] font-bold flex items-center justify-center shrink-0">1</div>
-                  <p><strong className="text-white">Confidential Review:</strong> An Advisory Partner reviews your challenge submission.</p>
+                  <div className="w-6 h-6 rounded-full bg-emerald-100 text-[#071C3F] font-black flex items-center justify-center shrink-0">1</div>
+                  <p><strong className="text-slate-950">Confidential Review:</strong> An Advisory Partner reviews your challenge submission.</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#10B981]/20 text-[#10B981] font-bold flex items-center justify-center shrink-0">2</div>
-                  <p><strong className="text-white">45-Minute Session:</strong> Structured diagnostic call with zero sales pitches.</p>
+                  <div className="w-6 h-6 rounded-full bg-emerald-100 text-[#071C3F] font-black flex items-center justify-center shrink-0">2</div>
+                  <p><strong className="text-slate-950">45-Minute Session:</strong> Structured diagnostic call with zero sales pitches.</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#10B981]/20 text-[#10B981] font-bold flex items-center justify-center shrink-0">3</div>
-                  <p><strong className="text-white">One-Page Action Map:</strong> Receive your customized gap analysis and recommended next steps.</p>
+                  <div className="w-6 h-6 rounded-full bg-emerald-100 text-[#071C3F] font-black flex items-center justify-center shrink-0">3</div>
+                  <p><strong className="text-slate-950">One-Page Action Map:</strong> Receive your customized gap analysis and recommended next steps.</p>
                 </div>
               </div>
             </div>
 
-            {/* Direct Contact Info Card */}
-            <div className="rounded-3xl bg-slate-900/90 border border-slate-800 p-8 space-y-6 shadow-xl">
-              <h3 className="text-lg font-black text-white border-b border-slate-800 pb-3">Headquarters &amp; Direct Lines</h3>
+            {/* Corporate Visual Frame */}
+            <div className="relative h-48 sm:h-56 rounded-3xl overflow-hidden border border-slate-200 shadow-md">
+              <Image
+                src="/executive_window_discussion.jpg"
+                alt="Executive leaders in strategic advisory discussion overlooking Nairobi"
+                fill
+                className="object-cover object-center filter brightness-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" />
+              <div className="absolute bottom-3 left-4 right-4 text-xs font-semibold text-white">
+                <span>Executive Consultations · Nairobi Corporate Centre</span>
+              </div>
+            </div>
 
-              <div className="space-y-4 text-xs text-slate-300">
+            {/* Direct Contact Info Card */}
+            <div className="rounded-3xl bg-slate-50 border border-slate-200 p-8 space-y-6 shadow-md">
+              <h3 className="text-lg font-black text-slate-950 border-b border-slate-200 pb-3">Headquarters &amp; Direct Lines</h3>
+
+              <div className="space-y-4 text-xs text-slate-700">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white block">ApexEdge Advisory Limited</strong>
+                    <strong className="text-slate-950 block">ApexEdge Advisory Limited</strong>
                     <span>Nairobi Corporate Centre, Kenya</span>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-[#10B981] shrink-0" />
-                  <a href="tel:+254117471344" className="text-white font-bold hover:text-[#10B981]">
+                  <a href="tel:+254117471344" className="text-slate-950 font-bold hover:text-[#10B981]">
                     +254 117 471344
                   </a>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-[#10B981] shrink-0" />
-                  <a href="mailto:info@apexedge.co.ke" className="hover:text-[#10B981]">
+                  <a href="mailto:info@apexedge.co.ke" className="hover:text-[#10B981] font-semibold">
                     info@apexedge.co.ke
                   </a>
                 </div>
@@ -313,7 +328,7 @@ export default function ContactPage() {
                     href="https://wa.me/254117471344"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-400 font-semibold hover:underline"
+                    className="text-[#071C3F] font-bold hover:underline"
                   >
                     Direct Executive WhatsApp →
                   </a>
@@ -324,7 +339,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Embedded Executive FAQ Section */}
+      {/* Embedded Executive FAQ Section on White */}
       <ExecutiveFAQSection />
 
       <CorporateFooter />

@@ -129,23 +129,8 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
   };
 
   return (
-    <section id="values" className="relative py-24 sm:py-32 bg-[#071C3F] text-white overflow-hidden selection:bg-[#10B981] selection:text-[#071C3F]">
+    <section id="values" className="relative py-24 sm:py-32 bg-white text-slate-900 overflow-hidden border-b border-slate-200 selection:bg-[#10B981] selection:text-[#071C3F]">
       
-      {/* Top Emerald Shimmer Line */}
-      <div className="absolute top-0 left-0 w-full h-[2px] bg-slate-900 overflow-hidden z-20">
-        <motion.div
-          animate={{ x: ["-100%", "100%"] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-          className="w-full h-full bg-gradient-to-r from-transparent via-[#10B981] to-transparent"
-        />
-      </div>
-
-      {/* Ambient Radial Glow & Particles */}
-      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-        <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 -right-32 w-[700px] h-[700px] bg-[#10B981]/10 rounded-full blur-3xl" />
-      </div>
-
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         
         {/* Section Header */}
@@ -154,9 +139,9 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#10B981]/15 border border-[#10B981]/40 text-[#10B981] text-xs font-black uppercase tracking-[0.25em]"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#071C3F] text-xs font-black uppercase tracking-[0.25em] shadow-xs"
           >
-            <Sparkles className="w-3.5 h-3.5" />
+            <Sparkles className="w-3.5 h-3.5 text-[#10B981]" />
             <span>KNOWLEDGE CENTRE</span>
           </motion.div>
 
@@ -165,9 +150,9 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl font-black tracking-tight text-white leading-tight"
+            className="text-4xl sm:text-5xl font-black tracking-tight text-slate-950 leading-tight"
           >
-            Strategic Insights &amp; <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-[#10B981]">Answers</span>
+            Strategic Insights &amp; Answers
           </motion.h2>
 
           <motion.p
@@ -175,7 +160,7 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed"
+            className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed"
           >
             Instant clarity on corporate governance, company secretarial, legal advisory, HR compliance, immigration, and business strategy in Kenya.
           </motion.p>
@@ -183,7 +168,7 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
 
         {/* Search Bar & APEX Trigger */}
         <div className="max-w-3xl mx-auto mb-14">
-          <div className="flex flex-col sm:flex-row items-center gap-3 bg-slate-900/90 border border-[#10B981]/40 p-2.5 rounded-full shadow-2xl backdrop-blur-xl">
+          <div className="flex flex-col sm:flex-row items-center gap-3 bg-white border-2 border-slate-200 p-2.5 rounded-full shadow-lg">
             <div className="relative flex-1 w-full flex items-center pl-4">
               <Search className="w-5 h-5 text-[#10B981] shrink-0" />
               <input
@@ -191,10 +176,10 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search FAQs, services, or regulatory topics..."
-                className="w-full bg-transparent px-3 py-3 text-sm text-white placeholder-slate-400 focus:outline-none"
+                className="w-full bg-transparent px-3 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none"
               />
               {searchQuery && (
-                <button onClick={() => setSearchQuery("")} className="p-1 text-slate-400 hover:text-white mr-2">
+                <button onClick={() => setSearchQuery("")} className="p-1 text-slate-400 hover:text-slate-700 mr-2 cursor-pointer">
                   <X className="w-4 h-4" />
                 </button>
               )}
@@ -202,7 +187,7 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
 
             <Button
               onClick={onOpenAI}
-              className="rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-extrabold px-6 py-3.5 text-xs shadow-lg flex items-center gap-2 shrink-0 transition-all hover:scale-105"
+              className="rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-extrabold px-6 py-3.5 text-xs shadow-md flex items-center gap-2 shrink-0 transition-all hover:scale-105 cursor-pointer"
             >
               <Bot className="w-4 h-4" />
               <span>Ask APEX</span>
@@ -214,22 +199,18 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
         <div className="grid gap-8 lg:grid-cols-12 items-start">
           
           {/* Executive Nairobi Architectural Skyline Showcase Panel (Left 5 Cols) */}
-          <div className="lg:col-span-5 relative h-96 lg:h-[580px] rounded-3xl overflow-hidden border border-[#10B981]/50 shadow-2xl group">
+          <div className="lg:col-span-5 relative h-96 lg:h-[580px] rounded-3xl overflow-hidden border border-slate-200 shadow-xl group">
             <div className="absolute inset-0 w-full h-full overflow-hidden">
-              {/* Premium Nairobi Architectural Photography */}
               <img
                 src="/nairobi_skyline_night.jpg"
                 alt="Nairobi CBD & Upper Hill Business District Skyline — East Africa Financial Hub"
                 className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 brightness-105 contrast-105"
               />
-              {/* Subtle Deep Navy Overlay & Vignette Fade */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F] via-[#071C3F]/35 to-slate-950/20" />
-              {/* Animated Emerald Light Beam Sweep */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-400/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F] via-[#071C3F]/35 to-transparent" />
             </div>
 
             {/* Bottom Information Card */}
-            <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-[#071C3F]/90 border border-[#10B981]/40 backdrop-blur-xl shadow-2xl space-y-2 z-10 transition-all group-hover:border-[#10B981]">
+            <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-[#071C3F]/95 border border-slate-700 backdrop-blur-xl shadow-xl space-y-2 z-10 text-white">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] text-[10px] font-black uppercase tracking-wider">
                 <Building2 className="w-3 h-3" />
                 <span>KENYA BUSINESS HUB</span>
@@ -254,31 +235,31 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
                   layout
                   className={`rounded-2xl border transition-all duration-300 overflow-hidden cursor-pointer ${
                     isOpen
-                      ? "border-[#10B981] bg-slate-900/95 shadow-2xl"
-                      : "border-slate-800 bg-slate-900/60 hover:border-[#10B981]/50 hover:bg-slate-900/80"
+                      ? "border-[#10B981] bg-white shadow-lg ring-2 ring-[#10B981]/20"
+                      : "border-slate-200 bg-slate-50 hover:border-slate-300 hover:bg-white"
                   }`}
                   onClick={() => setOpenFaqId(isOpen ? "" : faq.id)}
                 >
                   <div className="p-6 flex items-start justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <div className={`p-2 rounded-xl border transition-colors ${
-                        isOpen ? "bg-[#10B981] text-[#071C3F] border-[#10B981]" : "bg-slate-950 border-slate-800 text-[#10B981]"
+                        isOpen ? "bg-[#071C3F] text-[#10B981] border-[#071C3F]" : "bg-white border-slate-200 text-[#071C3F]"
                       }`}>
                         <HelpCircle className="w-4 h-4" />
                       </div>
-                      <h3 className="text-base sm:text-lg font-black text-white leading-snug">
+                      <h3 className="text-base sm:text-lg font-black text-slate-950 leading-snug">
                         {faq.question}
                       </h3>
                     </div>
 
                     <div className={`p-2 rounded-full border transition-transform duration-300 ${
-                      isOpen ? "rotate-180 bg-[#10B981] text-[#071C3F] border-[#10B981]" : "bg-slate-950 border-slate-800 text-slate-400"
+                      isOpen ? "rotate-180 bg-[#10B981] text-[#071C3F] border-[#10B981]" : "bg-white border-slate-200 text-slate-500"
                     }`}>
                       <ChevronDown className="w-4 h-4" />
                     </div>
                   </div>
 
-                  {/* Expanded Content with Animated Vertical Emerald Beam */}
+                  {/* Expanded Content */}
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
@@ -286,17 +267,17 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.35, ease: "easeInOut" }}
-                        className="px-6 pb-6 pt-0 border-t border-slate-800/80"
+                        className="px-6 pb-6 pt-0 border-t border-slate-200"
                       >
                         <div className="pt-4 space-y-4 relative pl-4 border-l-2 border-[#10B981]">
-                          <p className="text-sm text-slate-200 leading-relaxed font-normal">
+                          <p className="text-sm text-slate-700 leading-relaxed font-normal">
                             {faq.answer}
                           </p>
 
                           {faq.bullets && (
                             <div className="space-y-2 pt-1">
                               {faq.bullets.map((b, i) => (
-                                <div key={i} className="flex items-center gap-2 text-xs text-slate-300 font-medium">
+                                <div key={i} className="flex items-center gap-2 text-xs text-slate-800 font-medium">
                                   <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
                                   <span>{b}</span>
                                 </div>
@@ -319,7 +300,7 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors"
+                              className="inline-flex items-center gap-2 text-xs font-bold text-[#071C3F] hover:underline transition-colors"
                             >
                               <MessageCircle className="w-3.5 h-3.5" />
                               <span>Inquire on WhatsApp →</span>
@@ -336,11 +317,11 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
         </div>
 
         {/* Bottom CTA Trigger: Ask an Advisor */}
-        <div className="mt-16 text-center pt-8 border-t border-slate-800">
-          <p className="text-sm text-slate-300 mb-3">Didn&apos;t find your specific governance question?</p>
+        <div className="mt-16 text-center pt-8 border-t border-slate-200">
+          <p className="text-sm text-slate-600 mb-3">Didn&apos;t find your specific governance question?</p>
           <Button
             onClick={() => setAskModalOpen(true)}
-            className="rounded-full border border-[#10B981] bg-slate-900 text-[#10B981] hover:bg-[#10B981] hover:text-[#071C3F] font-bold px-8 py-3.5 text-xs shadow-lg transition-all"
+            className="rounded-full border border-slate-300 bg-white text-[#071C3F] hover:border-[#10B981] hover:text-[#071C3F] font-bold px-8 py-3.5 text-xs shadow-md transition-all cursor-pointer"
           >
             Ask an Advisory Partner Directly
           </Button>

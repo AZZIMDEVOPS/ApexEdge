@@ -1,118 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, ShieldCheck, Users, Sliders, Award, Lock } from "lucide-react";
 import Link from "next/link";
-import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import {
-  Governance3DIcon,
-  People3DIcon,
-  Controls3DIcon,
-  Leadership3DIcon,
-  DataProtection3DIcon,
-} from "@/components/icons/PracticeArea3DIcons";
-
-export interface ServiceCategory {
-  id: string;
-  num: string;
-  category: string;
-  headline: string;
-  description: string;
-  Icon3D: React.ComponentType<{ size?: number }>;
-  deliverables: string[];
-}
-
-export const SERVICE_CATEGORIES: ServiceCategory[] = [
-  {
-    id: "governance-risk",
-    num: "01",
-    category: "GOVERNANCE & RISK",
-    headline: "Give Your Board Clearer Visibility of Risk and Performance.",
-    description: "Structure board risk registers, independent governance audits, and decision frameworks for clear executive oversight.",
-    Icon3D: Governance3DIcon,
-    deliverables: [
-      "Risk registers & heat maps",
-      "Board governance dashboards",
-      "Decision-making frameworks",
-      "Accountability & oversight systems",
-    ],
-  },
-  {
-    id: "people-performance",
-    num: "02",
-    category: "PEOPLE & PERFORMANCE",
-    headline: "Build a Performance System That Creates Accountability.",
-    description: "Architect role structures, salary grading bands, and OKR performance scorecards linked directly to strategic priorities.",
-    Icon3D: People3DIcon,
-    deliverables: [
-      "Job structures & role profiles",
-      "Salary & compensation frameworks",
-      "OKRs & KPI performance scorecards",
-      "Performance management tools",
-    ],
-  },
-  {
-    id: "controls-policies",
-    num: "03",
-    category: "CONTROLS & POLICIES",
-    headline: "Turn Policies Into Systems That Actually Work.",
-    description: "Convert static policy documents into practical SOPs with embedded approval controls across finance, HR, and operations.",
-    Icon3D: Controls3DIcon,
-    deliverables: [
-      "Finance & procurement controls",
-      "HR policy procedures & manuals",
-      "Operational SOPs & templates",
-      "Practical compliance systems",
-    ],
-  },
-  {
-    id: "leadership-capability",
-    num: "04",
-    category: "LEADERSHIP & CAPABILITY",
-    headline: "Build Leaders and Teams That Execute Better.",
-    description: "Practical management execution training that equips executive teams with toolkits, decision frameworks, and action plans.",
-    Icon3D: Leadership3DIcon,
-    deliverables: [
-      "Leadership & management systems",
-      "Executive decision-making frameworks",
-      "Practical management capability training",
-      "Execution tracking tools",
-    ],
-  },
-  {
-    id: "data-protection",
-    num: "05",
-    category: "DATA PROTECTION & PRIVACY",
-    headline: "Protect Data. Strengthen Trust. Stay Compliant.",
-    description: "Helping organisations understand their data protection obligations, strengthen privacy practices and build practical systems for responsible handling of personal data.",
-    Icon3D: DataProtection3DIcon,
-    deliverables: [
-      "Data inventories & mapping",
-      "Privacy policies & DPIAs",
-      "Data processing agreements (DPAs)",
-      "Data breach response workflows",
-    ],
-  },
-];
 
 export function ExecutiveServicesArchitecture() {
   return (
-    <section id="services" className="relative py-24 bg-[#071C3F] text-white overflow-hidden border-b border-slate-800">
+    <section id="services" className="relative py-24 bg-white text-slate-900 overflow-hidden border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-16">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4">
-          <SectionLabel number="03" title="CORE PRACTICE AREAS" />
+          <SectionLabel number="02" title="OUR PRACTICE AREAS" />
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight uppercase"
+            className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight leading-tight"
           >
-            Core Advisory Practice Areas
+            What Apex Edge Actually Builds for You
           </motion.h2>
 
           <motion.p
@@ -120,74 +29,319 @@ export function ExecutiveServicesArchitecture() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed"
+            className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed"
           >
-            Apex Edge helps organisations turn governance, people, control, performance and data protection challenges into practical, Board-ready systems.
+            We don&apos;t produce generic slide presentations. We architect 5 concrete operational systems that eliminate friction, assign named ownership, and withstand Board and regulatory scrutiny.
           </motion.p>
         </div>
 
-        {/* Practice Area Cards Grid with Custom 3D Icons & Spotlight Containers */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {SERVICE_CATEGORIES.map((item, idx) => {
-            const Icon3DComp = item.Icon3D;
-            return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.5 }}
-              >
-                <SpotlightCard className="p-8 h-full flex flex-col justify-between space-y-6">
-                  <div className="space-y-6">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <Icon3DComp size={52} />
-                        <span className="text-xs font-black uppercase tracking-widest text-[#10B981]">
-                          {item.category}
-                        </span>
-                      </div>
-                      <span className="text-2xl font-black text-slate-700 group-hover:text-[#10B981]/50 transition-colors">
-                        {item.num}
-                      </span>
+        {/* Varied Editorial Layout: 5 Practice Areas */}
+        <div className="space-y-10">
+          
+          {/* FEATURED PRACTICE 01: Governance & Board Oversight */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-3xl bg-slate-50 border border-slate-200 p-8 sm:p-12 shadow-sm grid gap-8 lg:grid-cols-12 items-center hover:border-[#10B981] transition-all duration-300"
+          >
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-black uppercase tracking-widest text-[#071C3F] bg-[#10B981]/20 px-3 py-1 rounded-full border border-[#10B981]/40">
+                  PRACTICE 01 · BOARD GOVERNANCE
+                </span>
+                <span className="text-xs text-slate-500 font-semibold">Mwongozo &amp; CMA Standards</span>
+              </div>
+
+              <h3 className="text-2xl sm:text-4xl font-black text-slate-950 leading-tight">
+                Give Your Board Clearer Visibility of True Risk and Execution.
+              </h3>
+
+              <div className="space-y-3 text-slate-600 text-sm leading-relaxed">
+                <div>
+                  <strong className="text-slate-900 block mb-0.5">Why it matters:</strong>
+                  Directors face severe statutory liability and strategic blind spots when Board packs consist of hundreds of pages of raw operational data rather than prioritized risk heat maps and clear decision papers.
+                </div>
+
+                <div>
+                  <strong className="text-slate-900 block mb-0.5">What it actually involves:</strong>
+                  Independent governance health checks, restructuring Board reporting packs, updating Board charters, and establishing delegated authorization limits between Directors and management.
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <Link
+                  href="/services#governance-risk"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-[#071C3F] hover:text-[#10B981] transition-colors"
+                >
+                  <span>Explore Governance Systems</span>
+                  <ArrowRight className="w-4 h-4 text-[#10B981]" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 space-y-4 shadow-sm">
+              <span className="text-xs font-black uppercase tracking-widest text-slate-500 block border-b border-slate-100 pb-3">
+                TANGIBLE BOARD ARTIFACTS
+              </span>
+              <ul className="space-y-3 text-xs text-slate-700 font-medium">
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                  <span>Executive Board Risk Registers &amp; Quarterly Heat Maps</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                  <span>Standardized 15-Page Decision-Oriented Board Pack Templates</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                  <span>Board Committee Charters &amp; Delegated Authority Frameworks</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                  <span>Independent Mwongozo &amp; CMA Governance Evaluation Audits</span>
+                </li>
+              </ul>
+            </div>
+          </motion.div>
+
+          {/* PRACTICES 02 & 03: Two Distinct Asymmetrical Cards (People & Controls) */}
+          <div className="grid gap-8 lg:grid-cols-2">
+            
+            {/* Practice 02: People & Performance */}
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-3xl bg-slate-50 border border-slate-200 p-8 sm:p-10 space-y-6 flex flex-col justify-between hover:border-[#10B981] transition-all duration-300 shadow-sm"
+            >
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black uppercase tracking-widest text-[#071C3F] bg-[#10B981]/20 px-3 py-1 rounded-full border border-[#10B981]/40">
+                    PRACTICE 02 · PEOPLE &amp; PERFORMANCE
+                  </span>
+                  <Users className="w-5 h-5 text-[#10B981]" />
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black text-slate-950 leading-snug">
+                  Build a Performance System That Creates Real Accountability.
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <strong className="text-slate-900 block mb-0.5">Why it matters:</strong>
+                  Role overlap, vague job titles, and disconnected KPIs cause high executive payroll costs without matching operational output.
+                </p>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <strong className="text-slate-900 block mb-0.5">What it actually involves:</strong>
+                  Job grading benchmarks, salary band structures, OKR performance scorecards, and named ownership maps that connect individual outputs to strategic milestones.
+                </p>
+
+                <div className="pt-3 border-t border-slate-200 space-y-2">
+                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Key Deliverables:</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700 font-medium">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                      <span>Job Grading Frameworks</span>
                     </div>
-
-                    <h3 className="text-xl font-extrabold text-white group-hover:text-[#10B981] transition-colors leading-snug">
-                      &ldquo;{item.headline}&rdquo;
-                    </h3>
-
-                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                      {item.description}
-                    </p>
-
-                    <div className="space-y-2.5 pt-2 border-t border-slate-800">
-                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400">
-                        Tangible Deliverables &amp; Systems:
-                      </span>
-                      <div className="grid grid-cols-1 gap-2">
-                        {item.deliverables.map((deliv, dIdx) => (
-                          <div key={dIdx} className="flex items-center gap-2 text-xs text-slate-200 font-medium">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                            <span>{deliv}</span>
-                          </div>
-                        ))}
-                      </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                      <span>Salary Structure Bands</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                      <span>OKR / KPI Scorecards</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                      <span>Named Ownership Matrices</span>
                     </div>
                   </div>
+                </div>
+              </div>
 
-                  <div className="pt-6 border-t border-slate-800 flex items-center justify-between">
-                    <Link
-                      href={`/services#${item.id}`}
-                      className="inline-flex items-center gap-2 text-xs font-bold text-[#10B981] group-hover:gap-3 transition-all"
-                    >
-                      <span>Explore Practice Area →</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
+              <div className="pt-4 border-t border-slate-200">
+                <Link
+                  href="/services#people-performance"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-[#071C3F] hover:text-[#10B981] transition-colors"
+                >
+                  <span>Explore People &amp; Performance Systems</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Practice 03: Controls & Policies */}
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-3xl bg-slate-50 border border-slate-200 p-8 sm:p-10 space-y-6 flex flex-col justify-between hover:border-[#10B981] transition-all duration-300 shadow-sm"
+            >
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black uppercase tracking-widest text-[#071C3F] bg-[#10B981]/20 px-3 py-1 rounded-full border border-[#10B981]/40">
+                    PRACTICE 03 · CONTROLS &amp; SOPS
+                  </span>
+                  <Sliders className="w-5 h-5 text-[#10B981]" />
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black text-slate-950 leading-snug">
+                  Turn Static Policy Binders into Working Daily Controls.
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <strong className="text-slate-900 block mb-0.5">Why it matters:</strong>
+                  Policies that live on shelves never stop procurement leakage, financial audit exceptions, or regulatory fines.
+                </p>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <strong className="text-slate-900 block mb-0.5">What it actually involves:</strong>
+                  Condensing 200-page legacy policies into 2-page operational SOPs, designing strict financial authorization matrices, and training managers to follow daily verification routines.
+                </p>
+
+                <div className="pt-3 border-t border-slate-200 space-y-2">
+                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Key Deliverables:</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700 font-medium">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                      <span>Financial Authorization Matrices</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                      <span>Procurement &amp; Finance SOPs</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                      <span>Internal Control Checklists</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                      <span>Audit Readiness Registers</span>
+                    </div>
                   </div>
-                </SpotlightCard>
-              </motion.div>
-            );
-          })}
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-200">
+                <Link
+                  href="/services#controls-policies"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-[#071C3F] hover:text-[#10B981] transition-colors"
+                >
+                  <span>Explore Control &amp; SOP Systems</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* PRACTICES 04 & 05: Asymmetrical Two-Tone Split (Leadership & Data Protection) */}
+          <div className="grid gap-8 lg:grid-cols-12">
+            
+            {/* Practice 04: Leadership Capability */}
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-5 rounded-3xl bg-slate-50 border border-slate-200 p-8 space-y-6 flex flex-col justify-between hover:border-[#10B981] transition-all duration-300 shadow-sm"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black uppercase tracking-widest text-[#071C3F] bg-[#10B981]/20 px-3 py-1 rounded-full border border-[#10B981]/40">
+                    PRACTICE 04 · LEADERSHIP
+                  </span>
+                  <Award className="w-5 h-5 text-[#10B981]" />
+                </div>
+
+                <h3 className="text-xl font-black text-slate-950 leading-snug">
+                  Build Leaders Who Execute, Not Just Manage.
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Classroom lectures don&apos;t change workplace habits. We equip executive and management teams with practical decision toolkits, 90-day execution roadmaps, and structured team accountability systems.
+                </p>
+
+                <div className="space-y-2 pt-2 border-t border-slate-200 text-xs text-slate-700 font-medium">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                    <span>Executive Decision Frameworks</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                    <span>90-Day Execution Roadmaps</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                    <span>Management Toolkits &amp; SOP Routines</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-200">
+                <Link
+                  href="/services#leadership-capability"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-[#071C3F] hover:text-[#10B981] transition-colors"
+                >
+                  <span>Explore Leadership Capability</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Practice 05: Data Protection & Privacy */}
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-7 rounded-3xl bg-slate-50 border border-slate-200 p-8 space-y-6 flex flex-col justify-between hover:border-[#10B981] transition-all duration-300 shadow-sm"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black uppercase tracking-widest text-[#071C3F] bg-[#10B981]/20 px-3 py-1 rounded-full border border-[#10B981]/40">
+                    PRACTICE 05 · DATA PRIVACY &amp; COMPLIANCE
+                  </span>
+                  <Lock className="w-5 h-5 text-[#10B981]" />
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black text-slate-950 leading-snug">
+                  Operationalize Data Protection Under the 2019 Kenya DP Act.
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Data protection compliance is an ongoing operational discipline, not a one-time legal memo. We help organisations map personal data flows, conduct Data Protection Impact Assessments (DPIAs), draft third-party Data Processing Agreements (DPAs), and train staff on statutory breach protocols.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-slate-200 text-xs text-slate-700 font-medium">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                    <span>Personal Data Inventory &amp; Mapping</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                    <span>DPIA Registers &amp; Risk Assessments</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                    <span>Vendor DPAs &amp; Cross-Border Contracts</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                    <span>Data Breach Response Playbooks</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-200">
+                <Link
+                  href="/services#data-protection"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-[#071C3F] hover:text-[#10B981] transition-colors"
+                >
+                  <span>Explore Data Protection Systems</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
+                </Link>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
