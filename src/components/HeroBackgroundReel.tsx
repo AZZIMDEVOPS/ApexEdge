@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Camera } from "lucide-react";
+import { Camera } from "lucide-react";
 
 export const HERO_BACKGROUND_IMAGES = [
   {

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, ArrowRight, ShieldCheck, CheckCircle2, Sparkles } from "lucide-react";
+import { Calendar, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
 import { HeroBackgroundReel } from "@/components/HeroBackgroundReel";
 import { IntegratedSolutionArchitecture } from "@/components/IntegratedSolutionArchitecture";
