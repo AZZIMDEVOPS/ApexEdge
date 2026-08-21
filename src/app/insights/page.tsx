@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { BookOpen, Clock, ArrowRight, Sparkles, Tag, CheckCircle2, ShieldCheck, Search, Calendar } from "lucide-react";
+import { BookOpen, Clock, ArrowRight, Sparkles, Tag, CheckCircle2, ShieldCheck, Search, Calendar, Award, Building2 } from "lucide-react";
 import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
 import { EditorialPerspectivesSection, EDITORIAL_ARTICLES } from "@/components/EditorialPerspectivesSection";
 import { InteractiveKnowledgeCentre } from "@/components/InteractiveKnowledgeCentre";
@@ -22,9 +22,17 @@ export default function InsightsPage() {
     <main className="min-h-screen bg-white text-slate-900 selection:bg-[#10B981] selection:text-[#071C3F]">
       <ExecutiveHeaderNav onOpenBooking={() => setIsBookingOpen(true)} />
 
-      {/* Hero on Clean Light Canvas */}
-      <section className="relative py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900 overflow-hidden border-b border-slate-200">
-        <div className="mx-auto max-w-5xl px-5 sm:px-8 lg:px-10 text-center space-y-6">
+      {/* Hero on Clean Light Canvas with Subtle Panoramic Cityscape Atmosphere */}
+      <section className="relative py-24 sm:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900 overflow-hidden border-b border-slate-200">
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <img
+            src="/nairobi_panoramic_daylight.jpg"
+            alt="Nairobi Financial District Skyline"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        <div className="relative mx-auto max-w-5xl px-5 sm:px-8 lg:px-10 text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#071C3F] text-xs font-black uppercase tracking-[0.25em] shadow-xs">
             <BookOpen className="w-4 h-4 text-[#10B981]" />
             <span>FIELD NOTES &amp; BOARDROOM PERSPECTIVES</span>
@@ -43,8 +51,125 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      {/* Featured Editorial Articles Section */}
+      {/* Featured Editorial Articles Section (Now with photography on every card) */}
       <EditorialPerspectivesSection />
+
+      {/* Executive Field Operations Showcase — 3 Authentic Photography Panels */}
+      <section className="py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-12">
+          
+          <div className="max-w-3xl space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-[#071C3F] text-xs font-black uppercase tracking-wider shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#10B981]" />
+              <span>PRACTICE IN ACTION</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
+              Advisory Engagements Across East Africa
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
+              How our partners and advisors work with institutional leaders to turn policy into daily working reality.
+            </p>
+          </div>
+
+          {/* 3 Photo Cards Grid */}
+          <div className="grid gap-8 md:grid-cols-3">
+            
+            {/* Card 1 */}
+            <div className="rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-lg hover:shadow-xl transition-all group flex flex-col justify-between">
+              <div className="relative h-56 w-full overflow-hidden bg-slate-100">
+                <img
+                  src="/board_directors_panel.jpg"
+                  alt="Board of Directors Fiduciary Oversight & Strategy Session"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <span className="px-3 py-1 rounded-full bg-[#071C3F]/90 text-white text-[10px] font-black uppercase tracking-wider border border-white/20">
+                    Boardroom Governance
+                  </span>
+                </div>
+              </div>
+              <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                <div className="space-y-2">
+                  <h3 className="text-lg font-black text-slate-950 group-hover:text-[#071C3F] transition-colors">
+                    Fiduciary Risk Heat Maps for Directors
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Replacing bulky 300-page board packets with concise 15-page high-signal governance summaries that empower decisive fiduciary voting.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-[#10B981]">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>Mwongozo &amp; CMA Aligned</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-lg hover:shadow-xl transition-all group flex flex-col justify-between">
+              <div className="relative h-56 w-full overflow-hidden bg-slate-100">
+                <img
+                  src="/outdoor_advisory_discussion.jpg"
+                  alt="Executive Partner Strategy & Transformation Consultation"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <span className="px-3 py-1 rounded-full bg-[#071C3F]/90 text-white text-[10px] font-black uppercase tracking-wider border border-white/20">
+                    Executive Alignment
+                  </span>
+                </div>
+              </div>
+              <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                <div className="space-y-2">
+                  <h3 className="text-lg font-black text-slate-950 group-hover:text-[#071C3F] transition-colors">
+                    Named Accountability &amp; Role Clarity
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Eliminating cross-functional execution friction and sign-off bottlenecks by establishing transparent job grading and named ownership.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-[#10B981]">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>90-Day Execution Toolkits</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-lg hover:shadow-xl transition-all group flex flex-col justify-between">
+              <div className="relative h-56 w-full overflow-hidden bg-slate-100">
+                <img
+                  src="/executive_window_discussion.jpg"
+                  alt="Senior Institutional Consultation Overlooking Nairobi Skyline"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <span className="px-3 py-1 rounded-full bg-[#071C3F]/90 text-white text-[10px] font-black uppercase tracking-wider border border-white/20">
+                    Control Systems
+                  </span>
+                </div>
+              </div>
+              <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                <div className="space-y-2">
+                  <h3 className="text-lg font-black text-slate-950 group-hover:text-[#071C3F] transition-colors">
+                    1-Page Digital SOPs &amp; Approval Matrix
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Transforming unread policy binders into automated digital sign-off gates that prevent recurring internal audit findings.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-[#10B981]">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>Audit-Verified Controls</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* Interactive Knowledge Centre & Advisory Q&A Search */}
       <InteractiveKnowledgeCentre onOpenBooking={() => setIsBookingOpen(true)} />
