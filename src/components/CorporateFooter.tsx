@@ -82,10 +82,10 @@ export function CorporateFooter() {
   ];
 
   return (
-    <footer id="contact" className="relative w-full bg-[#071C3F] text-white overflow-hidden selection:bg-[#10B981] selection:text-[#071C3F]">
+    <footer id="contact" className="relative w-full bg-white text-slate-900 overflow-hidden border-t border-slate-200 selection:bg-[#10B981] selection:text-[#071C3F]">
       
       {/* Top Animated Emerald Line Divider */}
-      <div className="relative w-full h-[3px] bg-slate-900 overflow-hidden shadow-[0_0_15px_#10B981]">
+      <div className="relative w-full h-[2px] bg-slate-200 overflow-hidden">
         <motion.div
           animate={{ x: ["-100%", "100%"] }}
           transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
@@ -96,18 +96,18 @@ export function CorporateFooter() {
       {/* Main Footer Content Container */}
       <div className="mx-auto max-w-7xl px-5 pt-20 pb-12 sm:px-8 lg:px-10">
         
-        {/* Executive Newsletter Briefings */}
-        <div className="mb-16 rounded-3xl border border-[#10B981]/30 bg-gradient-to-r from-slate-900/90 via-[#071C3F]/95 to-slate-900/90 p-8 sm:p-12 shadow-2xl backdrop-blur-xl">
+        {/* Executive Newsletter Briefings Card */}
+        <div className="mb-16 rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-slate-50 p-8 sm:p-12 shadow-lg">
           <div className="grid gap-8 lg:grid-cols-2 items-center">
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.25em] text-[#10B981]">
                 <ShieldCheck className="w-4 h-4" />
                 <span>Executive Intelligence</span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black text-white">
-                Stay Informed with <span className="text-[#10B981]">Board-Level Insights</span>
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-950">
+                Stay Informed with <span className="text-[#071C3F] underline decoration-[#10B981] decoration-4 underline-offset-4">Board-Level Insights</span>
               </h3>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                 Receive curated quarterly briefings on corporate governance, risk frameworks, control systems, and Mwongozo compliance in East Africa.
               </p>
             </div>
@@ -120,12 +120,12 @@ export function CorporateFooter() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your corporate email address"
-                    className="w-full rounded-2xl bg-slate-950/80 border border-slate-700/80 px-5 py-4 text-sm text-white placeholder-slate-400 focus:border-[#10B981] focus:outline-none shadow-inner"
+                    className="w-full rounded-2xl bg-white border-2 border-slate-200 px-5 py-4 text-sm text-slate-900 placeholder-slate-400 focus:border-[#10B981] focus:outline-none shadow-xs"
                   />
                 </div>
                 <Button
                   type="submit"
-                  className="rounded-2xl bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black px-8 py-4 text-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-105 shrink-0"
+                  className="rounded-2xl bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black px-8 py-4 text-sm shadow-md flex items-center justify-center gap-2 transition-all hover:scale-105 shrink-0 cursor-pointer"
                 >
                   <span>Subscribe</span>
                   <Send className="h-4 w-4" />
@@ -137,7 +137,7 @@ export function CorporateFooter() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className="mt-3 flex items-center gap-2 text-xs font-semibold text-emerald-400"
+                    className="mt-3 flex items-center gap-2 text-xs font-bold text-emerald-600"
                   >
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Thank you for subscribing to Apex Edge Advisory insights!</span>
@@ -149,7 +149,7 @@ export function CorporateFooter() {
         </div>
 
         {/* Animated Emerald Line Divider just before the Navigation Columns */}
-        <div className="relative w-full h-[2px] bg-slate-800/80 overflow-hidden mb-16 rounded-full shadow-[0_0_12px_rgba(16,185,129,0.4)]">
+        <div className="relative w-full h-[2px] bg-slate-200 overflow-hidden mb-16 rounded-full">
           <motion.div
             animate={{ x: ["-100%", "100%"] }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
@@ -160,30 +160,30 @@ export function CorporateFooter() {
         {/* 4 Columns Grid */}
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 pb-16">
           
-          {/* Column 1 — Brand Positioning Statement */}
+          {/* Column 1 — Brand Positioning Statement with Black Logo */}
           <div className="space-y-6">
             <Link href="/" className="inline-block group">
-              <ApexEdgeLogo variant="light" />
+              <ApexEdgeLogo variant="dark" />
             </Link>
-            <p className="text-slate-300 text-sm leading-relaxed font-semibold italic border-l-2 border-[#10B981] pl-3 py-1">
+            <p className="text-slate-700 text-sm leading-relaxed font-medium italic border-l-2 border-[#10B981] pl-3 py-1">
               &ldquo;Apex Edge turns governance, people, control and performance problems into Board-ready systems that leaders can actually use.&rdquo;
             </p>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-500 leading-relaxed font-normal">
               Serving Boards, CEOs, CFOs, and Senior Executives across Kenya and East Africa.
             </p>
           </div>
 
           {/* Column 2 — Quick Links */}
           <div className="space-y-6">
-            <h4 className="text-base font-extrabold text-white border-b border-[#10B981]/30 pb-3 uppercase tracking-wider">
+            <h4 className="text-base font-extrabold text-[#071C3F] border-b border-slate-200 pb-3 uppercase tracking-wider">
               Navigation
             </h4>
-            <ul className="space-y-2.5 text-sm text-slate-300">
+            <ul className="space-y-2.5 text-sm text-slate-600">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="hover:text-[#10B981] transition-colors flex items-center gap-2 group"
+                    className="hover:text-[#10B981] transition-colors flex items-center gap-2 group font-medium"
                   >
                     <span className="text-[#10B981] opacity-0 group-hover:opacity-100 transition-opacity">›</span>
                     <span>{link.label}</span>
@@ -195,10 +195,10 @@ export function CorporateFooter() {
 
           {/* Column 3 — Practice Architecture */}
           <div className="space-y-6">
-            <h4 className="text-base font-extrabold text-white border-b border-[#10B981]/30 pb-3 uppercase tracking-wider">
+            <h4 className="text-base font-extrabold text-[#071C3F] border-b border-slate-200 pb-3 uppercase tracking-wider">
               Practice Areas
             </h4>
-            <ul className="space-y-2.5 text-sm text-slate-300">
+            <ul className="space-y-2.5 text-sm text-slate-600">
               {practiceCategories.map((item) => (
                 <li key={item.label}>
                   <Link
@@ -215,49 +215,49 @@ export function CorporateFooter() {
 
           {/* Column 4 — Contact Information */}
           <div className="space-y-6">
-            <h4 className="text-base font-extrabold text-white border-b border-[#10B981]/30 pb-3 uppercase tracking-wider">
+            <h4 className="text-base font-extrabold text-[#071C3F] border-b border-slate-200 pb-3 uppercase tracking-wider">
               Contact &amp; Location
             </h4>
-            <div className="space-y-4 text-sm text-slate-300">
-              <p className="font-extrabold text-white text-sm">APEXEDGE ADVISORY LIMITED</p>
+            <div className="space-y-4 text-sm text-slate-700">
+              <p className="font-extrabold text-[#071C3F] text-sm tracking-wide">APEXEDGE ADVISORY LIMITED</p>
               
               <div className="flex items-start gap-3 text-xs">
                 <MapPin className="h-4 w-4 text-[#10B981] shrink-0 mt-0.5" />
-                <span>Nairobi HQ, Kenya</span>
+                <span className="text-slate-600">Nairobi HQ, Kenya</span>
               </div>
               
               <div className="flex items-center gap-3 text-xs">
                 <Mail className="h-4 w-4 text-[#10B981] shrink-0" />
-                <a href="mailto:info@apexedge.co.ke" className="hover:text-[#10B981] transition-colors">
+                <a href="mailto:info@apexedge.co.ke" className="hover:text-[#10B981] text-slate-600 transition-colors">
                   info@apexedge.co.ke
                 </a>
               </div>
 
               <div className="flex items-center gap-3 text-xs">
                 <Globe className="h-4 w-4 text-[#10B981] shrink-0" />
-                <a href="https://www.apexedge.co.ke" target="_blank" rel="noopener noreferrer" className="hover:text-[#10B981] transition-colors">
+                <a href="https://www.apexedge.co.ke" target="_blank" rel="noopener noreferrer" className="hover:text-[#10B981] text-slate-600 transition-colors">
                   www.apexedge.co.ke
                 </a>
               </div>
 
               <div className="flex items-center gap-3 text-xs">
                 <Phone className="h-4 w-4 text-[#10B981] shrink-0" />
-                <a href="tel:+254117471344" className="hover:text-[#10B981] transition-colors font-bold text-white">
+                <a href="tel:+254117471344" className="hover:text-[#10B981] transition-colors font-bold text-[#071C3F]">
                   +254 117 471344
                 </a>
               </div>
 
-              <div className="pt-2 border-t border-slate-800 space-y-1">
-                <div className="flex items-center gap-2 text-[11px] font-bold text-[#10B981] uppercase tracking-wider">
-                  <Clock className="h-3.5 w-3.5" />
+              <div className="pt-2 border-t border-slate-200 space-y-1">
+                <div className="flex items-center gap-2 text-[11px] font-bold text-[#071C3F] uppercase tracking-wider">
+                  <Clock className="h-3.5 w-3.5 text-[#10B981]" />
                   <span>Executive Advisory Hours</span>
                 </div>
-                <p className="text-xs text-slate-300">Monday – Friday: 8:00 AM – 5:00 PM EAT</p>
+                <p className="text-xs text-slate-500">Monday – Friday: 8:00 AM – 5:00 PM EAT</p>
               </div>
 
               {/* Social Icons */}
               <div className="pt-2">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-[#10B981] mb-2.5">Connect With Us</p>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-[#071C3F] mb-2.5">Connect With Us</p>
                 <div className="flex items-center gap-3">
                   {[
                     { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
@@ -271,7 +271,7 @@ export function CorporateFooter() {
                       whileHover={{ scale: 1.15, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       aria-label={social.label}
-                      className="rounded-full bg-slate-900 border border-slate-700 p-2.5 text-slate-300 hover:border-[#10B981] hover:bg-[#10B981] hover:text-[#071C3F] transition-all shadow-md"
+                      className="rounded-full bg-slate-100 border border-slate-200 p-2.5 text-slate-600 hover:border-[#10B981] hover:bg-[#10B981] hover:text-[#071C3F] transition-all shadow-xs"
                     >
                       <social.icon className="h-4 w-4" />
                     </motion.a>
@@ -283,12 +283,12 @@ export function CorporateFooter() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#10B981]/30 text-xs text-slate-400">
+        <div className="pt-8 border-t border-slate-200 text-xs text-slate-500">
           <div className="flex flex-col gap-4 sm:flex-row items-center justify-between text-center sm:text-left">
             <div>
               <p>© 2026 ApexEdge Advisory Limited. All Rights Reserved.</p>
             </div>
-            <div className="font-semibold text-slate-300 text-[11px]">
+            <div className="font-semibold text-slate-600 text-[11px]">
               <span>Board-Ready Systems • Corporate Governance • Controls • People &amp; Performance</span>
             </div>
             <div>
@@ -298,7 +298,7 @@ export function CorporateFooter() {
                   href="https://regnl.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-extrabold text-[#10B981] hover:underline transition-colors"
+                  className="font-extrabold text-[#071C3F] hover:text-[#10B981] hover:underline transition-colors"
                 >
                   ReGNL
                 </a>
@@ -318,7 +318,7 @@ export function CorporateFooter() {
             onClick={scrollToTop}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="fixed bottom-8 right-8 z-50 rounded-full bg-[#10B981] p-3.5 text-[#071C3F] shadow-2xl hover:bg-emerald-400 transition-all border border-white/20"
+            className="fixed bottom-8 right-8 z-50 rounded-full bg-[#10B981] p-3.5 text-[#071C3F] shadow-2xl hover:bg-emerald-400 transition-all border border-white/20 cursor-pointer"
             aria-label="Back to top"
           >
             <ArrowUp className="h-5 w-5 font-bold" />
