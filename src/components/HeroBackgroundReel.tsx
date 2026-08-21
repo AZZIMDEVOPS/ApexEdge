@@ -82,9 +82,9 @@ export function HeroBackgroundReel() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Luminous Clean White Overlay Gradients for Razor-Sharp Navy Text Readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/92 via-white/82 to-white/98" />
-      <div className="absolute inset-0 bg-radial-[ellipse_at_center] from-transparent via-white/50 to-white/95" />
+      {/* High-Visibility Clean White Overlay Gradients — Enhancing Picture Opacity While Preserving Text Readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/65 via-white/40 to-white/85" />
+      <div className="absolute inset-0 bg-radial-[ellipse_at_center] from-white/25 via-white/45 to-white/80" />
 
       {/* Subtle Live Photo Indicator in Top Right Corner */}
       <div className="absolute top-6 right-6 z-10 pointer-events-auto hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-slate-200/90 backdrop-blur-md text-[11px] font-bold text-slate-800 shadow-md">

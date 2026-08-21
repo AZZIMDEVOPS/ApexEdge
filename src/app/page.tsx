@@ -101,7 +101,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, y: -12, filter: "blur(3px)" }}
                 transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black tracking-tight text-slate-950 leading-[1.28] max-w-5xl mx-auto drop-shadow-xs"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black tracking-tight text-slate-950 leading-[1.28] max-w-5xl mx-auto drop-shadow-[0_2px_10px_rgba(255,255,255,0.95)]"
               >
                 <span>{HERO_HEADLINES[headlineIndex].lead}</span>{" "}
                 <span className="text-[#071C3F] underline decoration-[#10B981] decoration-4 underline-offset-8">
