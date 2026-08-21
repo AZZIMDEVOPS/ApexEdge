@@ -156,17 +156,24 @@ const ADVISORY_PILLARS: PillarArchitecture[] = [
 export function IntegratedSolutionArchitecture() {
   const [activePillarIndex, setActivePillarIndex] = useState<number>(0);
   const [isPaused, setIsPaused] = useState<boolean>(false);
+  const [cycleKey, setCycleKey] = useState<number>(0);
 
-  // Auto-advance loop cycling every 5.5 seconds
+  // Slowed-down auto-advance loop cycling every 9.0 seconds
   useEffect(() => {
     if (isPaused) return;
 
     const interval = setInterval(() => {
       setActivePillarIndex((prev) => (prev + 1) % ADVISORY_PILLARS.length);
-    }, 5500);
+      setCycleKey((prev) => prev + 1);
+    }, 9000);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, cycleKey]);
+
+  const handlePillarClick = (idx: number) => {
+    setActivePillarIndex(idx);
+    setCycleKey((prev) => prev + 1);
+  };
 
   const activePillar = ADVISORY_PILLARS[activePillarIndex];
   const ActiveIcon = activePillar.icon;
@@ -240,10 +247,7 @@ export function IntegratedSolutionArchitecture() {
                 return (
                   <button
                     key={pillar.id}
-                    onClick={() => {
-                      setActivePillarIndex(idx);
-                      setIsPaused(true);
-                    }}
+                    onClick={() => handlePillarClick(idx)}
                     className={`relative w-full text-left p-4 sm:p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between gap-4 group cursor-pointer overflow-hidden ${
                       isActive
                         ? "bg-white border-[#10B981] shadow-md ring-4 ring-[#10B981]/15 text-slate-950 scale-[1.01]"
@@ -289,13 +293,13 @@ export function IntegratedSolutionArchitecture() {
                       />
                     </div>
 
-                    {/* Progress Indicator for Active Auto-Advancing Pillar */}
+                    {/* Slowed-Down Progress Indicator for Active Auto-Advancing Pillar */}
                     {isActive && !isPaused && (
                       <motion.div
-                        key={`progress-${idx}`}
+                        key={`progress-${idx}-${cycleKey}`}
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
-                        transition={{ duration: 5.5, ease: "linear" }}
+                        transition={{ duration: 9.0, ease: "linear" }}
                         className="absolute bottom-0 left-0 right-0 h-1 bg-[#10B981] origin-left"
                       />
                     )}
@@ -310,10 +314,10 @@ export function IntegratedSolutionArchitecture() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activePillar.id}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.45, ease: "easeInOut" }}
                 className="rounded-3xl bg-slate-50 border border-slate-200 p-6 sm:p-8 space-y-6 shadow-sm overflow-hidden"
               >
                 {/* Header Row */}
