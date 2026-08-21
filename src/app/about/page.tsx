@@ -16,31 +16,40 @@ import { ThreeDCard, ThreeDItem } from "@/components/ui/ThreeDCard";
 
 const ETHICAL_STANDARDS = [
   {
+    num: "01",
     icon: Zap,
-    title: "Our Mission",
-    tagline: "Actionable Systems",
-    desc: "To transform governance, people, control, and data protection challenges into Board-ready operational systems that leadership teams use daily.",
-    deliverable: "100% Operational Deliverables",
-    gradient: "from-[#071C3F] via-[#09224E] to-[#071C3F]",
+    title: "Fixed Outcome Guarantees",
+    tagline: "No Retainer Friction",
+    desc: "We do not bill for open-ended hours or produce passive slide decks. Every advisory engagement is tied to fixed, verified deliverables, explicit milestones, and measurable Board-level outcomes.",
+    deliverable: "Fixed Deliverables & Transparent Scope",
     accent: "#10B981",
   },
   {
-    icon: Award,
-    title: "Our Vision",
-    tagline: "Regional Trust",
-    desc: "To be East Africa's most trusted strategic advisory firm for Boards, CEOs, and executive teams navigating growth and regulatory complexity.",
-    deliverable: "East Africa Standard",
-    gradient: "from-[#071C3F] via-[#09224E] to-[#071C3F]",
+    num: "02",
+    icon: Target,
+    title: "Single-Point Named Ownership",
+    tagline: "Explicit RACI Charters",
+    desc: "Advisory recommendations fail when responsibility is diffused across committees. We assign every operational control and performance metric to a named single-point owner with clear sign-off authority.",
+    deliverable: "Named Accountability Matrices",
     accent: "#0284C7",
   },
   {
-    icon: HeartHandshake,
-    title: "Core Values",
-    tagline: "Rigor & Integrity",
-    desc: "Craftsmanship over templates. Tangible working tools over slide decks. Respect for East African institutional reality and fiduciary rigor.",
-    deliverable: "Uncompromising Integrity",
-    gradient: "from-[#071C3F] via-[#09224E] to-[#071C3F]",
-    accent: "#10B981",
+    num: "03",
+    icon: ShieldCheck,
+    title: "1–2 Page Digital SOP Standard",
+    tagline: "Zero Shelf-Ware Binders",
+    desc: "A 200-page policy manual sitting unread on an executive shelf is a corporate liability. We condense complex governance and financial policies into concise 1–2 page daily workflows teams actually use.",
+    deliverable: "Actionable Operational Workflows",
+    accent: "#059669",
+  },
+  {
+    num: "04",
+    icon: Award,
+    title: "Uncompromising Statutory Rigor",
+    tagline: "East African Mastery",
+    desc: "Deep compliance with the Kenyan Companies Act 2015, Mwongozo Code for State Corporations, CBK Prudential Guidelines, CMA Governance Code, and the Kenya Data Protection Act 2019.",
+    deliverable: "14+ Statutory Frameworks Supported",
+    accent: "#6366F1",
   },
 ];
 
@@ -175,18 +184,44 @@ export default function AboutPage() {
       {/* 5. LEADERSHIP & PARTNERS */}
       <LeadershipTeamSection />
 
-      {/* 6. MISSION, VISION & ETHICAL STANDARDS WITH 3D TILT CARDS */}
-      <section className="py-28 bg-white text-slate-900 border-b border-slate-200">
+      {/* 6. HOW WE HOLD OURSELVES ACCOUNTABLE — 4 INTERACTIVE 3D PERSPECTIVE PILLARS */}
+      <section className="py-28 bg-white text-slate-900 border-b border-slate-200 relative overflow-hidden">
+        
+        {/* Ambient Gradient Mesh Background */}
+        <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-r from-emerald-500/5 via-blue-500/5 to-teal-500/5 blur-3xl rounded-full" />
+        </div>
+
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-16">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-black uppercase tracking-widest text-[#10B981]">OUR ETHICAL COMMITMENT</span>
-            <h2 className="text-3xl sm:text-5xl font-black text-slate-950">How We Hold Ourselves Accountable</h2>
-            <p className="text-sm sm:text-base text-slate-600">
-              Clear principles guiding every client engagement, diagnostic evaluation, and executive deliverable.
-            </p>
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#071C3F] text-xs font-black uppercase tracking-[0.25em] shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#10B981]" />
+              <span>FIDUCIARY &amp; OPERATIONAL STANDARDS</span>
+            </div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight leading-tight"
+            >
+              How We Hold Ourselves Accountable
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal"
+            >
+              Four non-negotiable operating commitments that distinguish our advisory work from conventional consulting theory.
+            </motion.p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          {/* 4 Interactive 3D Accountability Cards Grid */}
+          <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
             {ETHICAL_STANDARDS.map((item, idx) => {
               const IconComponent = item.icon;
               return (
@@ -195,41 +230,49 @@ export default function AboutPage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.25 }}
-                  transition={{ delay: idx * 0.15, duration: 0.6 }}
+                  transition={{ delay: idx * 0.12, duration: 0.6 }}
                   className="h-full"
                 >
                   <ThreeDCard
-                    depth={12}
+                    depth={14}
                     glareColor="rgba(16, 185, 129, 0.2)"
-                    className="rounded-3xl bg-gradient-to-br from-[#071C3F] via-[#09224E] to-[#071C3F] border border-slate-800 p-8 space-y-5 hover:border-[#10B981] transition-all shadow-2xl text-white flex flex-col justify-between h-full"
+                    className="rounded-3xl bg-gradient-to-br from-[#071C3F] via-[#09224E] to-[#071C3F] border border-slate-800 p-7 space-y-6 hover:border-[#10B981] transition-all shadow-2xl text-white flex flex-col justify-between h-full group"
                   >
                     <div className="space-y-4">
-                      <ThreeDItem translateZ={30} className="flex items-center justify-between">
-                        <div className="p-3 rounded-2xl bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30">
-                          <IconComponent className="w-6 h-6" />
-                        </div>
-                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 bg-slate-900/80 px-2.5 py-1 rounded-full border border-slate-700">
+                      <div className="flex items-center justify-between">
+                        <ThreeDItem translateZ={35}>
+                          <div className="p-3.5 rounded-2xl bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/40 shadow-lg group-hover:bg-[#10B981] group-hover:text-[#071C3F] transition-all duration-300">
+                            <IconComponent className="w-6 h-6" />
+                          </div>
+                        </ThreeDItem>
+
+                        <ThreeDItem translateZ={25}>
+                          <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-b from-slate-400 to-slate-700 font-mono">
+                            {item.num}
+                          </span>
+                        </ThreeDItem>
+                      </div>
+
+                      <ThreeDItem translateZ={30} className="space-y-1.5">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-[#10B981] bg-slate-900/90 px-2.5 py-1 rounded-md border border-slate-700/80 inline-block">
                           {item.tagline}
                         </span>
-                      </ThreeDItem>
-
-                      <ThreeDItem translateZ={35}>
-                        <h3 className="text-2xl font-black text-white">
+                        <h3 className="text-xl font-black text-white leading-snug pt-1">
                           {item.title}
                         </h3>
                       </ThreeDItem>
 
-                      <ThreeDItem translateZ={20}>
+                      <ThreeDItem translateZ={15}>
                         <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                           {item.desc}
                         </p>
                       </ThreeDItem>
                     </div>
 
-                    <ThreeDItem translateZ={25}>
-                      <div className="pt-4 border-t border-slate-700/80 flex items-center gap-2 text-xs font-bold text-emerald-400">
+                    <ThreeDItem translateZ={30}>
+                      <div className="pt-4 border-t border-slate-700/80 flex items-center gap-2 text-xs font-bold text-emerald-400 bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
                         <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
-                        <span>{item.deliverable}</span>
+                        <span className="truncate">{item.deliverable}</span>
                       </div>
                     </ThreeDItem>
                   </ThreeDCard>
@@ -237,6 +280,35 @@ export default function AboutPage() {
               );
             })}
           </div>
+
+          {/* Interactive Executive Fiduciary Pledge Banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-slate-50 via-white to-slate-50 border-2 border-slate-200 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6"
+          >
+            <div className="space-y-2 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#071C3F]">
+                <ShieldCheck className="w-4 h-4 text-[#10B981]" />
+                <span>The Apex Edge Fiduciary Guarantee</span>
+              </div>
+              <h4 className="text-xl sm:text-2xl font-black text-slate-950">
+                100% Outcome-Driven. Zero Consulting Shelf-Ware.
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl font-normal">
+                If an operational deliverable or governance framework does not solve your specified breakpoint, we work alongside your team at no extra cost until it is fully embedded.
+              </p>
+            </div>
+
+            <Button
+              onClick={() => setIsBookingOpen(true)}
+              className="rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black px-7 py-4 text-xs shadow-md shrink-0 transition-all hover:scale-105"
+            >
+              <span>Schedule Clarity Session →</span>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
