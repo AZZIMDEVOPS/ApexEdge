@@ -93,21 +93,23 @@ export default function Home() {
           </motion.div>
 
           {/* Dynamic Cycling H1 Heading (Guaranteed Strictly Max 2 to 3 Lines in Apex Navy) */}
-          <div className="min-h-[90px] sm:min-h-[110px] lg:min-h-[120px] flex items-center justify-center">
+          <div className="min-h-[95px] sm:min-h-[115px] lg:min-h-[125px] flex items-center justify-center">
             <AnimatePresence mode="wait">
-              <motion.h1
+              <motion.div
                 key={headlineIndex}
                 initial={{ opacity: 0, y: 12, filter: "blur(3px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, y: -12, filter: "blur(3px)" }}
                 transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black tracking-tight text-slate-950 leading-[1.28] max-w-5xl mx-auto drop-shadow-[0_2px_10px_rgba(255,255,255,0.95)]"
+                className="px-6 py-4 sm:px-8 sm:py-5 rounded-3xl bg-white/85 backdrop-blur-md border border-slate-200/80 shadow-lg max-w-5xl mx-auto"
               >
-                <span>{HERO_HEADLINES[headlineIndex].lead}</span>{" "}
-                <span className="text-[#071C3F] underline decoration-[#10B981] decoration-4 underline-offset-8">
-                  {HERO_HEADLINES[headlineIndex].highlight}
-                </span>
-              </motion.h1>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black tracking-tight text-slate-950 leading-[1.28]">
+                  <span>{HERO_HEADLINES[headlineIndex].lead}</span>{" "}
+                  <span className="text-[#071C3F] underline decoration-[#10B981] decoration-4 underline-offset-8">
+                    {HERO_HEADLINES[headlineIndex].highlight}
+                  </span>
+                </h1>
+              </motion.div>
             </AnimatePresence>
           </div>
 
