@@ -320,7 +320,7 @@ export function IntegratedSolutionArchitecture() {
                 transition={{ duration: 0.45, ease: "easeInOut" }}
                 className="rounded-3xl bg-slate-50 border border-slate-200 p-6 sm:p-8 space-y-6 shadow-sm overflow-hidden"
               >
-                {/* Header Row */}
+                {/* Header Row & Brief Description */}
                 <div className="space-y-3 border-b border-slate-200 pb-4">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <span className="px-3 py-1 rounded-full bg-[#10B981]/20 text-[#071C3F] border border-[#10B981]/40 text-xs font-black uppercase tracking-wider">
@@ -336,53 +336,42 @@ export function IntegratedSolutionArchitecture() {
                     {activePillar.title}
                   </h3>
 
-                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                     {activePillar.purpose}
                   </p>
                 </div>
 
-                {/* Real Corporate Photography Frame for Active Pillar */}
-                <div className="relative h-48 sm:h-56 w-full rounded-2xl overflow-hidden border border-slate-200 shadow-xs">
+                {/* Enlarged, Well-Fitted Corporate Photography Frame */}
+                <div className="relative h-64 sm:h-72 lg:h-80 w-full rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md group">
                   <Image
                     src={activePillar.image}
                     alt={activePillar.imageAlt}
                     fill
-                    className="object-cover object-center transition-transform duration-700 hover:scale-105"
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F]/85 via-[#071C3F]/20 to-transparent" />
-                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs">
-                    <span className="font-semibold">{activePillar.imageAlt}</span>
-                    <span className="text-[10px] font-black uppercase tracking-wider text-[#10B981] bg-[#071C3F]/90 px-2 py-0.5 rounded-full border border-[#10B981]/30">
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs">
+                    <span className="font-bold text-sm drop-shadow-sm">{activePillar.imageAlt}</span>
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#10B981] bg-[#071C3F]/90 px-3 py-1 rounded-full border border-[#10B981]/40 backdrop-blur-md">
                       In Practice
                     </span>
                   </div>
                 </div>
 
-                {/* The Breakpoint Solved */}
-                <div className="space-y-1.5">
-                  <span className="text-[11px] font-black uppercase tracking-wider text-rose-700 flex items-center gap-1.5">
-                    <Activity className="w-3.5 h-3.5 text-rose-600" />
-                    THE ORGANISATIONAL BREAKPOINT WE ELIMINATE
-                  </span>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-rose-50/70 p-3.5 rounded-xl border border-rose-200/60 font-medium">
-                    {activePillar.breakpointSolved}
-                  </p>
-                </div>
-
-                {/* Tangible Board-Ready Deliverables */}
-                <div className="space-y-2.5">
+                {/* Working Artifacts & Tangible Deliverables */}
+                <div className="space-y-3">
                   <span className="text-[11px] font-black uppercase tracking-wider text-[#071C3F] flex items-center gap-1.5">
                     <FileCheck2 className="w-3.5 h-3.5 text-[#10B981]" />
                     WORKING ARTIFACTS &amp; TANGIBLE DELIVERABLES
                   </span>
-                  <div className="grid gap-2 sm:grid-cols-2">
+                  <div className="grid gap-2.5 sm:grid-cols-2">
                     {activePillar.deliverables.map((item, idx) => (
                       <div
                         key={idx}
-                        className="p-3 rounded-xl bg-white border border-slate-200 flex items-start gap-2.5 shadow-2xs"
+                        className="p-3 rounded-xl bg-white border border-slate-200 flex items-start gap-2.5 shadow-2xs hover:border-[#10B981] transition-colors"
                       >
                         <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
-                        <span className="text-xs text-slate-800 font-medium leading-relaxed">
+                        <span className="text-xs text-slate-800 font-semibold leading-relaxed">
                           {item}
                         </span>
                       </div>
@@ -390,29 +379,18 @@ export function IntegratedSolutionArchitecture() {
                   </div>
                 </div>
 
-                {/* System Interconnectivity */}
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 space-y-1">
-                  <div className="flex items-center gap-2 text-xs font-bold text-[#071C3F]">
-                    <GitBranch className="w-3.5 h-3.5 text-[#10B981]" />
-                    <span>SYSTEM INTERCONNECTIVITY</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                    {activePillar.interconnectivity}
-                  </p>
-                </div>
-
-                {/* Footer Statutory Standard Badge */}
+                {/* Bottom Statutory Framework & Navigation CTA */}
                 <div className="pt-2 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
                   <span className="text-slate-500 font-medium">
-                    Statutory Framework: <strong className="text-slate-900">{activePillar.statutoryStandard}</strong>
+                    Framework: <strong className="text-slate-900">{activePillar.statutoryStandard}</strong>
                   </span>
 
                   <Link
                     href={`/services#${activePillar.id}`}
-                    className="inline-flex items-center gap-1.5 font-bold text-[#071C3F] hover:text-[#10B981] transition-colors"
+                    className="inline-flex items-center gap-1.5 font-black text-[#071C3F] hover:text-[#10B981] transition-colors group"
                   >
-                    <span>Full Practice Details</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
+                    <span>Explore Full Practice Details</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#10B981] group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </motion.div>
