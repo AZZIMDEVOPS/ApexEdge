@@ -136,14 +136,10 @@ export function OriginStoryTimeline() {
                   <div className="w-3 h-3 rounded-full bg-[#071C3F] group-hover:bg-[#10B981] transition-colors duration-300" />
                 </div>
 
-                {/* 3D Perspective Container Card */}
-                <ThreeDCard
-                  depth={8}
-                  glareColor="rgba(16, 185, 129, 0.15)"
-                  className="rounded-3xl bg-gradient-to-br from-[#071C3F] via-[#09224E] to-[#071C3F] border border-slate-800 p-7 sm:p-9 space-y-5 hover:border-[#10B981]/70 transition-all duration-300 shadow-2xl text-white overflow-hidden"
-                >
+                {/* Subtle Blue Gradient Container Card */}
+                <div className="rounded-3xl bg-gradient-to-br from-[#071C3F] via-[#09224E] to-[#071C3F] border border-slate-800 p-7 sm:p-9 space-y-5 hover:border-slate-700/80 hover:shadow-xl transition-all duration-300 text-white">
                   <div className="space-y-4">
-                    <ThreeDItem translateZ={25} className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
                       <div className="flex items-center gap-2.5">
                         <div className="p-2.5 rounded-xl bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30">
                           <IconComp className="w-5 h-5" />
@@ -155,28 +151,22 @@ export function OriginStoryTimeline() {
                       <span className="text-xs font-black text-white bg-slate-900/80 px-3.5 py-1.5 rounded-full border border-slate-700 shadow-inner">
                         {step.year}
                       </span>
-                    </ThreeDItem>
+                    </div>
 
-                    <ThreeDItem translateZ={35}>
-                      <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug">
-                        {step.title}
-                      </h3>
-                    </ThreeDItem>
+                    <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug">
+                      {step.title}
+                    </h3>
 
-                    <ThreeDItem translateZ={20}>
-                      <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
-                        {step.narrative}
-                      </p>
-                    </ThreeDItem>
+                    <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
+                      {step.narrative}
+                    </p>
 
-                    <ThreeDItem translateZ={30}>
-                      <div className="pt-4 border-t border-slate-700/80 flex items-center gap-2 text-xs sm:text-sm text-emerald-300 font-semibold italic bg-slate-950/40 p-3.5 rounded-2xl border border-slate-800/80">
-                        <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
-                        <span>&ldquo;{step.insight}&rdquo;</span>
-                      </div>
-                    </ThreeDItem>
+                    <div className="pt-4 border-t border-slate-700/80 flex items-center gap-2 text-xs sm:text-sm text-emerald-300 font-semibold italic bg-slate-950/40 p-3.5 rounded-2xl border border-slate-800/80">
+                      <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
+                      <span>&ldquo;{step.insight}&rdquo;</span>
+                    </div>
                   </div>
-                </ThreeDCard>
+                </div>
               </motion.div>
             );
           })}

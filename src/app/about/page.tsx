@@ -144,7 +144,7 @@ export default function AboutPage() {
             </div>
           </motion.div>
 
-          {/* Right Column 3D Perspective Photo Card */}
+          {/* Right Column Subtle Blue Gradient Photo Card */}
           <motion.div
             initial={{ opacity: 0, x: 30, scale: 0.95 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -152,11 +152,7 @@ export default function AboutPage() {
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
             className="lg:col-span-5 h-full"
           >
-            <ThreeDCard
-              depth={12}
-              glareColor="rgba(16, 185, 129, 0.2)"
-              className="relative h-96 sm:h-[480px] rounded-3xl overflow-hidden border-2 border-slate-200 shadow-2xl bg-gradient-to-br from-[#071C3F] via-[#09224E] to-[#071C3F]"
-            >
+            <div className="relative h-96 sm:h-[480px] rounded-3xl overflow-hidden border-2 border-slate-200 shadow-xl bg-gradient-to-br from-[#071C3F] via-[#09224E] to-[#071C3F] hover:shadow-2xl transition-shadow duration-300">
               <Image
                 src="/african_corporate_team_meeting.jpg"
                 alt="Apex Edge Advisory senior team in executive session"
@@ -165,12 +161,12 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F] via-[#071C3F]/40 to-transparent" />
               
-              <ThreeDItem translateZ={35} className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-gradient-to-br from-[#071C3F]/95 to-[#09224E]/95 border border-slate-700/80 backdrop-blur-xl shadow-xl text-white">
+              <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-gradient-to-br from-[#071C3F]/95 to-[#09224E]/95 border border-slate-700/80 backdrop-blur-xl shadow-xl text-white">
                 <span className="text-[10px] font-black uppercase tracking-widest text-[#10B981]">East African Regional Context</span>
                 <h3 className="text-base font-black text-white mt-1">Headquartered in Nairobi, Kenya</h3>
                 <p className="text-xs text-slate-300 mt-1">Grounded in local statutory rigor, regional compliance, and executive realities.</p>
-              </ThreeDItem>
-            </ThreeDCard>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -184,7 +180,7 @@ export default function AboutPage() {
       {/* 5. LEADERSHIP & PARTNERS */}
       <LeadershipTeamSection />
 
-      {/* 6. HOW WE HOLD OURSELVES ACCOUNTABLE — 4 INTERACTIVE 3D PERSPECTIVE PILLARS */}
+      {/* 6. HOW WE HOLD OURSELVES ACCOUNTABLE — 4 SUBTLE BLUE GRADIENT PILLARS */}
       <section className="py-28 bg-white text-slate-900 border-b border-slate-200 relative overflow-hidden">
         
         {/* Ambient Gradient Mesh Background */}
@@ -220,7 +216,7 @@ export default function AboutPage() {
             </motion.p>
           </div>
 
-          {/* 4 Interactive 3D Accountability Cards Grid */}
+          {/* 4 Subtle Blue Gradient Accountability Cards Grid */}
           <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
             {ETHICAL_STANDARDS.map((item, idx) => {
               const IconComponent = item.icon;
@@ -233,49 +229,37 @@ export default function AboutPage() {
                   transition={{ delay: idx * 0.12, duration: 0.6 }}
                   className="h-full"
                 >
-                  <ThreeDCard
-                    depth={14}
-                    glareColor="rgba(16, 185, 129, 0.2)"
-                    className="rounded-3xl bg-gradient-to-br from-[#071C3F] via-[#09224E] to-[#071C3F] border border-slate-800 p-7 space-y-6 hover:border-[#10B981] transition-all shadow-2xl text-white flex flex-col justify-between h-full group"
-                  >
+                  <div className="rounded-3xl bg-gradient-to-br from-[#071C3F] via-[#09224E] to-[#071C3F] border border-slate-800 p-7 space-y-6 hover:border-slate-700/90 hover:shadow-xl transition-all duration-300 text-white flex flex-col justify-between h-full group">
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <ThreeDItem translateZ={35}>
-                          <div className="p-3.5 rounded-2xl bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/40 shadow-lg group-hover:bg-[#10B981] group-hover:text-[#071C3F] transition-all duration-300">
-                            <IconComponent className="w-6 h-6" />
-                          </div>
-                        </ThreeDItem>
+                        <div className="p-3.5 rounded-2xl bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/40 shadow-sm transition-colors duration-300">
+                          <IconComponent className="w-6 h-6" />
+                        </div>
 
-                        <ThreeDItem translateZ={25}>
-                          <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-b from-slate-400 to-slate-700 font-mono">
-                            {item.num}
-                          </span>
-                        </ThreeDItem>
+                        <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-b from-slate-400 to-slate-700 font-mono">
+                          {item.num}
+                        </span>
                       </div>
 
-                      <ThreeDItem translateZ={30} className="space-y-1.5">
+                      <div className="space-y-1.5">
                         <span className="text-[10px] font-black uppercase tracking-widest text-[#10B981] bg-slate-900/90 px-2.5 py-1 rounded-md border border-slate-700/80 inline-block">
                           {item.tagline}
                         </span>
                         <h3 className="text-xl font-black text-white leading-snug pt-1">
                           {item.title}
                         </h3>
-                      </ThreeDItem>
+                      </div>
 
-                      <ThreeDItem translateZ={15}>
-                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                          {item.desc}
-                        </p>
-                      </ThreeDItem>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                        {item.desc}
+                      </p>
                     </div>
 
-                    <ThreeDItem translateZ={30}>
-                      <div className="pt-4 border-t border-slate-700/80 flex items-center gap-2 text-xs font-bold text-emerald-400 bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
-                        <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
-                        <span className="truncate">{item.deliverable}</span>
-                      </div>
-                    </ThreeDItem>
-                  </ThreeDCard>
+                    <div className="pt-4 border-t border-slate-700/80 flex items-center gap-2 text-xs font-bold text-emerald-400 bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                      <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
+                      <span className="truncate">{item.deliverable}</span>
+                    </div>
+                  </div>
                 </motion.div>
               );
             })}
