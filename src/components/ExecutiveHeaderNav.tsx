@@ -266,13 +266,17 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
             <span>+254 117 471344</span>
           </a>
 
-          <Button
-            onClick={onOpenBooking}
+          <a
+            href="https://wa.me/254117471344?text=Hello%20Apex%20Edge%20Advisory%2C%20I%20would%20like%20to%20inquire%20about%20your%20strategic%20advisory%20services."
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black shadow-md shadow-[#10B981]/20 rounded-full px-5 py-2.5 text-xs flex items-center gap-2 transition-all hover:scale-105"
           >
-            <Calendar className="w-4 h-4" />
-            <span>Book a Clarity Session →</span>
-          </Button>
+            <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.301-.15-1.781-.879-2.057-.98-.276-.1-.477-.15-.678.15-.2.3-.777.98-.953 1.18-.176.2-.352.226-.653.076-.301-.15-1.272-.469-2.424-1.496-.895-.799-1.5-1.786-1.676-2.087-.176-.3-.019-.463.132-.612.136-.134.301-.35.452-.525.15-.176.2-.3.301-.501.1-.2.05-.376-.025-.526-.075-.15-.678-1.636-.929-2.242-.244-.59-.493-.51-.678-.52l-.578-.01c-.2 0-.527.075-.803.376s-1.055 1.03-1.055 2.512c0 1.482 1.08 2.912 1.231 3.113.15.2 2.126 3.246 5.15 4.553.719.31 1.28.496 1.718.635.723.23 1.381.197 1.901.12.579-.087 1.781-.728 2.032-1.431.251-.703.251-1.306.176-1.431-.076-.125-.277-.2-.578-.35zM12.04 2C6.516 2 2.023 6.49 2.023 12.015c0 1.954.564 3.784 1.54 5.334L2 22l4.823-1.53c1.492.894 3.238 1.411 5.217 1.411 5.523 0 10.017-4.49 10.017-10.015C22.057 6.49 17.563 2 12.04 2zm0 18.313c-1.724 0-3.32-.494-4.675-1.353l-.335-.213-3.468 1.1.928-3.38-.232-.369a8.272 8.272 0 0 1-1.28-4.443c0-4.597 3.743-8.34 8.344-8.34 4.6 0 8.343 3.743 8.343 8.34 0 4.597-3.743 8.34-8.343 8.34z" />
+            </svg>
+            <span>Chat on WhatsApp →</span>
+          </a>
 
           {/* Mobile Hamburger Toggle Button */}
           <button
@@ -328,15 +332,18 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
               </Link>
             </div>
             <div className="pt-4 border-t border-slate-200">
-              <Button
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  onOpenBooking();
-                }}
-                className="w-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-full py-3 text-xs"
+              <a
+                href="https://wa.me/254117471344?text=Hello%20Apex%20Edge%20Advisory%2C%20I%20would%20like%20to%20inquire%20about%20your%20strategic%20advisory%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-full py-3 text-xs flex items-center justify-center gap-2 shadow-md"
               >
-                Book a Clarity Session →
-              </Button>
+                <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.301-.15-1.781-.879-2.057-.98-.276-.1-.477-.15-.678.15-.2.3-.777.98-.953 1.18-.176.2-.352.226-.653.076-.301-.15-1.272-.469-2.424-1.496-.895-.799-1.5-1.786-1.676-2.087-.176-.3-.019-.463.132-.612.136-.134.301-.35.452-.525.15-.176.2-.3.301-.501.1-.2.05-.376-.025-.526-.075-.15-.678-1.636-.929-2.242-.244-.59-.493-.51-.678-.52l-.578-.01c-.2 0-.527.075-.803.376s-1.055 1.03-1.055 2.512c0 1.482 1.08 2.912 1.231 3.113.15.2 2.126 3.246 5.15 4.553.719.31 1.28.496 1.718.635.723.23 1.381.197 1.901.12.579-.087 1.781-.728 2.032-1.431.251-.703.251-1.306.176-1.431-.076-.125-.277-.2-.578-.35zM12.04 2C6.516 2 2.023 6.49 2.023 12.015c0 1.954.564 3.784 1.54 5.334L2 22l4.823-1.53c1.492.894 3.238 1.411 5.217 1.411 5.523 0 10.017-4.49 10.017-10.015C22.057 6.49 17.563 2 12.04 2zm0 18.313c-1.724 0-3.32-.494-4.675-1.353l-.335-.213-3.468 1.1.928-3.38-.232-.369a8.272 8.272 0 0 1-1.28-4.443c0-4.597 3.743-8.34 8.344-8.34 4.6 0 8.343 3.743 8.343 8.34 0 4.597-3.743 8.34-8.343 8.34z" />
+                </svg>
+                <span>Chat on WhatsApp →</span>
+              </a>
             </div>
           </motion.div>
         )}
