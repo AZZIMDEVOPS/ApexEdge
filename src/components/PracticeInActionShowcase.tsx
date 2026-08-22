@@ -2,20 +2,17 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { 
-  Sparkles, 
   CheckCircle2, 
-  ArrowRight, 
   ShieldCheck, 
   Users, 
   Sliders, 
   FileText, 
   Lock, 
   Award, 
-  Building2, 
   X, 
   Calendar,
-  ExternalLink,
   ChevronRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -352,12 +349,15 @@ export function PracticeInActionShowcase({ onOpenBooking }: PracticeInActionShow
             >
               {/* Modal Header Photo Frame */}
               <div className="relative h-64 sm:h-72 w-full bg-slate-950 overflow-hidden">
-                <img
+                <Image
                   src={selectedCase.image}
                   alt={selectedCase.title}
-                  loading="eager"
-                  decoding="async"
-                  className="w-full h-full object-cover object-center brightness-100 contrast-[1.02]"
+                  fill
+                  priority
+                  quality={95}
+                  unoptimized
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover object-center brightness-100 contrast-[1.02]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
                 

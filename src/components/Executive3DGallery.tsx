@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { Sparkles, Camera, Eye, ArrowRight, X, Building2, Users2, ShieldCheck, Award } from "lucide-react";
+import { Sparkles, Eye, X } from "lucide-react";
 
 export interface GalleryItem {
   id: string;
@@ -178,7 +179,6 @@ export const GALLERY_ITEMS: GalleryItem[] = [
 
 export function Executive3DGallery() {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
-  const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -229,15 +229,13 @@ export function Executive3DGallery() {
         <motion.div 
           style={{ rotateX, scale, perspective: 1200 }}
           className="relative rounded-3xl p-4 sm:p-6 bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl overflow-hidden"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
         >
           {/* Dual Row Continuous 3D Infinite Marquee */}
           <div className="space-y-6">
             
             {/* Top Row Marquee (Items 1-10) */}
             <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-none snap-x cursor-grab active:cursor-grabbing">
-              {GALLERY_ITEMS.slice(0, 10).map((item, idx) => (
+              {GALLERY_ITEMS.slice(0, 10).map((item) => (
                 <motion.div
                   key={item.id}
                   whileHover={{ 
@@ -250,22 +248,25 @@ export function Executive3DGallery() {
                   className="flex-shrink-0 w-[300px] sm:w-[360px] rounded-2xl overflow-hidden bg-slate-900/90 border border-white/15 shadow-xl group cursor-pointer transition-all duration-300 hover:border-emerald-400/60 hover:shadow-emerald-500/10"
                 >
                   <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-950">
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.title}
-                      loading="eager"
-                      decoding="async"
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-95 group-hover:brightness-105"
+                      fill
+                      priority
+                      quality={95}
+                      unoptimized
+                      sizes="(max-width: 640px) 300px, 360px"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-95 group-hover:brightness-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
                     
-                    <div className="absolute top-3 left-3">
+                    <div className="absolute top-3 left-3 z-10">
                       <span className="px-3 py-1 rounded-full bg-[#071C3F]/90 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-wider border border-white/20">
                         {item.category}
                       </span>
                     </div>
 
-                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between z-10">
                       <span className="text-[11px] text-slate-300 font-bold">
                         {item.location}
                       </span>
@@ -289,7 +290,7 @@ export function Executive3DGallery() {
 
             {/* Bottom Row Marquee (Items 11-20) */}
             <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-none snap-x cursor-grab active:cursor-grabbing">
-              {GALLERY_ITEMS.slice(10, 20).map((item, idx) => (
+              {GALLERY_ITEMS.slice(10, 20).map((item) => (
                 <motion.div
                   key={item.id}
                   whileHover={{ 
@@ -302,22 +303,25 @@ export function Executive3DGallery() {
                   className="flex-shrink-0 w-[300px] sm:w-[360px] rounded-2xl overflow-hidden bg-slate-900/90 border border-white/15 shadow-xl group cursor-pointer transition-all duration-300 hover:border-emerald-400/60 hover:shadow-emerald-500/10"
                 >
                   <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-950">
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.title}
-                      loading="eager"
-                      decoding="async"
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-95 group-hover:brightness-105"
+                      fill
+                      priority
+                      quality={95}
+                      unoptimized
+                      sizes="(max-width: 640px) 300px, 360px"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-95 group-hover:brightness-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
                     
-                    <div className="absolute top-3 left-3">
+                    <div className="absolute top-3 left-3 z-10">
                       <span className="px-3 py-1 rounded-full bg-[#071C3F]/90 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-wider border border-white/20">
                         {item.category}
                       </span>
                     </div>
 
-                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between z-10">
                       <span className="text-[11px] text-slate-300 font-bold">
                         {item.location}
                       </span>
@@ -367,12 +371,15 @@ export function Executive3DGallery() {
             >
               {/* Photo Display */}
               <div className="relative h-80 sm:h-[450px] w-full bg-slate-950 overflow-hidden">
-                <img
+                <Image
                   src={selectedItem.image}
                   alt={selectedItem.title}
-                  loading="eager"
-                  decoding="async"
-                  className="w-full h-full object-cover object-center brightness-100 contrast-[1.02]"
+                  fill
+                  priority
+                  quality={95}
+                  unoptimized
+                  sizes="(max-width: 896px) 100vw, 896px"
+                  className="object-cover object-center brightness-100 contrast-[1.02]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                 

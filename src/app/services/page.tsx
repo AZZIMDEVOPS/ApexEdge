@@ -15,9 +15,7 @@ import {
   FileText, 
   HelpCircle, 
   Zap, 
-  Target,
-  ArrowRight,
-  Sparkles
+  Target
 } from "lucide-react";
 import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
 import { CorporateFooter } from "@/components/CorporateFooter";

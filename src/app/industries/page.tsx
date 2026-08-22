@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
-import { Building2, Landmark, ShieldCheck, HeartPulse, Factory, Briefcase, Calendar, CheckCircle2, ArrowRight, Sparkles, Layers, Activity } from "lucide-react";
+import { Building2, Landmark, ShieldCheck, HeartPulse, Factory, Briefcase, Calendar } from "lucide-react";
 import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
 import { CorporateFooter } from "@/components/CorporateFooter";
 import { ConsultationModal } from "@/components/ConsultationModal";
