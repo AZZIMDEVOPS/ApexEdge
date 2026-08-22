@@ -20,7 +20,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     q: "What are your Practice Areas?",
-    a: "Apex Edge operates across 5 outcome-driven Practice Areas: 01 — Governance & Risk, 02 — People & Performance, 03 — Controls & Policies, 04 — Leadership & Capability, and 05 — Data Protection & Privacy.",
+    a: "Apex Edge operates across 6 outcome-driven Practice Areas: 01 — Governance & Risk, 02 — People & Performance, 03 — Controls & Policies, 04 — Leadership & Capability, 05 — Data Protection & Privacy, and 06 — Corporate Secretarial.",
   },
   {
     q: "Does Apex Edge only provide advisory reports?",

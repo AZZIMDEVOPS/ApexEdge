@@ -32,8 +32,12 @@ function getFormattedTime(): string {
 
 const APEX_KNOWLEDGE: Record<string, { answer: string; followUps?: string[]; action?: "book" | "contact" | "download" }> = {
   services: {
-    answer: "ApexEdge Advisory Limited structures solutions around 5 outcome-driven Practice Areas:\n1. 01 — Governance & Risk ('Give Your Board Clearer Visibility of Risk and Performance.')\n2. 02 — People & Performance ('Build a Performance System That Creates Accountability.')\n3. 03 — Controls & Policies ('Turn Policies Into Systems That Actually Work.')\n4. 04 — Leadership & Capability ('Build Leaders and Teams That Execute Better.')\n5. 05 — Data Protection & Privacy ('Protect Data. Strengthen Trust. Stay Compliant.')",
-    followUps: ["Governance & Risk", "Data Protection", "People & Performance", "Book Consultation"],
+    answer: "ApexEdge Advisory Limited structures solutions around 6 outcome-driven Practice Areas:\n1. 01 — Governance & Risk ('Give Your Board Clearer Visibility of Risk and Performance.')\n2. 02 — People & Performance ('Build a Performance System That Creates Accountability.')\n3. 03 — Controls & Policies ('Turn Policies Into Systems That Actually Work.')\n4. 04 — Leadership & Capability ('Build Leaders and Teams That Execute Better.')\n5. 05 — Data Protection & Privacy ('Protect Data. Strengthen Trust. Stay Compliant.')\n6. 06 — Corporate Secretarial ('Companies Act 2015 Compliance, Board Minutes & Statutory Filings.')",
+    followUps: ["Governance & Risk", "Corporate Secretarial", "Data Protection", "Book Consultation"],
+  },
+  "corporate secretarial": {
+    answer: "Our Corporate Secretarial practice ensures 100% statutory compliance under the Companies Act 2015 and BRS:\n- Annual Statutory Returns & BRS e-Filings\n- Board Minutes, Charters & Resolution Drafting\n- Statutory Registers of Members, Directors & Beneficial Owners\n- AGM / EGM Meeting Management & Minute Certification\n- Corporate Restructuring & Capital Alterations",
+    followUps: ["Governance & Risk", "Controls & Policies", "Book Consultation"],
   },
   "data protection": {
     answer: "ApexEdge Data Protection & Privacy advisory helps organisations understand obligations, strengthen privacy practices, and build operational data governance systems:\n- Data Protection Compliance & Gap Audits\n- Data Inventory & Mapping Registers\n- Privacy Policies, Notices & Consent Management\n- Data Protection Impact Assessments (DPIAs)\n- Data Processing Agreements (DPAs) & Vendor Risk Reviews\n- Data Subject Rights & Breach Response Protocols",

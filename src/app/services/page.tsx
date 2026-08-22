@@ -27,6 +27,7 @@ import {
   Controls3DIcon,
   Leadership3DIcon,
   DataProtection3DIcon,
+  CorporateSecretarial3DIcon,
 } from "@/components/icons/PracticeArea3DIcons";
 
 const PRACTICE_AREAS = [
@@ -190,6 +191,38 @@ const PRACTICE_AREAS = [
     ],
     outcome: "Data protection moves from legal uncertainty into a structured, operationalized privacy system that protects customer trust, passes regulatory checks, and mitigates breach risks.",
     methodology: ["Assess", "Identify", "Design", "Implement", "Monitor"]
+  },
+  {
+    id: "corporate-secretarial",
+    num: "06",
+    category: "CORPORATE SECRETARIAL",
+    Icon3D: CorporateSecretarial3DIcon,
+    icon: FileText,
+    image: "/african_board_signing.jpg",
+    imageAlt: "Corporate secretarial advisor executing statutory filings, board resolutions, and registry maintenance",
+    headline: "Companies Act 2015 Compliance, Board Minutes & Statutory Filings.",
+    problemHeader: "The Organisational Challenge",
+    problem: "Missed statutory filing deadlines, defective board resolutions, irregular shareholder registries, and regulatory penalties under the Companies Act 2015 and BRS create serious legal vulnerabilities for Directors and executive leadership.",
+    whoFor: "Boards of Directors, Managing Directors, Company Secretaries, Legal Counsel, Chief Financial Officers, Shareholders.",
+    approach: "We provide comprehensive corporate secretarial advisory, draft certified board resolutions, prepare and file annual statutory returns with BRS, manage AGMs/EGMs, and maintain statutory registers.",
+    services: [
+      "Annual Statutory Returns & BRS e-Filings",
+      "Board & Committee Minutes & Resolution Drafting",
+      "Statutory Registers & Share Transfer Management",
+      "AGM, EGM & Board Meeting Coordination",
+      "Companies Act 2015 Statutory Health Checks",
+      "Corporate Restructuring & Share Capital Alterations"
+    ],
+    deliverables: [
+      "Certified Board Resolutions & Action Trackers",
+      "BRS Annual Returns & Statutory Filing Receipts",
+      "Up-to-Date Statutory Registers & Share Records",
+      "AGM / EGM Governance Notices & Minutes",
+      "Corporate Secretarial Compliance Calendars",
+      "Director Appointment & Cessation Dossiers"
+    ],
+    outcome: "Your organisation maintains 100% statutory compliance, impeccably documented board decisions, and protected legal standing with zero filing penalties.",
+    methodology: ["Audit", "Structure", "Execute", "Certify"]
   }
 ];
 
@@ -211,7 +244,7 @@ export default function ServicesPage() {
         <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-6 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#071C3F] text-xs font-black uppercase tracking-[0.25em] shadow-xs">
             <ShieldCheck className="w-4 h-4 text-[#10B981]" />
-            <span>01 TO 05 — CORE PRACTICE AREAS</span>
+            <span>01 TO 06 — CORE PRACTICE AREAS</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-black text-slate-950 tracking-tight leading-tight">

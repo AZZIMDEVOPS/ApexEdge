@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Calendar, ChevronDown, ArrowRight, ShieldCheck, Users, Sliders, Award, Lock, Menu, X } from "lucide-react";
+import { Phone, Calendar, ChevronDown, ArrowRight, ShieldCheck, Users, Sliders, Award, Lock, FileText, Menu, X } from "lucide-react";
 import { ApexEdgeLogo } from "@/components/ApexEdgeLogo";
 import { Button } from "@/components/ui/button";
 
@@ -57,6 +57,15 @@ const serviceDropdownItems = [
     image: "/african_female_executive.png",
     alt: "Data Protection Impact Assessment & Privacy Governance",
     deliverable: "Data Inventories & DPIA Compliance Packs",
+  },
+  {
+    title: "Corporate Secretarial",
+    desc: "Companies Act 2015 Compliance, Board Minutes & Filings.",
+    href: "/services#corporate-secretarial",
+    icon: FileText,
+    image: "/african_board_signing.jpg",
+    alt: "Corporate Secretarial & Statutory Filings Consultation",
+    deliverable: "Annual Statutory Returns & BRS e-Filings",
   },
 ];
 
@@ -165,7 +174,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                   <div className="col-span-7 space-y-2">
                     <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#10B981] mb-3 px-2 flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-[#10B981]" />
-                      <span>01 TO 05 — EXECUTIVE PRACTICE AREAS</span>
+                      <span>01 TO 06 — EXECUTIVE PRACTICE AREAS</span>
                     </div>
                     <div className="space-y-1.5">
                       {serviceDropdownItems.map((item, idx) => {

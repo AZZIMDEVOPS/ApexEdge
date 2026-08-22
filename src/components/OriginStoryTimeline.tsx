@@ -44,7 +44,7 @@ const TIMELINE_STEPS = [
     icon: ShieldCheck,
     narrative:
       "Headquartered in Nairobi, Apex Edge is the trusted strategic partner for Boards of Directors, CEOs, CFOs, and leadership teams who demand actionable controls, accountable owners, and measurable governance results without open-ended retainer friction.",
-    insight: "5 core practice areas, 14 statutory frameworks supported, 100% named ownership.",
+    insight: "6 core practice areas, 14 statutory frameworks supported, 100% named ownership.",
     accent: "#D97706",
   },
   {

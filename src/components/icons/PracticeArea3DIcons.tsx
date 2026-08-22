@@ -190,3 +190,36 @@ export function DataProtection3DIcon({ className = "", size = 48 }: IconProps) {
     </motion.div>
   );
 }
+
+// 6. Corporate Secretarial — Official Registry Seal & Statutory Compliance Certificate
+export function CorporateSecretarial3DIcon({ className = "", size = 48 }: IconProps) {
+  return (
+    <motion.div
+      whileHover={{ rotateY: 15, rotateX: -10, scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 300, damping: 15 }}
+      className={`relative inline-flex items-center justify-center ${className}`}
+      style={{ width: size, height: size }}
+    >
+      <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="secGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#10B981" />
+            <stop offset="50%" stopColor="#0D9488" />
+            <stop offset="100%" stopColor="#071C3F" />
+          </linearGradient>
+        </defs>
+
+        {/* Outer Legal / Corporate Document Base */}
+        <rect x="12" y="8" width="40" height="48" rx="6" fill="url(#secGrad)" stroke="#10B981" strokeWidth="2" />
+
+        {/* Corporate Registry Seal */}
+        <circle cx="32" cy="26" r="10" fill="#071C3F" stroke="#38BDF8" strokeWidth="2" />
+        <path d="M28 26L31 29L36 23" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+
+        {/* Statutory Resolution Lines */}
+        <line x1="20" y1="42" x2="44" y2="42" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+        <line x1="20" y1="48" x2="36" y2="48" stroke="#34D399" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    </motion.div>
+  );
+}

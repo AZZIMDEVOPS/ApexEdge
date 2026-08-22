@@ -31,7 +31,7 @@ export function ExecutiveServicesArchitecture() {
             transition={{ delay: 0.2 }}
             className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed"
           >
-            We don&apos;t produce generic slide presentations. We architect 5 concrete operational systems that eliminate friction, assign named ownership, and withstand Board and regulatory scrutiny.
+            We don&apos;t produce generic slide presentations. We architect 6 concrete operational systems that eliminate friction, assign named ownership, and withstand Board and regulatory scrutiny.
           </motion.p>
         </div>
 
@@ -342,6 +342,73 @@ export function ExecutiveServicesArchitecture() {
               </div>
             </motion.div>
           </div>
+
+          {/* FEATURED PRACTICE 06: Corporate Secretarial & Statutory Compliance */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-3xl bg-slate-50 border border-slate-200 p-8 sm:p-12 shadow-sm grid gap-8 lg:grid-cols-12 items-center hover:border-[#10B981] transition-all duration-300"
+          >
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-black uppercase tracking-widest text-[#071C3F] bg-[#10B981]/20 px-3 py-1 rounded-full border border-[#10B981]/40">
+                  PRACTICE 06 · CORPORATE SECRETARIAL
+                </span>
+                <span className="text-xs text-slate-500 font-semibold">Companies Act 2015 &amp; BRS</span>
+              </div>
+
+              <h3 className="text-2xl sm:text-4xl font-black text-slate-950 leading-tight">
+                Flawless Statutory Compliance, Board Resolutions &amp; Registry Filing.
+              </h3>
+
+              <div className="space-y-3 text-slate-600 text-sm leading-relaxed">
+                <div>
+                  <strong className="text-slate-900 block mb-0.5">Why it matters:</strong>
+                  Missed annual filing deadlines, defective board resolutions, irregular shareholder registries, and BRS non-compliance create immediate statutory penalties and expose Directors to severe personal liability.
+                </div>
+
+                <div>
+                  <strong className="text-slate-900 block mb-0.5">What it actually involves:</strong>
+                  End-to-end company secretarial advisory, annual statutory filings on the Business Registration Service (BRS), certified Board &amp; AGM minutes, and statutory register maintenance.
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <Link
+                  href="/services#corporate-secretarial"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-[#071C3F] hover:text-[#10B981] transition-colors"
+                >
+                  <span>Explore Corporate Secretarial Services</span>
+                  <ArrowRight className="w-4 h-4 text-[#10B981]" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 space-y-4 shadow-sm">
+              <span className="text-xs font-black uppercase tracking-widest text-slate-500 block border-b border-slate-100 pb-3">
+                TANGIBLE SECRETARIAL DELIVERABLES
+              </span>
+              <ul className="space-y-3 text-xs text-slate-700 font-medium">
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                  <span>Annual Statutory Returns &amp; BRS e-Filing Verification</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                  <span>Certified Board Minutes &amp; Statutory Resolution Drafting</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                  <span>Statutory Register of Members, Directors &amp; Beneficial Owners</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                  <span>AGM &amp; EGM Governance Management &amp; Minute Certification</span>
+                </li>
+              </ul>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

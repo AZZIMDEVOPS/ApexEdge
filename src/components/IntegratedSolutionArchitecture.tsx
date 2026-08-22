@@ -151,6 +151,28 @@ const ADVISORY_PILLARS: PillarArchitecture[] = [
     interconnectivity: "Embeds mandatory statutory data privacy safeguards across all internal controls (Pillar 02) and employee workflows (Pillar 03).",
     statutoryStandard: "Data Protection Act 2019 (Kenya), ODPC Regulations 2021, ISO/IEC 27701 Privacy Standards",
   },
+  {
+    id: "secretarial",
+    num: "06",
+    shortTitle: "Corporate Secretarial",
+    title: "CORPORATE SECRETARIAL & STATUTORY COMPLIANCE",
+    tagline: "Companies Act 2015, Board Resolutions & Statutory Filings",
+    icon: FileCheck2,
+    color: "#0D9488",
+    image: "/african_board_signing.jpg",
+    imageAlt: "Corporate secretarial advisor executing statutory filings and board resolutions",
+    purpose: "Ensures seamless corporate compliance, board resolutions, annual filings, statutory register maintenance, and regulatory liaison under the Companies Act 2015 and BRS requirements.",
+    breakpointSolved: "Missed statutory filing deadlines, defective board resolutions, irregular shareholder registries, non-compliance penalties, and legal vulnerability.",
+    mechanism: "End-to-end company secretarial services, AGM/EGM management, statutory register maintenance, annual returns, corporate restructuring, and BRS electronic filings.",
+    deliverables: [
+      "Annual Statutory Returns & BRS e-Filings",
+      "Board Minutes, Charters & Resolution Drafting",
+      "Statutory Registers & Share Transfer Records",
+      "AGM / EGM Preparation & Minute Certification",
+    ],
+    interconnectivity: "Supports Board Governance (Pillar 01) and ensures statutory validity across all Control (Pillar 02) and Data Protection (Pillar 05) frameworks.",
+    statutoryStandard: "Companies Act 2015 (Kenya), Business Registration Service (BRS) Guidelines, CMA Regulations",
+  },
 ];
 
 export function IntegratedSolutionArchitecture() {

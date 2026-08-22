@@ -77,8 +77,8 @@ export function CorporateFooter() {
     { label: "03 Controls & Policies", href: "/services#controls-policies" },
     { label: "04 Leadership & Capability", href: "/services#leadership-capability" },
     { label: "05 Data Protection & Privacy", href: "/services#data-protection" },
+    { label: "06 Corporate Secretarial", href: "/services#corporate-secretarial" },
     { label: "Board-Ready Risk Sprint", href: "/services#risk-sprint" },
-    { label: "Governance Health Check", href: "/services#governance-check" },
   ];
 
   return (
