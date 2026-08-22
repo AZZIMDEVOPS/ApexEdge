@@ -18,30 +18,45 @@ const serviceDropdownItems = [
     desc: "Give Your Board Clearer Visibility of Risk and Performance.",
     href: "/services#governance-risk",
     icon: ShieldCheck,
+    image: "/board_directors_panel.jpg",
+    alt: "Board Directors in Executive Strategy Session",
+    deliverable: "Board-Ready Risk Register & Heat Map",
   },
   {
     title: "People & Performance",
     desc: "Build a Performance System That Creates Accountability.",
     href: "/services#people-performance",
     icon: Users,
+    image: "/african_executive_portrait.png",
+    alt: "People & Organizational Structure Alignment Session",
+    deliverable: "Job Grading Matrix & Performance Scorecard",
   },
   {
     title: "Controls & Policies",
     desc: "Build Policies That Work in Practice.",
     href: "/services#controls-policies",
     icon: Sliders,
+    image: "/advisory_report_consultation.jpg",
+    alt: "Financial SOPs & Approval Gate Controls Review",
+    deliverable: "Financial SOPs & Approval Frameworks",
   },
   {
     title: "Leadership & Capability",
     desc: "Build Leaders and Teams That Execute Better.",
     href: "/services#leadership-capability",
     icon: Award,
+    image: "/board_whiteboard_presentation.jpg",
+    alt: "Leadership Capability Framework Presentation",
+    deliverable: "90-Day Executive Execution Roadmap",
   },
   {
     title: "Data Protection & Privacy",
     desc: "Protect Data. Strengthen Trust. Stay Compliant.",
     href: "/services#data-protection",
     icon: Lock,
+    image: "/african_female_executive.png",
+    alt: "Data Protection Impact Assessment & Privacy Governance",
+    deliverable: "Data Inventories & DPIA Compliance Packs",
   },
 ];
 
@@ -142,17 +157,17 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.98 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-full -left-20 mt-3 w-[680px] rounded-3xl bg-white border border-slate-200 shadow-2xl p-6 z-50 backdrop-blur-2xl grid grid-cols-12 gap-6"
+                  className="absolute top-full -left-20 mt-3 w-[760px] rounded-3xl bg-white border border-slate-200 shadow-2xl p-6 z-50 backdrop-blur-2xl grid grid-cols-12 gap-6"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  {/* Left Column (7 Cols) — 5 Practice Areas */}
+                  {/* Left Column (7 Cols) — 5 Practice Areas with Photo Thumbnails */}
                   <div className="col-span-7 space-y-2">
                     <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#10B981] mb-3 px-2 flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-[#10B981]" />
                       <span>01 TO 05 — EXECUTIVE PRACTICE AREAS</span>
                     </div>
-                    <div className="space-y-1">
+                    <div className="space-y-1.5">
                       {serviceDropdownItems.map((item, idx) => {
                         const IconComponent = item.icon;
                         const isHovered = hoverIndex === idx;
@@ -162,23 +177,37 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                             href={item.href}
                             onMouseEnter={() => setHoverIndex(idx)}
                             onClick={() => setIsServicesOpen(false)}
-                            className={`flex items-center gap-3 p-2.5 rounded-xl border transition-all group/item ${
+                            className={`flex items-center gap-3.5 p-2 rounded-2xl border transition-all group/item ${
                               isHovered
-                                ? "bg-emerald-50/60 border-[#10B981]/40 text-[#071C3F]"
+                                ? "bg-emerald-50/70 border-[#10B981]/50 text-[#071C3F] shadow-xs"
                                 : "border-transparent text-slate-700 hover:bg-slate-50"
                             }`}
                           >
-                            <span className="text-[10px] font-black text-[#10B981] px-2 py-0.5 rounded-md bg-[#10B981]/15">
+                            <span className="text-[10px] font-black text-[#10B981] px-1.5 py-0.5 rounded-md bg-[#10B981]/15 shrink-0">
                               0{idx + 1}
                             </span>
-                            <div className="p-1.5 rounded-lg bg-emerald-500/10 text-[#10B981] shrink-0">
-                              <IconComponent className="w-4 h-4" />
-                            </div>
-                            <div className="flex-1">
-                              <div className="text-xs font-bold text-slate-800 group-hover/item:text-[#071C3F] transition-colors flex items-center justify-between">
-                                <span>{item.title}</span>
-                                <ArrowRight className="w-3 h-3 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-[#10B981]" />
+                            
+                            {/* Practice Area Photography Thumbnail */}
+                            <div className="relative w-11 h-11 rounded-xl overflow-hidden shrink-0 border border-slate-200 shadow-xs bg-slate-100">
+                              <img
+                                src={item.image}
+                                alt={item.alt}
+                                className="w-full h-full object-cover object-center group-hover/item:scale-110 transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 bg-slate-950/15 group-hover/item:bg-transparent transition-colors" />
+                              <div className="absolute bottom-0.5 right-0.5 p-0.5 rounded bg-white/90 shadow-xs text-[#10B981]">
+                                <IconComponent className="w-2.5 h-2.5" />
                               </div>
+                            </div>
+
+                            <div className="flex-1 min-w-0">
+                              <div className="text-xs font-black text-slate-900 group-hover/item:text-[#071C3F] transition-colors flex items-center justify-between">
+                                <span className="truncate">{item.title}</span>
+                                <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-[#10B981] shrink-0" />
+                              </div>
+                              <p className="text-[11px] text-slate-500 font-normal truncate mt-0.5">
+                                {item.desc}
+                              </p>
                             </div>
                           </Link>
                         );
@@ -186,40 +215,63 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                     </div>
                   </div>
 
-                  {/* Right Column (5 Cols) — Live Interactive Preview Card */}
-                  <div className="col-span-5 rounded-2xl bg-slate-50 border border-slate-200 p-5 flex flex-col justify-between space-y-4">
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2 text-[#10B981] text-[10px] font-black uppercase tracking-wider">
-                        <ShieldCheck className="w-3.5 h-3.5" />
+                  {/* Right Column (5 Cols) — Live Interactive Preview Card with Featured Photo */}
+                  <div className="col-span-5 rounded-2xl bg-slate-50 border border-slate-200 p-4 flex flex-col justify-between space-y-3">
+                    
+                    {/* Featured Photo Frame with Crossfade Animation */}
+                    <div className="relative h-32 w-full rounded-xl overflow-hidden border border-slate-200 shadow-xs bg-slate-900">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={serviceDropdownItems[hoverIndex]?.image}
+                          initial={{ opacity: 0, scale: 1.06 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.98 }}
+                          transition={{ duration: 0.35, ease: "easeInOut" }}
+                          className="absolute inset-0 w-full h-full"
+                        >
+                          <img
+                            src={serviceDropdownItems[hoverIndex]?.image}
+                            alt={serviceDropdownItems[hoverIndex]?.alt}
+                            className="w-full h-full object-cover object-center brightness-100 contrast-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" />
+                          <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between">
+                            <span className="px-2 py-0.5 rounded-full bg-[#10B981] text-[#071C3F] text-[9px] font-black uppercase tracking-wider shadow-xs">
+                              0{hoverIndex + 1} · {serviceDropdownItems[hoverIndex]?.title}
+                            </span>
+                          </div>
+                        </motion.div>
+                      </AnimatePresence>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <div className="flex items-center gap-1.5 text-[#10B981] text-[10px] font-black uppercase tracking-wider">
+                        <ShieldCheck className="w-3 h-3" />
                         <span>PRACTICE OVERVIEW</span>
                       </div>
-                      <h4 className="text-sm font-black text-slate-900">
-                        {serviceDropdownItems[hoverIndex]?.title || "Governance & Risk"}
+                      <h4 className="text-xs font-black text-slate-900 leading-snug">
+                        {serviceDropdownItems[hoverIndex]?.title}
                       </h4>
-                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                        {serviceDropdownItems[hoverIndex]?.desc || "Give Your Board Clearer Visibility of Risk and Performance."}
+                      <p className="text-[11px] text-slate-600 leading-relaxed font-normal line-clamp-2">
+                        {serviceDropdownItems[hoverIndex]?.desc}
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-slate-200 space-y-2">
-                      <div className="text-[10px] font-extrabold text-[#071C3F] uppercase tracking-wider">
+                    <div className="pt-2 border-t border-slate-200 space-y-1.5">
+                      <div className="text-[9px] font-extrabold text-[#071C3F] uppercase tracking-wider">
                         Core Client Deliverable:
                       </div>
-                      <div className="text-xs font-semibold text-slate-800 bg-white px-3 py-2 rounded-lg border border-slate-200 shadow-xs">
-                        {hoverIndex === 0 && "Board-Ready Risk Register & Heat Map"}
-                        {hoverIndex === 1 && "Job Grading Matrix & Performance Scorecard"}
-                        {hoverIndex === 2 && "Financial SOPs & Approval Frameworks"}
-                        {hoverIndex === 3 && "90-Day Executive Execution Roadmap"}
-                        {hoverIndex === 4 && "Data Inventories & DPIA Compliance Packs"}
+                      <div className="text-[11px] font-semibold text-slate-800 bg-white px-2.5 py-1.5 rounded-lg border border-slate-200 shadow-xs">
+                        {serviceDropdownItems[hoverIndex]?.deliverable}
                       </div>
 
                       <Link
                         href={serviceDropdownItems[hoverIndex]?.href || "/services"}
                         onClick={() => setIsServicesOpen(false)}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#10B981] hover:underline pt-1"
+                        className="inline-flex items-center gap-1.5 text-xs font-black text-[#10B981] hover:underline pt-0.5"
                       >
                         <span>Explore Practice Area</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
+                        <ArrowRight className="w-3 h-3" />
                       </Link>
                     </div>
                   </div>
