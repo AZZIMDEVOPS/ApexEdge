@@ -1,20 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   ShieldCheck, 
   Users, 
   Sliders, 
   Award, 
-  Lock,
+  Lock, 
   CheckCircle2, 
   Calendar, 
   Building2, 
   FileText, 
-  HelpCircle,
-  Zap,
-  Target
+  HelpCircle, 
+  Zap, 
+  Target,
+  ArrowRight,
+  Sparkles
 } from "lucide-react";
 import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
 import { CorporateFooter } from "@/components/CorporateFooter";
@@ -105,7 +108,7 @@ const PRACTICE_AREAS = [
     icon: Sliders,
     image: "/operations_analyst_desk.jpg",
     imageAlt: "Advisory consultant modeling internal controls and digital SOP workflows",
-    headline: "Build Policies That Work in Practice.",
+    headline: "Build Internal Controls and Policies That Work in Practice.",
     problemHeader: "The Organisational Challenge",
     problem: "Policies exist as lengthy 200-page binders that sit on shelves unread. Staff execute daily tasks without clear SOPs, causing recurring operational exceptions, audit findings, and compliance risk.",
     whoFor: "Chief Executive Officers, Chief Financial Officers, Internal Audit Heads, Operations Directors, Compliance Managers.",
@@ -229,47 +232,117 @@ const PRACTICE_AREAS = [
 export default function ServicesPage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>("Governance & Risk");
+  const [activePillarIdx, setActivePillarIdx] = useState<number>(0);
+  const [isHeadlinePaused, setIsHeadlinePaused] = useState<boolean>(false);
+
+  // Auto-cycle through the 6 Practice Area headlines every 4.0 seconds with pause on hover
+  useEffect(() => {
+    if (isHeadlinePaused) return;
+
+    const interval = setInterval(() => {
+      setActivePillarIdx((prev) => (prev + 1) % PRACTICE_AREAS.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isHeadlinePaused]);
 
   const openBookingForCategory = (categoryName: string) => {
     setSelectedCategory(categoryName);
     setIsBookingOpen(true);
   };
 
+  const activePillar = PRACTICE_AREAS[activePillarIdx];
+
   return (
     <main className="min-h-screen bg-white text-slate-900 selection:bg-[#10B981] selection:text-[#071C3F]">
       <ExecutiveHeaderNav onOpenBooking={() => openBookingForCategory("Governance & Risk")} />
 
-      {/* Hero on Clean Light Canvas */}
-      <section className="relative py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900 overflow-hidden border-b border-slate-200">
+      {/* Hero on Clean Light Canvas with Animated Changing Practice Headlines */}
+      <section 
+        className="relative py-24 sm:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900 overflow-hidden border-b border-slate-200"
+        onMouseEnter={() => setIsHeadlinePaused(true)}
+        onMouseLeave={() => setIsHeadlinePaused(false)}
+      >
+        {/* Subtle Ambient Glow */}
+        <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-emerald-500/5 blur-3xl rounded-full" />
+        </div>
+
         <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-6 text-center">
+          
+          {/* Eyebrow Pill with Live Animation */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#071C3F] text-xs font-black uppercase tracking-[0.25em] shadow-xs">
-            <ShieldCheck className="w-4 h-4 text-[#10B981]" />
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
+            </span>
             <span>01 TO 06 — CORE PRACTICE AREAS</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black text-slate-950 tracking-tight leading-tight">
-            Client Outcomes, <br />
-            <span className="text-[#071C3F] underline decoration-[#10B981] decoration-4 underline-offset-8">
-              Not Abstract Consulting.
-            </span>
-          </h1>
+          {/* Active Category Indicator */}
+          <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#10B981] flex items-center justify-center gap-2">
+            <span>Practice 0{activePillarIdx + 1}</span>
+            <span>·</span>
+            <span>{activePillar.category}</span>
+          </div>
 
-          <p className="max-w-3xl mx-auto text-lg text-slate-700 font-normal leading-relaxed">
-            Apex Edge helps organisations turn governance, people, control, performance and data protection challenges into practical, Board-ready systems.
-          </p>
-
-          {/* Quick Jump Navigation Pill Tabs */}
-          <div className="pt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-            {PRACTICE_AREAS.map((area) => (
-              <a
-                key={area.id}
-                href={`#${area.id}`}
-                className="px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:border-[#10B981] text-xs font-bold text-slate-700 hover:text-[#071C3F] transition-all flex items-center gap-2 group shadow-xs hover:shadow-sm"
+          {/* Dynamic Animated Changing Headline */}
+          <div className="min-h-[120px] sm:min-h-[140px] flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              <motion.h1
+                key={activePillar.id}
+                initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -24, filter: "blur(6px)" }}
+                transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
+                className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-tight max-w-5xl mx-auto"
               >
-                <span className="text-[#10B981] text-[10px] font-black">{area.num}</span>
-                <span>{area.category}</span>
-              </a>
-            ))}
+                {activePillar.headline}
+              </motion.h1>
+            </AnimatePresence>
+          </div>
+
+          {/* Dynamic Supporting Subtitle */}
+          <div className="min-h-[50px] flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={activePillar.id + "-approach"}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.4 }}
+                className="max-w-3xl mx-auto text-base sm:text-lg text-slate-600 font-normal leading-relaxed"
+              >
+                {activePillar.approach}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+
+          {/* Interactive Animated Navigation Pill Tabs for all 6 Practice Areas */}
+          <div className="pt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-5xl mx-auto">
+            {PRACTICE_AREAS.map((area, idx) => {
+              const isActive = idx === activePillarIdx;
+              return (
+                <a
+                  key={area.id}
+                  href={`#${area.id}`}
+                  onMouseEnter={() => setActivePillarIdx(idx)}
+                  className={`relative px-4 py-2.5 rounded-2xl text-xs font-bold transition-all duration-300 flex items-center gap-2 border shadow-xs cursor-pointer ${
+                    isActive
+                      ? "bg-[#071C3F] text-white border-[#10B981] shadow-md scale-105 z-10"
+                      : "bg-white text-slate-700 hover:text-[#071C3F] border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+                  }`}
+                >
+                  <span className={`text-[10px] font-black ${isActive ? "text-[#10B981]" : "text-[#10B981]"}`}>
+                    {area.num}
+                  </span>
+                  <span>{area.category}</span>
+                  {isActive && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+                  )}
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -287,14 +360,14 @@ export default function ServicesPage() {
             <span className="text-[#10B981]">↓</span>
             <span className="bg-white px-3.5 py-1.5 rounded-full border border-slate-200 shadow-2xs">Data</span>
             <span className="text-[#10B981]">↓</span>
-            <span className="bg-white px-3.5 py-1.5 rounded-full border border-slate-200 shadow-2xs">Performance</span>
+            <span className="bg-white px-3.5 py-1.5 rounded-full border border-slate-200 shadow-2xs">Secretarial</span>
             <span className="text-[#10B981]">↓</span>
             <span className="bg-[#10B981]/15 px-3.5 py-1.5 rounded-full border border-[#10B981]/40 text-[#071C3F] font-black">Board Decisions</span>
           </div>
         </div>
       </section>
 
-      {/* Practice Area Distinction Guide Section on White */}
+      {/* Practice Area Distinction Guide Section on White (All 6 Pillars) */}
       <section className="py-16 bg-white border-b border-slate-200 text-slate-900">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-2">
@@ -309,7 +382,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 text-xs">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 text-xs">
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:border-[#10B981] transition-colors shadow-xs">
               <span className="font-extrabold text-[#10B981] block">01 GOVERNANCE & RISK</span>
               <span className="font-bold text-slate-900 block">Core Focus:</span>
@@ -347,6 +420,14 @@ export default function ServicesPage() {
               <span className="font-bold text-slate-900 block">Core Focus:</span>
               <p className="text-slate-600 leading-relaxed font-normal">
                 How is personal data collected, used, protected, and governed?
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:border-[#10B981] transition-colors shadow-xs">
+              <span className="font-extrabold text-[#10B981] block">06 CORPORATE SECRETARIAL</span>
+              <span className="font-bold text-slate-900 block">Core Focus:</span>
+              <p className="text-slate-600 leading-relaxed font-normal">
+                How are statutory filings, board resolutions, and company secretarial compliance maintained?
               </p>
             </div>
           </div>
