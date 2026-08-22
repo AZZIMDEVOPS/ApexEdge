@@ -14,8 +14,8 @@ const INDUSTRIES = [
   {
     name: "Banking & Financial Services",
     icon: Landmark,
-    image: "/east_africa_financial_skyline.jpg",
-    imageAlt: "East Africa commercial banking and financial district towers",
+    image: "/authentic_boardroom_directors.jpg",
+    imageAlt: "Board directors and executives reviewing risk heat maps and CBK compliance",
     challenges: "Strict CBK regulatory compliance, risk heat map audits, internal control gaps, and executive accountability for risk exposure.",
     whereWeHelp: "Board-Ready Risk Sprints, CBK compliance review, internal financial approval controls, and decision frameworks.",
     systemsImproved: "Financial Authorization Matrixes, Credit Risk Registers, Compliance Dashboards & Board Reporting Packs.",
@@ -25,7 +25,7 @@ const INDUSTRIES = [
   {
     name: "State Corporations & Public Sector",
     icon: Building2,
-    image: "/african_board_signing.jpg",
+    image: "/authentic_corporate_signing_desk.jpg",
     imageAlt: "Executive board members and ministerial panel reviewing and signing governance charters",
     challenges: "Mwongozo Code adherence, Board evaluation compliance, public procurement oversight, and ministerial reporting.",
     whereWeHelp: "Independent Board Evaluations, Governance Health Checks, procurement SOP redesign, and Mwongozo alignment.",
@@ -36,7 +36,7 @@ const INDUSTRIES = [
   {
     name: "Insurance & Microfinance",
     icon: ShieldCheck,
-    image: "/advisory_report_consultation.jpg",
+    image: "/authentic_financial_analyst_dashboard.jpg",
     imageAlt: "Senior partner and actuarial risk analyst reviewing financial and risk reports",
     challenges: "IRA capital adequacy governance, actuarial risk reporting, claims control procedures, and role clarity.",
     whereWeHelp: "Control Room Dashboards, claims approval matrixes, job grading, and quarterly risk reporting packs.",
@@ -47,7 +47,7 @@ const INDUSTRIES = [
   {
     name: "Healthcare & Pharmaceuticals",
     icon: HeartPulse,
-    image: "/operations_analyst_desk.jpg",
+    image: "/authentic_advisory_one_on_one.jpg",
     imageAlt: "Advisory consultant modeling clinical operational SOPs and compliance workflows",
     challenges: "Clinical governance, medical regulatory licensing, staff performance management, and facility SOP compliance.",
     whereWeHelp: "Practical SOP manuals, performance scorecards, regulatory compliance tracking, and leadership capability.",
@@ -58,8 +58,8 @@ const INDUSTRIES = [
   {
     name: "Manufacturing & Supply Chain",
     icon: Factory,
-    image: "/business_analysis_auditorium.jpg",
-    imageAlt: "Operations and supply chain leadership conducting process analysis",
+    image: "/authentic_strategy_sprint_collaboration.jpg",
+    imageAlt: "Operations and supply chain leadership conducting process analysis and workflow sprints",
     challenges: "Operational bottleneck controls, plant inventory audit exceptions, labor law compliance, and safety governance.",
     whereWeHelp: "SOP-to-Practice Sprints, factory job structures, labor risk audits, and operational accountability trackers.",
     systemsImproved: "Plant Operational SOPs, Inventory Control Checklists, Salary Grading Bands & Labor Compliance Tools.",
@@ -69,8 +69,8 @@ const INDUSTRIES = [
   {
     name: "Commercial Real Estate & Private Equity",
     icon: Briefcase,
-    image: "/nairobi_gtc_expressway.jpg",
-    imageAlt: "Commercial real estate asset development towers and Nairobi enterprise corridor",
+    image: "/authentic_executive_street_dialogue.jpg",
+    imageAlt: "Commercial real estate asset development executives in strategic consultation",
     challenges: "Joint venture governance, investor board packs, rapid expansion control gaps, and executive incentive structures.",
     whereWeHelp: "Board paper templates, executive compensation frameworks, governance dashboards, and investor decision frameworks.",
     systemsImproved: "JV Decision Frameworks, Investor Reporting Dashboards & Executive Compensation Scorecards.",

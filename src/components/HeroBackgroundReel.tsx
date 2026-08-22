@@ -7,44 +7,54 @@ import { Camera } from "lucide-react";
 
 export const HERO_BACKGROUND_IMAGES = [
   {
-    src: "/nairobi_gtc_expressway.jpg",
-    alt: "Nairobi Commercial & Enterprise District Towers",
-    caption: "Nairobi Enterprise Centre · GTC & Expressway Corridor",
-  },
-  {
-    src: "/african_board_signing.jpg",
-    alt: "Executive Board Team Reviewing and Signing Strategic Charters",
-    caption: "Board Decision Charters · 15-Page Decision Board Packs",
-  },
-  {
-    src: "/board_whiteboard_presentation.jpg",
-    alt: "Advisory Strategy Presentation on Boardroom Whiteboard",
-    caption: "Interactive Strategy Sprints · Translating Mandates to Execution",
-  },
-  {
-    src: "/advisory_report_consultation.jpg",
-    alt: "Senior Partner and Analyst Consulting on Financial & Risk Report",
-    caption: "Controls & Risk Oversight · Eliminating Audit Exceptions",
-  },
-  {
-    src: "/board_directors_panel.jpg",
-    alt: "Board Directors in Executive Strategic Session",
+    src: "/authentic_boardroom_directors.jpg",
+    alt: "Executive Board Directors evaluating quarterly risk heat maps",
     caption: "Executive Boardroom Governance · Decision-Ready Risk Heat Maps",
   },
   {
-    src: "/strategy_whiteboard_briefing.jpg",
-    alt: "Advisory Partner Mapping Performance Systems on Whiteboard",
-    caption: "Working Sprints in Practice · Co-Designing Operational SOPs",
+    src: "/authentic_executive_office_advisor.jpg",
+    alt: "Managing Partner Advisory Session in Executive Suite",
+    caption: "Strategic Advisory Leadership · Board Charters & Mandates",
   },
   {
-    src: "/outdoor_advisory_discussion.jpg",
-    alt: "Corporate Advisors in Discussion Overlooking Nairobi Skyline",
-    caption: "Regional Advisory Network · Nairobi & East Africa HQ",
+    src: "/authentic_financial_analyst_dashboard.jpg",
+    alt: "Advisory Consultant with Financial Analytics & Controls Screen",
+    caption: "Risk & Financial Analytics · Eliminating Audit Exceptions",
   },
   {
-    src: "/nairobi_sunset_golden.jpg",
-    alt: "Golden Sunset over Nairobi Corporate High-Rises",
-    caption: "East African Advisory Grounding · Mwongozo & Statutory Rigor",
+    src: "/authentic_strategy_meeting_overhead.jpg",
+    alt: "Strategy Conference & Leadership Sprint in Session",
+    caption: "Interactive Strategy Sprints · Translating Mandates to Execution",
+  },
+  {
+    src: "/authentic_executive_leadership_panel.jpg",
+    alt: "Senior Partner Advisory Panel in Executive Suite",
+    caption: "Partner Advisory Leadership · Mwongozo & Statutory Rigor",
+  },
+  {
+    src: "/authentic_team_collaboration.jpg",
+    alt: "Executive Committee Collaboration on Job Evaluation & OKRs",
+    caption: "People & Performance Systems · Single-Point Accountability",
+  },
+  {
+    src: "/authentic_executive_street_dialogue.jpg",
+    alt: "Managing Directors in Strategy Consultation in City District",
+    caption: "Regional Advisory Engagements · Nairobi & East Africa",
+  },
+  {
+    src: "/authentic_corporate_signing_desk.jpg",
+    alt: "Director Signing Statutory Returns & Companies Act Filings",
+    caption: "Corporate Secretarial Integrity · 100% Statutory Compliance",
+  },
+  {
+    src: "/authentic_advisory_one_on_one.jpg",
+    alt: "One-on-One Partner Clarity Session on Operational Controls",
+    caption: "45-Minute Clarity Sessions · Practical System Design",
+  },
+  {
+    src: "/nairobi_gtc_expressway.jpg",
+    alt: "Nairobi Commercial & Enterprise District Corridor",
+    caption: "Nairobi Enterprise Centre · Regional Financial Capital",
   },
 ];
 

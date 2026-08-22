@@ -17,23 +17,23 @@ interface HeroSlide {
 const HERO_SLIDES: HeroSlide[] = [
   {
     id: 1,
-    image: "/nairobi_gtc_expressway.jpg",
-    badge: "East African Enterprise Centre",
-    title: "Strategic Advisory for Boards & Executive Leadership",
-    subtitle: "Partnering with Tier-1 Banks, State Corporations, and Regional Asset Developers in Nairobi.",
-    icon: Building2,
-  },
-  {
-    id: 2,
-    image: "/board_directors_panel.jpg",
+    image: "/authentic_boardroom_directors.jpg",
     badge: "Boardroom Governance & Risk",
     title: "Decision-Ready 15-Page Board Packs & Risk Heat Maps",
-    subtitle: "Eliminating unread 200-page policy binders and aligning with Mwongozo & CMA standards.",
+    subtitle: "Empowering decisive fiduciary oversight aligned with Mwongozo Code & CMA Guidelines.",
     icon: ShieldCheck,
   },
   {
+    id: 2,
+    image: "/authentic_executive_office_advisor.jpg",
+    badge: "Executive Advisory Leadership",
+    title: "Strategic Advisory for Boards & Executive Leadership",
+    subtitle: "Partnering with Tier-1 Banks, State Corporations, and Regional Asset Developers across East Africa.",
+    icon: Building2,
+  },
+  {
     id: 3,
-    image: "/strategy_whiteboard_briefing.jpg",
+    image: "/authentic_strategy_meeting_overhead.jpg",
     badge: "Working Sprints in Practice",
     title: "Co-Designing Operational SOPs & Authorization Matrices",
     subtitle: "Hands-on diagnostic sprints that embed internal controls into daily digital workflows.",
@@ -41,7 +41,7 @@ const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: 4,
-    image: "/african_corporate_team_meeting.jpg",
+    image: "/authentic_team_collaboration.jpg",
     badge: "People & Performance Systems",
     title: "Single-Point Named Ownership & Strategy-Aligned OKRs",
     subtitle: "Connecting executive strategy directly to weekly departmental performance scorecards.",
@@ -49,7 +49,7 @@ const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: 5,
-    image: "/nairobi_sunset_golden.jpg",
+    image: "/authentic_executive_leadership_panel.jpg",
     badge: "Regional Grounding & Trust",
     title: "Statutory Rigor Across East Africa",
     subtitle: "Deep mastery of Kenyan Companies Act 2015, Data Protection Act 2019, and CBK guidelines.",

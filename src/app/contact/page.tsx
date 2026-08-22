@@ -9,6 +9,7 @@ import { CorporateFooter } from "@/components/CorporateFooter";
 import { ConsultationModal } from "@/components/ConsultationModal";
 import { ApexAIAssistant } from "@/components/ApexAIAssistant";
 import { ExecutiveFAQSection } from "@/components/ExecutiveFAQSection";
+import { Executive3DGallery } from "@/components/Executive3DGallery";
 import { Button } from "@/components/ui/button";
 
 const ENGAGEMENT_STEPS = [
@@ -338,6 +339,9 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* 3D Executive Practice & Leadership Gallery */}
+      <Executive3DGallery />
 
       {/* Embedded Executive FAQ Section on White */}
       <ExecutiveFAQSection />
