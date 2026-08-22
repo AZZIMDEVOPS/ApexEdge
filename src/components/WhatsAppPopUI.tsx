@@ -48,7 +48,7 @@ export function WhatsAppPopUI() {
           <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span className="text-blue-300 font-semibold">Online Now</span>
           <span className="text-slate-500">•</span>
-          <span className="text-slate-300">Direct Line: +254 799 565125 / 0728 626323</span>
+          <span className="text-slate-300">Direct Lines: +254 799 565125 / +254 728 626323</span>
         </p>
       </motion.div>
     </div>

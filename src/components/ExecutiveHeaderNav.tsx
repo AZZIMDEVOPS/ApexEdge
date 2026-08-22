@@ -350,7 +350,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
             </a>
             <span className="text-slate-300">/</span>
             <a href="tel:+254728626323" className="hover:text-[#071C3F] transition-colors">
-              0728 626323
+              +254 728 626323
             </a>
           </div>
 

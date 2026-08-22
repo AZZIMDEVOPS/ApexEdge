@@ -318,7 +318,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-center gap-3 pl-7">
                     <a href="tel:+254728626323" className="text-slate-950 font-bold hover:text-[#10B981]">
-                      0728 626323
+                      +254 728 626323
                     </a>
                   </div>
                 </div>
