@@ -23,6 +23,46 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     description: "Senior Board of Directors and executive committee evaluating quarterly risk heat maps, capital allocations, and fiduciary resolutions."
   },
   {
+    id: "board-chairman-presentation",
+    image: "/authentic_board_chairman_presentation.jpg",
+    category: "Board Leadership",
+    title: "Board Evaluation & Charter Presentation",
+    location: "Corporate Governance Chambers",
+    description: "Senior Board Chairman presenting Mwongozo compliance dossiers, committee charters, and statutory governance audit findings."
+  },
+  {
+    id: "controls-laptop-audit",
+    image: "/authentic_controls_laptop_audit.jpg",
+    category: "Controls & SOPs",
+    title: "Operational Workflow & Controls Audit",
+    location: "Financial Controls Suite",
+    description: "Advisory partners executing dual-signoff authorization thresholds and standard operating procedure risk testing."
+  },
+  {
+    id: "senior-partner-corridor",
+    image: "/authentic_senior_partner_corridor.jpg",
+    category: "Partner Advisory",
+    title: "Executive Mandate & Strategy Check-In",
+    location: "Advisory Executive Floor",
+    description: "Lead Advisory Partner consulting with Managing Directors on 90-day execution milestones and leadership velocity."
+  },
+  {
+    id: "executive-lounge-review",
+    image: "/authentic_executive_lounge_review.jpg",
+    category: "Digital Governance",
+    title: "Executive Board Pack & Tablet Review",
+    location: "Executive Partner Lounge",
+    description: "Reviewing condensed 15-page digital board papers and real-time operational risk dashboards prior to quarterly voting."
+  },
+  {
+    id: "advisor-laptop-portrait",
+    image: "/authentic_advisor_laptop_portrait.jpg",
+    category: "Advisory Practice",
+    title: "Senior Governance & Risk Specialist",
+    location: "Apex Edge Advisory Hub",
+    description: "Specialist partner designing tailored governance scorecards, salary grading bands, and regulatory filings."
+  },
+  {
     id: "executive-advisor",
     image: "/authentic_executive_office_advisor.jpg",
     category: "Strategic Advisory",
@@ -42,7 +82,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "leadership-panel",
     image: "/authentic_executive_leadership_panel.jpg",
     category: "Leadership & Capability",
-    title: "Partner Advisory Leadership",
+    title: "Partner Advisory Leadership Panel",
     location: "Regional HQ Office",
     description: "Executive partners specializing in corporate governance, institutional performance, and statutory regulatory compliance."
   },
@@ -155,9 +195,9 @@ export function Executive3DGallery() {
           {/* Dual Row Continuous 3D Infinite Marquee */}
           <div className="space-y-6">
             
-            {/* Top Row Marquee */}
+            {/* Top Row Marquee (Items 1-8) */}
             <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-none snap-x cursor-grab active:cursor-grabbing">
-              {GALLERY_ITEMS.slice(0, 5).map((item, idx) => (
+              {GALLERY_ITEMS.slice(0, 8).map((item, idx) => (
                 <motion.div
                   key={item.id}
                   whileHover={{ 
@@ -205,9 +245,9 @@ export function Executive3DGallery() {
               ))}
             </div>
 
-            {/* Bottom Row Marquee */}
+            {/* Bottom Row Marquee (Items 8-15) */}
             <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-none snap-x cursor-grab active:cursor-grabbing">
-              {GALLERY_ITEMS.slice(5, 10).map((item, idx) => (
+              {GALLERY_ITEMS.slice(7, 15).map((item, idx) => (
                 <motion.div
                   key={item.id}
                   whileHover={{ 
