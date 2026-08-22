@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ShieldCheck, Zap, Award, HeartHandshake, Building2, Calendar, CheckCircle2, Target, Lock, Compass, MapPin, ArrowRight, Sparkles, Check } from "lucide-react";
 import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
 import { CorporateFooter } from "@/components/CorporateFooter";
@@ -53,8 +53,66 @@ const ETHICAL_STANDARDS = [
   },
 ];
 
+const PHILOSOPHY_SLIDES = [
+  {
+    src: "/african_corporate_team_meeting.jpg",
+    alt: "Apex Edge Advisory senior team in executive session",
+    tag: "East African Regional Context",
+    title: "Headquartered in Nairobi, Kenya",
+    caption: "Grounded in local statutory rigor, regional compliance, and executive realities.",
+  },
+  {
+    src: "/board_directors_panel.jpg",
+    alt: "Executive Board Directors evaluating quarterly risk heat maps",
+    tag: "Board Governance & Oversight",
+    title: "Direct Boardroom Fiduciary Alignment",
+    caption: "Replacing bulky 300-page packs with 15-page high-signal decision papers.",
+  },
+  {
+    src: "/outdoor_advisory_discussion.jpg",
+    alt: "Executive Partner Strategy & Transformation Consultation",
+    tag: "Executive Alignment & Clarity",
+    title: "Single-Point Named Accountability",
+    caption: "Eliminating cross-functional bottlenecks with transparent role ownership.",
+  },
+  {
+    src: "/advisory_report_consultation.jpg",
+    alt: "Senior Partner and Analyst Consulting on Financial & Risk Report",
+    tag: "Controls & SOPs in Practice",
+    title: "1–2 Page Digital SOP Routines",
+    caption: "Translating static policy manuals into automated daily workflows.",
+  },
+  {
+    src: "/african_board_signing.jpg",
+    alt: "Corporate secretarial advisor executing statutory filings and board resolutions",
+    tag: "Statutory & Secretarial Rigor",
+    title: "Companies Act 2015 Compliance",
+    caption: "Ensuring 100% statutory validity, certified resolutions, and BRS filings.",
+  },
+  {
+    src: "/executive_window_discussion.jpg",
+    alt: "Senior partners and managing directors in executive advisory consultation",
+    tag: "Leadership & Execution Velocity",
+    title: "90-Day Execution Roadmaps",
+    caption: "Equipping executive teams with practical decision toolkits and sprint cadence.",
+  },
+];
+
 export default function AboutPage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const [isSlidePaused, setIsSlidePaused] = useState(false);
+
+  // Auto-advance slideshow every 4.5 seconds with pause on hover
+  useEffect(() => {
+    if (isSlidePaused) return;
+
+    const timer = setInterval(() => {
+      setActiveSlideIndex((prev) => (prev + 1) % PHILOSOPHY_SLIDES.length);
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [isSlidePaused]);
 
   return (
     <main className="min-h-screen bg-white text-slate-900 selection:bg-[#10B981] selection:text-[#071C3F]">
@@ -100,7 +158,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 2. OUR CORE CONVICTION WITH 3D CARD PARALLAX */}
+      {/* 2. OUR CORE CONVICTION WITH 3D CARD PARALLAX & AUTOMATED IMAGE SHOWCASE */}
       <section className="py-28 bg-white text-slate-900 border-b border-slate-200 overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 grid gap-12 lg:grid-cols-12 items-center">
           
@@ -144,27 +202,68 @@ export default function AboutPage() {
             </div>
           </motion.div>
 
-          {/* Right Column Subtle Blue Gradient Photo Card */}
+          {/* Right Column Automated Photo Carousel Card */}
           <motion.div
             initial={{ opacity: 0, x: 30, scale: 0.95 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
             className="lg:col-span-5 h-full"
+            onMouseEnter={() => setIsSlidePaused(true)}
+            onMouseLeave={() => setIsSlidePaused(false)}
           >
-            <div className="relative h-96 sm:h-[480px] rounded-3xl overflow-hidden border-2 border-slate-200 shadow-xl bg-gradient-to-br from-[#071C3F] via-[#09224E] to-[#071C3F] hover:shadow-2xl transition-shadow duration-300">
-              <Image
-                src="/african_corporate_team_meeting.jpg"
-                alt="Apex Edge Advisory senior team in executive session"
-                fill
-                className="object-cover object-center filter brightness-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F] via-[#071C3F]/40 to-transparent" />
-              
-              <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-gradient-to-br from-[#071C3F]/95 to-[#09224E]/95 border border-slate-700/80 backdrop-blur-xl shadow-xl text-white">
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#10B981]">East African Regional Context</span>
-                <h3 className="text-base font-black text-white mt-1">Headquartered in Nairobi, Kenya</h3>
-                <p className="text-xs text-slate-300 mt-1">Grounded in local statutory rigor, regional compliance, and executive realities.</p>
+            <div className="relative h-96 sm:h-[500px] rounded-3xl overflow-hidden border-2 border-slate-200 shadow-xl bg-slate-950 hover:shadow-2xl transition-shadow duration-300 group">
+              {/* Automated Crossfading Image Reel */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={PHILOSOPHY_SLIDES[activeSlideIndex].src}
+                  initial={{ opacity: 0, scale: 1.08 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.9, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <img
+                    src={PHILOSOPHY_SLIDES[activeSlideIndex].src}
+                    alt={PHILOSOPHY_SLIDES[activeSlideIndex].alt}
+                    className="w-full h-full object-cover object-center filter brightness-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F] via-[#071C3F]/35 to-transparent" />
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Slide Counter & Indicators */}
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-slate-950/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+                {PHILOSOPHY_SLIDES.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveSlideIndex(idx)}
+                    aria-label={`Jump to slide ${idx + 1}`}
+                    className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                      idx === activeSlideIndex
+                        ? "w-6 bg-[#10B981]"
+                        : "w-1.5 bg-white/40 hover:bg-white/80"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Active Context Card with Dynamic Synchronized Content */}
+              <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-gradient-to-br from-[#071C3F]/95 to-[#09224E]/95 border border-slate-700/80 backdrop-blur-xl shadow-xl text-white z-10 space-y-1">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#10B981]">
+                    {PHILOSOPHY_SLIDES[activeSlideIndex].tag}
+                  </span>
+                  <span className="text-[9px] font-extrabold uppercase tracking-wider text-slate-400 bg-slate-900/80 px-2 py-0.5 rounded border border-slate-700">
+                    0{activeSlideIndex + 1} / 0{PHILOSOPHY_SLIDES.length}
+                  </span>
+                </div>
+                <h3 className="text-base font-black text-white leading-snug">
+                  {PHILOSOPHY_SLIDES[activeSlideIndex].title}
+                </h3>
+                <p className="text-xs text-slate-300 font-normal leading-relaxed">
+                  {PHILOSOPHY_SLIDES[activeSlideIndex].caption}
+                </p>
               </div>
             </div>
           </motion.div>
