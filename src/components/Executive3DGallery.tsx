@@ -253,7 +253,9 @@ export function Executive3DGallery() {
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 brightness-95 group-hover:brightness-105"
+                      loading="eager"
+                      decoding="async"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-95 group-hover:brightness-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
                     
@@ -303,7 +305,9 @@ export function Executive3DGallery() {
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 brightness-95 group-hover:brightness-105"
+                      loading="eager"
+                      decoding="async"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-95 group-hover:brightness-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
                     
@@ -366,7 +370,9 @@ export function Executive3DGallery() {
                 <img
                   src={selectedItem.image}
                   alt={selectedItem.title}
-                  className="w-full h-full object-cover object-center brightness-105"
+                  loading="eager"
+                  decoding="async"
+                  className="w-full h-full object-cover object-center brightness-100 contrast-[1.02]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                 

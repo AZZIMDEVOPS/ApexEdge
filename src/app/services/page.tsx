@@ -466,7 +466,9 @@ export default function ServicesPage() {
                       src={item.image}
                       alt={item.imageAlt || item.category}
                       fill
-                      className="object-cover object-center filter brightness-105 transition-transform duration-700 hover:scale-105"
+                      quality={95}
+                      unoptimized
+                      className="object-cover object-center filter brightness-100 contrast-[1.02] transition-transform duration-700 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
                     <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between text-white text-xs">

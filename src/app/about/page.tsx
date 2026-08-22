@@ -240,7 +240,9 @@ export default function AboutPage() {
                   <img
                     src={PHILOSOPHY_SLIDES[activeSlideIndex].src}
                     alt={PHILOSOPHY_SLIDES[activeSlideIndex].alt}
-                    className="w-full h-full object-cover object-center filter brightness-105"
+                    loading="eager"
+                    decoding="async"
+                    className="w-full h-full object-cover object-center filter brightness-100 contrast-[1.02]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F] via-[#071C3F]/35 to-transparent" />
                 </motion.div>

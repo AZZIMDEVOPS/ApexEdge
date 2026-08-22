@@ -201,7 +201,9 @@ export default function IndustriesPage() {
                       src={ind.image}
                       alt={ind.imageAlt || ind.name}
                       fill
-                      className="object-cover object-center filter brightness-105 transition-transform duration-700 group-hover:scale-105"
+                      quality={95}
+                      unoptimized
+                      className="object-cover object-center filter brightness-100 contrast-[1.02] transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F]/85 via-transparent to-transparent" />
                     <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">

@@ -274,7 +274,9 @@ export function PracticeInActionShowcase({ onOpenBooking }: PracticeInActionShow
                     <motion.img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 brightness-100 contrast-105"
+                      loading="eager"
+                      decoding="async"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-100 contrast-[1.03]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F]/90 via-[#071C3F]/30 to-transparent" />
                     
@@ -353,7 +355,9 @@ export function PracticeInActionShowcase({ onOpenBooking }: PracticeInActionShow
                 <img
                   src={selectedCase.image}
                   alt={selectedCase.title}
-                  className="w-full h-full object-cover object-center brightness-105"
+                  loading="eager"
+                  decoding="async"
+                  className="w-full h-full object-cover object-center brightness-100 contrast-[1.02]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
                 

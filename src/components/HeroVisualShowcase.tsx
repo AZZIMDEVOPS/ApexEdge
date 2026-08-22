@@ -102,7 +102,9 @@ export function HeroVisualShowcase() {
               alt={activeSlide.title}
               fill
               priority
-              className="object-cover object-center filter brightness-105 contrast-105"
+              quality={95}
+              unoptimized
+              className="object-cover object-center filter brightness-100 contrast-[1.03]"
             />
             {/* Cinematic Gradient Overlays for High Contrast */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#071C3F] via-[#071C3F]/40 to-transparent" />

@@ -86,8 +86,10 @@ export function HeroBackgroundReel() {
             alt={currentImage.alt}
             fill
             priority
+            quality={95}
+            unoptimized
             sizes="100vw"
-            className="object-cover object-center filter brightness-100 contrast-105"
+            className="object-cover object-center filter brightness-100 contrast-[1.03]"
           />
         </motion.div>
       </AnimatePresence>

@@ -37,6 +37,18 @@ body {
   color: #071C3F;
 }
 
+/* High-Fidelity Crisp Image Rendering & Anti-Pixelation */
+img,
+video {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+}
+
 /* Editorial subtle borders and light card styles */
 .editorial-border {
   border-color: #e2e8f0;
