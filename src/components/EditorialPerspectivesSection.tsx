@@ -27,8 +27,8 @@ export const EDITORIAL_ARTICLES: ArticlePerspective[] = [
     readTime: "4 min read",
     author: "Dr. Amina K. Wanjiku",
     date: "February 2026",
-    image: "/advisory_report_consultation.jpg",
-    imageAlt: "Executive advisory consultation reviewing governance policy and compliance binder",
+    image: "/authentic_controls_laptop_audit.jpg",
+    imageAlt: "Executive advisory consultation reviewing governance policy and digitized SOP workflows",
     excerpt:
       "We examine why dense SOP binders inevitably turn into executive shelf-ware, and how condensing procedures into 1-page digital approval workflows eliminated recurring audit exceptions for a Tier-1 regional lender.",
     keyTakeaway: "A control that is too complex to follow in daily operations is not a control—it is a liability.",
@@ -40,7 +40,7 @@ export const EDITORIAL_ARTICLES: ArticlePerspective[] = [
     readTime: "5 min read",
     author: "David O. Mutua",
     date: "January 2026",
-    image: "/board_whiteboard_presentation.jpg",
+    image: "/authentic_growth_analytics_consultation.jpg",
     imageAlt: "Executive leadership alignment session mapping organizational roles and accountability matrices",
     excerpt:
       "When three senior executives share overlapping sign-off authority, no one is truly accountable when deadlines slip. Here is how transparent job grading and named ownership matrices restore execution speed.",
@@ -53,7 +53,7 @@ export const EDITORIAL_ARTICLES: ArticlePerspective[] = [
     readTime: "6 min read",
     author: "Apex Edge Privacy Practice",
     date: "December 2025",
-    image: "/operations_analyst_desk.jpg",
+    image: "/authentic_executive_lounge_review.jpg",
     imageAlt: "Compliance officer conducting data protection inventory mapping and DPIA registers",
     excerpt:
       "Statutory compliance under the Office of the Data Protection Commissioner (ODPC) is not a one-time legal memo. It requires continuous data mapping, active DPIA registers, and standardized vendor processing agreements.",
@@ -66,7 +66,7 @@ export const EDITORIAL_ARTICLES: ArticlePerspective[] = [
     readTime: "5 min read",
     author: "Dr. Amina K. Wanjiku",
     date: "November 2025",
-    image: "/african_board_signing.jpg",
+    image: "/authentic_boardroom_green_wall_presentation.jpg",
     imageAlt: "Board of Directors executing Mwongozo compliance charter and fiduciary oversight protocols",
     excerpt:
       "How State Corporations and regulated public institutions can transition from 300-page operational Board pack clutter to 15-page prioritized risk heat maps that empower Directors to make decisive fiduciary calls.",

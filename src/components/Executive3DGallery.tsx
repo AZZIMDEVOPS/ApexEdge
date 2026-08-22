@@ -133,6 +133,46 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Director Governance Masterclass",
     location: "Executive Training Centre",
     description: "Senior governance practitioner delivering structured board-readiness simulations and Mwongozo Code compliance toolkits."
+  },
+  {
+    id: "boardroom-green-wall",
+    image: "/authentic_boardroom_green_wall_presentation.jpg",
+    category: "Executive Presentation",
+    title: "Boardroom Strategic Direction Session",
+    location: "Corporate Executive Suite",
+    description: "Executive lead delivering modern digital tablet briefings on statutory corporate governance and quarterly delivery goals."
+  },
+  {
+    id: "growth-analytics",
+    image: "/authentic_growth_analytics_consultation.jpg",
+    category: "Growth & Controls",
+    title: "Quantitative Analytics & Growth Review",
+    location: "Advisory Strategy Lab",
+    description: "Senior advisors evaluating multi-quarter performance trajectories and key risk mitigation indices."
+  },
+  {
+    id: "whiteboard-briefing",
+    image: "/authentic_whiteboard_team_briefing.jpg",
+    category: "Working Sprints",
+    title: "Interactive Strategy & SOP Sprint",
+    location: "Collaborative Workshop Room",
+    description: "Advisory practitioner co-designing standard operating procedures and delegated financial sign-off thresholds."
+  },
+  {
+    id: "glass-wall-ideation",
+    image: "/authentic_glass_wall_ideation.jpg",
+    category: "Strategy Ideation",
+    title: "System Architecture & Flow Mapping",
+    location: "Innovation War Room",
+    description: "Advisory analysts mapping end-to-end data flows, organizational mandates, and cross-functional RACI matrices."
+  },
+  {
+    id: "executive-discussion-lounge",
+    image: "/authentic_executive_discussion_lounge.jpg",
+    category: "Executive Alignment",
+    title: "Managing Director Transformation Review",
+    location: "Enterprise Executive Lounge",
+    description: "Confidential working consultation reviewing quarterly internal audit findings and executive risk scorecards."
   }
 ];
 
@@ -195,9 +235,9 @@ export function Executive3DGallery() {
           {/* Dual Row Continuous 3D Infinite Marquee */}
           <div className="space-y-6">
             
-            {/* Top Row Marquee (Items 1-8) */}
+            {/* Top Row Marquee (Items 1-10) */}
             <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-none snap-x cursor-grab active:cursor-grabbing">
-              {GALLERY_ITEMS.slice(0, 8).map((item, idx) => (
+              {GALLERY_ITEMS.slice(0, 10).map((item, idx) => (
                 <motion.div
                   key={item.id}
                   whileHover={{ 
@@ -245,9 +285,9 @@ export function Executive3DGallery() {
               ))}
             </div>
 
-            {/* Bottom Row Marquee (Items 8-15) */}
+            {/* Bottom Row Marquee (Items 11-20) */}
             <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-none snap-x cursor-grab active:cursor-grabbing">
-              {GALLERY_ITEMS.slice(7, 15).map((item, idx) => (
+              {GALLERY_ITEMS.slice(10, 20).map((item, idx) => (
                 <motion.div
                   key={item.id}
                   whileHover={{ 
