@@ -66,7 +66,7 @@ export function HeroBackgroundReel() {
         <motion.div
           key={currentImage.src}
           initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 0.8, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 2.4, ease: "easeInOut" }}
           className="absolute inset-0 w-full h-full"
@@ -82,9 +82,8 @@ export function HeroBackgroundReel() {
         </motion.div>
       </AnimatePresence>
 
-      {/* 80% Image Opacity with Soft Bottom Fade for Clean Section Transition */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/75" />
-      <div className="absolute inset-0 bg-radial-[ellipse_at_center] from-transparent via-white/10 to-white/60" />
+      {/* 100% Image Opacity with Soft Bottom Fade for Clean Section Transition */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/65 pointer-events-none" />
 
       {/* Subtle Live Photo Indicator in Top Right Corner */}
       <div className="absolute top-6 right-6 z-10 pointer-events-auto hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-slate-200/90 backdrop-blur-md text-[11px] font-bold text-slate-800 shadow-md">
