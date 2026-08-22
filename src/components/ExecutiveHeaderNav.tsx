@@ -106,6 +106,21 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
     }, 150);
   };
 
+  const handleNavClick = (href?: string) => {
+    setIsServicesOpen(false);
+    setIsMobileMenuOpen(false);
+
+    // If it is a top-level page without a hash anchor, immediately scroll to top
+    if (!href || !href.includes("#")) {
+      if (typeof window !== "undefined") {
+        if ((window as any).__lenis) {
+          (window as any).__lenis.scrollTo(0, { immediate: true });
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      }
+    }
+  };
+
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xs ${
@@ -114,7 +129,11 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
         {/* Official ApexEdge Logo in Crisp Corporate Navy */}
-        <Link href="/" className="flex items-center gap-2 group shrink-0">
+        <Link
+          href="/"
+          onClick={() => handleNavClick("/")}
+          className="flex items-center gap-2 group shrink-0"
+        >
           <ApexEdgeLogo variant="dark" />
         </Link>
 
@@ -122,6 +141,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
         <nav className="hidden items-center gap-6 text-[13px] font-bold text-slate-700 lg:flex">
           <Link
             href="/"
+            onClick={() => handleNavClick("/")}
             className={`transition-colors py-1 ${
               pathname === "/" ? "text-[#10B981] font-black" : "text-slate-700 hover:text-[#071C3F]"
             }`}
@@ -131,6 +151,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
 
           <Link
             href="/about"
+            onClick={() => handleNavClick("/about")}
             className={`transition-colors py-1 ${
               pathname === "/about" ? "text-[#10B981] font-black" : "text-slate-700 hover:text-[#071C3F]"
             }`}
@@ -170,7 +191,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  {/* Left Column (7 Cols) — 5 Practice Areas with Photo Thumbnails */}
+                  {/* Left Column (7 Cols) — 6 Practice Areas with Photo Thumbnails */}
                   <div className="col-span-7 space-y-2">
                     <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#10B981] mb-3 px-2 flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-[#10B981]" />
@@ -185,7 +206,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                             key={item.title}
                             href={item.href}
                             onMouseEnter={() => setHoverIndex(idx)}
-                            onClick={() => setIsServicesOpen(false)}
+                            onClick={() => handleNavClick(item.href)}
                             className={`flex items-center gap-3.5 p-2 rounded-2xl border transition-all group/item ${
                               isHovered
                                 ? "bg-emerald-50/70 border-[#10B981]/50 text-[#071C3F] shadow-xs"
@@ -276,7 +297,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
 
                       <Link
                         href={serviceDropdownItems[hoverIndex]?.href || "/services"}
-                        onClick={() => setIsServicesOpen(false)}
+                        onClick={() => handleNavClick(serviceDropdownItems[hoverIndex]?.href || "/services")}
                         className="inline-flex items-center gap-1.5 text-xs font-black text-[#10B981] hover:underline pt-0.5"
                       >
                         <span>Explore Practice Area</span>
@@ -291,6 +312,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
 
           <Link
             href="/industries"
+            onClick={() => handleNavClick("/industries")}
             className={`transition-colors py-1 ${
               pathname === "/industries" ? "text-[#10B981] font-black" : "text-slate-700 hover:text-[#071C3F]"
             }`}
@@ -300,6 +322,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
 
           <Link
             href="/insights"
+            onClick={() => handleNavClick("/insights")}
             className={`transition-colors py-1 ${
               pathname === "/insights" ? "text-[#10B981] font-black" : "text-slate-700 hover:text-[#071C3F]"
             }`}
@@ -309,6 +332,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
 
           <Link
             href="/contact"
+            onClick={() => handleNavClick("/contact")}
             className={`transition-colors py-1 ${
               pathname === "/contact" ? "text-[#10B981] font-black" : "text-slate-700 hover:text-[#071C3F]"
             }`}
@@ -361,13 +385,13 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
             className="lg:hidden border-t border-slate-200 bg-white px-5 py-6 space-y-4 shadow-xl"
           >
             <div className="flex flex-col space-y-3 font-bold text-sm text-slate-700">
-              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#10B981]">
+              <Link href="/" onClick={() => handleNavClick("/")} className="hover:text-[#10B981]">
                 Home
               </Link>
-              <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#10B981]">
+              <Link href="/about" onClick={() => handleNavClick("/about")} className="hover:text-[#10B981]">
                 About Us
               </Link>
-              <Link href="/services" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#10B981]">
+              <Link href="/services" onClick={() => handleNavClick("/services")} className="hover:text-[#10B981]">
                 Services
               </Link>
               <div className="pl-4 space-y-2 border-l border-[#10B981]/30 text-xs text-slate-600 font-medium">
@@ -375,20 +399,20 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                   <Link
                     key={item.title}
                     href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => handleNavClick(item.href)}
                     className="block hover:text-[#10B981]"
                   >
                     {item.title}
                   </Link>
                 ))}
               </div>
-              <Link href="/industries" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#10B981]">
+              <Link href="/industries" onClick={() => handleNavClick("/industries")} className="hover:text-[#10B981]">
                 Industries
               </Link>
-              <Link href="/insights" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#10B981]">
+              <Link href="/insights" onClick={() => handleNavClick("/insights")} className="hover:text-[#10B981]">
                 Insights
               </Link>
-              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#10B981]">
+              <Link href="/contact" onClick={() => handleNavClick("/contact")} className="hover:text-[#10B981]">
                 Contact
               </Link>
             </div>
