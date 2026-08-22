@@ -309,24 +309,38 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-[#10B981] shrink-0" />
-                  <a href="tel:+254117471344" className="text-slate-950 font-bold hover:text-[#10B981]">
-                    +254 117 471344
-                  </a>
+                <div className="space-y-1.5">
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-4 h-4 text-[#10B981] shrink-0" />
+                    <a href="tel:+254799565125" className="text-slate-950 font-bold hover:text-[#10B981]">
+                      +254 799 565125
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3 pl-7">
+                    <a href="tel:+254728626323" className="text-slate-950 font-bold hover:text-[#10B981]">
+                      0728 626323
+                    </a>
+                  </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-[#10B981] shrink-0" />
-                  <a href="mailto:info@apexedge.co.ke" className="hover:text-[#10B981] font-semibold">
-                    info@apexedge.co.ke
-                  </a>
+                <div className="space-y-1.5">
+                  <div className="flex items-center gap-3">
+                    <Mail className="w-4 h-4 text-[#10B981] shrink-0" />
+                    <a href="mailto:info@consult-apex.com" className="hover:text-[#10B981] font-semibold text-slate-900">
+                      info@consult-apex.com
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3 pl-7">
+                    <a href="mailto:advisory@consult-apex.com" className="hover:text-[#10B981] font-semibold text-slate-900">
+                      advisory@consult-apex.com
+                    </a>
+                  </div>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <MessageCircle className="w-4 h-4 text-[#10B981] shrink-0" />
                   <a
-                    href="https://wa.me/254117471344"
+                    href="https://wa.me/254799565125"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#071C3F] font-bold hover:underline"

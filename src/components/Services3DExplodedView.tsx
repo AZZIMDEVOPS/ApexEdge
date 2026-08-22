@@ -295,7 +295,7 @@ export function Services3DExplodedView() {
                       className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black py-6 rounded-full flex-1 shadow-lg shadow-[#10B981]/20"
                     >
                       <a
-                        href={`https://wa.me/254117471344?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(selectedService.title)}%20services.`}
+                        href={`https://wa.me/254799565125?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(selectedService.title)}%20services.`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2"

@@ -226,25 +226,39 @@ export function CorporateFooter() {
                 <span className="text-slate-600">Nairobi HQ, Kenya</span>
               </div>
               
-              <div className="flex items-center gap-3 text-xs">
-                <Mail className="h-4 w-4 text-[#10B981] shrink-0" />
-                <a href="mailto:info@apexedge.co.ke" className="hover:text-[#10B981] text-slate-600 transition-colors">
-                  info@apexedge.co.ke
-                </a>
+              <div className="space-y-1.5 text-xs">
+                <div className="flex items-center gap-3">
+                  <Mail className="h-4 w-4 text-[#10B981] shrink-0" />
+                  <a href="mailto:info@consult-apex.com" className="hover:text-[#10B981] text-slate-600 transition-colors">
+                    info@consult-apex.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 pl-7">
+                  <a href="mailto:advisory@consult-apex.com" className="hover:text-[#10B981] text-slate-600 transition-colors">
+                    advisory@consult-apex.com
+                  </a>
+                </div>
               </div>
 
               <div className="flex items-center gap-3 text-xs">
                 <Globe className="h-4 w-4 text-[#10B981] shrink-0" />
-                <a href="https://www.apexedge.co.ke" target="_blank" rel="noopener noreferrer" className="hover:text-[#10B981] text-slate-600 transition-colors">
-                  www.apexedge.co.ke
+                <a href="https://www.consult-apex.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#10B981] text-slate-600 transition-colors">
+                  www.consult-apex.com
                 </a>
               </div>
 
-              <div className="flex items-center gap-3 text-xs">
-                <Phone className="h-4 w-4 text-[#10B981] shrink-0" />
-                <a href="tel:+254117471344" className="hover:text-[#10B981] transition-colors font-bold text-[#071C3F]">
-                  +254 117 471344
-                </a>
+              <div className="space-y-1.5 text-xs">
+                <div className="flex items-center gap-3">
+                  <Phone className="h-4 w-4 text-[#10B981] shrink-0" />
+                  <a href="tel:+254799565125" className="hover:text-[#10B981] transition-colors font-bold text-[#071C3F]">
+                    +254 799 565125
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 pl-7">
+                  <a href="tel:+254728626323" className="hover:text-[#10B981] transition-colors font-bold text-[#071C3F]">
+                    0728 626323
+                  </a>
+                </div>
               </div>
 
               <div className="pt-2 border-t border-slate-200 space-y-1">

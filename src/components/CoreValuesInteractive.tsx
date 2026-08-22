@@ -235,7 +235,7 @@ export function CoreValuesInteractive() {
                       className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-6 rounded-full flex-1 shadow-lg shadow-blue-600/30"
                     >
                       <a
-                        href={`https://wa.me/254117471344?text=Hi%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20${encodeURIComponent(selectedValue.title)}%20standards.`}
+                        href={`https://wa.me/254799565125?text=Hi%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20${encodeURIComponent(selectedValue.title)}%20standards.`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2"

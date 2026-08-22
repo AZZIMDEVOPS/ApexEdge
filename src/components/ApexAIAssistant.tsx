@@ -92,11 +92,11 @@ const APEX_KNOWLEDGE: Record<string, { answer: string; followUps?: string[]; act
     followUps: ["Data Protection", "Company Secretarial", "Book Consultation"],
   },
   "office location": {
-    answer: "📍 **ApexEdge Advisory Limited Headquarters**\nNairobi, Kenya\n📧 info@apexedge.co.ke\n🌐 www.apexedge.co.ke\n☎ +254 117 471344\n🕒 Business Hours: Monday – Friday, 8:00 AM – 5:00 PM EAT.",
+    answer: "📍 **ApexEdge Advisory Limited Headquarters**\nNairobi, Kenya\n📧 info@consult-apex.com | advisory@consult-apex.com\n🌐 www.consult-apex.com\n☎ +254 799 565125 / +254 728 626323\n🕒 Business Hours: Monday – Friday, 8:00 AM – 5:00 PM EAT.",
     followUps: ["Book Consultation", "Contact ApexEdge"],
   },
   contact: {
-    answer: "You can reach our senior advisors immediately:\n☎ Phone: +254 117 471344\n📧 Email: info@apexedge.co.ke\n💬 WhatsApp: +254 117 471344\nOr click below to schedule an executive consultation call.",
+    answer: "You can reach our senior advisors immediately:\n☎ Phone: +254 799 565125 / 0728 626323\n📧 Email: info@consult-apex.com | advisory@consult-apex.com\n💬 WhatsApp: +254 799 565125\nOr click below to schedule an executive consultation call.",
     followUps: ["Book Consultation", "Our Services"],
     action: "contact",
   },
