@@ -20,7 +20,7 @@ const HERO_SLIDES: HeroSlide[] = [
     image: "/authentic_boardroom_directors.jpg",
     badge: "Boardroom Governance & Risk",
     title: "Decision-Ready 15-Page Board Packs & Risk Heat Maps",
-    subtitle: "Empowering decisive fiduciary oversight aligned with Mwongozo Code & CMA Guidelines.",
+    subtitle: "Empowering decisive fiduciary oversight aligned with CMA Guidelines & Companies Act 2015.",
     icon: ShieldCheck,
   },
   {

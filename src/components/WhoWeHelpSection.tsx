@@ -26,7 +26,7 @@ const AUDIENCES: AudienceItem[] = [
     tagline: "Risk Visibility & Governance Alignment",
     desc: "Need clearer visibility of risk, controls, governance, and executive management performance to drive high-confidence strategic decisions.",
     keyNeed: "Decision-ready Board packs, risk heat maps & clear oversight.",
-    deliverables: ["Mwongozo Compliance Audits", "Board Risk Registers", "Decision Frameworks"],
+    deliverables: ["CMA & Governance Audits", "Board Risk Registers", "Board Evaluation Frameworks"],
     icon: Building2,
   },
   {

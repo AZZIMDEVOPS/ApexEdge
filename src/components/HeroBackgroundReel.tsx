@@ -29,7 +29,7 @@ export const HERO_BACKGROUND_IMAGES = [
   {
     src: "/authentic_executive_leadership_panel.jpg",
     alt: "Senior Partner Advisory Panel in Executive Suite",
-    caption: "Partner Advisory Leadership · Mwongozo & Statutory Rigor",
+    caption: "Partner Advisory Leadership · CMA & Governance Rigor",
   },
   {
     src: "/authentic_team_collaboration.jpg",

@@ -20,7 +20,7 @@ const EVIDENCE_STATS = [
   {
     value: "14+",
     label: "Regulatory & Statutory Frameworks",
-    desc: "Deep compliance grounding across Mwongozo Code, Kenya DP Act 2019, CBK Prudential Guidelines, and CMA Codes.",
+    desc: "Deep compliance grounding across Kenyan Companies Act 2015, Kenya DP Act 2019, CBK Prudential Guidelines, and CMA Codes.",
     icon: ShieldCheck,
   },
   {

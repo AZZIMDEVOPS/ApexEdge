@@ -29,7 +29,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "Board Leadership",
     title: "Board Evaluation & Charter Presentation",
     location: "Corporate Governance Chambers",
-    description: "Senior Board Chairman presenting Mwongozo compliance dossiers, committee charters, and statutory governance audit findings."
+    description: "Senior Board Chairman presenting Board Evaluation compliance dossiers, committee charters, and statutory governance audit findings."
   },
   {
     id: "controls-laptop-audit",
@@ -133,7 +133,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "Capability Building",
     title: "Director Governance Masterclass",
     location: "Executive Training Centre",
-    description: "Senior governance practitioner delivering structured board-readiness simulations and Mwongozo Code compliance toolkits."
+    description: "Senior governance practitioner delivering structured board-readiness simulations and CMA Corporate Governance toolkits."
   },
   {
     id: "boardroom-green-wall",

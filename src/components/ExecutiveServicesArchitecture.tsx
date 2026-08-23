@@ -50,7 +50,7 @@ export function ExecutiveServicesArchitecture() {
                 <span className="text-xs font-black uppercase tracking-widest text-[#071C3F] bg-[#10B981]/20 px-3 py-1 rounded-full border border-[#10B981]/40">
                   PRACTICE 01 · BOARD GOVERNANCE
                 </span>
-                <span className="text-xs text-slate-500 font-semibold">Mwongozo &amp; CMA Standards</span>
+                <span className="text-xs text-slate-500 font-semibold">CMA &amp; Companies Act 2015 Standards</span>
               </div>
 
               <h3 className="text-2xl sm:text-4xl font-black text-slate-950 leading-tight">
@@ -99,7 +99,7 @@ export function ExecutiveServicesArchitecture() {
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
-                  <span>Independent Mwongozo &amp; CMA Governance Evaluation Audits</span>
+                  <span>Independent CMA &amp; Governance Evaluation Audits</span>
                 </li>
               </ul>
             </div>

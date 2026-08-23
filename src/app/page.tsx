@@ -59,32 +59,32 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-white text-slate-900 selection:bg-[#10B981] selection:text-[#071C3F]">
+    <main className="min-h-screen bg-white text-slate-900 selection:bg-[#10B981] selection:text-[#071C3F] font-sans">
       
       {/* 1. Header Navigation */}
       <ExecutiveHeaderNav onOpenBooking={() => openBooking("Governance & Risk")} />
 
-      {/* 2. HERO SECTION — CLEAN MINIMAL WHITE FEEL: HEADING & CTAS ONLY */}
-      <section className="relative w-full min-h-[80vh] flex flex-col items-center justify-center pt-24 pb-20 overflow-hidden border-b border-slate-200 text-slate-900 bg-white">
+      {/* 2. HERO SECTION — CLEAN MINIMAL WHITE FEEL WITH BACKDROP REEL */}
+      <section className="relative w-full min-h-[75vh] flex flex-col items-center justify-center pt-24 pb-16 overflow-hidden border-b border-slate-200 text-slate-900 bg-white font-sans">
         
         {/* Animated Pictures Reel in the Background with White Gradient Wash */}
         <HeroBackgroundReel />
 
-        <div className="relative z-10 mx-auto max-w-6xl px-5 text-center sm:px-8 lg:px-10 space-y-8">
+        <div className="relative z-10 mx-auto max-w-6xl px-5 text-center sm:px-8 lg:px-10 space-y-8 font-sans">
           
           {/* Eyebrow Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 border border-slate-200 text-[#071C3F] text-xs font-black uppercase tracking-[0.25em] shadow-sm backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 border border-slate-200 text-[#071C3F] text-xs font-black uppercase tracking-[0.25em] shadow-sm backdrop-blur-md font-sans"
           >
             <ShieldCheck className="w-4 h-4 text-[#10B981]" />
             <span>STRATEGIC ADVISORY · NAIROBI &amp; EAST AFRICA</span>
           </motion.div>
 
           {/* Dynamic Cycling H1 Heading in Frosted Glass Container */}
-          <div className="min-h-[95px] sm:min-h-[115px] lg:min-h-[125px] flex items-center justify-center">
+          <div className="min-h-[95px] sm:min-h-[115px] lg:min-h-[125px] flex items-center justify-center font-sans">
             <AnimatePresence mode="wait">
               <motion.div
                 key={headlineIndex}
@@ -92,9 +92,9 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, y: -12, filter: "blur(3px)" }}
                 transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-                className="px-6 py-5 sm:px-10 sm:py-6 rounded-3xl bg-white/85 backdrop-blur-md border border-slate-200/80 shadow-xl max-w-5xl mx-auto"
+                className="px-6 py-5 sm:px-10 sm:py-6 rounded-3xl bg-white/85 backdrop-blur-md border border-slate-200/80 shadow-xl max-w-5xl mx-auto font-sans"
               >
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black tracking-tight text-slate-950 leading-[1.3]">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black tracking-tight text-slate-950 leading-[1.3] font-sans">
                   <span>{HERO_HEADLINES[headlineIndex].lead}</span>{" "}
                   <span className="text-[#071C3F] underline decoration-[#10B981] decoration-4 underline-offset-8">
                     {HERO_HEADLINES[headlineIndex].highlight}
@@ -125,20 +125,20 @@ export default function Home() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.7 }}
-            className="flex flex-wrap items-center justify-center gap-4 pt-2"
+            className="flex flex-wrap items-center justify-center gap-4 pt-2 font-sans"
           >
             <Button
               onClick={() => openBooking("Governance & Risk")}
-              className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-full px-8 py-4 text-sm sm:text-base shadow-lg shadow-[#10B981]/25 flex items-center gap-2.5 transition-all hover:scale-105"
+              className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-full px-8 py-4 text-sm sm:text-base shadow-lg shadow-[#10B981]/25 flex items-center gap-2.5 transition-all hover:scale-105 font-sans"
             >
               <Calendar className="w-5 h-5" />
-              <span>Book Your 45-Minute Clarity Session →</span>
+              <span>Book Your 20-Minute Clarity Session →</span>
             </Button>
 
             <Button
               onClick={() => handleScrollToSection("architecture")}
               variant="outline"
-              className="border-2 border-slate-200 bg-white hover:bg-slate-50 text-[#071C3F] font-black rounded-full px-7 py-4 text-sm flex items-center gap-2 transition-all shadow-sm"
+              className="border-2 border-slate-200 bg-white hover:bg-slate-50 text-[#071C3F] font-black rounded-full px-7 py-4 text-sm flex items-center gap-2 transition-all shadow-sm font-sans"
             >
               <span>Explore Solution Architecture ↓</span>
             </Button>
@@ -152,7 +152,9 @@ export default function Home() {
       </div>
 
       {/* 4. HOW WE WORK — 4-STAGE OPERATING METHODOLOGY */}
-      <WhatWeDoExplanation />
+      <div id="how-we-work">
+        <WhatWeDoExplanation />
+      </div>
 
       {/* 5. FINAL EXECUTIVE CTA */}
       <ExecutiveFinalCTA onOpenBooking={() => openBooking("Governance & Risk")} />
@@ -172,6 +174,3 @@ export default function Home() {
     </main>
   );
 }
-
-
-

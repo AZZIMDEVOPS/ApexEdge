@@ -67,7 +67,7 @@ export function DedicatedBoardSection({ onOpenBooking }: DedicatedBoardSectionPr
               transition={{ delay: 0.3 }}
               className="text-base text-slate-300 font-normal leading-relaxed max-w-xl"
             >
-              Apex Edge equips Board Chairs, Audit Committee Leads, and Independent Directors with clear risk registers, Mwongozo compliance checks, and decision-ready Board packs.
+              Apex Edge equips Board Chairs, Audit Committee Leads, and Independent Directors with clear risk registers, CMA & Companies Act compliance checks, and decision-ready Board packs.
             </motion.p>
 
             <motion.div
@@ -99,11 +99,11 @@ export function DedicatedBoardSection({ onOpenBooking }: DedicatedBoardSectionPr
 
               <div className="space-y-4 text-xs text-slate-200">
                 {[
-                  "Independent Governance & Mwongozo Code Audits",
+                  "Independent Governance & CMA Framework Audits",
                   "Board Charter & Committee Terms Redesign",
                   "Quarterly Executive Control & Risk Dashboards",
                   "Decision Frameworks for Strategic Investments",
-                  "Director Induction & Governance Refresh",
+                  "Director Induction & Board Evaluation Frameworks",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />

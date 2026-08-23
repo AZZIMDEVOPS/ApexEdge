@@ -36,8 +36,8 @@ const SYSTEM_NODES: SystemNodeItem[] = [
     category: "Pillar 01",
     desc: "Board oversight & risk visibility",
     fullExplanation:
-      "Structures board risk registers, independent governance health checks, and Mwongozo code compliance for clear executive oversight.",
-    deliverables: ["Board Risk Registers & Heat Maps", "Mwongozo Code Audits", "Decision Frameworks"],
+      "Structures board risk registers, independent governance health checks, and CMA Corporate Governance compliance for clear executive oversight.",
+    deliverables: ["Board Risk Registers & Heat Maps", "CMA & Governance Audits", "Board Evaluation Frameworks"],
     linkHref: "/services#governance-risk",
     Icon3D: Governance3DIcon,
     x: 18,

@@ -47,7 +47,7 @@ const ETHICAL_STANDARDS = [
     icon: Award,
     title: "Uncompromising Statutory Rigor",
     tagline: "East African Mastery",
-    desc: "Deep compliance with the Kenyan Companies Act 2015, Mwongozo Code for State Corporations, CBK Prudential Guidelines, CMA Governance Code, and the Kenya Data Protection Act 2019.",
+    desc: "Deep compliance with the Kenyan Companies Act 2015, CBK Prudential Guidelines, CMA Governance Code, and the Kenya Data Protection Act 2019.",
     deliverable: "14+ Statutory Frameworks Supported",
     accent: "#6366F1",
   },
@@ -101,7 +101,7 @@ const PHILOSOPHY_SLIDES = [
     alt: "Partner Advisory Leadership Panel at Apex Edge",
     tag: "Institutional Governance",
     title: "Independent Executive Advisory",
-    caption: "Uncompromising rigor aligned with Mwongozo and CMA governance codes.",
+    caption: "Uncompromising rigor aligned with CMA and international corporate governance codes.",
   },
   {
     src: "/authentic_senior_partner_briefing.jpg",
@@ -207,7 +207,7 @@ export default function AboutPage() {
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
-                <span>Deep mastery of Kenyan Companies Act 2015, Data Protection Act 2019, CMA &amp; Mwongozo</span>
+                <span>Deep mastery of Kenyan Companies Act 2015, Data Protection Act 2019, CMA &amp; Employment Act</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />

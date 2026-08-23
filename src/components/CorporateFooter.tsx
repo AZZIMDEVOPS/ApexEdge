@@ -108,7 +108,7 @@ export function CorporateFooter() {
                 Stay Informed with <span className="text-[#071C3F] underline decoration-[#10B981] decoration-4 underline-offset-4">Board-Level Insights</span>
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Receive curated quarterly briefings on corporate governance, risk frameworks, control systems, and Mwongozo compliance in East Africa.
+                Receive curated quarterly briefings on corporate governance, risk frameworks, control systems, and regulatory compliance in East Africa.
               </p>
             </div>
             <div>

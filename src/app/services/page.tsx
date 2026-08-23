@@ -47,16 +47,18 @@ const PRACTICE_AREAS = [
     approach: "We conduct independent governance audits, structure board risk registers, clarify decision rights, and build actionable governance frameworks.",
     services: [
       "Governance Health Checks & Gap Audits",
+      "eBoard Frameworks & Paperless Governance Portals",
       "Board Risk Register Development & Heat Maps",
       "Board Pack & Executive Reporting Restructuring",
-      "Mwongozo Code & CMA Compliance Frameworks",
+      "CMA Corporate Governance & Companies Act 2015 Frameworks",
       "Director Induction & Governance Charters",
       "Board Decision-Making & Authorization Frameworks"
     ],
     deliverables: [
+      "eBoard Governance Frameworks & Paperless Portals",
       "Board Risk Registers & Heat Maps",
       "Governance Dashboards & Scorecards",
-      "Board Reporting Frameworks & Packs",
+      "Board Reporting Frameworks & Digital Packs",
       "Decision Frameworks & Charters",
       "Accountability Structures",
       "Governance Health Check Reports",
@@ -79,21 +81,26 @@ const PRACTICE_AREAS = [
     whoFor: "CEOs, CFOs, Heads of HR, Chief Operating Officers, Business Unit Leads.",
     approach: "We architect role structures, job descriptions, salary bands, and OKR performance scorecards linked directly to strategic goals.",
     services: [
-      "Organisational Restructuring & Role Clarity",
-      "Job Description & Competency Framework Development",
-      "Job Evaluation & Salary Grading Structures",
-      "OKR & KPI Performance Management Systems",
-      "Performance Appraisal Tools & Guidelines",
-      "Staff Accountability Matrixes & Ownership Maps"
+      "Recruitment Processes & Executive Talent Acquisition",
+      "Leadership & Executive Capability Frameworks",
+      "Whistleblower & Anonymous Fraud Protection Frameworks",
+      "Job Grading & Salary Band HR Frameworks",
+      "Single-Point RACI Accountability Frameworks",
+      "Competency & Job Description Frameworks",
+      "OKR & KPI Performance Scorecard Frameworks",
+      "Employment Statutory & HR Policy Frameworks",
+      "Executive Succession & Talent Pipeline Frameworks"
     ],
     deliverables: [
-      "Organisational Structure Charts",
-      "Job Descriptions & Competency Frameworks",
-      "Job Evaluation Frameworks",
-      "Salary Structures & Grading Bands",
-      "Performance Frameworks & Manuals",
-      "OKRs / Performance Objectives",
-      "Accountability Tools & Scorecards"
+      "Recruitment Processes & Executive Hiring Workflows",
+      "Leadership Capability & 90-Day Execution Roadmaps",
+      "Whistleblower Protection Policies & Reporting Hotlines",
+      "Job Evaluation & Salary Structure Bands",
+      "Single-Point RACI Ownership Charters",
+      "Role Competency Frameworks & JDs",
+      "OKR / KPI Executive Performance Scorecards",
+      "Employment Statutory HR Framework Manuals",
+      "Succession Planning & Talent Matrices"
     ],
     outcome: "People decisions become connected to organisational priorities, accountability and measurable performance.",
     methodology: ["Diagnose", "Design", "Implement", "Measure"]
@@ -175,7 +182,8 @@ const PRACTICE_AREAS = [
     whoFor: "Boards, CEOs, Data Protection Officers (DPOs), Chief Information Officers (CIOs), Legal & Compliance Heads.",
     approach: "We conduct comprehensive data mapping, execute Data Protection Impact Assessments (DPIAs), draft enforceable vendor data processing agreements, and embed privacy-by-design into corporate operations.",
     services: [
-      "Data Protection Gap Audits & ODPC Registration",
+      "ODPC Data Controller & Data Processor Statutory Registration",
+      "Data Protection Compliance Audits & ODPC Readiness",
       "Enterprise Data Mapping & Inventories",
       "Data Protection Impact Assessments (DPIAs)",
       "Third-Party Vendor Data Processing Agreements (DPAs)",
@@ -183,6 +191,7 @@ const PRACTICE_AREAS = [
       "Data Breach Incident Response Playbooks"
     ],
     deliverables: [
+      "ODPC Registration Certificates & Statutory Filings",
       "Enterprise Data Inventories & Mapping Registers",
       "DPIA Audit Reports & Mitigation Plans",
       "ODPC Regulatory Compliance Dossiers",
@@ -207,20 +216,16 @@ const PRACTICE_AREAS = [
     whoFor: "Boards of Directors, Managing Directors, Company Secretaries, Legal Counsel, Chief Financial Officers, Shareholders.",
     approach: "We provide comprehensive corporate secretarial advisory, draft certified board resolutions, prepare and file annual statutory returns with BRS, manage AGMs/EGMs, and maintain statutory registers.",
     services: [
-      "Annual Statutory Returns & BRS e-Filings",
-      "Board & Committee Minutes & Resolution Drafting",
-      "Statutory Registers & Share Transfer Management",
-      "AGM, EGM & Board Meeting Coordination",
-      "Companies Act 2015 Statutory Health Checks",
-      "Corporate Restructuring & Share Capital Alterations"
+      "1. Beneficial Ownership Filings (BRS Register & Statutory Disclosures)",
+      "2. Registration & Maintenance (BRS Filings & Annual Returns)",
+      "3. Secretarial Services (Board Resolutions, Certified Minutes & AGM/EGM)",
+      "4. Company Record Management (Statutory Registers & Share Transfers)"
     ],
     deliverables: [
-      "Certified Board Resolutions & Action Trackers",
-      "BRS Annual Returns & Statutory Filing Receipts",
-      "Up-to-Date Statutory Registers & Share Records",
-      "AGM / EGM Governance Notices & Minutes",
-      "Corporate Secretarial Compliance Calendars",
-      "Director Appointment & Cessation Dossiers"
+      "1. Beneficial Ownership Statutory Registers & BRS Filings",
+      "2. Registration & Maintenance Dossiers (BRS Annual Returns)",
+      "3. Certified Board Resolutions & AGM/EGM Minutes",
+      "4. Up-to-Date Statutory Registers & Company Records"
     ],
     outcome: "Your organisation maintains 100% statutory compliance, impeccably documented board decisions, and protected legal standing with zero filing penalties.",
     methodology: ["Audit", "Structure", "Execute", "Certify"]

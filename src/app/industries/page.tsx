@@ -27,10 +27,10 @@ const INDUSTRIES = [
     icon: Building2,
     image: "/authentic_corporate_signing_desk.jpg",
     imageAlt: "Executive board members and ministerial panel reviewing and signing governance charters",
-    challenges: "Mwongozo Code adherence, Board evaluation compliance, public procurement oversight, and ministerial reporting.",
-    whereWeHelp: "Independent Board Evaluations, Governance Health Checks, procurement SOP redesign, and Mwongozo alignment.",
+    challenges: "Statutory governance adherence, Board evaluation compliance, public procurement oversight, and regulatory reporting.",
+    whereWeHelp: "Independent Board Evaluations, Governance Health Checks, procurement SOP redesign, and regulatory alignment.",
     systemsImproved: "Board Charters, Governance Dashboards, Procurement Control SOPs & Public Accountability Frameworks.",
-    outcome: "Full statutory compliance, transparent public procurement oversight, and elevated Mwongozo audit scores.",
+    outcome: "Full statutory compliance, transparent public procurement oversight, and elevated governance audit scores.",
     color: "#0284C7",
   },
   {

@@ -72,7 +72,7 @@ const APEX_KNOWLEDGE: Record<string, { answer: string; followUps?: string[]; act
     followUps: ["Corporate Governance", "Compliance", "Book Consultation"],
   },
   "corporate governance": {
-    answer: "We assist boards of directors, state corporations, and private entities with:\n- Board Evaluation & Governance Audits\n- Drafting Board Charters, Ethics Codes & Committee Frameworks\n- Alignment with Capital Markets Authority (CMA) Guidelines & MWONGOZO Code\n- Executive ESG & Strategic Advisory Workshops.",
+    answer: "We assist boards of directors, commercial entities, and regulated institutions with:\n- Board Evaluation & Governance Audits\n- Drafting Board Charters, Ethics Codes & Committee Frameworks\n- Alignment with Capital Markets Authority (CMA) Guidelines & Kenyan Companies Act 2015\n- Executive ESG & Strategic Advisory Workshops.",
     followUps: ["Legal Advisory", "Company Secretarial", "Book Consultation"],
   },
   "legal advisory": {

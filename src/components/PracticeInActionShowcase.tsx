@@ -42,19 +42,19 @@ export const ENGAGEMENT_CASES: EngagementCase[] = [
     title: "Fiduciary Risk Heat Maps for Directors",
     summary: "Replacing bulky 300-page board packets with concise 15-page high-signal governance summaries that empower decisive fiduciary voting.",
     image: "/authentic_boardroom_directors.jpg",
-    badge: "Mwongozo & CMA Aligned",
+    badge: "CMA & Board Evaluation Aligned",
     icon: ShieldCheck,
-    context: "Regional Financial Institution & State Corporation Boards",
+    context: "Regional Financial Institutions & Enterprise Boards",
     problemSolved: "Board directors were flooded with raw, operational spreadsheets with zero risk prioritization, causing prolonged voting delays and fiduciary exposure.",
     solutionEngine: "Architected executive-level quarterly risk registers, standardized 15-page decision memo templates, and revised Board Charter delegated authorities.",
     deliverables: [
       "Board-Ready Quarterly Risk Heat Map",
       "Standardized 15-Page Fiduciary Decision Pack",
       "Board Audit Committee Risk Matrix",
-      "Mwongozo Code Alignment Dossier"
+      "CMA Governance & Board Charter Dossier"
     ],
     impactMetric: "82% reduction in Board pack reading overhead with 100% statutory voting compliance.",
-    framework: "Mwongozo Code & CMA Corporate Governance Guidelines"
+    framework: "CMA Corporate Governance Guidelines & Companies Act 2015"
   },
   {
     id: "executive-alignment",

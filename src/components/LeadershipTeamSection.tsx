@@ -19,12 +19,12 @@ const LEADERS: LeaderProfile[] = [
   {
     name: "Dr. Amina K. Wanjiku",
     role: "Managing Partner & Head of Governance",
-    practiceFocus: "Board Governance, Mwongozo Audits & Executive Risk",
+    practiceFocus: "Board Governance, CMA Audits & Executive Risk",
     image: "/executive_leader_lounge.jpg",
-    bio: "Over 16 years advising Boards of Directors, State Corporations, and financial institutions across East Africa. Amina specializes in cutting through boardroom politics to establish clear risk heat maps and statutory compliance charters.",
+    bio: "Over 16 years advising Boards of Directors, commercial enterprises, and financial institutions across East Africa. Amina specializes in cutting through boardroom friction to establish clear risk heat maps and statutory compliance charters.",
     perspective: "A Board cannot govern what it cannot clearly see in 15 pages or less.",
     background: [
-      "Certified Governance Auditor & Mwongozo Specialist",
+      "Certified Governance Auditor & Board Evaluation Specialist",
       "Former Senior Advisor to East African Financial Regulators",
       "Specialist in Corporate Secretarial & Fiduciary Frameworks",
     ],

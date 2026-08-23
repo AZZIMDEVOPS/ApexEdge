@@ -33,8 +33,8 @@ const TIMELINE_STEPS = [
     title: "Institutionalizing East African Governance",
     icon: TrendingUp,
     narrative:
-      "We codified our 4-step framework (Diagnose → Design → Embed → Verify) across Tier-1 commercial banks, State Corporations adhering to the Mwongozo Code, Real Estate Asset Managers, and Tech Providers navigating the 2019 Kenya Data Protection Act.",
-    insight: "Deep grounding in East African regulatory realities (CBK, CMA, Mwongozo, ODPC).",
+      "We codified our 4-step framework (Diagnose → Design → Embed → Verify) across Tier-1 commercial banks, Listed & Private Enterprises adhering to the CMA Corporate Governance Code, Real Estate Asset Managers, and Tech Providers navigating the 2019 Kenya Data Protection Act.",
+    insight: "Deep grounding in East African regulatory realities (CBK, CMA, Companies Act 2015, ODPC).",
     accent: "#059669",
   },
   {

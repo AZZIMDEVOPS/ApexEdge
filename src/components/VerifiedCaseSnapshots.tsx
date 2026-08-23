@@ -43,20 +43,20 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     id: "state-corp-governance",
     client: "Commercial State Enterprise",
-    category: "Board Governance & Mwongozo Compliance",
+    category: "Board Governance & CMA Compliance",
     location: "Nairobi, Kenya (National Regulatory Scope)",
     headline: "Transforming 300-Page Board Packs into Focused Risk Visibility for Directors",
-    challenge: "Board meetings routinely stretched beyond 6 hours because Board packs contained over 300 pages of raw operational data without risk prioritization. Non-Executive Directors lacked the clarity needed to make strategic fiduciary decisions, jeopardizing compliance under the Mwongozo Code.",
+    challenge: "Board meetings routinely stretched beyond 6 hours because Board packs contained over 300 pages of raw operational data without risk prioritization. Non-Executive Directors lacked the clarity needed to make strategic fiduciary decisions, jeopardizing compliance under CMA Corporate Governance Guidelines.",
     whatWeDid: [
       "Conducted an independent Governance Health Check reviewing Board charter alignment, committee delegations, and reporting flows.",
       "Designed a standardized, 15-page Board pack structure centered around an Executive Risk Heat Map and prioritized decision papers.",
       "Clarified committee terms of reference and delegated authority limits between the Board and executive management.",
-      "Facilitated an intensive Board evaluation and induction workshop aligned with State Corporations Advisory Committee (SCAC) guidelines."
+      "Facilitated an intensive Board evaluation and induction workshop aligned with CMA & Companies Act 2015 governance standards."
     ],
     result: "Reduced Board pack volume by 75%, cut meeting duration in half, and earned a 98% governance compliance rating during annual statutory reviews.",
     impactMetrics: [
       { value: "75%", label: "Reduction in Board Pack Clutter" },
-      { value: "98%", label: "Mwongozo Governance Compliance Score" },
+      { value: "98%", label: "CMA Governance Compliance Score" },
       { value: "100%", label: "On-Time Statutory Board Resolutions" }
     ],
     tag: "Public Sector & State Corporations"

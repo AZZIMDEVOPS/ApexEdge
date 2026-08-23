@@ -49,8 +49,8 @@ const serviceItems: ServiceDetail[] = [
   {
     id: "governance",
     icon: Scale,
-    title: "Corporate Governance",
-    shortDesc: "Board evaluations, ethical compliance, MWONGOZO code, and executive governance audits.",
+    title: "Corporate Governance & Risk",
+    shortDesc: "Board evaluations, CMA compliance, Companies Act 2015, and executive governance audits.",
     fullDesc: "Designing robust governance frameworks, board evaluations, ethical compliance structures, and policy development aligned with global corporate governance best practices.",
     deliverables: [
       "Board Evaluations & Governance Audits",

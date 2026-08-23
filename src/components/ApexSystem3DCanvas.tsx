@@ -24,10 +24,10 @@ const STRATEGIC_PILLARS: PillarItem[] = [
     number: "01",
     title: "BOARD GOVERNANCE & OVERSIGHT",
     category: "Oversight & Compliance",
-    tagline: "Mwongozo Governance & Risk Visibility",
-    desc: "Transform Board reporting into decision-ready risk heatmaps, Mwongozo compliance frameworks, and executive oversight.",
+    tagline: "Corporate Governance & Risk Visibility",
+    desc: "Transform Board reporting into decision-ready risk heatmaps, CMA Corporate Governance compliance frameworks, and executive oversight.",
     keyDeliverable: "Board Risk Heatmaps & Governance Audits",
-    deliverables: ["Mwongozo Compliance Audits", "Board Risk Registers", "Decision Authority Matrixes"],
+    deliverables: ["CMA Governance Audits", "Board Risk Registers", "Decision Authority Matrixes"],
     icon: ShieldCheck,
   },
   {

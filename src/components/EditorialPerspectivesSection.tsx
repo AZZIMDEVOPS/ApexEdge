@@ -60,16 +60,16 @@ export const EDITORIAL_ARTICLES: ArticlePerspective[] = [
     keyTakeaway: "Data privacy must live in system architecture and vendor contracts, not in an unread legal binder.",
   },
   {
-    id: "mwongozo-governance-in-practice",
-    category: "BOARD ADVISORY · PUBLIC SECTOR",
-    title: "Mwongozo Governance in Practice: Turning Compliance Checklists into Boardroom Clarity",
+    id: "board-governance-in-practice",
+    category: "BOARD ADVISORY · GOVERNANCE",
+    title: "Corporate Governance in Practice: Turning Compliance Checklists into Boardroom Clarity",
     readTime: "5 min read",
     author: "Dr. Amina K. Wanjiku",
     date: "November 2025",
     image: "/authentic_boardroom_green_wall_presentation.jpg",
-    imageAlt: "Board of Directors executing Mwongozo compliance charter and fiduciary oversight protocols",
+    imageAlt: "Board of Directors executing Board Evaluation and CMA compliance charter protocols",
     excerpt:
-      "How State Corporations and regulated public institutions can transition from 300-page operational Board pack clutter to 15-page prioritized risk heat maps that empower Directors to make decisive fiduciary calls.",
+      "How commercial enterprises and regulated institutions can transition from 300-page operational Board pack clutter to 15-page prioritized risk heat maps that empower Directors to make decisive fiduciary calls.",
     keyTakeaway: "Independent Directors need high-signal risk visibility, not operational transcripts.",
   },
 ];

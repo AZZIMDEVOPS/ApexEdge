@@ -15,12 +15,12 @@ interface ExecutiveHeaderNavProps {
 const serviceDropdownItems = [
   {
     title: "Governance & Risk",
-    desc: "Give Your Board Clearer Visibility of Risk and Performance.",
+    desc: "Give Your Board Clearer Visibility of Risk, Performance & eBoard Frameworks.",
     href: "/services#governance-risk",
     icon: ShieldCheck,
     image: "/board_directors_panel.jpg",
     alt: "Board Directors in Executive Strategy Session",
-    deliverable: "Board-Ready Risk Register & Heat Map",
+    deliverable: "eBoard Frameworks & Board Risk Heat Map",
   },
   {
     title: "People & Performance",
@@ -29,7 +29,7 @@ const serviceDropdownItems = [
     icon: Users,
     image: "/african_executive_portrait.png",
     alt: "People & Organizational Structure Alignment Session",
-    deliverable: "Job Grading Matrix & Performance Scorecard",
+    deliverable: "Recruitment Processes & Job Grading Matrix",
   },
   {
     title: "Controls & Policies",
@@ -56,7 +56,7 @@ const serviceDropdownItems = [
     icon: Lock,
     image: "/african_female_executive.png",
     alt: "Data Protection Impact Assessment & Privacy Governance",
-    deliverable: "Data Inventories & DPIA Compliance Packs",
+    deliverable: "ODPC Statutory Registration & DPIA Compliance Packs",
   },
   {
     title: "Corporate Secretarial",
