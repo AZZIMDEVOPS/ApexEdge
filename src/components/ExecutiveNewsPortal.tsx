@@ -236,22 +236,22 @@ export function ExecutiveNewsPortal() {
 
           {/* Right Action Quick Routing Buttons */}
           <div className="flex items-center gap-2.5 shrink-0">
-            {/* Route to Calendar Button */}
+            {/* 20-Min Booking Calendar Button */}
             <button
               onClick={scrollToCalendar}
-              className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-lg px-3 py-1.5 text-[11px] transition-all flex items-center gap-1.5 shadow-xs font-sans"
+              className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-lg px-3 py-1.5 text-[11px] transition-all flex items-center gap-1.5 shadow-xs font-sans cursor-pointer"
             >
               <CalendarIcon className="w-3.5 h-3.5" />
-              <span>Route to 20-Min Booking Calendar ↓</span>
+              <span>20-Min Booking Calendar ↓</span>
             </button>
 
-            {/* Route to Info Email Button */}
+            {/* Info Email Button */}
             <a
               href="mailto:info@consult-apex.com?subject=Inquiry%20from%20Advisory%20Journal"
-              className="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold rounded-lg px-3 py-1.5 text-[11px] transition-all flex items-center gap-1.5 font-sans"
+              className="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold rounded-lg px-3 py-1.5 text-[11px] transition-all flex items-center gap-1.5 font-sans cursor-pointer"
             >
               <Mail className="w-3.5 h-3.5 text-[#10B981]" />
-              <span>Route to Info Email →</span>
+              <span>Info Email →</span>
             </a>
           </div>
 
@@ -749,7 +749,7 @@ export function ExecutiveNewsPortal() {
                     className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black text-xs rounded-xl px-5 py-2.5 flex items-center gap-2 shadow-md font-sans"
                   >
                     <CalendarIcon className="w-4 h-4" />
-                    <span>Route to 20-Min Booking →</span>
+                    <span>Book 20-Min Session →</span>
                   </Button>
 
                   <a
