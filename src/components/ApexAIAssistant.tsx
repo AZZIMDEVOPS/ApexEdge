@@ -8,6 +8,8 @@ import {
   Send,
   Bot,
   Calendar,
+  Sparkles,
+  MessageSquare,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -30,17 +32,24 @@ function getFormattedTime(): string {
   return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 }
 
+const TEASER_PROMPTS = [
+  "👋 Need guidance on Governance, Controls, or 20-Min Clarity Sessions? Ask APEX!",
+  "👋 Looking for Kenya Data Protection (ODPC) or Statutory Secretarial advisory?",
+  "👋 Have questions about Apex Edge Advisory? I'm online to assist your team!",
+  "👋 Want to explore Job Grading, RACI, or OKR Performance Scorecards?"
+];
+
 const APEX_KNOWLEDGE: Record<string, { answer: string; followUps?: string[]; action?: "book" | "contact" | "download" }> = {
   services: {
-    answer: "ApexEdge Advisory Limited structures solutions around 6 outcome-driven Practice Areas:\n1. 01 — Governance & Risk ('Give Your Board Clearer Visibility of Risk and Performance.')\n2. 02 — People & Performance ('Build a Performance System That Creates Accountability.')\n3. 03 — Controls & Policies ('Turn Policies Into Systems That Actually Work.')\n4. 04 — Leadership & Capability ('Build Leaders and Teams That Execute Better.')\n5. 05 — Data Protection & Privacy ('Protect Data. Strengthen Trust. Stay Compliant.')\n6. 06 — Corporate Secretarial ('Companies Act 2015 Compliance, Board Minutes & Statutory Filings.')",
+    answer: "ApexEdge Advisory Limited structures solutions around 6 Practice Areas:\n1. 01 — Governance & Risk\n2. 02 — People & Performance\n3. 03 — Controls & Policies\n4. 04 — Leadership & Capability\n5. 05 — Data Protection & Privacy\n6. 06 — Corporate Secretarial",
     followUps: ["Governance & Risk", "Corporate Secretarial", "Data Protection", "Book Consultation"],
   },
   "corporate secretarial": {
-    answer: "Our Corporate Secretarial practice ensures 100% statutory compliance under the Companies Act 2015 and BRS:\n- Annual Statutory Returns & BRS e-Filings\n- Board Minutes, Charters & Resolution Drafting\n- Statutory Registers of Members, Directors & Beneficial Owners\n- AGM / EGM Meeting Management & Minute Certification\n- Corporate Restructuring & Capital Alterations",
+    answer: "Our Corporate Secretarial practice ensures statutory compliance under Companies Act 2015 & BRS:\n- Beneficial Ownership Filings\n- Annual Returns & Registration Maintenance\n- Certified Board Resolutions & AGM Minutes\n- Company Record Management & Statutory Registers",
     followUps: ["Governance & Risk", "Controls & Policies", "Book Consultation"],
   },
   "data protection": {
-    answer: "ApexEdge Data Protection & Privacy advisory helps organisations understand obligations, strengthen privacy practices, and build operational data governance systems:\n- Data Protection Compliance & Gap Audits\n- Data Inventory & Mapping Registers\n- Privacy Policies, Notices & Consent Management\n- Data Protection Impact Assessments (DPIAs)\n- Data Processing Agreements (DPAs) & Vendor Risk Reviews\n- Data Subject Rights & Breach Response Protocols",
+    answer: "ApexEdge Data Protection & Privacy advisory services:\n- ODPC Statutory Registration (Controllers & Processors)\n- Data Protection Gap Audits & DPIA Reports\n- Personal Data Mapping & Vendor DPAs\n- Data Subject Access (DSAR) & Breach Response Playbooks",
     followUps: ["Governance & Risk", "Controls & Policies", "Book Consultation"],
   },
   privacy: {
@@ -48,11 +57,11 @@ const APEX_KNOWLEDGE: Record<string, { answer: string; followUps?: string[]; act
     followUps: ["Data Protection", "Book Consultation"],
   },
   "governance & risk": {
-    answer: "Our Governance & Risk practice gives your Board clearer visibility of risk and performance through independent audits, Board risk registers, heat maps, and decision frameworks.",
+    answer: "Our Governance & Risk practice gives your Board clearer visibility of risk and performance through independent audits, eBoard Frameworks, Board risk heat maps, and RACI decision frameworks.",
     followUps: ["Data Protection", "Controls & Policies", "Book Consultation"],
   },
   "people & performance": {
-    answer: "Our People & Performance practice builds performance systems that create accountability through job evaluation, salary grading bands, and strategy-aligned OKR scorecards.",
+    answer: "Our People & Performance practice builds accountability through Recruitment Processes, Job Grading, Salary Bands, RACI Ownership Charters, and strategy-aligned OKR scorecards.",
     followUps: ["Leadership & Capability", "Book Consultation"],
   },
   "controls & policies": {
@@ -63,45 +72,13 @@ const APEX_KNOWLEDGE: Record<string, { answer: string; followUps?: string[]; act
     answer: "Our Leadership & Capability practice builds executive management toolkits, 90-day execution roadmaps, and decision frameworks that change team behavior.",
     followUps: ["People & Performance", "Book Consultation"],
   },
-  "business registration": {
-    answer: "We manage end-to-end company incorporation in Kenya under the Business Registration Service (BRS):\n- Name Reservation & Articles of Association\n- KRA PIN, NSSF, & SHA Registration\n- CR12 Official Extract Issuance\n- Business Permit & Bank Account Opening Assistance.",
-    followUps: ["Company Secretarial", "Compliance", "Book Consultation"],
-  },
-  "company secretarial": {
-    answer: "Our certified Company Secretarial team (CPS-K) handles:\n- Preparation & filing of Annual Returns with BRS\n- Maintenance of Statutory Books & Beneficial Ownership Registers\n- Board & AGM Documentation and Minute Taking\n- Share Allotment, Transfers, & Corporate Restructuring.",
-    followUps: ["Corporate Governance", "Compliance", "Book Consultation"],
-  },
-  "corporate governance": {
-    answer: "We assist boards of directors, commercial entities, and regulated institutions with:\n- Board Evaluation & Governance Audits\n- Drafting Board Charters, Ethics Codes & Committee Frameworks\n- Alignment with Capital Markets Authority (CMA) Guidelines & Kenyan Companies Act 2015\n- Executive ESG & Strategic Advisory Workshops.",
-    followUps: ["Legal Advisory", "Company Secretarial", "Book Consultation"],
-  },
-  "legal advisory": {
-    answer: "Our Advocates & Legal Advisors provide comprehensive counsel on:\n- Commercial Contracts & Joint Venture Agreements\n- Regulatory Compliance Reviews & Licensing\n- Employment Law & Dispute Resolution Support\n- Intellectual Property Registration & Restructuring.",
-    followUps: ["HR Consulting", "Corporate Governance", "Book Consultation"],
-  },
-  "hr consulting": {
-    answer: "ApexEdge HR Advisory solutions include:\n- Employment Contracts & HR Policy Manual Development\n- Compensation Structuring & Payroll Administration\n- Organizational Restructuring & Performance Management\n- Kenyan Labor Law Compliance Audits.",
-    followUps: ["Immigration Services", "Legal Advisory", "Book Consultation"],
-  },
-  immigration: {
-    answer: "We streamline Kenya Immigration Department applications for multinational & expatriate personnel:\n- Class D Work Permits (Investors/Employees)\n- Class G (Prospecting) & Class K (Residents)\n- Special Passes & Student Passes\n- Foreign National Registration (Alien IDs) & Dependant Passes.",
-    followUps: ["Business Registration", "HR Consulting", "Book Consultation"],
-  },
-  compliance: {
-    answer: "We ensure 100% compliance with statutory regulations including the Data Protection Act, Companies Act 2015, Tax Procedures Act, and Sectoral Licenses (CMA, CBK, IRA, BRS).",
-    followUps: ["Data Protection", "Company Secretarial", "Book Consultation"],
-  },
-  "office location": {
-    answer: "📍 **ApexEdge Advisory Limited Headquarters**\nNairobi, Kenya\n📧 info@consult-apex.com | advisory@consult-apex.com\n🌐 www.consult-apex.com\n☎ +254 799 565125 / +254 728 626323\n🕒 Business Hours: Monday – Friday, 8:00 AM – 5:00 PM EAT.",
-    followUps: ["Book Consultation", "Contact ApexEdge"],
-  },
   contact: {
-    answer: "You can reach our senior advisors immediately:\n☎ Phone: +254 799 565125 / +254 728 626323\n📧 Email: info@consult-apex.com | advisory@consult-apex.com\n💬 WhatsApp: +254 799 565125\nOr click below to schedule an executive consultation call.",
+    answer: "You can reach our senior advisors immediately:\n☎ Phone: +254 799 565125 / +254 728 626323\n📧 Email: info@consult-apex.com | advisory@consult-apex.com\n💬 WhatsApp: +254 799 565125",
     followUps: ["Book Consultation", "Our Services"],
     action: "contact",
   },
   booking: {
-    answer: "I would be happy to help you schedule a confidential executive consultation with an ApexEdge Partner. Click the button below to select your preferred date, time, and service area.",
+    answer: "I would be happy to help you schedule a 20-minute executive consultation with an ApexEdge Partner. Select your topic below.",
     followUps: ["Our Services", "Contact ApexEdge"],
     action: "book",
   },
@@ -113,6 +90,9 @@ interface ApexAIAssistantProps {
 
 export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [showTeaser, setShowTeaser] = useState(false);
+  const [teaserIndex, setTeaserIndex] = useState(0);
+
   const [messages, setMessages] = useState<Message[]>(() => [
     {
       id: "1",
@@ -124,8 +104,6 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
         "Data Protection",
         "Governance & Risk",
         "People & Performance",
-        "Controls & Policies",
-        "Leadership & Capability",
         "Book Consultation",
       ],
     },
@@ -134,8 +112,45 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
   const [isTyping, setIsTyping] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
+  // Proactive assistance popup: Triggers every 2 minutes (120,000ms), stays visible for 45 seconds (45,000ms)
+  useEffect(() => {
+    // Initial teaser prompt after 10 seconds of landing
+    const initialTimer = setTimeout(() => {
+      if (!isOpen) {
+        setShowTeaser(true);
+      }
+    }, 10000);
+
+    // Recurring 2-minute interval
+    const intervalTimer = setInterval(() => {
+      if (!isOpen) {
+        setTeaserIndex((prev) => (prev + 1) % TEASER_PROMPTS.length);
+        setShowTeaser(true);
+      }
+    }, 120000); // 2 minutes
+
+    return () => {
+      clearTimeout(initialTimer);
+      clearInterval(intervalTimer);
+    };
+  }, [isOpen]);
+
+  // Teaser auto-dismiss timer: Lasts for 45 seconds when shown
+  useEffect(() => {
+    let dismissTimer: NodeJS.Timeout;
+    if (showTeaser && !isOpen) {
+      dismissTimer = setTimeout(() => {
+        setShowTeaser(false);
+      }, 45000); // 45 seconds animation/visibility duration
+    }
+    return () => {
+      if (dismissTimer) clearTimeout(dismissTimer);
+    };
+  }, [showTeaser, isOpen]);
+
   useEffect(() => {
     if (isOpen) {
+      setShowTeaser(false);
       chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages, isOpen, isTyping]);
@@ -155,7 +170,6 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
     if (!textToSend) setInputValue("");
     setIsTyping(true);
 
-    // Match query against APEX knowledge base
     const normalized = query.toLowerCase();
 
     setTimeout(() => {
@@ -163,12 +177,12 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
       let followUps: string[] | undefined = undefined;
       let action: "book" | "contact" | "download" | undefined = undefined;
 
-      if (normalized.includes("book") || normalized.includes("consultation") || normalized.includes("schedule") || normalized.includes("proposal")) {
+      if (normalized.includes("book") || normalized.includes("consultation") || normalized.includes("schedule")) {
         const kb = APEX_KNOWLEDGE["booking"];
         aiResponseText = kb.answer;
         followUps = kb.followUps;
         action = "book";
-      } else if (normalized.includes("contact") || normalized.includes("phone") || normalized.includes("email") || normalized.includes("call") || normalized.includes("location") || normalized.includes("where")) {
+      } else if (normalized.includes("contact") || normalized.includes("phone") || normalized.includes("email") || normalized.includes("call")) {
         const kb = APEX_KNOWLEDGE["contact"];
         aiResponseText = kb.answer;
         followUps = kb.followUps;
@@ -182,9 +196,8 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
           followUps = kb.followUps;
           action = kb.action;
         } else {
-          // Out of scope fallback
           aiResponseText =
-            "I am specialized to assist with ApexEdge Advisory Limited's professional solutions.\nI would be delighted to guide you through corporate governance, legal advisory, company secretarial, HR consulting, immigration, or business registration services in Kenya.";
+            "I am specialized to assist with ApexEdge Advisory Limited's solutions in Corporate Governance, Data Protection (ODPC), Corporate Secretarial, HR Frameworks, and Controls.";
           followUps = ["Our Services", "Book Consultation", "Contact ApexEdge"];
         }
       }
@@ -200,18 +213,85 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
 
       setMessages((prev) => [...prev, aiMsg]);
       setIsTyping(false);
-    }, 700);
+    }, 600);
+  };
+
+  const handleOpenChat = () => {
+    setShowTeaser(false);
+    setIsOpen(true);
   };
 
   return (
     <>
+      {/* Proactive Assistance Teaser Popup (Pops up every 2 minutes, lasts for 45 seconds) */}
+      <AnimatePresence>
+        {showTeaser && !isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 15, scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 350, damping: 25 }}
+            className="fixed bottom-24 right-5 sm:right-6 z-50 w-72 sm:w-80 rounded-2xl bg-[#071C3F] border border-[#10B981]/50 p-4 shadow-2xl text-white font-sans backdrop-blur-xl"
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-[#10B981]/20 border border-[#10B981]/40 flex items-center justify-center text-[#10B981] shrink-0">
+                  <Bot className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[11px] font-black uppercase text-[#10B981] tracking-wider block">
+                    APEX AI ASSISTANT
+                  </span>
+                  <span className="text-[9px] text-slate-400 font-bold block">
+                    Available Online · 45s Popup
+                  </span>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setShowTeaser(false)}
+                className="text-slate-400 hover:text-white p-1 rounded-full hover:bg-slate-800 transition-colors"
+                aria-label="Dismiss Teaser"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            <p className="text-xs text-slate-200 leading-snug font-medium mb-3">
+              {TEASER_PROMPTS[teaserIndex]}
+            </p>
+
+            <button
+              onClick={handleOpenChat}
+              className="w-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black text-xs py-2 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-md cursor-pointer font-sans"
+            >
+              <MessageSquare className="w-3.5 h-3.5" />
+              <span>Ask APEX AI Now →</span>
+            </button>
+
+            {/* Visual 45-Second Progress Indicator Bar */}
+            <div className="w-full bg-slate-800 h-1 rounded-full overflow-hidden mt-3">
+              <motion.div
+                initial={{ width: "100%" }}
+                animate={{ width: "0%" }}
+                transition={{ duration: 45, ease: "linear" }}
+                className="h-full bg-[#10B981]"
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Floating Action Trigger Button in Bottom-Right */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-6 right-5 sm:right-6 z-50">
         <motion.button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => {
+            if (showTeaser) setShowTeaser(false);
+            setIsOpen(!isOpen);
+          }}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.92 }}
-          className="relative flex items-center justify-center w-16 h-16 rounded-full bg-[#071C3F] border-2 border-[#10B981] text-[#10B981] shadow-[0_10px_35px_rgba(7,28,63,0.6)] backdrop-blur-xl group overflow-hidden"
+          className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#071C3F] border-2 border-[#10B981] text-[#10B981] shadow-[0_10px_35px_rgba(7,28,63,0.6)] backdrop-blur-xl group overflow-hidden cursor-pointer"
           aria-label="Toggle APEX Assistant"
         >
           {/* Pulsing Outer Ring */}
@@ -221,14 +301,14 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
           <AnimatePresence mode="wait">
             {isOpen ? (
               <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
-                <X className="w-7 h-7 text-white" />
+                <X className="w-6 h-6 text-white" />
               </motion.div>
             ) : (
               <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} className="flex items-center justify-center">
-                <Bot className="w-8 h-8 text-[#10B981] group-hover:rotate-12 transition-transform" />
-                <span className="absolute top-2 right-2 flex h-3 w-3">
+                <Bot className="w-7 h-7 text-[#10B981] group-hover:rotate-12 transition-transform" />
+                <span className="absolute top-1.5 right-1.5 flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#10B981]"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
                 </span>
               </motion.div>
             )}
@@ -236,107 +316,100 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
         </motion.button>
       </div>
 
-      {/* Chat Window Panel */}
+      {/* Optimized Compact Chat Window Panel (w-80 sm:w-[340px] max-h-[460px]) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            initial={{ opacity: 0, scale: 0.9, y: 25 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 30 }}
+            exit={{ opacity: 0, scale: 0.9, y: 25 }}
             transition={{ type: "spring", stiffness: 350, damping: 28 }}
-            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[410px] h-[580px] rounded-3xl bg-[#071C3F] border border-[#10B981]/40 shadow-2xl text-white flex flex-col overflow-hidden backdrop-blur-2xl"
+            className="fixed bottom-22 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[340px] h-[450px] max-h-[80vh] rounded-2xl bg-[#071C3F] border border-[#10B981]/40 shadow-2xl text-white flex flex-col overflow-hidden backdrop-blur-2xl font-sans"
           >
             {/* Top Header Bar */}
-            <div className="flex items-center justify-between px-6 py-4 bg-slate-900/90 border-b border-[#10B981]/30">
-              <div className="flex items-center gap-3">
-                <div className="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-slate-950 border border-[#10B981]/50 p-2 shadow-md shrink-0">
+            <div className="flex items-center justify-between px-4 py-3 bg-slate-950/95 border-b border-[#10B981]/30 shrink-0">
+              <div className="flex items-center gap-2.5">
+                <div className="relative flex items-center justify-center w-8 h-8 rounded-xl bg-slate-900 border border-[#10B981]/50 p-1.5 shadow-xs shrink-0">
                   <Image
                     src="/apexedge_logo.png"
                     alt="ApexEdge Logo"
-                    width={36}
-                    height={36}
-                    className="w-full h-full object-contain brightness-0 invert drop-shadow-[0_2px_8px_rgba(255,255,255,0.4)]"
+                    width={28}
+                    height={28}
+                    className="w-full h-full object-contain brightness-0 invert"
                   />
-                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border border-slate-900" />
+                  <span className="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-slate-900" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-2">
-                    <Image
-                      src="/apexedge_logo.png"
-                      alt="ApexEdge Advisory Logo"
-                      width={24}
-                      height={20}
-                      className="h-5 w-auto object-contain brightness-0 invert"
-                    />
-                    <span className="px-2 py-0.5 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[10px] font-black uppercase text-[#10B981] tracking-wider">
-                      Executive
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-black text-white tracking-tight">APEX AI</span>
+                    <span className="px-1.5 py-0.2 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[9px] font-black uppercase text-[#10B981] tracking-wider">
+                      Advisory
                     </span>
                   </div>
-                  <p className="text-xs text-slate-300 font-normal">ApexEdge Advisory Virtual Assistant</p>
+                  <p className="text-[10px] text-slate-300 font-normal">ApexEdge Advisory Assistant</p>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                className="p-1.5 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                aria-label="Close Chat"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
             {/* Chat Messages Feed */}
-            <div className="flex-1 p-5 overflow-y-auto space-y-4 bg-gradient-to-b from-[#071C3F] via-slate-950/80 to-[#071C3F]">
+            <div className="flex-1 p-3.5 overflow-y-auto space-y-3 bg-gradient-to-b from-[#071C3F] via-slate-950/90 to-[#071C3F]">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
                   className={`flex flex-col ${msg.sender === "user" ? "items-end" : "items-start"}`}
                 >
-                  <div className="flex items-end gap-2 max-w-[85%]">
+                  <div className="flex items-end gap-1.5 max-w-[90%]">
                     {msg.sender === "ai" && (
-                      <div className="w-7 h-7 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] flex items-center justify-center text-xs shrink-0 mb-1">
-                        <Bot className="w-4 h-4" />
+                      <div className="w-6 h-6 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] flex items-center justify-center text-[10px] shrink-0 mb-1">
+                        <Bot className="w-3.5 h-3.5" />
                       </div>
                     )}
                     <div
-                      className={`rounded-2xl p-4 text-sm leading-relaxed ${
+                      className={`rounded-xl p-3 text-xs leading-relaxed ${
                         msg.sender === "user"
-                          ? "bg-[#10B981] text-[#071C3F] font-semibold rounded-br-none shadow-md"
-                          : "bg-slate-900/90 border border-slate-800 text-slate-100 rounded-bl-none shadow-lg whitespace-pre-line"
+                          ? "bg-[#10B981] text-[#071C3F] font-bold rounded-br-none shadow-xs"
+                          : "bg-slate-900/90 border border-slate-800 text-slate-100 rounded-bl-none shadow-md whitespace-pre-line"
                       }`}
                     >
                       {msg.text}
                     </div>
                   </div>
-                  <span className="text-[10px] text-slate-400 mt-1 px-1">{msg.timestamp}</span>
+                  <span className="text-[9px] text-slate-400 mt-0.5 px-1">{msg.timestamp}</span>
 
                   {/* Context Actions (e.g. Book Consultation button) */}
                   {msg.action === "book" && (
-                    <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} className="mt-2 pl-9">
+                    <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} className="mt-2 pl-7">
                       <Button
                         onClick={() => {
                           setIsOpen(false);
                           if (onOpenBooking) onOpenBooking();
                         }}
-                        className="rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-bold text-xs px-5 py-2 flex items-center gap-2 shadow-lg"
+                        className="rounded-full bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black text-[11px] px-4 py-1.5 flex items-center gap-1.5 shadow-md font-sans"
                       >
-                        <Calendar className="w-4 h-4" />
-                        <span>Book Executive Consultation</span>
+                        <Calendar className="w-3.5 h-3.5" />
+                        <span>Book 20-Min Session</span>
                       </Button>
                     </motion.div>
                   )}
 
                   {/* Quick Reply Pills */}
                   {msg.quickReplies && msg.quickReplies.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mt-3 pl-9">
+                    <div className="flex flex-wrap gap-1.5 mt-2.5 pl-7">
                       {msg.quickReplies.map((reply) => (
-                        <motion.button
+                        <button
                           key={reply}
-                          whileHover={{ scale: 1.04 }}
-                          whileTap={{ scale: 0.96 }}
                           onClick={() => handleSendMessage(reply)}
-                          className="px-3 py-1.5 rounded-full bg-slate-900 border border-[#10B981]/40 text-xs text-[#10B981] hover:bg-[#10B981] hover:text-[#071C3F] font-semibold transition-all shadow-sm"
+                          className="px-2.5 py-1 rounded-full bg-slate-900 border border-[#10B981]/40 text-[10px] text-[#10B981] hover:bg-[#10B981] hover:text-[#071C3F] font-bold transition-all shadow-xs cursor-pointer font-sans"
                         >
                           {reply}
-                        </motion.button>
+                        </button>
                       ))}
                     </div>
                   )}
@@ -345,12 +418,12 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
 
               {/* Typing Indicator */}
               {isTyping && (
-                <div className="flex items-center gap-2 pl-9">
-                  <div className="rounded-2xl bg-slate-900 border border-slate-800 px-4 py-3 text-slate-400 flex items-center gap-1.5 text-xs">
-                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-bounce" />
-                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-bounce delay-150" />
-                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-bounce delay-300" />
-                    <span className="ml-1 text-[11px]">APEX is thinking...</span>
+                <div className="flex items-center gap-2 pl-7">
+                  <div className="rounded-xl bg-slate-900 border border-slate-800 px-3 py-2 text-slate-400 flex items-center gap-1 text-[11px]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-bounce" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-bounce delay-150" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-bounce delay-300" />
+                    <span className="ml-1 text-[10px]">APEX typing...</span>
                   </div>
                 </div>
               )}
@@ -363,23 +436,21 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
                 e.preventDefault();
                 handleSendMessage();
               }}
-              className="p-3 bg-slate-900 border-t border-slate-800 flex items-center gap-2"
+              className="p-2.5 bg-slate-950 border-t border-slate-800 flex items-center gap-2 shrink-0"
             >
               <input
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Ask APEX about our services..."
-                className="flex-1 bg-slate-950 border border-slate-800 rounded-full px-5 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#10B981] transition-colors"
+                className="flex-1 bg-slate-900 border border-slate-800 rounded-full px-4 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#10B981] transition-colors"
               />
-              <motion.button
+              <button
                 type="submit"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-10 h-10 rounded-full bg-[#10B981] text-[#071C3F] flex items-center justify-center shrink-0 font-bold hover:bg-emerald-400 transition-colors shadow-md"
+                className="w-8 h-8 rounded-full bg-[#10B981] text-[#071C3F] flex items-center justify-center shrink-0 font-bold hover:bg-emerald-400 transition-colors shadow-xs cursor-pointer"
               >
-                <Send className="w-4 h-4" />
-              </motion.button>
+                <Send className="w-3.5 h-3.5" />
+              </button>
             </form>
           </motion.div>
         )}
