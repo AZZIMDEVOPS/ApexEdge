@@ -15,16 +15,20 @@ import { Button } from "@/components/ui/button";
 
 const HERO_HEADLINES = [
   {
-    lead: "Organisational breakdowns don't start with bad intentions.",
-    highlight: "They start when governance stays on paper with no named owner.",
+    lead: "1. Legal Audit: Statutory & Contractual Compliance.",
+    highlight: "Companies Act 2015, Data Protection (ODPC) & Director Liability Protection.",
+  },
+  {
+    lead: "2. Governance Audit: Board Oversight & RACI Authority.",
+    highlight: "CMA & CBK Code Alignment, 15-Page Decision Memos & Fiduciary Risk Control.",
+  },
+  {
+    lead: "3. HR Audit: Role Overlap & Salary Scale Frameworks.",
+    highlight: "Job Grading, Single-Point Accountability & Labor Statutory Compliance.",
   },
   {
     lead: "Strategic advisory is worthless unless operationalized.",
     highlight: "We turn 200-page policy binders into 1-page daily workflows.",
-  },
-  {
-    lead: "Clear risk oversight for Boards. Accountability for teams.",
-    highlight: "Board-ready governance systems built for East African realities.",
   },
   {
     lead: "Zero recurring audit exceptions. Zero fuzzy committees.",

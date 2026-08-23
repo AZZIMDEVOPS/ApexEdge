@@ -46,7 +46,7 @@ const PRACTICE_AREAS = [
     whoFor: "Boards of Directors, CEOs, Board Chairs, Risk & Governance Committees, Executive Directors.",
     approach: "We conduct independent governance audits, structure board risk registers, clarify decision rights, and build actionable governance frameworks.",
     services: [
-      "Governance Health Checks & Gap Audits",
+      "Governance Audit & Board Effectiveness Assessments",
       "eBoard Frameworks & Paperless Governance Portals",
       "Board Risk Register Development & Heat Maps",
       "Board Pack & Executive Reporting Restructuring",
@@ -55,14 +55,13 @@ const PRACTICE_AREAS = [
       "Board Decision-Making & Authorization Frameworks"
     ],
     deliverables: [
+      "Governance Audit Reports & Risk Action Plans",
       "eBoard Governance Frameworks & Paperless Portals",
       "Board Risk Registers & Heat Maps",
       "Governance Dashboards & Scorecards",
       "Board Reporting Frameworks & Digital Packs",
       "Decision Frameworks & Charters",
-      "Accountability Structures",
-      "Governance Health Check Reports",
-      "Risk Action Plans"
+      "Accountability Structures"
     ],
     outcome: "Boards gain clearer visibility of risk, controls, accountability and management performance.",
     methodology: ["Diagnose", "Design", "Implement", "Measure"]
@@ -82,6 +81,7 @@ const PRACTICE_AREAS = [
     approach: "We architect role structures, job descriptions, salary bands, and OKR performance scorecards linked directly to strategic goals.",
     services: [
       "Recruitment Processes & Executive Talent Acquisition",
+      "HR Audit & Labor Statutory Compliance",
       "Leadership & Executive Capability Frameworks",
       "Whistleblower & Anonymous Fraud Protection Frameworks",
       "Job Grading & Salary Band HR Frameworks",
