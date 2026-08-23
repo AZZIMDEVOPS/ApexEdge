@@ -283,7 +283,7 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
       </AnimatePresence>
 
       {/* Floating Action Trigger Button in Bottom-Right */}
-      <div className="fixed bottom-6 right-5 sm:right-6 z-50">
+      <div className="fixed bottom-5 right-4 sm:right-5 z-50">
         <motion.button
           onClick={() => {
             if (showTeaser) setShowTeaser(false);
@@ -291,7 +291,7 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
           }}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.92 }}
-          className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#071C3F] border-2 border-[#10B981] text-[#10B981] shadow-[0_10px_35px_rgba(7,28,63,0.6)] backdrop-blur-xl group overflow-hidden cursor-pointer"
+          className="relative flex items-center justify-center w-12 h-12 rounded-full bg-[#071C3F] border-2 border-[#10B981] text-[#10B981] shadow-[0_10px_30px_rgba(7,28,63,0.6)] backdrop-blur-xl group overflow-hidden cursor-pointer"
           aria-label="Toggle APEX Assistant"
         >
           {/* Pulsing Outer Ring */}
@@ -301,14 +301,14 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
           <AnimatePresence mode="wait">
             {isOpen ? (
               <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
-                <X className="w-6 h-6 text-white" />
+                <X className="w-5 h-5 text-white" />
               </motion.div>
             ) : (
               <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} className="flex items-center justify-center">
-                <Bot className="w-7 h-7 text-[#10B981] group-hover:rotate-12 transition-transform" />
-                <span className="absolute top-1.5 right-1.5 flex h-2.5 w-2.5">
+                <Bot className="w-6 h-6 text-[#10B981] group-hover:rotate-12 transition-transform" />
+                <span className="absolute top-1 right-1 flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
                 </span>
               </motion.div>
             )}
@@ -316,72 +316,72 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
         </motion.button>
       </div>
 
-      {/* Optimized Compact Chat Window Panel (w-80 sm:w-[340px] max-h-[460px]) */}
+      {/* Ultra-Compact Chat Window Panel (w-[290px] h-[380px]) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 25 }}
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 25 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", stiffness: 350, damping: 28 }}
-            className="fixed bottom-22 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[340px] h-[450px] max-h-[80vh] rounded-2xl bg-[#071C3F] border border-[#10B981]/40 shadow-2xl text-white flex flex-col overflow-hidden backdrop-blur-2xl font-sans"
+            className="fixed bottom-20 right-4 sm:right-5 z-50 w-[calc(100vw-2rem)] sm:w-[290px] h-[380px] max-h-[75vh] rounded-2xl bg-[#071C3F] border border-[#10B981]/40 shadow-2xl text-white flex flex-col overflow-hidden backdrop-blur-2xl font-sans text-xs"
           >
             {/* Top Header Bar */}
-            <div className="flex items-center justify-between px-4 py-3 bg-slate-950/95 border-b border-[#10B981]/30 shrink-0">
-              <div className="flex items-center gap-2.5">
-                <div className="relative flex items-center justify-center w-8 h-8 rounded-xl bg-slate-900 border border-[#10B981]/50 p-1.5 shadow-xs shrink-0">
+            <div className="flex items-center justify-between px-3.5 py-2.5 bg-slate-950/95 border-b border-[#10B981]/30 shrink-0">
+              <div className="flex items-center gap-2">
+                <div className="relative flex items-center justify-center w-7 h-7 rounded-lg bg-slate-900 border border-[#10B981]/50 p-1 shadow-xs shrink-0">
                   <Image
                     src="/apexedge_logo.png"
                     alt="ApexEdge Logo"
-                    width={28}
-                    height={28}
+                    width={22}
+                    height={22}
                     className="w-full h-full object-contain brightness-0 invert"
                   />
-                  <span className="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-slate-900" />
+                  <span className="absolute bottom-0 right-0 w-1.5 h-1.5 rounded-full bg-emerald-400 border border-slate-900" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-black text-white tracking-tight">APEX AI</span>
-                    <span className="px-1.5 py-0.2 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[9px] font-black uppercase text-[#10B981] tracking-wider">
+                  <div className="flex items-center gap-1">
+                    <span className="text-[11px] font-black text-white tracking-tight">APEX AI</span>
+                    <span className="px-1.5 py-0.1 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[8px] font-black uppercase text-[#10B981] tracking-wider">
                       Advisory
                     </span>
                   </div>
-                  <p className="text-[10px] text-slate-300 font-normal">ApexEdge Advisory Assistant</p>
+                  <p className="text-[9px] text-slate-300 font-normal">Executive Assistant</p>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1.5 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                className="p-1 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
                 aria-label="Close Chat"
               >
-                <X className="w-4 h-4" />
+                <X className="w-3.5 h-3.5" />
               </button>
             </div>
 
             {/* Chat Messages Feed */}
-            <div className="flex-1 p-3.5 overflow-y-auto space-y-3 bg-gradient-to-b from-[#071C3F] via-slate-950/90 to-[#071C3F]">
+            <div className="flex-1 p-2.5 overflow-y-auto space-y-2.5 bg-gradient-to-b from-[#071C3F] via-slate-950/90 to-[#071C3F]">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
                   className={`flex flex-col ${msg.sender === "user" ? "items-end" : "items-start"}`}
                 >
-                  <div className="flex items-end gap-1.5 max-w-[90%]">
+                  <div className="flex items-end gap-1 max-w-[92%]">
                     {msg.sender === "ai" && (
-                      <div className="w-6 h-6 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] flex items-center justify-center text-[10px] shrink-0 mb-1">
-                        <Bot className="w-3.5 h-3.5" />
+                      <div className="w-5 h-5 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] flex items-center justify-center text-[9px] shrink-0 mb-0.5">
+                        <Bot className="w-3 h-3" />
                       </div>
                     )}
                     <div
-                      className={`rounded-xl p-3 text-xs leading-relaxed ${
+                      className={`rounded-xl p-2.5 text-[11px] leading-snug ${
                         msg.sender === "user"
                           ? "bg-[#10B981] text-[#071C3F] font-bold rounded-br-none shadow-xs"
-                          : "bg-slate-900/90 border border-slate-800 text-slate-100 rounded-bl-none shadow-md whitespace-pre-line"
+                          : "bg-slate-900/90 border border-slate-800 text-slate-100 rounded-bl-none shadow-xs whitespace-pre-line"
                       }`}
                     >
                       {msg.text}
                     </div>
                   </div>
-                  <span className="text-[9px] text-slate-400 mt-0.5 px-1">{msg.timestamp}</span>
+                  <span className="text-[8px] text-slate-400 mt-0.5 px-1">{msg.timestamp}</span>
 
                   {/* Context Actions (e.g. Book Consultation button) */}
                   {msg.action === "book" && (
@@ -436,20 +436,20 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
                 e.preventDefault();
                 handleSendMessage();
               }}
-              className="p-2.5 bg-slate-950 border-t border-slate-800 flex items-center gap-2 shrink-0"
+              className="p-2 bg-slate-950 border-t border-slate-800 flex items-center gap-1.5 shrink-0"
             >
               <input
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Ask APEX about our services..."
-                className="flex-1 bg-slate-900 border border-slate-800 rounded-full px-4 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#10B981] transition-colors"
+                placeholder="Ask APEX..."
+                className="flex-1 bg-slate-900 border border-slate-800 rounded-full px-3.5 py-1.5 text-[11px] text-white placeholder-slate-400 focus:outline-none focus:border-[#10B981] transition-colors"
               />
               <button
                 type="submit"
-                className="w-8 h-8 rounded-full bg-[#10B981] text-[#071C3F] flex items-center justify-center shrink-0 font-bold hover:bg-emerald-400 transition-colors shadow-xs cursor-pointer"
+                className="w-7 h-7 rounded-full bg-[#10B981] text-[#071C3F] flex items-center justify-center shrink-0 font-bold hover:bg-emerald-400 transition-colors shadow-xs cursor-pointer"
               >
-                <Send className="w-3.5 h-3.5" />
+                <Send className="w-3 h-3" />
               </button>
             </form>
           </motion.div>
