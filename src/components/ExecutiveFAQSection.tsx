@@ -28,7 +28,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     q: "What does a Clarity Session involve?",
-    a: "A Clarity Session is a focused 45-minute working meeting with an Apex Edge Partner to explore one specific organizational challenge. We diagnose root system causes, identify key governance gaps, and outline potential practical interventions.",
+    a: "A Clarity Session is a focused 20-minute working meeting with an Apex Edge Partner to explore one specific organizational challenge. We diagnose root system causes, identify key governance gaps, and outline potential practical interventions.",
   },
   {
     q: "What do we receive after the Clarity Session?",

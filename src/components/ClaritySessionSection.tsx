@@ -36,7 +36,7 @@ export function ClaritySessionSection({ onOpenBooking }: ClaritySessionSectionPr
               <SectionLabel number="07" title="START WITH CLARITY" />
 
               <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight uppercase leading-none">
-                45-MINUTE CLARITY SESSION
+                20-MINUTE CLARITY SESSION
               </h2>
 
               <p className="text-lg text-slate-200 leading-relaxed font-medium">

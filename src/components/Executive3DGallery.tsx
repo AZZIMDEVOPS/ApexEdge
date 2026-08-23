@@ -125,7 +125,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "Executive Coaching",
     title: "Managing Director Clarity Session",
     location: "Partner Working Office",
-    description: "Focused 45-minute working session resolving operational friction, audit exceptions, and leadership execution bottlenecks."
+    description: "Focused 20-minute working session resolving operational friction, audit exceptions, and leadership execution bottlenecks."
   },
   {
     id: "senior-briefing",

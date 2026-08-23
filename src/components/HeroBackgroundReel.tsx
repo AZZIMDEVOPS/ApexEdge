@@ -49,7 +49,7 @@ export const HERO_BACKGROUND_IMAGES = [
   {
     src: "/authentic_advisory_one_on_one.jpg",
     alt: "One-on-One Partner Clarity Session on Operational Controls",
-    caption: "45-Minute Clarity Sessions · Practical System Design",
+    caption: "20-Minute Clarity Sessions · Practical System Design",
   },
   {
     src: "/nairobi_gtc_expressway.jpg",

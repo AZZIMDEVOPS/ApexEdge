@@ -21,7 +21,7 @@ const ENGAGEMENT_STEPS = [
   {
     step: "02",
     title: "STEP 2: Explore in Clarity Session",
-    desc: "Join a confidential 45-minute working session with an Apex Edge Senior Partner.",
+    desc: "Join a confidential 20-minute working session with an Apex Edge Senior Partner.",
   },
   {
     step: "03",
@@ -73,7 +73,7 @@ export default function ContactPage() {
           </h1>
 
           <p className="max-w-3xl mx-auto text-lg text-slate-700 font-normal leading-relaxed">
-            Schedule your 45-Minute Clarity Session with an Apex Edge Senior Advisory Partner and receive your One-Page Action Map highlighting priority gaps, quick wins and next steps.
+            Schedule your 20-Minute Clarity Session with an Apex Edge Senior Advisory Partner and receive your One-Page Action Map highlighting priority gaps, quick wins and next steps.
           </p>
         </div>
       </section>

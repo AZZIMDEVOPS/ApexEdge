@@ -425,16 +425,17 @@ export default function AboutPage() {
             <h2 className="text-3xl sm:text-5xl font-black text-white">
               Ready to Turn Governance into Daily Operational Reality?
             </h2>
-            <p className="text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Book a structured 45-minute working session with an Apex Edge Partner to diagnose your organisation&apos;s biggest operational bottleneck.
+            <p className="text-[#071C3F] font-bold text-sm sm:text-base max-w-2xl mx-auto">
+              Book a structured 20-minute working session with an Apex Edge Partner to diagnose your organisation&apos;s biggest operational bottleneck.
             </p>
-            <div className="pt-2">
+
+            <div className="pt-2 flex justify-center">
               <Button
                 onClick={() => setIsBookingOpen(true)}
-                className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-full px-8 py-4 text-sm shadow-xl shadow-[#10B981]/25 transition-all hover:scale-105"
+                className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-full px-8 py-4 text-base shadow-xl shadow-[#10B981]/20 flex items-center gap-2 transition-all hover:scale-105"
               >
-                <Calendar className="w-4 h-4 mr-2" />
-                <span>Book Your 45-Minute Clarity Session →</span>
+                <Calendar className="w-5 h-5" />
+                <span>Book Your 20-Minute Clarity Session →</span>
               </Button>
             </div>
           </motion.div>
