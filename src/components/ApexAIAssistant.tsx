@@ -240,10 +240,10 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
                 </div>
                 <div>
                   <span className="text-[11px] font-black uppercase text-[#071C3F] tracking-wider block">
-                    APEX AI ASSISTANT
+                    APEX ASSISTANT
                   </span>
                   <span className="text-[9px] text-[#10B981] font-extrabold block">
-                    Online · 45s Assistance Popup
+                    ONLINE
                   </span>
                 </div>
               </div>
@@ -266,7 +266,7 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
               className="w-full bg-[#071C3F] hover:bg-[#0B2A63] text-white font-black text-xs py-2 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer font-sans"
             >
               <MessageSquare className="w-3.5 h-3.5 text-[#10B981]" />
-              <span>Ask APEX AI Now →</span>
+              <span>Ask APEX Assistant →</span>
             </button>
 
             {/* Visual 45-Second Progress Bar Indicator */}
@@ -341,9 +341,9 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
                 </div>
                 <div>
                   <div className="flex items-center gap-1">
-                    <span className="text-[11px] font-black text-[#071C3F] tracking-tight">APEX AI</span>
+                    <span className="text-[11px] font-black text-[#071C3F] tracking-tight">APEX ASSISTANT</span>
                     <span className="px-1.5 py-0.1 rounded-full bg-[#10B981]/15 border border-[#10B981]/30 text-[8px] font-extrabold uppercase text-[#071C3F] tracking-wider">
-                      Advisory
+                      ONLINE
                     </span>
                   </div>
                   <p className="text-[9px] text-slate-500 font-medium">Executive Advisory Assistant</p>
