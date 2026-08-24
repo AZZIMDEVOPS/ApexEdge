@@ -324,7 +324,7 @@ export function ApexAIAssistant({ onOpenBooking }: ApexAIAssistantProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", stiffness: 350, damping: 28 }}
-            className="fixed bottom-20 right-4 sm:right-5 z-50 w-[calc(100vw-2rem)] sm:w-[300px] h-[400px] max-h-[78vh] rounded-2xl bg-white border border-slate-200 shadow-2xl text-slate-900 flex flex-col overflow-hidden backdrop-blur-xl font-sans text-xs"
+            className="fixed bottom-20 right-4 sm:right-5 z-50 w-[calc(100vw-2.5rem)] sm:w-[310px] h-[460px] max-h-[82vh] rounded-3xl bg-white border border-slate-200 shadow-2xl text-slate-900 flex flex-col overflow-hidden backdrop-blur-xl font-sans text-xs"
           >
             {/* Top Header Bar (Clean Off-White) */}
             <div className="flex items-center justify-between px-3.5 py-2.5 bg-slate-50 border-b border-slate-200 shrink-0">
