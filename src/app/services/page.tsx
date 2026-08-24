@@ -15,11 +15,13 @@ import {
   FileText, 
   HelpCircle, 
   Zap, 
-  Target
+  Target,
+  Network
 } from "lucide-react";
 import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
 import { CorporateFooter } from "@/components/CorporateFooter";
 import { ConsultationModal } from "@/components/ConsultationModal";
+import { OrganogramCreatorModal } from "@/components/OrganogramCreatorModal";
 import { ApexAIAssistant } from "@/components/ApexAIAssistant";
 import { Button } from "@/components/ui/button";
 import {
@@ -46,6 +48,7 @@ const PRACTICE_AREAS = [
     whoFor: "Boards of Directors, CEOs, Board Chairs, Risk & Governance Committees, Executive Directors.",
     approach: "We conduct independent governance audits, structure board risk registers, clarify decision rights, and build actionable governance frameworks.",
     services: [
+      "Strategic Planning & Organisational Structure Review",
       "Governance Audit & Board Effectiveness Assessments",
       "eBoard Frameworks & Paperless Governance Portals",
       "Board Risk Register Development & Heat Maps",
@@ -55,6 +58,7 @@ const PRACTICE_AREAS = [
       "Board Decision-Making & Authorization Frameworks"
     ],
     deliverables: [
+      "Strategic Planning & Structure Review Memos",
       "Governance Audit Reports & Risk Action Plans",
       "eBoard Governance Frameworks & Paperless Portals",
       "Board Risk Registers & Heat Maps",
@@ -80,6 +84,7 @@ const PRACTICE_AREAS = [
     whoFor: "CEOs, CFOs, Heads of HR, Chief Operating Officers, Business Unit Leads.",
     approach: "We architect role structures, job descriptions, salary bands, and OKR performance scorecards linked directly to strategic goals.",
     services: [
+      "Organisational Structure & Organogram Architecture",
       "Recruitment Processes & Executive Talent Acquisition",
       "HR Audit & Labor Statutory Compliance",
       "Leadership & Executive Capability Frameworks",
@@ -92,6 +97,7 @@ const PRACTICE_AREAS = [
       "Executive Succession & Talent Pipeline Frameworks"
     ],
     deliverables: [
+      "Organisational Structure Charts & Organograms",
       "Recruitment Processes & Executive Hiring Workflows",
       "Leadership Capability & 90-Day Execution Roadmaps",
       "Whistleblower Protection Policies & Reporting Hotlines",
@@ -234,6 +240,7 @@ const PRACTICE_AREAS = [
 
 export default function ServicesPage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isOrganogramOpen, setIsOrganogramOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>("Governance & Risk");
   const [activePillarIdx, setActivePillarIdx] = useState<number>(0);
   const [isHeadlinePaused, setIsHeadlinePaused] = useState<boolean>(false);
@@ -616,12 +623,48 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Interactive Organogram & Structure Review Callout Banner */}
+      <section className="py-16 bg-[#071C3F] text-white border-t border-b border-slate-800 font-sans">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 flex flex-wrap items-center justify-between gap-6">
+          <div className="space-y-2 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] text-[10px] font-black uppercase tracking-widest">
+              <Network className="w-3.5 h-3.5" />
+              <span>INTERACTIVE ORGANISATIONAL TOOL</span>
+            </div>
+            <h3 className="text-2xl sm:text-4xl font-black text-white leading-tight">
+              Organisational Structure &amp; Organogram Creator
+            </h3>
+            <p className="text-sm text-slate-300 font-normal leading-relaxed">
+              Model your enterprise reporting tiers, functional departments, and spans of control in 4 interactive steps. Open in a printable window or request an independent Apex Edge structure review.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Button
+              onClick={() => setIsOrganogramOpen(true)}
+              className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-full px-7 py-4 text-sm shadow-xl shadow-[#10B981]/30 flex items-center gap-2.5 transition-all hover:scale-105 cursor-pointer font-sans"
+            >
+              <Network className="w-4 h-4" />
+              <span>Launch Organogram Creator →</span>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       <CorporateFooter />
+      
       <ConsultationModal 
         isOpen={isBookingOpen} 
         onClose={() => setIsBookingOpen(false)} 
         defaultCategory={selectedCategory}
       />
+
+      <OrganogramCreatorModal
+        isOpen={isOrganogramOpen}
+        onClose={() => setIsOrganogramOpen(false)}
+        onOpenBooking={() => openBookingForCategory("People & Performance")}
+      />
+
       <ApexAIAssistant onOpenBooking={() => openBookingForCategory("Data Protection & Privacy")} />
     </main>
   );

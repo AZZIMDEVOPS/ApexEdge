@@ -15,12 +15,12 @@ interface ExecutiveHeaderNavProps {
 const serviceDropdownItems = [
   {
     title: "Governance & Risk",
-    desc: "Give Your Board Clearer Visibility of Risk, Performance & eBoard Frameworks.",
+    desc: "Strategic Planning, Board Risk Heat Maps & eBoard Frameworks.",
     href: "/services#governance-risk",
     icon: ShieldCheck,
     image: "/board_directors_panel.jpg",
     alt: "Board Directors in Executive Strategy Session",
-    deliverable: "eBoard Frameworks & Board Risk Heat Map",
+    deliverable: "Strategic Planning & Board Risk Heat Map",
   },
   {
     title: "People & Performance",
@@ -29,7 +29,7 @@ const serviceDropdownItems = [
     icon: Users,
     image: "/african_executive_portrait.png",
     alt: "People & Organizational Structure Alignment Session",
-    deliverable: "Recruitment Processes & Job Grading Matrix",
+    deliverable: "Organogram Creator & Job Grading Matrix",
   },
   {
     title: "Controls & Policies",
