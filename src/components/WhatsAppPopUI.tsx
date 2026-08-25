@@ -14,7 +14,7 @@ export function WhatsAppPopUI() {
     <div className="flex flex-col items-center justify-center">
       {/* Main WhatsApp Button */}
       <motion.a
-        href="https://wa.me/254799565125"
+        href="https://wa.me/254117471344"
         target="_blank"
         rel="noopener noreferrer"
         variants={buttonVariants}
@@ -48,7 +48,7 @@ export function WhatsAppPopUI() {
           <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span className="text-blue-300 font-semibold">Online Now</span>
           <span className="text-slate-500">•</span>
-          <span className="text-slate-300">Direct Lines: +254 799 565125 / +254 728 626323</span>
+          <span className="text-slate-300">Direct Lines: +254 799 565125 / +254 117 471 344</span>
         </p>
       </motion.div>
     </div>

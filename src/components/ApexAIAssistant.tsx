@@ -73,7 +73,7 @@ const APEX_KNOWLEDGE: Record<string, { answer: string; followUps?: string[]; act
     followUps: ["People & Performance", "Book Consultation"],
   },
   contact: {
-    answer: "You can reach our senior advisors immediately:\n☎ Phone: +254 799 565125 / +254 728 626323\n📧 Email: info@consult-apex.com | advisory@consult-apex.com\n💬 WhatsApp: +254 799 565125",
+    answer: "You can reach our senior advisors immediately:\n☎ Phone: +254 799 565125 / +254 117 471 344\n📧 Email: info@consult-apex.com | advisory@consult-apex.com\n💬 WhatsApp: +254 117 471 344",
     followUps: ["Book Consultation", "Our Services"],
     action: "contact",
   },

@@ -416,7 +416,7 @@ export function InteractiveKnowledgeCentre({ onOpenAI, onOpenBooking }: Interact
                               <span>Book Strategy Call</span>
                             </Button>
                             <a
-                              href={`https://wa.me/254799565125?text=Hi%2C%20I%20have%20a%20question%20regarding%20${encodeURIComponent(faq.question)}`}
+                              href={`https://wa.me/254117471344?text=Hi%2C%20I%20have%20a%20question%20regarding%20${encodeURIComponent(faq.question)}`}
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}

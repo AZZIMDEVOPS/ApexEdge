@@ -255,8 +255,8 @@ export function CorporateFooter() {
                   </a>
                 </div>
                 <div className="flex items-center gap-3 pl-7">
-                  <a href="tel:+254728626323" className="hover:text-[#10B981] transition-colors font-bold text-[#071C3F]">
-                    +254 728 626323
+                  <a href="tel:+254117471344" className="hover:text-[#10B981] transition-colors font-bold text-[#071C3F]">
+                    +254 117 471 344
                   </a>
                 </div>
               </div>

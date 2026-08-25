@@ -838,15 +838,15 @@ export function ExecutiveNewsPortal() {
                   </a>
 
                   <a
-                    href="tel:+254728626323"
+                    href="tel:+254117471344"
                     className="flex items-center gap-3 p-3 rounded-xl bg-slate-900 hover:bg-slate-850 border border-slate-800 text-white font-bold transition-colors"
                   >
                     <Phone className="w-4 h-4 text-[#10B981]" />
-                    <span>+254 728 626323 (Advisory Line)</span>
+                    <span>+254 117 471 344 (Advisory Line)</span>
                   </a>
 
                   <a
-                    href="https://wa.me/254799565125?text=Hello%20Apex%20Edge%20Advisory%2C%20I%20would%20like%20to%20inquire%20about%20a%2020-minute%20clarity%20session."
+                    href="https://wa.me/254117471344?text=Hello%20Apex%20Edge%20Advisory%2C%20I%20would%20like%20to%20inquire%20about%20a%2020-minute%20clarity%20session."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 p-3 rounded-xl bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black transition-colors"

@@ -317,8 +317,8 @@ export default function ContactPage() {
                     </a>
                   </div>
                   <div className="flex items-center gap-3 pl-7">
-                    <a href="tel:+254728626323" className="text-slate-950 font-bold hover:text-[#10B981]">
-                      +254 728 626323
+                    <a href="tel:+254117471344" className="text-slate-950 font-bold hover:text-[#10B981]">
+                      +254 117 471 344
                     </a>
                   </div>
                 </div>
@@ -340,12 +340,12 @@ export default function ContactPage() {
                 <div className="flex items-center gap-3">
                   <MessageCircle className="w-4 h-4 text-[#10B981] shrink-0" />
                   <a
-                    href="https://wa.me/254799565125"
+                    href="https://wa.me/254117471344"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#071C3F] font-bold hover:underline"
                   >
-                    Direct Executive WhatsApp →
+                    Direct Executive WhatsApp (+254 117 471 344) →
                   </a>
                 </div>
               </div>

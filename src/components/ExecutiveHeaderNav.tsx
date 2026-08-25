@@ -425,13 +425,13 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
               +254 799 565125
             </a>
             <span className="text-slate-300">/</span>
-            <a href="tel:+254728626323" className="hover:text-[#071C3F] transition-colors">
-              +254 728 626323
+            <a href="tel:+254117471344" className="hover:text-[#071C3F] transition-colors">
+              +254 117 471 344
             </a>
           </div>
 
           <a
-            href="https://wa.me/254799565125?text=Hello%20Apex%20Edge%20Advisory%2C%20I%20would%20like%20to%20inquire%20about%20your%20strategic%20advisory%20services."
+            href="https://wa.me/254117471344?text=Hello%20Apex%20Edge%20Advisory%2C%20I%20would%20like%20to%20inquire%20about%20your%20strategic%20advisory%20services."
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black shadow-md shadow-[#10B981]/20 rounded-full px-5 py-2.5 text-xs flex items-center gap-2 transition-all hover:scale-105"
@@ -502,7 +502,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
             </div>
             <div className="pt-4 border-t border-slate-200">
               <a
-                href="https://wa.me/254799565125?text=Hello%20Apex%20Edge%20Advisory%2C%20I%20would%20like%20to%20inquire%20about%20your%20strategic%20advisory%20services."
+                href="https://wa.me/254117471344?text=Hello%20Apex%20Edge%20Advisory%2C%20I%20would%20like%20to%20inquire%20about%20your%20strategic%20advisory%20services."
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
