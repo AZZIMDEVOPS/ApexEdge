@@ -108,7 +108,7 @@ export function ExecutiveServicesArchitecture() {
           {/* PRACTICES 02 & 03: Two Distinct Asymmetrical Cards (People & Controls) */}
           <div className="grid gap-8 lg:grid-cols-2">
             
-            {/* Practice 02: People & Performance */}
+            {/* Practice 02: People, Culture & Leadership Capability */}
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -118,23 +118,23 @@ export function ExecutiveServicesArchitecture() {
               <div className="space-y-5">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-black uppercase tracking-widest text-[#071C3F] bg-[#10B981]/20 px-3 py-1 rounded-full border border-[#10B981]/40">
-                    PRACTICE 02 · PEOPLE &amp; PERFORMANCE
+                    PRACTICE 02 · PEOPLE, CULTURE &amp; LEADERSHIP
                   </span>
                   <Users className="w-5 h-5 text-[#10B981]" />
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-black text-slate-950 leading-snug">
-                  Build a Performance System That Creates Real Accountability.
+                  Build High-Performance Teams, Executive Capability &amp; Culture Accountability.
                 </h3>
 
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   <strong className="text-slate-900 block mb-0.5">Why it matters:</strong>
-                  Role overlap, vague job titles, and disconnected KPIs cause high executive payroll costs without matching operational output.
+                  Role overlap, unaligned KPIs, executive capability gaps, and recurring people friction stall strategic execution.
                 </p>
 
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   <strong className="text-slate-900 block mb-0.5">What it actually involves:</strong>
-                  Job grading benchmarks, salary band structures, OKR performance scorecards, and named ownership maps that connect individual outputs to strategic milestones.
+                  Job grading benchmarks, salary structures, OKR scorecards, 90-day execution roadmaps, executive decision toolkits, candidate CV upload &amp; recruitment search hub.
                 </p>
 
                 <div className="pt-3 border-t border-slate-200 space-y-2">
@@ -142,30 +142,30 @@ export function ExecutiveServicesArchitecture() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700 font-medium">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                      <span>Job Grading Frameworks</span>
+                      <span>Executive Recruitment &amp; CV Hub</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                      <span>Salary Structure Bands</span>
+                      <span>Employer Candidate Finder</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                      <span>OKR / KPI Scorecards</span>
+                      <span>Leadership Capability &amp; 90-Day Sprints</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                      <span>Named Ownership Matrices</span>
+                      <span>OKR / KPI Performance Scorecards</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-200">
+              <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2">
                 <Link
-                  href="/services#people-performance"
+                  href="/services#recruitment-hub"
                   className="inline-flex items-center gap-2 text-xs font-bold text-[#071C3F] hover:text-[#10B981] transition-colors"
                 >
-                  <span>Explore People &amp; Performance Systems</span>
+                  <span>Explore Candidate CV Upload &amp; Employer Hub</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
                 </Link>
               </div>

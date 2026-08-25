@@ -22,6 +22,10 @@ import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
 import { CorporateFooter } from "@/components/CorporateFooter";
 import { ConsultationModal } from "@/components/ConsultationModal";
 import { OrganogramCreatorModal } from "@/components/OrganogramCreatorModal";
+import { RecruitmentTalentHub } from "@/components/RecruitmentTalentHub";
+import { RecruitmentTalentHubModal } from "@/components/RecruitmentTalentHubModal";
+import { PracticeDiagnosticModal } from "@/components/PracticeDiagnosticModal";
+import { PracticeDiagnosticEngine, DiagnosticType } from "@/components/PracticeDiagnostics";
 import { ApexAIAssistant } from "@/components/ApexAIAssistant";
 import { Button } from "@/components/ui/button";
 import {
@@ -73,21 +77,25 @@ const PRACTICE_AREAS = [
   {
     id: "people-performance",
     num: "02",
-    category: "PEOPLE & PERFORMANCE",
+    category: "PEOPLE, CULTURE & LEADERSHIP CAPABILITY",
     Icon3D: People3DIcon,
     icon: Users,
     image: "/authentic_team_collaboration.jpg",
     imageAlt: "East African corporate leadership team conducting strategy execution alignment",
-    headline: "Build a Performance System That Creates Accountability.",
+    headline: "Build High-Performance Teams, Executive Capability & Culture Accountability.",
     problemHeader: "The Organisational Challenge",
-    problem: "Role overlap, unaligned KPIs, lack of job structure, and recurring people-performance problems that keep returning and stalling organizational execution.",
-    whoFor: "CEOs, CFOs, Heads of HR, Chief Operating Officers, Business Unit Leads.",
-    approach: "We architect role structures, job descriptions, salary bands, and OKR performance scorecards linked directly to strategic goals.",
+    problem: "Role overlap, unaligned KPIs, lack of job structure, executive capability gaps, and recurring people-performance friction that stalls strategic execution.",
+    whoFor: "CEOs, CFOs, Heads of HR, Chief Operating Officers, Executive Committees, Newly Promoted C-Suite Leaders.",
+    approach: "We architect role structures, executive capability toolkits, 90-day execution roadmaps, recruitment CV portals, salary bands, and OKR performance scorecards linked directly to strategic goals.",
     services: [
+      "Candidate CV Upload & Executive Talent Pool Submission",
+      "Employer Executive Candidate Finder & Search Hub",
+      "Executive Decision-Making & Leadership Capability Frameworks",
+      "Senior Leadership Alignment & 90-Day Execution Sprints",
+      "Board-Readiness Coaching for Executives & Senior Managers",
       "Organisational Structure & Organogram Architecture",
       "Recruitment Processes & Executive Talent Acquisition",
       "HR Audit & Labor Statutory Compliance",
-      "Leadership & Executive Capability Frameworks",
       "Whistleblower & Anonymous Fraud Protection Frameworks",
       "Job Grading & Salary Band HR Frameworks",
       "Single-Point RACI Accountability Frameworks",
@@ -97,9 +105,12 @@ const PRACTICE_AREAS = [
       "Executive Succession & Talent Pipeline Frameworks"
     ],
     deliverables: [
+      "Candidate CV Upload Portal & Tracking ID",
+      "Employer Candidate Directory & Profile Dossiers",
+      "Executive Decision-Making Frameworks & 90-Day Execution Dashboards",
+      "Board-Readiness Coaching & Leadership Competency Profiles",
       "Organisational Structure Charts & Organograms",
       "Recruitment Processes & Executive Hiring Workflows",
-      "Leadership Capability & 90-Day Execution Roadmaps",
       "Whistleblower Protection Policies & Reporting Hotlines",
       "Job Evaluation & Salary Structure Bands",
       "Single-Point RACI Ownership Charters",
@@ -108,7 +119,7 @@ const PRACTICE_AREAS = [
       "Employment Statutory HR Framework Manuals",
       "Succession Planning & Talent Matrices"
     ],
-    outcome: "People decisions become connected to organisational priorities, accountability and measurable performance.",
+    outcome: "People and leadership decisions become connected to organisational priorities, executive capability, accountability and measurable performance.",
     methodology: ["Diagnose", "Design", "Implement", "Measure"]
   },
   {
@@ -142,37 +153,6 @@ const PRACTICE_AREAS = [
     ],
     outcome: "Internal controls are woven into daily workflows, audit exceptions drop drastically, and staff have unambiguous guidance on operational boundaries.",
     methodology: ["Diagnose", "Design", "Embed", "Measure"]
-  },
-  {
-    id: "leadership-capability",
-    num: "04",
-    category: "LEADERSHIP & CAPABILITY",
-    Icon3D: Leadership3DIcon,
-    icon: Award,
-    image: "/authentic_executive_office_advisor.jpg",
-    imageAlt: "Senior partners and managing directors in executive advisory consultation",
-    headline: "Build Leaders and Teams That Execute Better.",
-    problemHeader: "The Organisational Challenge",
-    problem: "Executives and senior managers are technically competent but struggle with cross-functional leadership, decisive risk judgment, delegation, and driving strategy into weekly departmental rhythms.",
-    whoFor: "Executive Committees, Managing Directors, Newly Promoted C-Suite Executives, Senior Managers, High-Potential Leaders.",
-    approach: "We deliver structured executive advisory toolkits, leadership governance simulations, 90-day execution roadmaps, and peer accountability coaching.",
-    services: [
-      "Executive Decision-Making Toolkits",
-      "Senior Leadership Alignment Sprints",
-      "90-Day Execution Planning & Review",
-      "Cross-Functional Governance Coaching",
-      "Board-Readiness Coaching for Executives",
-      "Departmental Execution Capability Programs"
-    ],
-    deliverables: [
-      "Executive Decision-Making Frameworks",
-      "90-Day Strategic Execution Dashboards",
-      "Weekly Action Review Protocols",
-      "Cross-Functional Coordination Matrixes",
-      "Leadership Competency Growth Profiles"
-    ],
-    outcome: "Executive teams operate with unified clarity, decisive velocity, and a shared cadence that translates strategic mandates into measurable results.",
-    methodology: ["Align", "Equip", "Practice", "Sustain"]
   },
   {
     id: "data-protection",
@@ -241,9 +221,30 @@ const PRACTICE_AREAS = [
 export default function ServicesPage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [isOrganogramOpen, setIsOrganogramOpen] = useState(false);
+  const [isDiagnosticOpen, setIsDiagnosticOpen] = useState(false);
+  const [diagnosticType, setDiagnosticType] = useState<DiagnosticType>("governance-risk");
   const [selectedCategory, setSelectedCategory] = useState<string>("Governance & Risk");
   const [activePillarIdx, setActivePillarIdx] = useState<number>(0);
   const [isHeadlinePaused, setIsHeadlinePaused] = useState<boolean>(false);
+
+  const [isRecruitmentModalOpen, setIsRecruitmentModalOpen] = useState(false);
+  const [recruitmentModalTab, setRecruitmentModalTab] = useState<"candidate" | "employer">("candidate");
+
+  const openRecruitmentModal = (tab: "candidate" | "employer" = "candidate") => {
+    setRecruitmentModalTab(tab);
+    setIsRecruitmentModalOpen(true);
+  };
+
+  const openDiagnosticForCategory = (itemKey: string) => {
+    let dt: DiagnosticType = "governance-risk";
+    if (itemKey.includes("governance") || itemKey.includes("risk")) dt = "governance-risk";
+    else if (itemKey.includes("data") || itemKey.includes("protection")) dt = "data-protection";
+    else if (itemKey.includes("controls") || itemKey.includes("policies")) dt = "controls-policies";
+    else if (itemKey.includes("people") || itemKey.includes("performance") || itemKey.includes("leadership")) dt = "people-performance";
+    
+    setDiagnosticType(dt);
+    setIsDiagnosticOpen(true);
+  };
 
   // Auto-cycle through the 6 Practice Area headlines every 4.0 seconds with pause on hover
   useEffect(() => {
@@ -402,10 +403,10 @@ export default function ServicesPage() {
             </div>
 
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:border-[#10B981] transition-colors shadow-xs">
-              <span className="font-extrabold text-[#10B981] block">02 PEOPLE & PERFORMANCE</span>
+              <span className="font-extrabold text-[#10B981] block">02 PEOPLE, CULTURE & LEADERSHIP CAPABILITY</span>
               <span className="font-bold text-slate-900 block">Core Focus:</span>
               <p className="text-slate-600 leading-relaxed font-normal">
-                Who is responsible and how do we measure performance?
+                Who is responsible, how do we build executive capability, recruit talent &amp; measure performance?
               </p>
             </div>
 
@@ -413,31 +414,23 @@ export default function ServicesPage() {
               <span className="font-extrabold text-[#10B981] block">03 CONTROLS & POLICIES</span>
               <span className="font-bold text-slate-900 block">Core Focus:</span>
               <p className="text-slate-600 leading-relaxed font-normal">
-                What processes and safeguards prevent those risks from becoming problems?
+                What processes and safeguards prevent those risks from becoming operational problems?
               </p>
             </div>
 
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:border-[#10B981] transition-colors shadow-xs">
-              <span className="font-extrabold text-[#10B981] block">04 LEADERSHIP & CAPABILITY</span>
+              <span className="font-extrabold text-[#10B981] block">04 DATA PROTECTION & PRIVACY</span>
               <span className="font-bold text-slate-900 block">Core Focus:</span>
               <p className="text-slate-600 leading-relaxed font-normal">
-                Do leaders and teams have the capability to execute effectively?
+                How is personal data collected, used, protected, and governed under privacy laws?
               </p>
             </div>
 
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:border-[#10B981] transition-colors shadow-xs">
-              <span className="font-extrabold text-[#10B981] block">05 DATA PROTECTION</span>
+              <span className="font-extrabold text-[#10B981] block">05 CORPORATE SECRETARIAL</span>
               <span className="font-bold text-slate-900 block">Core Focus:</span>
               <p className="text-slate-600 leading-relaxed font-normal">
-                How is personal data collected, used, protected, and governed?
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:border-[#10B981] transition-colors shadow-xs">
-              <span className="font-extrabold text-[#10B981] block">06 CORPORATE SECRETARIAL</span>
-              <span className="font-bold text-slate-900 block">Core Focus:</span>
-              <p className="text-slate-600 leading-relaxed font-normal">
-                How are statutory filings, board resolutions, and company secretarial compliance maintained?
+                How are statutory filings, board resolutions, BRS registers and company secretarial compliance maintained?
               </p>
             </div>
           </div>
@@ -609,17 +602,70 @@ export default function ServicesPage() {
                   <span className="text-xs text-slate-600 italic">
                     Ready to operationalize {item.category.toLowerCase()} in your organisation?
                   </span>
-                  <Button
-                    onClick={() => openBookingForCategory(item.category)}
-                    className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-full px-6 py-3.5 text-xs shadow-md flex items-center gap-2 transition-all hover:scale-[1.02]"
-                  >
-                    <Calendar className="w-4 h-4" />
-                    <span>Book Your Clarity Session →</span>
-                  </Button>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <Button
+                      onClick={() => openDiagnosticForCategory(item.id)}
+                      className="bg-slate-900 hover:bg-slate-800 text-emerald-400 font-bold rounded-full px-5 py-3 text-xs border border-slate-700 shadow-sm flex items-center gap-2 transition-all hover:scale-[1.02] cursor-pointer"
+                    >
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
+                      <span>Start 3-5 Min Practice Diagnostic →</span>
+                    </Button>
+
+                    <Button
+                      onClick={() => openBookingForCategory(item.category)}
+                      className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-full px-6 py-3.5 text-xs shadow-md flex items-center gap-2 transition-all hover:scale-[1.02]"
+                    >
+                      <Calendar className="w-4 h-4" />
+                      <span>Book Your Clarity Session →</span>
+                    </Button>
+                  </div>
                 </div>
+
+                {/* Embedded Recruitment & Executive Candidate Hub */}
+                {item.id === "people-performance" && (
+                  <div id="recruitment-hub" className="scroll-mt-28 pt-8 border-t border-slate-200 space-y-6">
+                    <div className="flex flex-wrap items-center justify-between gap-4 p-5 rounded-2xl bg-gradient-to-r from-[#071C3F] via-slate-900 to-[#071C3F] text-white">
+                      <div className="space-y-1">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-[#10B981]">
+                          POP-UP WINDOW PORTAL
+                        </span>
+                        <h4 className="text-lg font-black text-white">
+                          Open Executive Recruitment Hub in Fullscreen Pop-Up Window
+                        </h4>
+                        <p className="text-xs text-slate-300">
+                          Upload CVs, search executive candidate dossiers, or submit custom headhunting requests in an interactive pop-up window.
+                        </p>
+                      </div>
+
+                      <div className="flex flex-wrap items-center gap-3">
+                        <Button
+                          onClick={() => openRecruitmentModal("candidate")}
+                          className="bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black rounded-full px-5 py-3 text-xs shadow-md cursor-pointer transition-all hover:scale-105"
+                        >
+                          <span>Candidate: Upload CV Pop-Up ↗</span>
+                        </Button>
+                        <Button
+                          onClick={() => openRecruitmentModal("employer")}
+                          className="bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-full px-5 py-3 text-xs border border-slate-700 cursor-pointer transition-all hover:scale-105"
+                        >
+                          <span>Employer: Find Talent Pop-Up ↗</span>
+                        </Button>
+                      </div>
+                    </div>
+
+                    <RecruitmentTalentHub />
+                  </div>
+                )}
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* Embedded Full-Width Interactive Desktop Review & Diagnostic Hub Section */}
+      <section id="diagnostic-reviews" className="py-20 bg-slate-950 text-white border-t border-slate-800">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <PracticeDiagnosticEngine />
         </div>
       </section>
 
@@ -663,6 +709,18 @@ export default function ServicesPage() {
         isOpen={isOrganogramOpen}
         onClose={() => setIsOrganogramOpen(false)}
         onOpenBooking={() => openBookingForCategory("People & Performance")}
+      />
+
+      <PracticeDiagnosticModal
+        isOpen={isDiagnosticOpen}
+        onClose={() => setIsDiagnosticOpen(false)}
+        defaultType={diagnosticType}
+      />
+
+      <RecruitmentTalentHubModal
+        isOpen={isRecruitmentModalOpen}
+        onClose={() => setIsRecruitmentModalOpen(false)}
+        defaultTab={recruitmentModalTab}
       />
 
       <ApexAIAssistant onOpenBooking={() => openBookingForCategory("Data Protection & Privacy")} />

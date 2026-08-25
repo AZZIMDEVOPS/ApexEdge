@@ -23,13 +23,13 @@ const serviceDropdownItems = [
     deliverable: "Strategic Planning & Board Risk Heat Map",
   },
   {
-    title: "People & Performance",
-    desc: "Build a Performance System That Creates Accountability.",
+    title: "People, Culture & Leadership",
+    desc: "Executive Capability, Recruitment CV Hub, OKRs & 90-Day Execution Roadmaps.",
     href: "/services#people-performance",
     icon: Users,
     image: "/african_executive_portrait.png",
-    alt: "People & Organizational Structure Alignment Session",
-    deliverable: "Organogram Creator & Job Grading Matrix",
+    alt: "People, Culture & Leadership Alignment Session",
+    deliverable: "Candidate CV Hub, Employer Directory & Execution Sprints",
   },
   {
     title: "Controls & Policies",
@@ -39,15 +39,6 @@ const serviceDropdownItems = [
     image: "/advisory_report_consultation.jpg",
     alt: "Financial SOPs & Approval Gate Controls Review",
     deliverable: "Financial SOPs & Approval Frameworks",
-  },
-  {
-    title: "Leadership & Capability",
-    desc: "Build Leaders and Teams That Execute Better.",
-    href: "/services#leadership-capability",
-    icon: Award,
-    image: "/board_whiteboard_presentation.jpg",
-    alt: "Leadership Capability Framework Presentation",
-    deliverable: "90-Day Executive Execution Roadmap",
   },
   {
     title: "Data Protection & Privacy",
@@ -73,9 +64,11 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isInsightsOpen, setIsInsightsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoverIndex, setHoverIndex] = useState<number>(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const insightsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -108,6 +101,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
 
   const handleNavClick = (href?: string) => {
     setIsServicesOpen(false);
+    setIsInsightsOpen(false);
     setIsMobileMenuOpen(false);
 
     // If it is a top-level page without a hash anchor, immediately scroll to top
@@ -320,15 +314,97 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
             Industries
           </Link>
 
-          <Link
-            href="/insights"
-            onClick={() => handleNavClick("/insights")}
-            className={`transition-colors py-1 ${
-              pathname === "/insights" ? "text-[#10B981] font-black" : "text-slate-700 hover:text-[#071C3F]"
-            }`}
+          {/* Insights Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => {
+              if (insightsTimeoutRef.current) clearTimeout(insightsTimeoutRef.current);
+              setIsInsightsOpen(true);
+            }}
+            onMouseLeave={() => {
+              if (insightsTimeoutRef.current) clearTimeout(insightsTimeoutRef.current);
+              insightsTimeoutRef.current = setTimeout(() => setIsInsightsOpen(false), 150);
+            }}
           >
-            Insights
-          </Link>
+            <button
+              type="button"
+              onClick={() => setIsInsightsOpen((prev) => !prev)}
+              className={`inline-flex items-center gap-1 py-1 transition-colors font-bold cursor-pointer ${
+                pathname.startsWith("/insights") || pathname === "/careers" ? "text-[#10B981] font-black" : "text-slate-700 hover:text-[#071C3F]"
+              }`}
+            >
+              <span>Insights</span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                  isInsightsOpen ? "rotate-180 text-[#10B981]" : "text-slate-400"
+                }`}
+              />
+            </button>
+
+            <AnimatePresence>
+              {isInsightsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full -left-4 mt-2 w-72 rounded-2xl bg-white border border-slate-200 shadow-2xl p-3 z-50 space-y-1 backdrop-blur-xl"
+                  onMouseEnter={() => {
+                    if (insightsTimeoutRef.current) clearTimeout(insightsTimeoutRef.current);
+                    setIsInsightsOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    if (insightsTimeoutRef.current) clearTimeout(insightsTimeoutRef.current);
+                    insightsTimeoutRef.current = setTimeout(() => setIsInsightsOpen(false), 150);
+                  }}
+                >
+                  <Link
+                    href="/insights"
+                    onClick={() => {
+                      setIsInsightsOpen(false);
+                      handleNavClick("/insights");
+                    }}
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/sub"
+                  >
+                    <div className="p-2 rounded-lg bg-emerald-50 text-[#10B981] shrink-0">
+                      <FileText className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-black text-slate-900 group-hover/sub:text-[#071C3F] flex items-center justify-between">
+                        <span>Articles &amp; Perspectives</span>
+                        <ArrowRight className="w-3 h-3 text-[#10B981] opacity-0 group-hover/sub:opacity-100 transition-opacity" />
+                      </div>
+                      <p className="text-[11px] text-slate-500 font-normal">
+                        Insights on governance, risk &amp; execution.
+                      </p>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/careers"
+                    onClick={() => {
+                      setIsInsightsOpen(false);
+                      handleNavClick("/careers");
+                    }}
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-emerald-50/70 border border-transparent hover:border-[#10B981]/40 transition-colors group/sub"
+                  >
+                    <div className="p-2 rounded-lg bg-[#10B981]/15 text-[#10B981] shrink-0">
+                      <Users className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-black text-slate-900 group-hover/sub:text-[#071C3F] flex items-center justify-between">
+                        <span>Careers &amp; Recruitment Hub</span>
+                        <ArrowRight className="w-3 h-3 text-[#10B981] opacity-0 group-hover/sub:opacity-100 transition-opacity" />
+                      </div>
+                      <p className="text-[11px] text-slate-500 font-normal">
+                        Upload Candidate CV or Find Executive Talent.
+                      </p>
+                    </div>
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           <Link
             href="/contact"
@@ -413,8 +489,13 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                 Industries
               </Link>
               <Link href="/insights" onClick={() => handleNavClick("/insights")} className="hover:text-[#10B981]">
-                Insights
+                Insights &amp; Articles
               </Link>
+              <div className="pl-4 space-y-2 border-l border-[#10B981]/30 text-xs text-slate-600 font-medium">
+                <Link href="/careers" onClick={() => handleNavClick("/careers")} className="block hover:text-[#10B981] font-bold text-[#10B981]">
+                  🎓 Careers &amp; Recruitment Hub
+                </Link>
+              </div>
               <Link href="/contact" onClick={() => handleNavClick("/contact")} className="hover:text-[#10B981]">
                 Contact
               </Link>

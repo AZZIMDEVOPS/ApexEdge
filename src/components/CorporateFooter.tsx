@@ -73,11 +73,11 @@ export function CorporateFooter() {
 
   const practiceCategories = [
     { label: "01 Governance & Risk", href: "/services#governance-risk" },
-    { label: "02 People & Performance", href: "/services#people-performance" },
+    { label: "02 People, Culture & Leadership", href: "/services#people-performance" },
     { label: "03 Controls & Policies", href: "/services#controls-policies" },
-    { label: "04 Leadership & Capability", href: "/services#leadership-capability" },
-    { label: "05 Data Protection & Privacy", href: "/services#data-protection" },
-    { label: "06 Corporate Secretarial", href: "/services#corporate-secretarial" },
+    { label: "04 Data Protection & Privacy", href: "/services#data-protection" },
+    { label: "05 Corporate Secretarial", href: "/services#corporate-secretarial" },
+    { label: "Practice Diagnostic Reviews", href: "/services#diagnostic-reviews" },
     { label: "Board-Ready Risk Sprint", href: "/services#risk-sprint" },
   ];
 
