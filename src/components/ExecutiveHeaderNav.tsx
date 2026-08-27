@@ -4,12 +4,18 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Calendar, ChevronDown, ArrowRight, ShieldCheck, Users, Sliders, Award, Lock, FileText, Menu, X } from "lucide-react";
+import { Phone, ChevronDown, ArrowRight, ShieldCheck, Users, Sliders, Lock, FileText, Menu, X, CreditCard, MapPin, Calendar } from "lucide-react";
+import Image from "next/image";
 import { ApexEdgeLogo } from "@/components/ApexEdgeLogo";
-import { Button } from "@/components/ui/button";
 
 interface ExecutiveHeaderNavProps {
-  onOpenBooking: () => void;
+  onOpenBooking?: () => void;
+}
+
+interface LenisWindow extends Window {
+  __lenis?: {
+    scrollTo: (target: number, options?: { immediate?: boolean }) => void;
+  };
 }
 
 const serviceDropdownItems = [
@@ -23,13 +29,13 @@ const serviceDropdownItems = [
     deliverable: "Strategic Planning & Board Risk Heat Map",
   },
   {
-    title: "People, Culture & Leadership",
-    desc: "Executive Capability, Recruitment CV Hub, OKRs & 90-Day Execution Roadmaps.",
+    title: "People, Performance & Leadership",
+    desc: "Executive Capability, OKRs, Performance Frameworks & 90-Day Roadmaps.",
     href: "/services#people-performance",
     icon: Users,
     image: "/african_executive_portrait.png",
-    alt: "People, Culture & Leadership Alignment Session",
-    deliverable: "Candidate CV Hub, Employer Directory & Execution Sprints",
+    alt: "People, Performance & Leadership Alignment Session",
+    deliverable: "Leadership Capability, Performance Scorecards & 90-Day Roadmaps",
   },
   {
     title: "Controls & Policies",
@@ -65,10 +71,12 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isInsightsOpen, setIsInsightsOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoverIndex, setHoverIndex] = useState<number>(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const insightsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const contactTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,13 +110,15 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
   const handleNavClick = (href?: string) => {
     setIsServicesOpen(false);
     setIsInsightsOpen(false);
+    setIsContactOpen(false);
     setIsMobileMenuOpen(false);
 
     // If it is a top-level page without a hash anchor, immediately scroll to top
     if (!href || !href.includes("#")) {
       if (typeof window !== "undefined") {
-        if ((window as any).__lenis) {
-          (window as any).__lenis.scrollTo(0, { immediate: true });
+        const win = window as unknown as LenisWindow;
+        if (win.__lenis) {
+          win.__lenis.scrollTo(0, { immediate: true });
         }
         window.scrollTo({ top: 0, left: 0, behavior: "instant" });
       }
@@ -132,11 +142,11 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
         </Link>
 
         {/* Desktop Navigation Items */}
-        <nav className="hidden items-center gap-6 text-[13px] font-bold text-slate-700 lg:flex">
+        <nav className="hidden items-center gap-4 xl:gap-6 text-[13px] font-bold text-slate-700 lg:flex whitespace-nowrap shrink-0">
           <Link
             href="/"
             onClick={() => handleNavClick("/")}
-            className={`transition-colors py-1 ${
+            className={`transition-colors py-1 whitespace-nowrap ${
               pathname === "/" ? "text-[#10B981] font-black" : "text-slate-700 hover:text-[#071C3F]"
             }`}
           >
@@ -146,7 +156,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
           <Link
             href="/about"
             onClick={() => handleNavClick("/about")}
-            className={`transition-colors py-1 ${
+            className={`transition-colors py-1 whitespace-nowrap ${
               pathname === "/about" ? "text-[#10B981] font-black" : "text-slate-700 hover:text-[#071C3F]"
             }`}
           >
@@ -155,20 +165,20 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
 
           {/* Practice Areas Dropdown */}
           <div
-            className="relative"
+            className="relative whitespace-nowrap"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             <button
               type="button"
               onClick={() => setIsServicesOpen((prev) => !prev)}
-              className={`inline-flex items-center gap-1 py-1 transition-colors font-bold cursor-pointer ${
+              className={`inline-flex items-center gap-1 py-1 transition-colors font-bold cursor-pointer whitespace-nowrap ${
                 pathname.startsWith("/services") ? "text-[#10B981] font-black" : "text-slate-700 hover:text-[#071C3F]"
               }`}
             >
               <span>Practice Areas</span>
               <ChevronDown
-                className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                className={`w-3.5 h-3.5 transition-transform duration-200 shrink-0 ${
                   isServicesOpen ? "rotate-180 text-[#10B981]" : "text-slate-400"
                 }`}
               />
@@ -189,7 +199,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                   <div className="col-span-7 space-y-2">
                     <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#10B981] mb-3 px-2 flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-[#10B981]" />
-                      <span>01 TO 06 — EXECUTIVE PRACTICE AREAS</span>
+                      <span>01 TO 05 — EXECUTIVE PRACTICE AREAS</span>
                     </div>
                     <div className="space-y-1.5">
                       {serviceDropdownItems.map((item, idx) => {
@@ -213,9 +223,11 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                             
                             {/* Practice Area Photography Thumbnail */}
                             <div className="relative w-11 h-11 rounded-xl overflow-hidden shrink-0 border border-slate-200 shadow-xs bg-slate-100">
-                              <img
+                              <Image
                                 src={item.image}
                                 alt={item.alt}
+                                width={44}
+                                height={44}
                                 className="w-full h-full object-cover object-center group-hover/item:scale-110 transition-transform duration-500"
                               />
                               <div className="absolute inset-0 bg-slate-950/15 group-hover/item:bg-transparent transition-colors" />
@@ -253,9 +265,11 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                           transition={{ duration: 0.35, ease: "easeInOut" }}
                           className="absolute inset-0 w-full h-full"
                         >
-                          <img
-                            src={serviceDropdownItems[hoverIndex]?.image}
-                            alt={serviceDropdownItems[hoverIndex]?.alt}
+                          <Image
+                            src={serviceDropdownItems[hoverIndex]?.image || "/board_directors_panel.jpg"}
+                            alt={serviceDropdownItems[hoverIndex]?.alt || "Practice Area Preview"}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 300px"
                             className="w-full h-full object-cover object-center brightness-100 contrast-105"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" />
@@ -307,7 +321,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
           <Link
             href="/industries"
             onClick={() => handleNavClick("/industries")}
-            className={`transition-colors py-1 ${
+            className={`transition-colors py-1 whitespace-nowrap ${
               pathname === "/industries" ? "text-[#10B981] font-black" : "text-slate-700 hover:text-[#071C3F]"
             }`}
           >
@@ -316,7 +330,7 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
 
           {/* Insights Dropdown */}
           <div
-            className="relative"
+            className="relative whitespace-nowrap"
             onMouseEnter={() => {
               if (insightsTimeoutRef.current) clearTimeout(insightsTimeoutRef.current);
               setIsInsightsOpen(true);
@@ -329,13 +343,13 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
             <button
               type="button"
               onClick={() => setIsInsightsOpen((prev) => !prev)}
-              className={`inline-flex items-center gap-1 py-1 transition-colors font-bold cursor-pointer ${
+              className={`inline-flex items-center gap-1 py-1 transition-colors font-bold cursor-pointer whitespace-nowrap ${
                 pathname.startsWith("/insights") || pathname === "/careers" ? "text-[#10B981] font-black" : "text-slate-700 hover:text-[#071C3F]"
               }`}
             >
               <span>Insights</span>
               <ChevronDown
-                className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                className={`w-3.5 h-3.5 transition-transform duration-200 shrink-0 ${
                   isInsightsOpen ? "rotate-180 text-[#10B981]" : "text-slate-400"
                 }`}
               />
@@ -401,34 +415,160 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                       </p>
                     </div>
                   </Link>
+
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
 
-          <Link
-            href="/contact"
-            onClick={() => handleNavClick("/contact")}
-            className={`transition-colors py-1 ${
-              pathname === "/contact" ? "text-[#10B981] font-black" : "text-slate-700 hover:text-[#071C3F]"
-            }`}
+          {/* Contact Dropdown */}
+          <div
+            className="relative whitespace-nowrap"
+            onMouseEnter={() => {
+              if (contactTimeoutRef.current) clearTimeout(contactTimeoutRef.current);
+              setIsContactOpen(true);
+            }}
+            onMouseLeave={() => {
+              if (contactTimeoutRef.current) clearTimeout(contactTimeoutRef.current);
+              contactTimeoutRef.current = setTimeout(() => setIsContactOpen(false), 150);
+            }}
           >
-            Contact
-          </Link>
+            <button
+              type="button"
+              onClick={() => setIsContactOpen((prev) => !prev)}
+              className={`inline-flex items-center gap-1 py-1 transition-colors font-bold cursor-pointer whitespace-nowrap ${
+                pathname === "/contact" || pathname === "/ecards"
+                  ? "text-[#10B981] font-black"
+                  : "text-slate-700 hover:text-[#071C3F]"
+              }`}
+            >
+              <span>Contact</span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 transition-transform duration-200 shrink-0 ${
+                  isContactOpen ? "rotate-180 text-[#10B981]" : "text-slate-400"
+                }`}
+              />
+            </button>
+
+            <AnimatePresence>
+              {isContactOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full right-0 mt-2 w-80 rounded-2xl bg-white border border-slate-200 shadow-2xl p-3 z-50 space-y-1 backdrop-blur-xl"
+                  onMouseEnter={() => {
+                    if (contactTimeoutRef.current) clearTimeout(contactTimeoutRef.current);
+                    setIsContactOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    if (contactTimeoutRef.current) clearTimeout(contactTimeoutRef.current);
+                    contactTimeoutRef.current = setTimeout(() => setIsContactOpen(false), 150);
+                  }}
+                >
+                  <Link
+                    href="/contact"
+                    onClick={() => {
+                      setIsContactOpen(false);
+                      handleNavClick("/contact");
+                    }}
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/sub"
+                  >
+                    <div className="p-2 rounded-lg bg-emerald-50 text-[#10B981] shrink-0">
+                      <MapPin className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-black text-slate-900 group-hover/sub:text-[#071C3F] flex items-center justify-between">
+                        <span>Headquarters &amp; Direct Lines</span>
+                        <ArrowRight className="w-3 h-3 text-[#10B981] opacity-0 group-hover/sub:opacity-100 transition-opacity" />
+                      </div>
+                      <p className="text-[11px] text-slate-500 font-normal">
+                        Nairobi Corporate Centre, Phone &amp; Email.
+                      </p>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/ecards"
+                    onClick={() => {
+                      setIsContactOpen(false);
+                      handleNavClick("/ecards");
+                    }}
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-emerald-50/70 border border-transparent hover:border-[#10B981]/40 transition-colors group/sub"
+                  >
+                    <div className="p-2 rounded-lg bg-[#071C3F] text-[#10B981] shrink-0">
+                      <CreditCard className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-black text-slate-900 group-hover/sub:text-[#071C3F] flex items-center justify-between">
+                        <span>Executive E-Cards &amp; Business Cards</span>
+                        <ArrowRight className="w-3 h-3 text-[#10B981] opacity-0 group-hover/sub:opacity-100 transition-opacity" />
+                      </div>
+                      <p className="text-[11px] text-slate-500 font-normal">
+                        600 DPI Print PDF/JPG &amp; Digital NFC vCard.
+                      </p>
+                    </div>
+                  </Link>
+
+                  {onOpenBooking && (
+                    <button
+                      onClick={() => {
+                        setIsContactOpen(false);
+                        onOpenBooking();
+                      }}
+                      className="w-full flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/sub text-left cursor-pointer"
+                    >
+                      <div className="p-2 rounded-lg bg-blue-50 text-blue-600 shrink-0">
+                        <Calendar className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-black text-slate-900 group-hover/sub:text-[#071C3F] flex items-center justify-between">
+                          <span>Book 20-Min Clarity Session</span>
+                          <ArrowRight className="w-3 h-3 text-blue-600 opacity-0 group-hover/sub:opacity-100 transition-opacity" />
+                        </div>
+                        <p className="text-[11px] text-slate-500 font-normal">
+                          Working session with Senior Partner.
+                        </p>
+                      </div>
+                    </button>
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </nav>
 
         {/* Action Controls & Primary CTA */}
         <div className="flex items-center gap-4">
-          <div className="hidden xl:flex items-center gap-2 text-xs font-semibold text-slate-600">
-            <Phone className="h-3.5 w-3.5 text-[#10B981] shrink-0" />
-            <a href="tel:+254799565125" className="hover:text-[#071C3F] transition-colors">
-              +254 799 565125
-            </a>
-            <span className="text-slate-300">/</span>
-            <a href="tel:+254117471344" className="hover:text-[#071C3F] transition-colors">
-              +254 117 471 344
-            </a>
+          <div className="hidden lg:flex items-center gap-2 text-xs text-slate-600 shrink-0 whitespace-nowrap">
+            <div className="p-1 rounded-md bg-emerald-50 text-[#10B981] shrink-0">
+              <Phone className="h-3.5 w-3.5" />
+            </div>
+            <div className="flex flex-col text-[11px] font-bold leading-tight">
+              <a
+                href="tel:+254799565125"
+                className="text-slate-800 hover:text-[#10B981] transition-colors whitespace-nowrap font-extrabold tracking-tight"
+              >
+                +254&nbsp;799&nbsp;565125
+              </a>
+              <a
+                href="tel:+254117471344"
+                className="text-slate-500 hover:text-[#10B981] transition-colors whitespace-nowrap font-semibold tracking-tight"
+              >
+                +254&nbsp;117&nbsp;471&nbsp;344
+              </a>
+            </div>
           </div>
+
+          {onOpenBooking && (
+            <button
+              onClick={onOpenBooking}
+              className="hidden md:inline-flex items-center gap-1.5 bg-[#071C3F] hover:bg-slate-800 text-white font-bold px-4 py-2 rounded-full text-xs transition-all cursor-pointer shadow-xs"
+            >
+              <span>Book Clarity Session</span>
+            </button>
+          )}
 
           <a
             href="https://wa.me/254117471344?text=Hello%20Apex%20Edge%20Advisory%2C%20I%20would%20like%20to%20inquire%20about%20your%20strategic%20advisory%20services."
@@ -495,12 +635,35 @@ export function ExecutiveHeaderNav({ onOpenBooking }: ExecutiveHeaderNavProps) {
                 <Link href="/careers" onClick={() => handleNavClick("/careers")} className="block hover:text-[#10B981] font-bold text-[#10B981]">
                   🎓 Careers &amp; Recruitment Hub
                 </Link>
+                <Link href="/ecards" onClick={() => handleNavClick("/ecards")} className="block hover:text-[#10B981] font-bold text-[#071C3F]">
+                  📇 Executive E-Cards &amp; 600 DPI Cards
+                </Link>
               </div>
               <Link href="/contact" onClick={() => handleNavClick("/contact")} className="hover:text-[#10B981]">
                 Contact
               </Link>
             </div>
-            <div className="pt-4 border-t border-slate-200">
+            <div className="pt-4 border-t border-slate-200 space-y-3">
+              <div className="flex items-center justify-center gap-3 py-2.5 px-4 rounded-2xl bg-slate-50 border border-slate-200">
+                <div className="p-1.5 rounded-lg bg-emerald-50 text-[#10B981] shrink-0">
+                  <Phone className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col text-xs font-bold leading-tight">
+                  <a
+                    href="tel:+254799565125"
+                    className="text-slate-900 hover:text-[#10B981] transition-colors whitespace-nowrap font-extrabold"
+                  >
+                    +254&nbsp;799&nbsp;565125
+                  </a>
+                  <a
+                    href="tel:+254117471344"
+                    className="text-slate-600 hover:text-[#10B981] transition-colors whitespace-nowrap font-semibold"
+                  >
+                    +254&nbsp;117&nbsp;471&nbsp;344
+                  </a>
+                </div>
+              </div>
+
               <a
                 href="https://wa.me/254117471344?text=Hello%20Apex%20Edge%20Advisory%2C%20I%20would%20like%20to%20inquire%20about%20your%20strategic%20advisory%20services."
                 target="_blank"

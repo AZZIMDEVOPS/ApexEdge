@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Users, Briefcase, UploadCloud, Search, ShieldCheck } from "lucide-react";
+import { X, Users, ShieldCheck } from "lucide-react";
 import { RecruitmentTalentHub } from "@/components/RecruitmentTalentHub";
 
 interface RecruitmentTalentHubModalProps {

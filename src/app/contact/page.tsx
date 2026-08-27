@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Mail, Phone, Clock, Calendar, CheckCircle2, ShieldCheck, MessageCircle, ArrowRight } from "lucide-react";
+import { MapPin, Mail, Phone, Clock, Calendar, CheckCircle2, ShieldCheck, MessageCircle, ArrowRight, CreditCard, QrCode, UserCheck } from "lucide-react";
 import { ExecutiveHeaderNav } from "@/components/ExecutiveHeaderNav";
 import { CorporateFooter } from "@/components/CorporateFooter";
 import { ConsultationModal } from "@/components/ConsultationModal";
@@ -113,7 +114,7 @@ export default function ContactPage() {
                 Primary Contact Pathway
               </span>
               <h2 className="text-2xl sm:text-3xl font-black text-slate-950 mt-1">
-                Book Your 45-Minute Clarity Session
+                Book Your 20-Minute Clarity Session
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
                 Fill in your organizational challenge details below. An Advisory Partner will confirm your session within 24 hours.
@@ -273,7 +274,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-emerald-100 text-[#071C3F] font-black flex items-center justify-center shrink-0">2</div>
-                  <p><strong className="text-slate-950">45-Minute Session:</strong> Structured diagnostic call with zero sales pitches.</p>
+                  <p><strong className="text-slate-950">20-Minute Session:</strong> Structured diagnostic call with zero sales pitches.</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-emerald-100 text-[#071C3F] font-black flex items-center justify-center shrink-0">3</div>
@@ -312,13 +313,13 @@ export default function ContactPage() {
                 <div className="space-y-1.5">
                   <div className="flex items-center gap-3">
                     <Phone className="w-4 h-4 text-[#10B981] shrink-0" />
-                    <a href="tel:+254799565125" className="text-slate-950 font-bold hover:text-[#10B981]">
-                      +254 799 565125
+                    <a href="tel:+254799565125" className="text-slate-950 font-bold hover:text-[#10B981] whitespace-nowrap">
+                      +254&nbsp;799&nbsp;565125
                     </a>
                   </div>
                   <div className="flex items-center gap-3 pl-7">
-                    <a href="tel:+254117471344" className="text-slate-950 font-bold hover:text-[#10B981]">
-                      +254 117 471 344
+                    <a href="tel:+254117471344" className="text-slate-950 font-bold hover:text-[#10B981] whitespace-nowrap">
+                      +254&nbsp;117&nbsp;471&nbsp;344
                     </a>
                   </div>
                 </div>
@@ -349,6 +350,64 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
+            </div>
+
+            {/* Executive E-Cards & Business Cards Studio Card */}
+            <div className="rounded-3xl bg-linear-to-br from-[#071C3F] to-slate-950 text-white p-6 sm:p-8 space-y-5 shadow-xl border border-slate-800">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                <div className="flex items-center gap-2.5">
+                  <div className="p-2 rounded-xl bg-[#10B981]/20 text-[#10B981]">
+                    <CreditCard className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-black text-white">Executive Digital E-Cards</h3>
+                    <p className="text-[11px] text-slate-300">600 DPI Print Cards &amp; NFC Contacts</p>
+                  </div>
+                </div>
+                <span className="px-2 py-0.5 rounded-full bg-[#10B981]/20 text-[#10B981] text-[10px] font-black uppercase tracking-wider">
+                  NFC Live
+                </span>
+              </div>
+
+              <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                Access official 600 DPI commercial print business cards and digital NFC vCards for our senior officers:
+              </p>
+
+              {/* Two Executive Badges */}
+              <div className="space-y-2 text-xs">
+                <Link
+                  href="/ecards"
+                  className="flex items-center justify-between p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all group"
+                >
+                  <div>
+                    <div className="font-extrabold text-white group-hover:text-[#10B981] transition-colors">
+                      Okendo F.O
+                    </div>
+                    <div className="text-[11px] text-slate-400 font-medium">Chief Project Officer • +254 728 626323</div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-[#10B981] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                </Link>
+
+                <Link
+                  href="/ecards"
+                  className="flex items-center justify-between p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all group"
+                >
+                  <div>
+                    <div className="font-extrabold text-white group-hover:text-[#10B981] transition-colors">
+                      Aburi F.O
+                    </div>
+                    <div className="text-[11px] text-slate-400 font-medium">Chief Legal Officer • +254 715 965936</div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-[#10B981] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                </Link>
+              </div>
+
+              <Link
+                href="/ecards"
+                className="w-full py-3 px-4 rounded-2xl bg-[#10B981] hover:bg-emerald-400 text-[#071C3F] font-black text-xs flex items-center justify-center gap-2 shadow-md transition-all block text-center"
+              >
+                <span>Launch 600 DPI &amp; NFC Studio →</span>
+              </Link>
             </div>
           </div>
         </div>

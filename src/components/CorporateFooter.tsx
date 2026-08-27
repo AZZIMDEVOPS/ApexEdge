@@ -68,12 +68,14 @@ export function CorporateFooter() {
     { label: "Services", href: "/services" },
     { label: "Industries", href: "/industries" },
     { label: "Insights", href: "/insights" },
+    { label: "Executive E-Cards & 600 DPI", href: "/ecards" },
+    { label: "Careers & Recruitment Hub", href: "/careers" },
     { label: "Contact", href: "/contact" },
   ];
 
   const practiceCategories = [
     { label: "01 Governance & Risk", href: "/services#governance-risk" },
-    { label: "02 People, Culture & Leadership", href: "/services#people-performance" },
+    { label: "02 People, Performance & Leadership", href: "/services#people-performance" },
     { label: "03 Controls & Policies", href: "/services#controls-policies" },
     { label: "04 Data Protection & Privacy", href: "/services#data-protection" },
     { label: "05 Corporate Secretarial", href: "/services#corporate-secretarial" },
@@ -250,15 +252,26 @@ export function CorporateFooter() {
               <div className="space-y-1.5 text-xs">
                 <div className="flex items-center gap-3">
                   <Phone className="h-4 w-4 text-[#10B981] shrink-0" />
-                  <a href="tel:+254799565125" className="hover:text-[#10B981] transition-colors font-bold text-[#071C3F]">
-                    +254 799 565125
+                  <a href="tel:+254799565125" className="hover:text-[#10B981] transition-colors font-bold text-[#071C3F] whitespace-nowrap">
+                    +254&nbsp;799&nbsp;565125
                   </a>
                 </div>
                 <div className="flex items-center gap-3 pl-7">
-                  <a href="tel:+254117471344" className="hover:text-[#10B981] transition-colors font-bold text-[#071C3F]">
-                    +254 117 471 344
+                  <a href="tel:+254117471344" className="hover:text-[#10B981] transition-colors font-bold text-[#071C3F] whitespace-nowrap">
+                    +254&nbsp;117&nbsp;471&nbsp;344
                   </a>
                 </div>
+              </div>
+
+              {/* Executive E-Cards Direct Link */}
+              <div className="pt-2">
+                <Link
+                  href="/ecards"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-[#10B981]/30 text-[#059669] font-extrabold text-xs transition-colors"
+                >
+                  <span>📇 Executive Digital E-Cards</span>
+                  <span className="text-[10px] bg-[#10B981] text-white px-1.5 py-0.5 rounded font-black">600 DPI</span>
+                </Link>
               </div>
 
               <div className="pt-2 border-t border-slate-200 space-y-1">

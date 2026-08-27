@@ -6,7 +6,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const EVIDENCE_STATS = [
   {
-    value: "45 Min",
+    value: "20 Min",
     label: "Structured Diagnostic Session",
     desc: "A focused executive working session to pinpoint the true operational bottleneck before any scope is defined.",
     icon: Scale,
@@ -14,7 +14,7 @@ const EVIDENCE_STATS = [
   {
     value: "5",
     label: "Specialized Practice Areas",
-    desc: "Governance, People & Performance, Controls & SOPs, Leadership Capability, and Data Protection & Privacy.",
+    desc: "Governance & Risk, People & Performance, Controls & SOPs, Data Protection & Privacy, and Corporate Secretarial.",
     icon: Building2,
   },
   {

@@ -77,7 +77,7 @@ const PRACTICE_AREAS = [
   {
     id: "people-performance",
     num: "02",
-    category: "PEOPLE, CULTURE & LEADERSHIP CAPABILITY",
+    category: "PEOPLE, PERFORMANCE & LEADERSHIP FRAMEWORKS",
     Icon3D: People3DIcon,
     icon: Users,
     image: "/authentic_team_collaboration.jpg",
@@ -156,7 +156,7 @@ const PRACTICE_AREAS = [
   },
   {
     id: "data-protection",
-    num: "05",
+    num: "04",
     category: "DATA PROTECTION & PRIVACY",
     Icon3D: DataProtection3DIcon,
     icon: Lock,
@@ -190,7 +190,7 @@ const PRACTICE_AREAS = [
   },
   {
     id: "corporate-secretarial",
-    num: "06",
+    num: "05",
     category: "CORPORATE SECRETARIAL",
     Icon3D: CorporateSecretarial3DIcon,
     icon: FileText,
@@ -246,49 +246,49 @@ export default function ServicesPage() {
     setIsDiagnosticOpen(true);
   };
 
-  // Auto-cycle through the 6 Practice Area headlines every 4.0 seconds with pause on hover
-  useEffect(() => {
-    if (isHeadlinePaused) return;
+    // Auto-cycle through the 5 Practice Area headlines every 4.0 seconds with pause on hover
+    useEffect(() => {
+      if (isHeadlinePaused) return;
 
-    const interval = setInterval(() => {
-      setActivePillarIdx((prev) => (prev + 1) % PRACTICE_AREAS.length);
-    }, 4000);
+      const interval = setInterval(() => {
+        setActivePillarIdx((prev) => (prev + 1) % PRACTICE_AREAS.length);
+      }, 4000);
 
-    return () => clearInterval(interval);
-  }, [isHeadlinePaused]);
+      return () => clearInterval(interval);
+    }, [isHeadlinePaused]);
 
-  const openBookingForCategory = (categoryName: string) => {
-    setSelectedCategory(categoryName);
-    setIsBookingOpen(true);
-  };
+    const openBookingForCategory = (categoryName: string) => {
+      setSelectedCategory(categoryName);
+      setIsBookingOpen(true);
+    };
 
-  const activePillar = PRACTICE_AREAS[activePillarIdx];
+    const activePillar = PRACTICE_AREAS[activePillarIdx];
 
-  return (
-    <main className="min-h-screen bg-white text-slate-900 selection:bg-[#10B981] selection:text-[#071C3F]">
-      <ExecutiveHeaderNav onOpenBooking={() => openBookingForCategory("Governance & Risk")} />
+    return (
+      <main className="min-h-screen bg-white text-slate-900 selection:bg-[#10B981] selection:text-[#071C3F]">
+        <ExecutiveHeaderNav onOpenBooking={() => openBookingForCategory("Governance & Risk")} />
 
-      {/* Hero on Clean Light Canvas with Animated Changing Practice Headlines */}
-      <section 
-        className="relative py-24 sm:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900 overflow-hidden border-b border-slate-200"
-        onMouseEnter={() => setIsHeadlinePaused(true)}
-        onMouseLeave={() => setIsHeadlinePaused(false)}
-      >
-        {/* Subtle Ambient Glow */}
-        <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-emerald-500/5 blur-3xl rounded-full" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-6 text-center">
-          
-          {/* Eyebrow Pill with Live Animation */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#071C3F] text-xs font-black uppercase tracking-[0.25em] shadow-xs">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
-            </span>
-            <span>01 TO 06 — CORE PRACTICE AREAS</span>
+        {/* Hero on Clean Light Canvas with Animated Changing Practice Headlines */}
+        <section 
+          className="relative py-24 sm:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900 overflow-hidden border-b border-slate-200"
+          onMouseEnter={() => setIsHeadlinePaused(true)}
+          onMouseLeave={() => setIsHeadlinePaused(false)}
+        >
+          {/* Subtle Ambient Glow */}
+          <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-emerald-500/5 blur-3xl rounded-full" />
           </div>
+
+          <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 space-y-6 text-center">
+            
+            {/* Eyebrow Pill with Live Animation */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#071C3F] text-xs font-black uppercase tracking-[0.25em] shadow-xs">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
+              </span>
+              <span>01 TO 05 — CORE PRACTICE AREAS</span>
+            </div>
 
           {/* Active Category Indicator */}
           <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#10B981] flex items-center justify-center gap-2">
@@ -403,7 +403,7 @@ export default function ServicesPage() {
             </div>
 
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:border-[#10B981] transition-colors shadow-xs">
-              <span className="font-extrabold text-[#10B981] block">02 PEOPLE, CULTURE & LEADERSHIP CAPABILITY</span>
+              <span className="font-extrabold text-[#10B981] block">02 PEOPLE, PERFORMANCE &amp; LEADERSHIP</span>
               <span className="font-bold text-slate-900 block">Core Focus:</span>
               <p className="text-slate-600 leading-relaxed font-normal">
                 Who is responsible, how do we build executive capability, recruit talent &amp; measure performance?

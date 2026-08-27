@@ -105,10 +105,10 @@ export function ExecutiveServicesArchitecture() {
             </div>
           </motion.div>
 
-          {/* PRACTICES 02 & 03: Two Distinct Asymmetrical Cards (People & Controls) */}
+          {/* PRACTICES 02 & 03: Two Asymmetrical Cards (People & Controls) */}
           <div className="grid gap-8 lg:grid-cols-2">
             
-            {/* Practice 02: People, Culture & Leadership Capability */}
+            {/* Practice 02: People, Performance & Leadership Frameworks */}
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ export function ExecutiveServicesArchitecture() {
               <div className="space-y-5">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-black uppercase tracking-widest text-[#071C3F] bg-[#10B981]/20 px-3 py-1 rounded-full border border-[#10B981]/40">
-                    PRACTICE 02 · PEOPLE, CULTURE &amp; LEADERSHIP
+                    PRACTICE 02 · PEOPLE, PERFORMANCE &amp; LEADERSHIP
                   </span>
                   <Users className="w-5 h-5 text-[#10B981]" />
                 </div>
@@ -134,7 +134,7 @@ export function ExecutiveServicesArchitecture() {
 
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   <strong className="text-slate-900 block mb-0.5">What it actually involves:</strong>
-                  Job grading benchmarks, salary structures, OKR scorecards, 90-day execution roadmaps, executive decision toolkits, candidate CV upload &amp; recruitment search hub.
+                  Job grading benchmarks, salary structures, OKR performance scorecards, 90-day execution roadmaps, executive decision toolkits, candidate CV upload &amp; recruitment search hub.
                 </p>
 
                 <div className="pt-3 border-t border-slate-200 space-y-2">
@@ -156,16 +156,24 @@ export function ExecutiveServicesArchitecture() {
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
                       <span>OKR / KPI Performance Scorecards</span>
                     </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                      <span>Executive Decision Toolkits</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                      <span>Single-Point RACI Charters</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2">
                 <Link
-                  href="/services#recruitment-hub"
+                  href="/services#people-performance"
                   className="inline-flex items-center gap-2 text-xs font-bold text-[#071C3F] hover:text-[#10B981] transition-colors"
                 >
-                  <span>Explore Candidate CV Upload &amp; Employer Hub</span>
+                  <span>Explore People, Performance &amp; Leadership</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
                 </Link>
               </div>
@@ -235,115 +243,61 @@ export function ExecutiveServicesArchitecture() {
             </motion.div>
           </div>
 
-          {/* PRACTICES 04 & 05: Asymmetrical Two-Tone Split (Leadership & Data Protection) */}
-          <div className="grid gap-8 lg:grid-cols-12">
-            
-            {/* Practice 04: Leadership Capability */}
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="lg:col-span-5 rounded-3xl bg-slate-50 border border-slate-200 p-8 space-y-6 flex flex-col justify-between hover:border-[#10B981] transition-all duration-300 shadow-sm"
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-black uppercase tracking-widest text-[#071C3F] bg-[#10B981]/20 px-3 py-1 rounded-full border border-[#10B981]/40">
-                    PRACTICE 04 · LEADERSHIP
-                  </span>
-                  <Award className="w-5 h-5 text-[#10B981]" />
-                </div>
-
-                <h3 className="text-xl font-black text-slate-950 leading-snug">
-                  Build Leaders Who Execute, Not Just Manage.
-                </h3>
-
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  Classroom lectures don&apos;t change workplace habits. We equip executive and management teams with practical decision toolkits, 90-day execution roadmaps, and structured team accountability systems.
-                </p>
-
-                <div className="space-y-2 pt-2 border-t border-slate-200 text-xs text-slate-700 font-medium">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                    <span>Executive Decision Frameworks</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                    <span>90-Day Execution Roadmaps</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                    <span>Management Toolkits &amp; SOP Routines</span>
-                  </div>
-                </div>
+          {/* PRACTICE 04: Data Protection & Privacy */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-3xl bg-slate-50 border border-slate-200 p-8 sm:p-10 space-y-6 flex flex-col justify-between hover:border-[#10B981] transition-all duration-300 shadow-sm"
+          >
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-black uppercase tracking-widest text-[#071C3F] bg-[#10B981]/20 px-3 py-1 rounded-full border border-[#10B981]/40">
+                  PRACTICE 04 · DATA PRIVACY &amp; COMPLIANCE
+                </span>
+                <Lock className="w-5 h-5 text-[#10B981]" />
               </div>
 
-              <div className="pt-4 border-t border-slate-200">
-                <Link
-                  href="/services#leadership-capability"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-[#071C3F] hover:text-[#10B981] transition-colors"
-                >
-                  <span>Explore Leadership Capability</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
-                </Link>
-              </div>
-            </motion.div>
+              <h3 className="text-xl sm:text-2xl font-black text-slate-950 leading-snug">
+                Operationalize Data Protection Under the 2019 Kenya DP Act.
+              </h3>
 
-            {/* Practice 05: Data Protection & Privacy */}
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="lg:col-span-7 rounded-3xl bg-slate-50 border border-slate-200 p-8 space-y-6 flex flex-col justify-between hover:border-[#10B981] transition-all duration-300 shadow-sm"
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-black uppercase tracking-widest text-[#071C3F] bg-[#10B981]/20 px-3 py-1 rounded-full border border-[#10B981]/40">
-                    PRACTICE 05 · DATA PRIVACY &amp; COMPLIANCE
-                  </span>
-                  <Lock className="w-5 h-5 text-[#10B981]" />
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Data protection compliance is an ongoing operational discipline, not a one-time legal memo. We help organisations map personal data flows, conduct Data Protection Impact Assessments (DPIAs), draft third-party Data Processing Agreements (DPAs), and train staff on statutory breach protocols.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 border-t border-slate-200 text-xs text-slate-700 font-medium">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                  <span>Personal Data Inventory &amp; Mapping</span>
                 </div>
-
-                <h3 className="text-xl sm:text-2xl font-black text-slate-950 leading-snug">
-                  Operationalize Data Protection Under the 2019 Kenya DP Act.
-                </h3>
-
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  Data protection compliance is an ongoing operational discipline, not a one-time legal memo. We help organisations map personal data flows, conduct Data Protection Impact Assessments (DPIAs), draft third-party Data Processing Agreements (DPAs), and train staff on statutory breach protocols.
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-slate-200 text-xs text-slate-700 font-medium">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                    <span>Personal Data Inventory &amp; Mapping</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                    <span>DPIA Registers &amp; Risk Assessments</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                    <span>Vendor DPAs &amp; Cross-Border Contracts</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                    <span>Data Breach Response Playbooks</span>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                  <span>DPIA Registers &amp; Risk Assessments</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                  <span>Vendor DPAs &amp; Cross-Border Contracts</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                  <span>Data Breach Response Playbooks</span>
                 </div>
               </div>
+            </div>
 
-              <div className="pt-4 border-t border-slate-200">
-                <Link
-                  href="/services#data-protection"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-[#071C3F] hover:text-[#10B981] transition-colors"
-                >
-                  <span>Explore Data Protection Systems</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
-                </Link>
-              </div>
-            </motion.div>
-          </div>
+            <div className="pt-4 border-t border-slate-200">
+              <Link
+                href="/services#data-protection"
+                className="inline-flex items-center gap-2 text-xs font-bold text-[#071C3F] hover:text-[#10B981] transition-colors"
+              >
+                <span>Explore Data Protection Systems</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
+              </Link>
+            </div>
+          </motion.div>
 
-          {/* FEATURED PRACTICE 06: Corporate Secretarial & Statutory Compliance */}
+          {/* FEATURED PRACTICE 05: Corporate Secretarial & Statutory Compliance */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -353,7 +307,7 @@ export function ExecutiveServicesArchitecture() {
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-black uppercase tracking-widest text-[#071C3F] bg-[#10B981]/20 px-3 py-1 rounded-full border border-[#10B981]/40">
-                  PRACTICE 06 · CORPORATE SECRETARIAL
+                  PRACTICE 05 · CORPORATE SECRETARIAL
                 </span>
                 <span className="text-xs text-slate-500 font-semibold">Companies Act 2015 &amp; BRS</span>
               </div>

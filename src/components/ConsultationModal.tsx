@@ -175,13 +175,12 @@ export function ConsultationModal({ isOpen, onClose, defaultCategory }: Consulta
                             className="w-full rounded-xl bg-slate-950 border border-slate-800 px-3.5 py-2.5 text-xs text-white focus:border-[#10B981] focus:outline-none appearance-none"
                           >
                             <option value="Governance & Risk">01 Governance &amp; Risk</option>
-                            <option value="People & Performance">02 People &amp; Performance</option>
+                            <option value="People & Performance">02 People, Performance &amp; Leadership Frameworks</option>
                             <option value="Controls & Policies">03 Controls &amp; Policies</option>
-                            <option value="Leadership & Capability">04 Leadership &amp; Capability</option>
-                            <option value="Data Protection & Privacy">05 Data Protection &amp; Privacy</option>
-                            <option value="Legal Audit & Statutory">06 Legal Audit &amp; Statutory</option>
-                            <option value="HR Audit & Job Grading">07 HR Audit &amp; Job Grading</option>
+                            <option value="Data Protection & Privacy">04 Data Protection &amp; Privacy</option>
+                            <option value="Corporate Secretarial">05 Corporate Secretarial &amp; Statutory</option>
                             <option value="Board Advisory Sprint">Board-Ready Risk Sprint</option>
+                            <option value="Practice Diagnostic Review">Practice Diagnostic Review</option>
                           </select>
                           <ChevronDown className="absolute right-3 top-3 h-3.5 w-3.5 text-slate-400 pointer-events-none" />
                         </div>

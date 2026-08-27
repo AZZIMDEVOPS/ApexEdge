@@ -41,8 +41,8 @@ const TEASER_PROMPTS = [
 
 const APEX_KNOWLEDGE: Record<string, { answer: string; followUps?: string[]; action?: "book" | "contact" | "download" }> = {
   services: {
-    answer: "ApexEdge Advisory Limited structures solutions around 6 Practice Areas:\n1. 01 — Governance & Risk\n2. 02 — People & Performance\n3. 03 — Controls & Policies\n4. 04 — Leadership & Capability\n5. 05 — Data Protection & Privacy\n6. 06 — Corporate Secretarial",
-    followUps: ["Governance & Risk", "Corporate Secretarial", "Data Protection", "Book Consultation"],
+    answer: "ApexEdge Advisory Limited structures solutions around 5 Core Practice Areas:\n1. 01 — Governance & Risk\n2. 02 — People, Performance & Leadership Frameworks\n3. 03 — Controls & Policies\n4. 04 — Data Protection & Privacy\n5. 05 — Corporate Secretarial",
+    followUps: ["Governance & Risk", "People & Performance", "Data Protection", "Book Consultation"],
   },
   "corporate secretarial": {
     answer: "Our Corporate Secretarial practice ensures statutory compliance under Companies Act 2015 & BRS:\n- Beneficial Ownership Filings\n- Annual Returns & Registration Maintenance\n- Certified Board Resolutions & AGM Minutes\n- Company Record Management & Statutory Registers",
@@ -58,19 +58,19 @@ const APEX_KNOWLEDGE: Record<string, { answer: string; followUps?: string[]; act
   },
   "governance & risk": {
     answer: "Our Governance & Risk practice gives your Board clearer visibility of risk and performance through independent audits, eBoard Frameworks, Board risk heat maps, and RACI decision frameworks.",
-    followUps: ["Data Protection", "Controls & Policies", "Book Consultation"],
+    followUps: ["People & Performance", "Controls & Policies", "Book Consultation"],
   },
   "people & performance": {
-    answer: "Our People & Performance practice builds accountability through Recruitment Processes, Job Grading, Salary Bands, RACI Ownership Charters, and strategy-aligned OKR scorecards.",
-    followUps: ["Leadership & Capability", "Book Consultation"],
+    answer: "Our People, Performance & Leadership practice builds high-performing executive teams through Recruitment CV Hubs, Job Grading, Salary Bands, Leadership Capability Toolkits, RACI Charters, and strategy-aligned OKR scorecards.",
+    followUps: ["Governance & Risk", "Controls & Policies", "Book Consultation"],
+  },
+  "leadership & capability": {
+    answer: "Our Leadership Capability frameworks are integrated within our People & Performance practice, providing executive management toolkits, 90-day execution roadmaps, and decision frameworks that drive measurable execution.",
+    followUps: ["People & Performance", "Book Consultation"],
   },
   "controls & policies": {
     answer: "Our Controls & Policies practice converts static policy documents into practical SOPs with embedded financial, procurement, and HR approval controls.",
     followUps: ["Data Protection", "Book Consultation"],
-  },
-  "leadership & capability": {
-    answer: "Our Leadership & Capability practice builds executive management toolkits, 90-day execution roadmaps, and decision frameworks that change team behavior.",
-    followUps: ["People & Performance", "Book Consultation"],
   },
   contact: {
     answer: "You can reach our senior advisors immediately:\n☎ Phone: +254 799 565125 / +254 117 471 344\n📧 Email: info@consult-apex.com | advisory@consult-apex.com\n💬 WhatsApp: +254 117 471 344",
